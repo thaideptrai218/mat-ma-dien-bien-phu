@@ -1,5 +1,7 @@
 # Mật mã Điện Biên Phủ
 
+**Chơi trực tuyến:** [mat-ma-dien-bien-phu.vercel.app](https://mat-ma-dien-bien-phu.vercel.app/). Đã triển khai production bằng MCP Vercel; [cấu hình và kiểm tra](docs/deployment.md).
+
 Bản chính hiện tại là **hành trình năm phòng hoàn chỉnh**: bảo tàng → Phòng 1 → **Phòng 2 của Bảo** → Phòng 3 hậu phương → Phòng 4 của Trâm → Phòng 5 ghép tranh/suy ngẫm → trở lại bảo tàng. Quang đọc giấy tờ, giải đố và tự kiếm đủ bốn mảnh tranh. Game dùng Phaser, JavaScript và tài nguyên cục bộ.
 
 Entry `/` chạy toàn hành trình trong cùng trang/cùng origin; chỉ đổi phòng sau khi tới cửa thật. **Sổ hành trình** giữ toàn văn các giấy đã thu thập ở những phòng trước. Các bản thử riêng vẫn có tại `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html`, dùng save riêng và không được nhập thành thành tích chiến dịch. Checkout gốc và preview [Bảo 4180](http://127.0.0.1:4180/) giữ nguyên, không cần mở tab ấy để hoàn thành bản chính.
@@ -21,7 +23,7 @@ npm run build
 npm run preview
 ```
 
-Bản build có năm entry: `index.html` cho chiến dịch và bốn bản thử `room-one.html` tới `room-four.html`. Phòng 5 chỉ mở trong chiến dịch khi có đủ thành tích thật. Preview tại **http://127.0.0.1:4173/** với các đường dẫn trên. Dev/preview cố định 5173/4173; Bảo gốc ở 4180. Phaser **3.90.0**, Vite **8.3.5** được khóa trong package/lockfile. Chưa triển khai hosting.
+Bản build có năm entry: `index.html` cho chiến dịch và bốn bản thử `room-one.html` tới `room-four.html`. Phòng 5 chỉ mở trong chiến dịch khi có đủ thành tích thật. Preview tại **http://127.0.0.1:4173/** với các đường dẫn trên. Dev/preview cố định 5173/4173; Bảo gốc ở 4180. Phaser **3.90.0**, Vite **8.3.5** được khóa trong package/lockfile. Đã triển khai production trên Vercel; xem docs/deployment.md.
 
 ## Cách chơi
 
@@ -106,7 +108,7 @@ Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật
 
 ## Tài liệu và trạng thái kiểm chứng
 
-Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-campaign-link/reports/code-review.md). [Lượt chơi chiến dịch thật](plans/261031-campaign-link/reports/campaign-qa.md) đã qua bảo tàng, đủ năm phòng/bốn mảnh thật, ghép tranh, tiếp tục suy ngẫm để trống, cửa thật, trở về và acknowledgment cuối. Reload ending/audio, sổ hành trình 26 giấy, diagnostics clone, reset giữ preview và màn 390 px được kiểm tra đúng phạm vi báo cáo. [Room 2 độc lập](plans/261031-campaign-link/reports/room-two-qa.md) và [Room 5 component](plans/261031-campaign-link/reports/final-room.md) có bằng chứng riêng. Mã đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), chờ review vào main; chưa triển khai hosting.
+Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-campaign-link/reports/code-review.md). [Lượt chơi chiến dịch thật](plans/261031-campaign-link/reports/campaign-qa.md) đã qua bảo tàng, đủ năm phòng/bốn mảnh thật, ghép tranh, tiếp tục suy ngẫm để trống, cửa thật, trở về và acknowledgment cuối. Reload ending/audio, sổ hành trình 26 giấy, diagnostics clone, reset giữ preview và màn 390 px được kiểm tra đúng phạm vi báo cáo. [Room 2 độc lập](plans/261031-campaign-link/reports/room-two-qa.md) và [Room 5 component](plans/261031-campaign-link/reports/final-room.md) có bằng chứng riêng. Mã đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), chờ review vào main; đã có bản production Vercel ở đường dẫn đầu trang.
 
 - [Kế hoạch Phòng 1](plans/261030-pdf-four-rebuild/phase-room-one-playable.md), [nhật ký thay mới](docs/journals/2026-10-30-room-one-rebuild.md).
 - [Kế hoạch nối toàn hành trình](plans/261031-campaign-link/plan.md), [lifecycle](plans/261031-campaign-link/reports/lifecycle.md), [bảo toàn Bảo](plans/261031-campaign-link/reports/room-two.md), [nhật ký tích hợp](docs/journals/2026-10-31-campaign-integration.md).
@@ -115,4 +117,4 @@ Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-c
 - [Tổng quan](docs/project-overview-pdr.md), [cấu trúc mã](docs/codebase-summary.md), [kiến trúc](docs/system-architecture.md).
 - [Quy ước mã](docs/code-standards.md), [thiết kế](docs/design-guidelines.md), [chạy và build](docs/deployment-guide.md), [tiến độ](docs/project-roadmap.md).
 - Nguồn truyện các phiên bản trước: [PDF bản 2](docs/game-story-v2.pdf), [Word](docs/game-story.docx). Các tệp giữ provenance, không thay phạm vi PDF bản 4 đã chấp thuận.
-- Mã nguồn: [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu). Nhánh `feat/complete-five-room-campaign` đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), giữ lịch sử đóng góp của Bảo; main chưa merge, chưa triển khai hosting. Giấy phép phân phối cốt truyện và tài sản chưa xác định.
+- Mã nguồn: [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu). Nhánh `feat/complete-five-room-campaign` đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), giữ lịch sử đóng góp của Bảo; main chưa merge, đã có bản production Vercel ở đường dẫn đầu trang. Giấy phép phân phối cốt truyện và tài sản chưa xác định.

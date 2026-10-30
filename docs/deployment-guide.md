@@ -1,5 +1,7 @@
 # Chạy, build và lưu tiến độ
 
+**Production:** https://mat-ma-dien-bien-phu.vercel.app/ — triển khai bằng MCP Vercel. Xem [deployment hiện tại/cách cập nhật](deployment.md). Tiến độ trên tên miền này riêng với localhost.
+
 Cần Node.js >=22.12.0 và npm. Phaser 3.90.0/Vite 8.3.5 khóa trong package-lock.json. Từ thư mục dự án:
 
 ```powershell
@@ -24,7 +26,7 @@ npm run build
 npm run preview
 ```
 
-Preview **http://127.0.0.1:4173/**; dev/preview cố định 5173/4173. Dist có đúng năm HTML: index,room-one,room-two,room-three,room-four, cùng tài nguyên local/lazy chunks. Không phục hồi chapter-four.html hoặc prototype cũ. Sau build lại, reload tab cũ nếu nó còn giữ lazy chunk hash của build trước. Chưa có hosting deployment; cập nhật Git sau review/QA, không coi push mã là deploy.
+Preview **http://127.0.0.1:4173/**; dev/preview cố định 5173/4173. Dist có đúng năm HTML: index,room-one,room-two,room-three,room-four, cùng tài nguyên local/lazy chunks. Không phục hồi chapter-four.html hoặc prototype cũ. Sau build lại, reload tab cũ nếu nó còn giữ lazy chunk hash của build trước. Production đã có trên Vercel qua MCP; push mã và triển khai là hai thao tác riêng.
 
 ## Chiến dịch và preview có save riêng
 
