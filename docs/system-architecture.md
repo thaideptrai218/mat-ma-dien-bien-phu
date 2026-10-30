@@ -12,6 +12,8 @@ UI phòng gửi intent → controller kiểm tra view/token → reducer thuần 
 
 ## Các phòng và đồ thị tiến độ
 
+Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `character-atlas.js` giữ một phép biến đổi chung cho32 ô; `character-animation.js` đăng ký texture/clip một lần trong mỗi Game. Chỉ chuyển idle/walk/run sau bước physics thật, giữ cadence8/12fps riêng; reduced-motion chọn idle. Nạp ảnh lỗi thì pausephysics, hiện thông báo giữa màn hình và không tạo sprite giả. Các scene con không tạo lớp phủ nếu base chưa có player. Collider nguồn48×32/offset56,160/scale.5 trở thành24×16 đặt tâm tại vị trí người chơi. [Hợp đồng](../assets/characters/quang-reference/README.md) · [Review](../plans/261031-quang-reference-character/reports/code-review.md).
+
 - Phòng 1: thế giới 2400×1600; thư → A-03 → bốn hồ sơ → đối chiếu → ngăn kéo/tên → rương I → cửa. Nền 1950–7/1953: thư đầu năm chỉ nhìn lại; N-01 tháng bảy đọc sau giải danh tính, không thêm gating cũ.
 - Phòng 2: world/gate/art và renderer puzzle/narrative gốc Bảo; bảy clues, chín beats, bốn puzzles. Registry deep-compare với donor, renderer/art bodies và CSS đối chiếu hash. Adapter không gọi reducer/save legacy hoặc dựng thành tích bảo tàng/Him Lam giả. Fold cuối hợp lệ cấp II; cửa đông mới sang 3, không thêm rương/pickup hoặc bắt đọc hết outro. [Bảo toàn nguồn](../plans/261031-campaign-link/reports/room-two.md).
 - Phòng 3: trại 3200×2000, năm giấy xen bốn thử thách. Chuẩn bị song song → sáu vai trò tiếp vận → hai phương châm/lý do → tin 13/15/17. `answers.js` kiểm tra ngữ nghĩa/tập lựa chọn; thẻ NHANH/CHẮC cùng chữ được đổi tương đương. Đủ bốn mới dùng 13/03/1954; mở rương → nhận III → cửa.
@@ -44,6 +46,6 @@ Be Vietnam Pro/Lora/Patrick Hand và ảnh đều cục bộ, đợi font trư�
 
 ## Kiểm chứng hiện tại
 
-105/105 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [QA toàn campaign](../plans/261031-campaign-link/reports/campaign-qa.md) qua năm exits/bốn mảnh/assembly/blank reflection/physical door/return/ack, archive 25→26, ending/audio reload, reset/epoch/clone và preview isolation. Donor 4180 giữ nguyên. Một concurrent build làm tab cũ mất lazy hash; reload phục hồi bốn exits thật và vào 5, không mất progress. Git theo sau verification, không hosting.
+119/119 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [QA toàn campaign](../plans/261031-campaign-link/reports/campaign-qa.md) qua năm exits/bốn mảnh/assembly/blank reflection/physical door/return/ack, archive 25→26, ending/audio reload, reset/epoch/clone và preview isolation. Donor 4180 giữ nguyên. Một concurrent build làm tab cũ mất lazy hash; reload phục hồi bốn exits thật và vào 5, không mất progress. Git theo sau verification, không hosting.
 
 [Kế hoạch tích hợp](../plans/261031-campaign-link/plan.md) · [Cấu trúc mã](codebase-summary.md) · [Quy ước](code-standards.md)

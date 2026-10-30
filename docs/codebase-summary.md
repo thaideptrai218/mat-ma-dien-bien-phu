@@ -26,6 +26,8 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `assets/images/victory-painting.svg` | Một tranh sáng tác dùng xuyên museum intro/assembly/return. |
 | `src/ui/room-links.js`, `font-styles.css`, `game-fonts.js`, `assets/fonts/` | Preview links, font cục bộ và hàng rào đợi font Canvas. |
 | `src/core/world-geometry.js`, `src/game/character-animation.js`, `src/audio/` | Geometry/tầm E, animation và Web Audio chung, gồm cue Bảo. |
+| `src/game/character-atlas.js`, `assets/characters/quang-reference/` | Clip idle/walk/run bốn hướng, crop/anchor chung và atlasRGBA theo ảnh mẫu; collider không đổi. |
+| `scripts/pack-character-sheet.ps1`, `tests/character-*.test.js` | Đóng bảng hình nguồn tùy chọn trên Windows; kiểm tra PNG thật, loader, clip, tỷ lệ/chân và body. |
 | `tests/campaign-*.test.js`, `tests/session-lifecycle.test.js` | Global graph/storage/archive/host, destroy-before-create, stale/reset/import guards. |
 | `tests/room-*.test.js`, `tests/audio-controller.test.js`, `tests/game-fonts.test.js` | Nội dung/nguồn, luật/session/save, donor fidelity, world, ảnh/font/audio và Room 5. |
 | `vite.config.js` | Năm entry: campaign+preview 1–4;5173 dev/4173 preview, Phaser chunk dùng chung. |
@@ -40,6 +42,6 @@ Room 2 bản sao bảo toàn bảy clues/chín beats/bốn puzzles, exact map/ga
 
 ## Trạng thái kiểm chứng
 
-105/105 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [QA thật](../plans/261031-campaign-link/reports/campaign-qa.md) qua museum→1–5→return/ack với earned fragments, archive 26 entries, shared audio/reload/reset và clone diagnostics. [Room 2 preview QA](../plans/261031-campaign-link/reports/room-two-qa.md)/[Room 5 component QA](../plans/261031-campaign-link/reports/final-room.md) ghi phạm vi riêng. Git update sau verification, chưa hosting.
+119/119 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [QA thật](../plans/261031-campaign-link/reports/campaign-qa.md) qua museum→1–5→return/ack với earned fragments, archive 26 entries, shared audio/reload/reset và clone diagnostics. [Room 2 preview QA](../plans/261031-campaign-link/reports/room-two-qa.md)/[Room 5 component QA](../plans/261031-campaign-link/reports/final-room.md) ghi phạm vi riêng. Git update sau verification, chưa hosting.
 
 [Kiến trúc](system-architecture.md) · [Kế hoạch](../plans/261031-campaign-link/plan.md) · [Lifecycle](../plans/261031-campaign-link/reports/lifecycle.md) · [Bảo toàn Bảo](../plans/261031-campaign-link/reports/room-two.md)

@@ -2,6 +2,10 @@
 
 Cập nhật 2026-10-31. Campaign năm phòng có museum intro/return, common journal và mảnh tranh tích lũy thật. Preview 1–4 giữ save riêng và được ghi rõ trên link. Giữ góc nhìn trên xuống, xanh đất/ô liu, ánh vàng, giấy ngà và điểm nhấn đồng/đỏ trầm; không đưa giao diện app cũ vào bản chính.
 
+## Nhân vật theo ảnh mẫu
+
+Quang trong bản đồ dùng tóc nâu, áo khoác nâu đỏ ngoài áo trắng, quần be, giày sáng/túi ô liu. AssetRGBA32 tư thế, bốn hướng; atlas160×192 ởscale .5, vùng va chạm24×16 đặt đúng tâm vật lý. Giữ chung tỷ lệ và mặt đất giữa các tư thế; khung chạy trên không giữ độ nâng chân. Bộ đi bộ có contact/passing rõ ràng; chạy dùng bộ khung riêng. Giảm chuyển động giữ idle theo hướng, vẫn điều khiển được. [Thông số/prompt](../assets/characters/quang-reference/README.md), [QA hình mới](../plans/261031-quang-reference-character/reports/qa.md).
+
 ## Không gian, mục tiêu và di chuyển
 
 | Phòng | Không gian |
@@ -47,6 +51,6 @@ Font Be Vietnam Pro/Lora/Patrick Hand local, font gate trước Canvas; giấy m
 
 Chỉ PDF bản 4/bản chữ/brief cung cấp, không web. Quân số 252.000/445.000 có nhãn; trên 2.000 đợt đầu khác 16.200 toàn chiến dịch; miền Bắc sau Genève, không đoán ngày đổi phương châm. Sáu SVG tiếp vận/painting là minh họa, không ảnh tư liệu. Không đưa private PDF vào website/Git. Âm tổng hợp local, một shared controller trong campaign, gesture unlock; không TTS/touch walking.
 
-105 tests/build năm entry và [full campaign QA](../plans/261031-campaign-link/reports/campaign-qa.md) đạt đến museum acknowledgment: wrong assembly denied, door đóng trước reflection, blank continue hợp lệ, physical exit/return, archive 26 entries. Màn 390 px framing/confirmation và 375 px giấy, Room 5 component mobile kiểm tra theo phạm vi riêng; không suy screen-reader/touch support từ screenshots.
+119 tests/build năm entry và [full campaign QA](../plans/261031-campaign-link/reports/campaign-qa.md) đạt đến museum acknowledgment: wrong assembly denied, door đóng trước reflection, blank continue hợp lệ, physical exit/return, archive 26 entries. Màn 390 px framing/confirmation và 375 px giấy, Room 5 component mobile kiểm tra theo phạm vi riêng; không suy screen-reader/touch support từ screenshots.
 
 [Kế hoạch](../plans/261031-campaign-link/plan.md) · [Bảo toàn Bảo](../plans/261031-campaign-link/reports/room-two.md) · [Nội dung hậu cần](../plans/261031-room-three-logistics/reports/content.md) · [Nội dung Trâm](../plans/261030-tram-room-four/reports/content.md)

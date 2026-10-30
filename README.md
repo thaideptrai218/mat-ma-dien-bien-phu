@@ -33,6 +33,12 @@ Bản build có năm entry: `index.html` cho chiến dịch và bốn bản th�
 
 Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuyển tiếp; mở rương hoặc nhận mảnh chưa thay thao tác ra cửa. **Sổ hành trình** trên thanh chung đọc lại giấy đã kiếm được mà không cấp thêm tiến độ. **Bắt đầu lại phòng** giữ các phòng trước; **Hành trình mới** cần xác nhận và chỉ xóa save chiến dịch. Không nhập thành tích từ bản thử riêng.
 
+### Nhân vật Quang theo ảnh mẫu
+
+Sprite di chuyển mới giữ tóc nâu gợn, áo khoác nâu đỏ, áo trắng, quần be và túi ô liu theo hình người dùng cung cấp. PNG nền trong suốt có32 tư thế cho bốn hướng; đi bộ8fps và chạy12fps dùng các khung riêng. Đứng lại, đụng tường hoặc mở nội dung sẽ về tư thế đứng. Giảm chuyển động của hệ điều hành giữ hình đứng theo hướng nhưng vẫn cho đi/chạy.
+
+Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 hiển thị80×96, collider vẫn24×16; tốc độ260/390 và save/câu đố không đổi. [Sprite và thông số](assets/characters/quang-reference/README.md), [PNG](assets/characters/quang-reference/motion-sheet.png), [review](plans/261031-quang-reference-character/reports/code-review.md), [QA nhân vật](plans/261031-quang-reference-character/reports/qa.md). Phạm vi lần này là sprite khám phá; chân dung hội thoại là tài nguyên riêng.
+
 ### Phòng 1 — Trước bản kế hoạch
 
 | Bước | Việc cần làm |
@@ -100,7 +106,7 @@ Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật
 
 ## Tài liệu và trạng thái kiểm chứng
 
-Hiện **105/105 kiểm thử**, build năm entry và [review GO](plans/261031-campaign-link/reports/code-review.md). [Lượt chơi chiến dịch thật](plans/261031-campaign-link/reports/campaign-qa.md) đã qua bảo tàng, đủ năm phòng/bốn mảnh thật, ghép tranh, tiếp tục suy ngẫm để trống, cửa thật, trở về và acknowledgment cuối. Reload ending/audio, sổ hành trình 26 giấy, diagnostics clone, reset giữ preview và màn 390 px được kiểm tra đúng phạm vi báo cáo. [Room 2 độc lập](plans/261031-campaign-link/reports/room-two-qa.md) và [Room 5 component](plans/261031-campaign-link/reports/final-room.md) có bằng chứng riêng. Mã đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), chờ review vào main; chưa triển khai hosting.
+Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-campaign-link/reports/code-review.md). [Lượt chơi chiến dịch thật](plans/261031-campaign-link/reports/campaign-qa.md) đã qua bảo tàng, đủ năm phòng/bốn mảnh thật, ghép tranh, tiếp tục suy ngẫm để trống, cửa thật, trở về và acknowledgment cuối. Reload ending/audio, sổ hành trình 26 giấy, diagnostics clone, reset giữ preview và màn 390 px được kiểm tra đúng phạm vi báo cáo. [Room 2 độc lập](plans/261031-campaign-link/reports/room-two-qa.md) và [Room 5 component](plans/261031-campaign-link/reports/final-room.md) có bằng chứng riêng. Mã đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), chờ review vào main; chưa triển khai hosting.
 
 - [Kế hoạch Phòng 1](plans/261030-pdf-four-rebuild/phase-room-one-playable.md), [nhật ký thay mới](docs/journals/2026-10-30-room-one-rebuild.md).
 - [Kế hoạch nối toàn hành trình](plans/261031-campaign-link/plan.md), [lifecycle](plans/261031-campaign-link/reports/lifecycle.md), [bảo toàn Bảo](plans/261031-campaign-link/reports/room-two.md), [nhật ký tích hợp](docs/journals/2026-10-31-campaign-integration.md).

@@ -12,7 +12,7 @@ Cập nhật 2026-10-31. Bản chính `/` đã có tuyến bảo tàng→phòng 
 | Chuyển phòng/lifecycle | Một Game/canvas, async idempotent destroy await Phaser, epoch/import guard, shared audio ownership. |
 | Room 5 | ActualI–IV→2×2 assembly→authored reflection/optional private text→physicaldoor→return. Không auto-award, không chấm/lưu lời cá nhân. |
 | Reset/reload | Current room reset giữ trước/cắt phụ thuộc; confirmed global newgame chỉ campaign. Reload current safe spawn, save lỗi vẫn phiên chơi. |
-| Build/tests |105/105 tests, build 5 HTML: index+room-one/two/three/four. |
+| Build/tests |119/119 tests, build 5 HTML: index+room-one/two/three/four. |
 | Browser campaign | PASS: earned I–IV/năm exits/assembly/blank reflection/physical door/return/ack; archive 25→26, ending/audio reload, confirmed reset giữ preview và rapid mount/restart. |
 | Reviewer/independent QA | Review GO; độc lập full Room 2 preview, Room 5 component/privacy/mobile; full campaign do controller chơi thật. |
 | Git/hosting | Git update sau verification; chưa tuyên bố push, không hosting deployment. |

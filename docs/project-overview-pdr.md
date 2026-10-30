@@ -32,6 +32,6 @@ Bảo được sao từ current donor với font fixes, bảo toàn dữ liệu/
 
 ## Kiểm chứng và tiếp theo
 
-105/105 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [Full campaign QA](../plans/261031-campaign-link/reports/campaign-qa.md) qua năm exits/bốn mảnh thật/ghép/reflection trống/cửa/museum acknowledgment, ending/audio reload, archive 26 entries và reset giữ preview. Room 2 standalone/Room 5 component có phạm vi riêng, không thay full route. Git update sau kiểm chứng, không hosting. Chưa chứng nhận screen-reader/real-user timing/touch walking; giấy phép phân phối tài sản cần xác định.
+119/119 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [Full campaign QA](../plans/261031-campaign-link/reports/campaign-qa.md) qua năm exits/bốn mảnh thật/ghép/reflection trống/cửa/museum acknowledgment, ending/audio reload, archive 26 entries và reset giữ preview. Room 2 standalone/Room 5 component có phạm vi riêng, không thay full route. Git update sau kiểm chứng, không hosting. Chưa chứng nhận screen-reader/real-user timing/touch walking; giấy phép phân phối tài sản cần xác định.
 
 [Kế hoạch tích hợp](../plans/261031-campaign-link/plan.md) · [README](../README.md) · [Kiến trúc](system-architecture.md) · [Tiến độ](project-roadmap.md)
