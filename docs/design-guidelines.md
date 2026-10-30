@@ -1,96 +1,52 @@
 # Hướng dẫn thiết kế — Mật mã Điện Biên Phủ
 
-Ngày: 2026-10-29. Người dùng đã duyệt pixel art màu ô liu, bản đồ lớn/camera, visual novel và triển khai toàn game. Game Phaser có đủ bốn thử thách, kết bảo tàng, hoạt ảnh, âm thanh và lưu cục bộ; đã hoàn tất và kiểm chứng cục bộ, xem [roadmap/QA](project-roadmap.md). Các thông số/API ghi rõ “bản mẫu” dưới đây chỉ mô tả Canvas prototype giữ để đối chiếu, không phải hợp đồng game chính.
+Cập nhật 2026-10-31. Campaign năm phòng có museum intro/return, common journal và mảnh tranh tích lũy thật. Preview 1–4 giữ save riêng và được ghi rõ trên link. Giữ góc nhìn trên xuống, xanh đất/ô liu, ánh vàng, giấy ngà và điểm nhấn đồng/đỏ trầm; không đưa giao diện app cũ vào bản chính.
 
-## Áp dụng ở game chính
+## Không gian, mục tiêu và di chuyển
 
-Game Phaser dùng khung logic 960×540, Scale.FIT; bảo tàng 1280×800 và bốn bản đồ hầm 2400×1440. HUD và dialog HTML giữ vị trí trên trang khi camera di chuyển; căn hầm/đồ vật và sprite vẽ bằng mã. Màu/chữ giữ hướng ô liu, giấy và serif; native dialog cho lời Minh, sổ tay, puzzle và tùy chọn.
+| Phòng | Không gian |
+| --- | --- |
+| 1 | 2400×1600, hồ sơ hai phía và trục đọc/đối chiếu giữa, cửa bắc. |
+| 2 | Bản đồ/gate/props/zones/labels của Bảo giữ nguyên; gate đông mở ở fold cuối. |
+| 3 | Trại 3200×2000: kho→đường/tiếp vận→lều chỉ huy→trạm tin,14 anchors. |
+| 4 | Archive 2800×1800: rương giữa, hai bàn T/L sau rương, bảy giấy quanh tường, ô chữ bắc. |
+| 5 | 2000×1400: bàn phục dựng, điểm ánh sáng/câu hỏi, cửa bắc và props. |
 
-Đọc từng lời hoặc Đọc toàn cảnh, bấm Ghi manh mối ở câu cuối để nhận. Lời đã đọc cho mở lại intro các chương đã tới, kể cả còn dang dở, và clue đã phát hiện. Giảm chuyển động bỏ độ trễ camera; có tăng sáng cảnh. Save giữ checkpoint an toàn gần nhất, không cursor hội thoại. Âm thanh tổng hợp cục bộ cần bật chủ động, có mute/volume và bật lại sau suspend; chưa có lồng tiếng/TTS. Xem [README](../README.md) và [kiến trúc](system-architecture.md) cho hành vi hiện tại.
+Đây là sơ đồ học tập, không dựng tọa độ đơn vị/di tích thật. Physics và tầm E cùng nguồn world với mini/full map. Camera theo Quang trong biên; map/journal không đi hộ nhân vật. WASD/mũi tên 260, Shift 390 chuẩn hóa đường chéo; E vật gần, M map, N sổ phòng, Q nhiệm vụ, Esc tùy chọn/đóng. Form giữ nhập liệu bình thường; blur/modal/tabẩn xóa phím giữ.
 
-## Ý tưởng và nguồn truyện
+HUD phòng góc phải có mục tiêu/tiến độ; mini-map thường dưới phải, desktop thấp dùng vị trí gọn dưới trái để tránh cắt/chồng. Header campaign có phòng hiện tại, mảnh thật, Sổ hành trình và restart; không link nhảy tới phòng chưa đạt. Chuyển phòng sau cửa thật, có khoảng loading sau await hủy Game cũ, không giữ canvas/listener cũ.
 
-Theo tóm tắt PDF trong [đề xuất game](game-proposal.md), Minh từ bảo tàng bước vào hầm chỉ huy trong quá khứ. Bốn thử thách dẫn qua ký ức Him Lam, bản đồ chiến dịch, điện báo tại sở chỉ huy và cánh cửa hòa bình để trở về hiện tại. Hành trình diễn ra ngày 7/5/1954; dữ kiện tháng 3 là ký ức được tìm lại. Giữ thông điệp trân trọng hòa bình, không đánh giá đúng/sai quan điểm cá nhân ở phần kết.
+## Giấy đọc và sổ hành trình
 
-Chữ ký thị giác: căn hầm pixel nhìn từ trên xuống, ánh đèn vàng ấm và chữ serif gợi hồ sơ lưu trữ. Bản mẫu mở lời Minh trên panel visual novel phía dưới, nền là hầm Him Lam; game chính mở menu rồi lời ở bảo tàng trước khi vào hầm. Người chơi chủ động đọc rồi khám phá. Diện tích lớn nhất dành cho bối cảnh, không dùng trang tiếp thị hay bảng chỉ số.
+Giấy nguyên văn HTML chọn/copy được, cuộn trong native dialog. Nguồn/ngày/hư cấu ngoài thân thư, có greeting/signature đúng loại. Lâm/Thành nhìn lại Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc trong thư đầu 1953; bổ nhiệm tháng 5/thông qua tháng 7 nằm riêng N-01 sau identity. Không thêm lời hướng dẫn giải đố vào thân thư.
 
-## Bố cục và phê bình thiết kế
+Phòng 1 có thư/bốn hồ sơ 341–370 từ và N-01331 từ; Phòng 3 năm giấy 321–340 từ; Phòng 4 bảy giấy 301–330 từ, mỗi giấy năm đoạn và hai suy nghĩ Quang riêng. Đọc hết→Quang→explicit confirmation mới thu thập; đóng sớm không tính. Bảo giữ original narrative/clue beats, final “Ghi manh mối”, phản hồi/hint/outro và renderer nguyên gốc; không rewrite văn bản để giống reader khác.
 
-Đã so sánh khung cảnh toàn chiều ngang có sổ tay mở theo yêu cầu và khung cảnh cạnh sổ tay. Sau phản hồi của người dùng, chọn khung cảnh toàn chiều ngang: sổ tay mở bằng N hoặc nút rõ ràng trên bản đồ, không chiếm cố định 288px. Giữ nhiệm vụ, chương, nút khám phá và thanh công cụ đứng yên trong viewport khi thế giới di chuyển.
+Sổ phòng/N giữ giấy và token của phòng. **Sổ hành trình** giữ toàn văn prior collected papers, các đoạn clue gốc Bảo, N-01 và cuộc trò chuyện cuối khi đã đạt; readonly, không cấp mảnh hoặc làm thay bước hiện tại. Mở sổ chung pause phòng/input/audio, đóng cần phím mới; source labels vẫn thấy trong reread.
 
-Thế giới minh họa 2400×1440 pixel gồm sáu gian: hồ sơ Him Lam, điện đài, kho tiếp tế, bản đồ, nghỉ chân và cửa ký ức. Hành lang gỗ nối các lối mở; từng gian có đồ vật và cột mốc riêng, không tăng diện tích bằng sàn trống đơn thuần. Các nhãn đồ vật thuộc tọa độ thế giới, đi theo tranh khi camera dịch chuyển. Đây là bố cục thử camera trong chương I, không đồng nghĩa triển khai sáu màn hay thay đổi bốn thử thách của cốt truyện.
+## Bốn thử thách lịch sử
 
-Camera theo tâm nhân vật với độ trễ ngắn, kẹp trong biên thế giới. Trong bản mẫu Canvas, viewport rộng logic 960px, chiều cao thay đổi theo tỷ lệ vùng hiển thị (300–1100px), luôn nhỏ hơn thế giới ở cả hai chiều. Game Phaser dùng khung logic 960×540 với Scale.FIT để giữ tỷ lệ; đây là hai cách trình diễn riêng, cùng yêu cầu world lớn và camera theo nhân vật. Giảm chuyển động bỏ độ trễ, vẫn giữ cuộn cần thiết để đi lại. Sàn đá, đèn và sơ đồ hóa giữ phong cách đã duyệt.
+- Phòng 1 giữ thư/A-03/hồ sơ/đối chiếu/điện/rương I, không ghép mảnh thư; N-01 tự chọn không đổi gating/save cũ. Hai bước Nava thuộc Bảo.
+- Bảo giữ cân lực lượng, băng tần, chuỗi nắm đấm, nếp gấp, mã và lời feedback gốc. Fold hợp lệ cấp II và mở gate; outro có thể đóng sớm, không thêm chest/pickup hoặc điều kiện đọc mới.
+- Phòng 3 phân loại 5 thẻ: decision 6/12, opening 13/3, ba việc chuẩn bị giữa song song. Ghép 6 SVG/hiểu xe thồ và sức dân; sắp hai mật lệnh với thẻ NHANH/CHẮC hoán đổi tương đương, hỏi sure-victory/reality; tin 13/15/17/ngữ nghĩa. Đủ cả 4 token trước 13/03/1954; phương châm giữ riêng, rương→pickup III→cửa.
+- Phòng 4 giữ ô chữ 17 cột/starts và đáp án đủ 16 chữ hàng 4 (thêm một ô cuối thiếu trong PDF), cột index 8/TIMTVAL, hai bảngT/L gồm ULTAV, câu cuối→rương tự mở→pickup IV→cửa. Lưới cuộn ngang nội bộ, không ép chữ quá nhỏ.
 
-Rủi ro: sổ tay giấy và serif dễ thành trang biên tập chung chung. Bản mẫu gắn chúng với hồ sơ, điện đài, sơ đồ và bản tin có lời Minh riêng. Panel dưới kết hợp chân dung Minh, nhãn địa điểm, tên người nói và lời kể ngôi thứ nhất. Chỉ chuyển từ khám phá sang đọc khi người chơi tương tác; không ép tự chạy lời thoại. Không dùng quét CRT, rung màn hình hoặc chớp sáng chiến đấu.
+Các form native, lựa chọn ngữ nghĩa rõ, nút lên/xuống có nhãn, vùng bấm hướng tới 44 px, draft còn khi sai/mở lại. Không dùng AI chấm lời giải tự do. Mảnh chỉ từ kết quả thật của mỗi phòng; common inventory không tự điền đủ bốn.
 
-## Màu và chữ
+## Tranh cuối, suy ngẫm và trở về
 
-| Token | Giá trị | Vai trò |
-| --- | --- | --- |
-| `--ink` | `#171d18` | Nền trang, sắc xanh đất tối |
-| `--surface` | `#222a21` | Nền phụ |
-| `--text` | `#eee8d6` | Chữ chính trên nền tối |
-| `--muted` | `#c1c5af` | Hướng dẫn phụ trên nền tối |
-| `--gold` | `#e4ba6b` | Ánh đèn, focus, chương hiện tại |
-| `--paper` | `#e7ddbd` | Giấy sổ tay, bảng hội thoại |
-| `--paper-ink` | `#343b2d` | Chữ trên giấy |
-| `--olive` | `#394b30` | Nút hành động chính |
-| `--error` | `#813b2e` | Lỗi có chữ giải thích |
+`victory-painting.svg` là tranh sáng tác, cùng một ảnh ở bảo tàng mở đầu, bốn phần tư ghép 2×2 và return. Caption/alt ghi minh họa, không ảnh/bản sao tranh thật. Trước puzzle cần đủ I–IV và các cửa trước; chọn hai native buttons để swap, hỗ trợ keyboard, thứ tự đúng mới hoàn tất assembly.
 
-Màu trong tranh pixel thuộc bảng vật liệu riêng: gạch, đá, gỗ, đèn và áo nhân vật. Chúng không thay thế token chữ và trạng thái của giao diện.
+Ghép xong cửa vẫn chờ cuộc trò chuyện. Hiển thị câu hỏi từ PDF bản 4/phòng 5 và lời đáp sáng tác của Quang; ô suy nghĩ cá nhân **optional/ungraded/skippable**, không truyền qua callback/payload/save hoặc network. Blank vẫn tiếp tục. Nút tiếp tục hoàn tất đoạn trò chuyện rồi người chơi phải đến cửa E. Không dùng câu trả lời cá nhân làm mật khẩu tư tưởng.
 
-Display: Georgia → Cambria → Times New Roman → serif. Body: Segoe UI → Tahoma → sans-serif. Phông cục bộ, không yêu cầu mạng; dấu tiếng Việt được giữ trong toàn bộ nội dung. Không dùng phông pixel cho đoạn văn. Văn bản hội thoại, sổ tay và trường nhập 17px, line-height 1.55–1.65; tiêu đề 26–34px. Nhãn cảnh, phím tắt và chú thích dùng cỡ nhỏ hơn vì là thông tin phụ.
+Museum return hiển thị cùng tranh và thông điệp cuối. Nút “Khép lại hành trình” là acknowledgment riêng mới ghi complete; không kết thúc campaign ngay sau phòng 4 hoặc assembly. Hành trình mới cần xác nhận, không xóa preview/donor; reset phòng giữ earlier progress và bỏ phần phụ thuộc.
 
-## Truyện tương tác chương I
+## Chữ, tài sản và phạm vi kiểm chứng
 
-Vòng chơi: khám phá → tới gần dấu ✧ → E hoặc nút khám phá → đọc cảnh Minh → nhận manh mối → sổ tay → ghép trình tự. Bốn cảnh kể ngắn độc lập có thể khám phá theo thứ tự đi lại thực tế; câu đố cuối mới yêu cầu xếp đúng trình tự lịch sử. Đọc lại không tăng số manh mối hoặc tạo bản ghi trùng.
+Font Be Vietnam Pro/Lora/Patrick Hand local, font gate trước Canvas; giấy mực xanh/ivory/copper, source ngoài vùng prose, tiếng Việt NFC, zoom/chọn/copy bình thường. CSS reduced-motion bỏ hiệu ứng không cần thiết. Dialog có close/Esc/focus rõ, native scrolling; màn hẹp có vùng đọc/thẻ thao tác đủ dùng, không khóa zoom. Bảo giữ font fixes/CSS hiện có.
 
-| Dấu vết | Vị trí thế giới, bán kính | Nội dung lịch sử |
-| --- | --- | --- |
-| Bản ghi chuẩn bị | (530,270), 190px; bàn hồ sơ | Chuẩn bị trận địa |
-| Điện lệnh pháo binh | (1160,260), 190px; điện đài | Pháo binh mở màn chiều 13/3/1954 |
-| Sơ đồ xung phong | (1950,594), 170px; hành lang phía đông | Bộ binh xung phong |
-| Bản tin Him Lam | (285,1040), 190px; gian bản đồ dưới trái | Làm chủ Him Lam, giành thắng lợi trận mở màn |
+Chỉ PDF bản 4/bản chữ/brief cung cấp, không web. Quân số 252.000/445.000 có nhãn; trên 2.000 đợt đầu khác 16.200 toàn chiến dịch; miền Bắc sau Genève, không đoán ngày đổi phương châm. Sáu SVG tiếp vận/painting là minh họa, không ảnh tư liệu. Không đưa private PDF vào website/Git. Âm tổng hợp local, một shared controller trong campaign, gesture unlock; không TTS/touch walking.
 
-Các hiện vật, căn hầm và lời kể Minh là sáng tác cho trò chơi; không giả là bản sao hồ sơ hoặc lời chứng. Dữ kiện lịch sử tách riêng trong sổ tay, có liên kết [bài về trận Him Lam — Bảo tàng Lịch sử quốc gia](https://baotanglichsu.vn/vi/Articles/2002/68138/ky-niem-60-nam-chien-thang-lich-su-djien-bien-phu-1954-2014tran-mo-man-tieu-diet-trung-tam-dje-khang-him-lam-13-3-1954.html). Không yêu cầu phút khai hỏa chính xác; kết quả Him Lam không được mô tả là kết thúc toàn chiến dịch.
+105 tests/build năm entry và [full campaign QA](../plans/261031-campaign-link/reports/campaign-qa.md) đạt đến museum acknowledgment: wrong assembly denied, door đóng trước reflection, blank continue hợp lệ, physical exit/return, archive 26 entries. Màn 390 px framing/confirmation và 375 px giấy, Room 5 component mobile kiểm tra theo phạm vi riêng; không suy screen-reader/touch support từ screenshots.
 
-Panel visual novel dùng native dialog, chân dung mới có nền trong và fallback chữ nếu ảnh chưa tải. Lời kể chạy hiệu ứng chữ nhẹ, có “Hiện hết”, “Đọc toàn cảnh” và nút tiếp/nhận manh mối. Giảm chuyển động hiện chữ ngay. Người chơi tự chọn nhịp đọc; Esc có thể rời bảng, chưa nhận manh mối thì lần sau đọc lại. “Lịch sử lời kể” lưu các cảnh đã nhận trong phiên xem, không lưu qua tải lại.
-
-## Điều khiển và trạng thái
-
-- Bản mẫu: click canvas hoặc nút “Đi vào bản đồ”, rồi WASD/phím mũi tên di chuyển. Tốc độ 220 pixel thế giới/giây, chuẩn hóa đường chéo; va chạm hình chữ nhật với tường và vật dụng, chia bước để tránh xuyên tường khi khung hình chậm.
-- E mở manh mối gần nhất; nút tương tác đổi nhãn theo đồ vật, bị vô hiệu khi không đủ gần. N mở sổ tay, Esc mở tùy chọn khi không có bảng; Esc đóng dialog theo hành vi trình duyệt. “Ghép trình tự” mở độc lập nhưng không thể đối chiếu trước khi đã nhận đủ bốn manh mối.
-- Chỉ giữ phím di chuyển khi canvas có focus; Tab rời bản đồ. Không chặn phím mũi tên ở nút hoặc select bên ngoài. Mở/đóng modal, blur và thay đổi hiển thị trang đều xóa phím đang giữ; cần nhấn lại để đi tiếp, không tự trôi nhân vật.
-- Bản mẫu dùng Canvas/JavaScript riêng, có animation di chuyển/đứng yên và âm thanh Web Audio để thử trải nghiệm. Chưa có engine Phaser, chuyển chương, cảm ứng hay lưu tiến độ. Chỉ chương I có thể hoàn thành trong bản mẫu.
-- Câu đố thay hoàn toàn bảng chọn địa điểm/ngày/sự kiện: bốn thẻ ban đầu đảo thứ tự (pháo binh, thắng lợi, chuẩn bị, bộ binh); nút ↑ ↓ có nhãn đầy đủ để đổi vị trí bằng chuột/bàn phím. Không bắt buộc kéo thả. “Đối chiếu trình tự” chỉ bật khi đủ bốn manh mối. Sai giữ thẻ để sửa, hai mức gợi ý, đúng xác nhận hoàn thành chương I.
-- Đặt lại bản mẫu: xóa manh mối/lịch sử/câu đố tạm, trả Minh về (580,350), đưa camera về vị trí tương ứng và mở lại lời đầu. Không có dữ liệu người chơi hoặc lưu qua tải lại. Trạng thái âm thanh do người dùng chủ động chọn, không tự bật khi đặt lại.
-- Tùy chọn: giảm chuyển động/hiện chữ ngay, tăng độ sáng cảnh và hiệu ứng âm thanh. Nút “Bật âm thanh” và checkbox chỉ gọi audio sau thao tác người dùng. Có cue giấy, hé lộ, đúng/sai và bước chân; không hứa lồng tiếng hoặc tự dùng TTS. Chuyển động/âm nền tạm dừng trong bảng; hiệu ứng thao tác có chủ ý có thể phát khi âm thanh đã bật.
-
-## Khả năng tiếp cận và responsive
-
-- Native `dialog` giới hạn focus; có nút đóng 44px, Esc và click vùng nền ngoài. Focus quay về nút mở theo trình duyệt.
-- Focus vàng 3px, offset 4px; phản hồi lỗi/thành công có nội dung chữ và ký hiệu, không chỉ dùng màu.
-- Đã tính tương phản theo độ chói sRGB: chữ chính/nền tối 14,00:1; chữ giấy/nền giấy 8,55:1; ghi chú sổ tay/nền giấy 4,69:1; chữ nút chính/nền ô liu 8,23:1. Chú thích nằm trên tranh vẫn cần kiểm tra trực quan theo cảnh cuối.
-- Canvas có mô tả bố cục bằng văn bản và nhận focus bàn phím; khám phá, sổ tay, lịch sử, tư liệu, tạm dừng và câu đố có nút HTML riêng. Sổ tay chỉ đường đến từng manh mối còn thiếu. Không bắt buộc click đúng tọa độ hoặc kéo thả để đọc tư liệu.
-- Từ 761px: bản đồ chiếm toàn chiều ngang, cao 56dvh (tối đa 570px), sổ tay dùng dialog. Tại 1280×800 mục tiêu giữ bản đồ và thao tác chính trong khung trang.
-- Đến 760px: header gọn, bốn chương vẫn có tên; bản đồ cao 390px, công cụ cố định trong viewport; hướng dẫn xếp dọc. Không khóa cuộn dọc hoặc zoom. Mục tiêu 375px không tràn ngang; chuyển động cảm ứng chưa trong phạm vi.
-- Touch target cho hành động chính và dialog tối thiểu 44px. Nút đặt lại thuộc thanh xem mẫu, không phải điều khiển trong trò chơi.
-- `prefers-reduced-motion` tắt animation/transition, hiện lời kể ngay và bỏ độ trễ camera; chuyển động thiết yếu khi di chuyển vẫn được giữ. Mặc định hover/active ngắn 180ms; không rung hoặc nhấp nháy.
-
-## Kiểm tra hình học bản mẫu
-
-API chỉ đọc `window.cameraPreview.getState()` giữ player/camera/world/viewport/paused và thêm `nearbyClueId` cho manh mối trong tầm. `bunkerArtwork.interactables` là mảng đóng băng mô tả bốn điểm tương tác. `window.narrativePreview.getState()` trả `{collected,order,solved,sceneId,page,revealed,historyCount}` để kiểm tra nhận manh mối và câu đố. Không có phương thức nhận manh mối ở xa hoặc tự hoàn thành câu đố. Các API này phục vụ kiểm tra bản mẫu, không phải hợp đồng game Phaser.
-
-## Trung thực nội dung và tài sản
-
-Hầm, đồ vật và sơ đồ trong tranh chỉ phục vụ câu đố, không phải phục dựng chính xác kiến trúc hay tuyến tiến công. Bản mẫu ghi điều này ngay trong khung cảnh; bảng tương tác nhắc chưa có lưu tiến độ. Dữ kiện Him Lam 13/3/1954 lấy từ đề xuất và báo cáo nghiên cứu, cần giữ nguồn lịch sử khi triển khai nội dung cuối.
-
-Tranh phòng được vẽ bằng Canvas 2D, sprite và vật dụng bằng mã; tài nguyên nằm cục bộ. Biểu trưng phong bì/chìa khóa và chân dung Minh là minh họa mới, không phải hiện vật, dấu ấn lịch sử hoặc chân dung một người thật. Tránh mô tả biểu trưng như huy hiệu thật.
-
-## Bản mẫu để đối chiếu khi triển khai
-
-- Giữ thế giới rộng, các khu nối bằng hành lang và camera bám theo Minh theo yêu cầu đã nhận.
-- Sổ tay mở theo yêu cầu; công cụ giữ vị trí trong viewport.
-- Xem [kiểm tra bản mẫu camera](../plans/reports/261029-large-map-camera-preview-qa.md) và [kế hoạch triển khai](../plans/261029-1757-mat-ma-dien-bien-phu-game/plan.md).
-- Phạm vi hiện tại ưu tiên bàn phím; save đã triển khai ở game Phaser, chưa có trong bản mẫu. Cảm ứng để đi bộ và hosting ngoài phạm vi game hiện tại; mã nguồn được chia sẻ trên GitHub theo yêu cầu bổ sung.
+[Kế hoạch](../plans/261031-campaign-link/plan.md) · [Bảo toàn Bảo](../plans/261031-campaign-link/reports/room-two.md) · [Nội dung hậu cần](../plans/261031-room-three-logistics/reports/content.md) · [Nội dung Trâm](../plans/261030-tram-room-four/reports/content.md)

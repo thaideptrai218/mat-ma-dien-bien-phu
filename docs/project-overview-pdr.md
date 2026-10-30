@@ -1,32 +1,37 @@
 # Tổng quan và yêu cầu sản phẩm
 
-## Bối cảnh
+Mật mã Điện Biên Phủ là game khám phá/visual novel lịch sử tiếng Việt. Entry `/` nối bảo tàng→bốn thử thách lịch sử→phòng ghép tranh/suy ngẫm→trở về bảo tàng. Quang là sinh viên thích công nghệ và giải đố; chuyến du hành là hư cấu học tập theo PDF bản 4. Chỉ lịch sử do người dùng cung cấp, không nghiên cứu web.
 
-Mật mã Điện Biên Phủ là game trình duyệt tiếng Việt một người chơi, chuyển thể cốt truyện PDF do người dùng cung cấp. Phạm vi toàn game đã được duyệt ngày 2026-10-29. Đã hoàn tất và kiểm chứng cục bộ; chưa phát hành trực tuyến.
+## Hành trình hiện tại
 
-Minh đi từ bảo tàng vào không gian ký ức ngày 7/5/1954, đọc lại dữ kiện từ tháng 3–5 qua bốn thử thách, rồi trở về bảo tàng. Mục tiêu là kết nối khám phá, lời kể và suy luận; thời lượng 10–15 phút vẫn là mục tiêu cần đo khi chơi thử.
+| Giai đoạn | Nội dung và điều kiện hoàn tất |
+| --- | --- |
+| Bảo tàng | Quang chạm tranh chiến thắng, vào không gian hư cấu hầm Đờ Cát 7/5/1954; hệ thống giải thích năm phòng/bốn mảnh. |
+| Phòng 1 — Trước bản kế hoạch | Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc, quân đội/hậu phương, tình thế hai phía 1953. Thư→A-03→bốn hồ sơ→đối chiếu→điện danh tính→N-01 tháng 7→rương I→cửa. N-01 không thêm khóa/gating cũ. |
+| Phòng 2 — Bảo | Giữ exact world/bảy manh mối/bốn câu đố/renderers gốc: cân, băng tần, nắm đấm, gấp phong bì. Fold cuối hợp lệ cấp II, cửa đông sang 3; donor 4180 không bị sửa. |
+| Phòng 3 — Hậu phương | Năm giấy/bốn hoạt động xen kẽ: chuẩn bị song song, sáu vai trò vận chuyển, phương châm/lý do,13/15/17 March/ý nghĩa. Đủ cả 4 token→13/03/1954→rương→pickup III→cửa. |
+| Phòng 4 — Trâm | Bảy giấy 30/3–7/5 và ý nghĩa 1954; ô chữ→cột→T/L→câu cuối→rương→pickup IV→cửa. Giữ 16.200 tiêu diệt/bắt sống và miền Bắc sau Genève. |
+| Phòng 5 | Chỉ bốn mảnh thật/các cửa trước mới ghép đúng 2×2. Lắng nghe cuộc trò chuyện, ô cá nhân tùy chọn/không chấm/không lưu; continue rồi đến cửa thật. |
+| Bảo tàng trở về | Cùng bức tranh, lời kết, acknowledgment riêng mới ghi campaign complete. |
 
-## Yêu cầu đã triển khai
+Mảnh chỉ từ kết quả thật, không cấp lạiI–IV ở phòng cuối, không nhập thành tích preview. Tất cả chuyển phòng cùng origin, không iframe/cross-origin shortcut. Bốn preview 1–4 có đường dẫn riêng; Phòng 1 chuyển từ `/` sang room-one.html. Room 5 không có entry auto-grant.
 
-- Khám phá từ trên xuống bằng WASD/phím mũi tên, E tương tác; bản đồ hầm 2400×1440, camera theo nhân vật, va chạm tường/đồ vật/cửa khóa.
-- Minh có chân dung, lời kể theo nhịp người chơi, idle/walk bốn hướng; sổ tay và lịch sử cho đọc lại. Chỉ ghi nhận manh mối bằng nút ở câu cuối.
-- Him Lam: bốn manh mối + xếp trình tự. Bản đồ: ba manh mối + vị trí theo chú giải + mốc ngày. Sở chỉ huy: ba manh mối + ghép bản tin + ngày. Hòa bình: đọc và suy nghĩ tùy chọn, chủ động mở cửa, không chấm quan điểm.
-- HUD, native dialog, nút xếp thẻ và biểu mẫu HTML dùng được bằng bàn phím. N mở sổ tay, Esc đóng bảng/tùy chọn, Tab rời canvas.
-- Âm nền và SFX tổng hợp cục bộ sau bật tiếng; mute/volume, thử bật lại sau suspend. Giảm chuyển động và tăng độ sáng cảnh.
-- Save cục bộ có xác minh, tiếp tục từ checkpoint an toàn; reset có xác nhận; không lưu nội dung suy nghĩ riêng hoặc trạng thái audio runtime.
+## Trải nghiệm và dữ liệu
 
-## Ranh giới và tính trung thực
+- WASD/mũi tên, Shift 260/390, E gần-only, M mini/full map, N sổ trong phòng, Q HUD góc phải. Sổ hành trình trên header giữ toàn văn giấy đã kiếm qua các phòng, gồm clue beats Bảo; không biến thành tóm tắt.
+- Scene geometry/va chạm/camera theo đúng world: Phòng 1 2400×1600, Bảo exact donor, hậu phương 3200×2000, Trâm 2800×1800, phòng cuối 2000×1400. Bố cục học tập, không tọa độ lịch sử.
+- Giấy full prose, nguồn/fiction riêng, đọc cuối→Quang→xác nhận; readonly reread không cấp tiến độ. Personal reflection không vào payload/save/network; blank vẫn tiếp tục, không có đáp án tư tưởng bắt buộc.
+- Global key `mat-ma-dien-bien-phu:campaign:v1`, rooms sanitize/chuỗi exit liên tục, mảnh/current room suy ra. Reset phòng giữ trước, restart global có xác nhận chỉ global key; preview và donor tách biệt.
+- Một parent runtime/session/Game tại một thời điểm, shared audio; async destroy thực trước mount phòng mới. Font/art/audio local, gesture mở tiếng, storage lỗi vẫn chơi được. Không tài khoản/backend/TTS/touch walking.
 
-Không có chiến đấu, tài khoản, backend, điều khiển đi bộ bằng cảm ứng, lồng tiếng/TTS hoặc hosting trong phạm vi game hiện tại. Mã nguồn được chia sẻ qua GitHub theo yêu cầu cộng tác bổ sung. Tài nguyên game nằm cục bộ, không CDN. Chưa chốt giấy phép phân phối cốt truyện/tài sản.
+## Nguồn và phạm vi bảo toàn
 
-Minh, hiện vật kể chuyện, bản tin ghép và căn hầm là sáng tạo học tập. Sơ đồ phòng 2 không theo tỷ lệ hoặc biểu diễn một tuyến tấn công. Nguồn lịch sử hiển thị trong game; không đồng nhất thắng lợi Him Lam với kết thúc chiến dịch, hoặc 7/5/1954 với thống nhất đất nước.
+PDF bản 4, lich su.txt và [brief 31/10](../plans/261031-room-three-logistics/source-brief.md) là nguồn lịch sử; không độc lập nghiên cứu lại. Quân số 252.000/445.000 có nhãn nguồn; trên 2.000 chỉ đợt đầu,16.200 toàn chiến dịch; không đoán ngày đổi phương châm. Thư/nhân vật/ngày riêng là hư cấu; sáu SVG tiếp vận và victory-painting là minh họa sáng tác, không ảnh tư liệu/bản sao hiện vật. Không tải private PDF/transcript lên Git/website.
 
-## Nghiệm thu
+Bảo được sao từ current donor với font fixes, bảo toàn dữ liệu/renderer/art/CSS bằng deep comparison/body hash; original checkout/4180 không sửa. Cơ chế Room 2 Bảo được giữ theo yêu cầu, không thay bằng phiên bản puzzle khác trong PDF. [Provenance](../plans/261031-campaign-link/reports/room-two.md).
 
-23 kiểm thử Node và build Vite đạt; review không còn phát hiện chặn bàn giao. Đã chơi qua đủ bốn cửa tới kết với 10 manh mối bắt buộc, không cần manh mối hòa bình hoặc suy nghĩ nhập. Đã kiểm tra input/focus, camera/va chạm, âm thanh bằng PCM, tiếp tục ở bốn chương, reset/save lỗi, ba viewport và zoom Chrome 200%. Lượt chơi độc lập tới kết khi chặn mạng ngoài, storage getter ném lỗi và Web Audio không tồn tại trước boot.
+## Kiểm chứng và tiếp theo
 
-Bằng chứng: [QA game chính](../plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-qa.md), [QA cạnh biên](../plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-edge-qa.md), [review mã](../plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-code-review.md). Đây là kiểm tra game chính qua HTTP, tách với QA prototype.
+105/105 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [Full campaign QA](../plans/261031-campaign-link/reports/campaign-qa.md) qua năm exits/bốn mảnh thật/ghép/reflection trống/cửa/museum acknowledgment, ending/audio reload, archive 26 entries và reset giữ preview. Room 2 standalone/Room 5 component có phạm vi riêng, không thay full route. Git update sau kiểm chứng, không hosting. Chưa chứng nhận screen-reader/real-user timing/touch walking; giấy phép phân phối tài sản cần xác định.
 
-## Tham chiếu
-
-[README](../README.md) · [Phạm vi và nguồn truyện](game-proposal.md) · [Roadmap](project-roadmap.md) · [Kiến trúc](system-architecture.md)
+[Kế hoạch tích hợp](../plans/261031-campaign-link/plan.md) · [README](../README.md) · [Kiến trúc](system-architecture.md) · [Tiến độ](project-roadmap.md)

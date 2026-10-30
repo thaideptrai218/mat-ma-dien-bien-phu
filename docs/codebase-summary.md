@@ -1,35 +1,45 @@
 # Tóm tắt mã nguồn
 
-## Tổng quan
-
-Game chính dùng JavaScript ES modules, Phaser 3.90.0 và Vite 8.3.5. Không backend; trạng thái chạy trong trình duyệt, save qua localStorage. Mã mẫu trong `docs/wireframe/` độc lập với game chính.
-
-## Cấu trúc
+Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, JavaScript ES modules/Phaser 3.90.0/Vite 8.3.5, không backend. Preview 1–4 giữ private saves; donor Bảo 4180 bảo toàn.
 
 | Đường dẫn | Trách nhiệm |
 | --- | --- |
-| `index.html`, `src/styles.css` | Khung trang, vùng Phaser, HUD, native dialog và bố cục responsive. |
-| `src/main.js` | Khởi tạo Phaser 960×540, Scale.FIT, Arcade Physics và session. |
-| `src/app/game-session.js` | Nối state, scene, UI, storage, focus và audio; bắt đầu/tiếp tục/chuyển chương. |
-| `src/app/game-actions.js` | Nhận intent, ghi manh mối ở câu cuối, nộp câu đố, tương tác cửa và tùy chọn. |
-| `src/content/story-data.js` | Chương, lời Minh, manh mối, câu đố, đáp án, gợi ý và nguồn lịch sử. |
-| `src/content/world-data.js` | Sáu bản đồ theo dữ liệu: bảo tàng, bốn phòng, bảo tàng kết; tường, đồ vật, checkpoint và điểm tương tác. |
-| `src/core/game-rules.js` | State ban đầu, reducer và luật kiểm tra câu đố/mở chương. |
-| `src/core/save-validation.js`, `src/core/save-store.js` | Schema save version 1, xác minh tiến độ và xử lý lỗi storage. |
-| `src/core/world-geometry.js` | Footprint nhân vật, kiểm tra đường đi, checkpoint và tầm tương tác; không phụ thuộc Phaser. |
-| `src/game/` | Một AdventureScene, input theo focus, tranh phòng và sprite/animation vẽ bằng mã. |
-| `src/ui/` | HUD, dialog, lời kể, sổ tay/tư liệu, câu đố và menu HTML. |
-| `src/audio/` | Một AudioController và các giọng tổng hợp Web Audio, không có giọng đọc. |
-| `assets/images/` | Chân dung Minh, biểu trưng PNG cục bộ. |
-| `tests/` | Node test runner: luật chơi, save, tính nhất quán nội dung, hình học/điểm tương tác và vòng đời audio suspend/resume. |
-| `vite.config.js`, `package-lock.json` | Cổng dev/preview, build đường dẫn tương đối và phiên bản phụ thuộc khóa. |
+| `index.html`, `src/campaign/main.js` | Bootstrap chiến dịch/bảo tàng, đợi font. |
+| `src/campaign/runtime.js`, `session-host.js` | Một session/Game tại một thời điểm, lazy imports, queue/epoch, await destroy, shared audio/parent pause. |
+| `src/campaign/state.js`, `store.js` | Envelope campaign, sanitize chuỗi exit, suy ra mảnh/current room/phase, adapter storage và shared settings. |
+| `src/campaign/ui.js`, `archive.js`, `framing.js`, `styles.css` | Header/mục tiêu/kho mảnh, sổ toàn văn xuyên phòng, restart, museum intro/return/acknowledgment. |
+| `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html` | Bốn preview độc lập; không auto-import thành tích vào campaign. |
+| `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/A-03/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
+| `src/room-one/{letter-document,documents,nava-context,content}.js` | Văn xuôi lịch sử 1950–7/1953, N-01 riêng sau identity, nguồn/hư cấu và suy nghĩ Quang. |
+| `src/room-one/{world,art,scene,input}.js` | 2400×1600; scene cấu hình world/art/key/goal, input/focus/physics/animation 260/390 tái dùng. |
+| `src/room-one/{ui,ui-panels,ui-puzzles,ui-map,document-reader}.js` | Shell, native dialog/reader, mini/full map, settings và panel factory cấu hình. |
+| `src/core/session-lifecycle.js` | Disposed guards, cleanup, shared-audio ownership, async idempotent Game DESTROY và deferred real-door onExit. |
+| `src/room-two/{session,actions,rules,save,ui,scene,archive}.js` | Adapter Bảo, clue/beat và puzzle prefix thật, fold cấp II, cửa đông, toàn văn cho global journal, key riêng. |
+| `src/room-two/bao/` | Story/world/source registries, donor snapshot/provenance hashes, renderer/evaluator/art/CSS giữ gốc hoặc chỉ đổi import. |
+| `src/room-three/{session,actions,rules,save,goals,answers,puzzle-data}.js` | Năm giấy/bốn hoạt động xen kẽ, validators ngữ nghĩa, token, khóa ngày/rương/pickup III/cửa, graph restore. |
+| `src/room-three/{documents,content,world,art,scene}.js` | Năm giấy đầy đủ, trại 3200×2000 và 14 vật, lớp rương/mảnh theo state. |
+| `src/room-three/*-panel.js`, `puzzle-controls.js`, `ui.js`, `panels.js`, `puzzles.js`, `styles.css` | Phân nhóm chuẩn bị, sáu cặp, thẻ mật lệnh, tin mở màn, draft/token/notebook. |
+| `assets/room-three/*.svg` | Sáu minh họa hậu cần tự vẽ, không ảnh tư liệu. |
+| `src/room-four/` | Trâm 2800×1800, bảy giấy/ô chữ 17 cột/T-L/câu cuối/rương/pickup IV/cửa; nội dung và cơ chế giữ nguyên khi nối. |
+| `src/room-five/{session,actions,rules,save,world,scene,art}.js` | Room 5 chỉ trong campaign: actual fragments→assembly→reflection→physical exit, lifecycle chung. |
+| `src/room-five/{content,panels,archive}.js`, `room-five.css` | Tranh 2×2, cuộc trò chuyện, ô cá nhân không gửi/lưu, archive lời Quang. |
+| `assets/images/victory-painting.svg` | Một tranh sáng tác dùng xuyên museum intro/assembly/return. |
+| `src/ui/room-links.js`, `font-styles.css`, `game-fonts.js`, `assets/fonts/` | Preview links, font cục bộ và hàng rào đợi font Canvas. |
+| `src/core/world-geometry.js`, `src/game/character-animation.js`, `src/audio/` | Geometry/tầm E, animation và Web Audio chung, gồm cue Bảo. |
+| `tests/campaign-*.test.js`, `tests/session-lifecycle.test.js` | Global graph/storage/archive/host, destroy-before-create, stale/reset/import guards. |
+| `tests/room-*.test.js`, `tests/audio-controller.test.js`, `tests/game-fonts.test.js` | Nội dung/nguồn, luật/session/save, donor fidelity, world, ảnh/font/audio và Room 5. |
+| `vite.config.js` | Năm entry: campaign+preview 1–4;5173 dev/4173 preview, Phaser chunk dùng chung. |
 
-## Hợp đồng kiểm tra
+## Hợp đồng cần giữ
 
-`window.gameDebug.getSnapshot()` chỉ trả bản sao trạng thái để quan sát state/scene/audio/modal; không có API dịch chuyển hoặc tự giải câu đố. Không dùng API kiểm tra Canvas prototype làm hợp đồng cho game chính.
+UI không cấp tiến độ, scene không ghi storage; controller kiểm tra active view/token/parent pause/disposal. Session nhận optional storage/audio/isPaused/onExit, không lấy save preview khi campaign đã inject adapter. Parent await destroy thực trước khi tái dùng root, giữ một shared audio context. Diagnostics trả bản clone, không setter gameplay.
 
-`npm test` kiểm tra logic thuần; `npm run build` kiểm tra gói tĩnh. Các kiểm tra đó không thay chơi thực tế cho DOM/focus, Phaser, cảm giác camera và âm thanh.
+Campaign key `mat-ma-dien-bien-phu:campaign:v1` chỉ nhận snapshot phòng đã sanitize/chuỗi exit liên tục. Mảnh suy từ chest I/fold II/pickup III-IV; Room 5 cần cả bốn và các cửa trước. Suy nghĩ cá nhân không có trong intents/save. Current-room reset giữ trước, global new game chỉ campaign; preview 1–4 và donor giữ riêng, không migration.
 
-## Tham chiếu
+Room 2 bản sao bảo toàn bảy clues/chín beats/bốn puzzles, exact map/gate/renderer/art/CSS; donor nguồn và 4180 không bị sửa. Bản app/map museum cũ và chapter-four.html vẫn nghỉ sử dụng; campaign mới tái dùng canonical sessions, không gọi legacy progression.
 
-[Kiến trúc](system-architecture.md) · [Quy ước mã](code-standards.md) · [Chạy và build](deployment-guide.md)
+## Trạng thái kiểm chứng
+
+105/105 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [QA thật](../plans/261031-campaign-link/reports/campaign-qa.md) qua museum→1–5→return/ack với earned fragments, archive 26 entries, shared audio/reload/reset và clone diagnostics. [Room 2 preview QA](../plans/261031-campaign-link/reports/room-two-qa.md)/[Room 5 component QA](../plans/261031-campaign-link/reports/final-room.md) ghi phạm vi riêng. Git update sau verification, chưa hosting.
+
+[Kiến trúc](system-architecture.md) · [Kế hoạch](../plans/261031-campaign-link/plan.md) · [Lifecycle](../plans/261031-campaign-link/reports/lifecycle.md) · [Bảo toàn Bảo](../plans/261031-campaign-link/reports/room-two.md)
