@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Bức tranh chiến thắng — minh họa sáng tác cho Mật mã Điện Biên Phủ</title>
+  <desc id="description">Lá cờ đỏ sao vàng tung bay trên hầm giữa núi đồi. Người lính và dân công gặp nhau trong ánh sáng chiều. Tranh vector nguyên bản của dự án, không phải ảnh tư liệu hoặc bản sao tranh bảo tàng.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#41686e"/><stop offset=".56" stop-color="#c8c6a0"/><stop offset="1" stop-color="#ebcc85"/></linearGradient>
+    <linearGradient id="earth" x2="0" y2="1"><stop stop-color="#9e8659"/><stop offset="1" stop-color="#3a4a3b"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#fff2bb" stop-opacity=".7"/><stop offset="1" stop-color="#f4d492" stop-opacity="0"/></radialGradient>
+    <pattern id="grain" width="27" height="23" patternUnits="userSpaceOnUse"><path d="M2 5h3m11 10h5M8 22h2" stroke="#f9e6ba" stroke-opacity=".11"/></pattern>
+    <g id="person">
+      <ellipse cy="100" rx="36" ry="12" fill="#203c34" opacity=".4"/>
+      <path d="M-14 36-23 98h17L5 56 18 99h17L21 35" fill="#435a42" stroke="#263c31" stroke-width="4"/>
+      <path d="M-28-20Q-8-35 19-20L31 42Q4 55-24 40Z" fill="#718165" stroke="#344d3c" stroke-width="4"/>
+      <path d="M-20-17-48 19-40 28-10 4M16-16 49 12 42 23 13 8" fill="#77866a" stroke="#344d3c" stroke-width="4"/>
+      <path d="m-44 18-8 11 8 7 10-11M44 15l12 6-4 10-14-7" fill="#c89f70"/>
+      <path d="M-7-20V-37H9v18" fill="#c69e72"/>
+      <ellipse cy="-48" rx="19" ry="23" fill="#d2af7d"/>
+      <path d="M-22-53Q-20-82 4-80 26-76 25-52L-4-47Z" fill="#6f805e" stroke="#314b3b" stroke-width="3"/>
+      <path d="m-24-52 48-3 8 8-49 7Z" fill="#87936b"/>
+      <path d="M-5-43h3m13-2h3M0-30q7 5 13-1" fill="none" stroke="#6c543e" stroke-width="2"/>
+      <path d="m-18-14 38 51M-23 24l47 1" stroke="#c6b077" stroke-width="6"/>
+    </g>
+    <g id="grass"><path d="m0 0-11-29M0 0 8-37M0 0 18-17" stroke="#6d8055" stroke-width="4" fill="none"/></g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v800H0z"/>
+  <ellipse cx="758" cy="335" rx="430" ry="355" fill="url(#light)"/>
+  <g fill="#ece4bf" opacity=".42"><path d="M68 106q113-77 224-5 112-40 193 21-212-8-417-16Z"/><path d="M767 76q104-45 204 13 100-22 174 25-167 4-378-38Z"/></g>
+  <path d="m0 337 95-92 79 38 116-139 122 150 83-57 134 76 111-177 103 103 80-41 177 116v213H0Z" fill="#718b7d"/>
+  <path d="m0 406 169-98 106 69 130-98 127 129 183-91 85 69 109-109 111 115 180-45v195H0Z" fill="#557363"/>
+  <path d="m0 467 170-51 182 22 139-64 189 84 176-39 162 49 182-61v393H0Z" fill="url(#earth)"/>
+  <g stroke="#cbb47a" stroke-width="3" opacity=".65"><path d="m0 512 165-41 116 11m646 15 144-47 129 15M37 571l132-35 92 12m666-2 176-32 97 10"/></g>
+  <!-- The central roof and its timbers are an invented composition, not a site reconstruction. -->
+  <path d="m330 547 94-122 348-11 126 128-55 97-437-6Z" fill="#5c6348" stroke="#374b3a" stroke-width="9"/>
+  <path d="m344 540 92-97 327-11 115 103Z" fill="#a09265"/>
+  <g stroke="#5e694c" stroke-width="12"><path d="m382 524 75-79m-22 87 76-90m-13 91 67-93m-7 97 71-102m-9 102 63-102m-2 105 47-105m14 106 37-87m24 89 20-57"/></g>
+  <path d="M435 555h101v82H435z" fill="#243d34"/><path d="M425 548h124v19H425z" fill="#b59b66"/>
+  <g fill="#a29367" stroke="#5e684d" stroke-width="4"><rect x="322" y="574" width="99" height="26" rx="13"/><rect x="311" y="604" width="99" height="26" rx="13"/><rect x="548" y="580" width="105" height="27" rx="13"/><rect x="649" y="580" width="105" height="27" rx="13"/><rect x="598" y="610" width="105" height="27" rx="13"/><rect x="707" y="610" width="105" height="27" rx="13"/></g>
+  <path d="m603 488-9-341" stroke="#e2c38a" stroke-width="9"/>
+  <path d="M598 152c75-46 133 25 242-7l-2 141c-99 36-164-40-236 4Z" fill="#b94335" stroke="#713e30" stroke-width="4"/>
+  <path d="m709 177 12 30 33 1-25 21 9 32-28-18-27 20 8-33-27-19 34-3Z" fill="#f2d277"/>
+  <path d="M605 162q40-25 77-12m74 12q43 14 74-4M609 274q36-19 66-8" stroke="#d75d45" stroke-width="5" fill="none"/>
+  <use href="#person" transform="translate(593 410) scale(.92)"/>
+  <path d="m609 399 24-39-13-38" stroke="#718165" stroke-width="18" fill="none"/>
+  <path d="m620 327-6-13 5-9 7 9 1 13" fill="#d2af7d"/>
+  <use href="#person" transform="translate(736 459) scale(.73)"/>
+  <path d="m716 445-26-27-21-2" stroke="#7e8c6a" stroke-width="14" fill="none"/>
+  <g transform="translate(102 583)">
+    <path d="m-17 44-15 109h19L8 78l12 75h19L24 42" fill="#3d5751"/>
+    <path d="M-31-18Q1-35 29-12l10 63-67 4Z" fill="#b49b69" stroke="#5c6549" stroke-width="4"/>
+    <ellipse cy="-47" rx="20" ry="25" fill="#c6a174"/>
+    <path d="m-38-51 35-32 43 29Z" fill="#d3c295" stroke="#7c815b" stroke-width="3"/>
+    <path d="m-24-13-25 51m75-48 27 26" stroke="#b49b69" stroke-width="18"/>
+    <path d="m-64-2 127-29" stroke="#d5be87" stroke-width="7"/>
+    <path d="m-57 0-8 50m121-76 15 54" stroke="#c8b483" stroke-width="3"/>
+    <path d="M-87 43q25-17 46-5l6 39h-60ZM49 22q24-13 45 0l8 33H43Z" fill="#7c7753" stroke="#c4ac77" stroke-width="3"/>
+  </g>
+  <use href="#person" transform="translate(270 606) scale(1.1)"/>
+  <use href="#person" transform="translate(924 573) scale(1.16)"/>
+  <g transform="translate(1081 605)">
+    <path d="m-15 36-14 111h20L8 78l17 67h18L24 34" fill="#3c5550"/>
+    <path d="m-27-17 48-2 17 69-65 6Z" fill="#a49a76" stroke="#4f6655" stroke-width="4"/>
+    <path d="m-23-12-29 40M21-13l-20 38-38 7" fill="none" stroke="#a49a76" stroke-width="18"/>
+    <ellipse cy="-45" rx="20" ry="24" fill="#d0a777"/>
+    <path d="M-22-47q-2-34 30-27 24 10 14 34l-13-19-30 15Z" fill="#344b3d"/>
+    <path d="M-3-26 5-19l9-9" fill="#b54d39"/>
+    <path d="m-9-19 22 55" stroke="#cbb782" stroke-width="5"/>
+  </g>
+  <path d="M0 755q130-42 278 0 146-49 311 7 166-50 305-10 154-39 306-3v51H0Z" fill="#344d3d"/>
+  <g><use href="#grass" x="70" y="783"/><use href="#grass" x="340" y="758"/><use href="#grass" x="679" y="789"/><use href="#grass" x="863" y="770"/><use href="#grass" x="1164" y="787"/></g>
+  <path fill="url(#grain)" d="M0 0h1200v800H0z"/>
+  <path d="M9 9h1182v782H9z" fill="none" stroke="#dfc58d" stroke-width="18"/>
+  <path d="M22 22h1156v756H22z" fill="none" stroke="#697558" stroke-width="3"/>
+</svg>

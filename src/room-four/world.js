@@ -1,0 +1,53 @@
+// An archival learning room: positions express the reading route, not battlefield geography.
+// Interaction anchors sit over furniture; their 110px approaches remain on walkable floor.
+export const WORLD = Object.freeze({
+  id: 'room-four', width: 2800, height: 1800,
+  walls: [
+    [0, 0, 2800, 48], [0, 1752, 2800, 48],
+    [0, 48, 48, 1704], [2752, 48, 48, 1704],
+    [830, 414, 330, 30], [1640, 414, 330, 30],
+    [1120, 796, 28, 292], [1652, 796, 28, 292],
+  ],
+  props: [
+    {x: 1300, y: 48, w: 200, h: 55, kind: 'door'},
+    {x: 1260, y: 194, w: 280, h: 92, kind: 'crossword'},
+    {x: 976, y: 524, w: 208, h: 92, kind: 'cipher', station: 'T'},
+    {x: 1616, y: 524, w: 208, h: 92, kind: 'cipher', station: 'L'},
+    {x: 1312, y: 890, w: 176, h: 120, kind: 'chest'},
+    {x: 250, y: 1292, w: 220, h: 76, kind: 'case', station: '01'},
+    {x: 220, y: 716, w: 220, h: 88, kind: 'case', station: '02'},
+    {x: 510, y: 276, w: 220, h: 88, kind: 'case', station: '03'},
+    {x: 2070, y: 276, w: 220, h: 88, kind: 'case', station: '04'},
+    {x: 2360, y: 716, w: 220, h: 88, kind: 'case', station: '05'},
+    {x: 2310, y: 1276, w: 220, h: 88, kind: 'case', station: '06'},
+    {x: 1660, y: 1496, w: 220, h: 88, kind: 'case', station: '07'},
+    {x: 858, y: 1166, w: 44, h: 48, kind: 'lamp'},
+    {x: 1980, y: 1080, w: 140, h: 80, kind: 'radio'},
+    {x: 110, y: 188, w: 88, h: 320, kind: 'shelf'},
+    {x: 2600, y: 188, w: 88, h: 320, kind: 'shelf'},
+    {x: 110, y: 930, w: 88, h: 210, kind: 'shelf'},
+    {x: 2600, y: 930, w: 88, h: 210, kind: 'shelf'},
+    {x: 420, y: 1620, w: 320, h: 70, kind: 'shelf'},
+    {x: 2110, y: 1620, w: 260, h: 70, kind: 'shelf'},
+  ],
+  exits: [],
+  checkpoints: [{id: 'entry', x: 1400, y: 1630}],
+  objects: [
+    {id: 'east-offensive', label: '01 · Những ngày vây lấn', x: 360, y: 1330, type: 'document'},
+    {id: 'final-assault', label: '02 · Đợt tiến công cuối', x: 330, y: 760, type: 'document'},
+    {id: 'a1', label: '03 · Đêm trên đồi A1', x: 620, y: 320, type: 'document'},
+    {id: 'headquarters', label: '04 · Sở chỉ huy trung tâm', x: 2180, y: 320, type: 'document'},
+    {id: 'results', label: '05 · Kết quả chiến dịch', x: 2470, y: 760, type: 'document'},
+    {id: 'north', label: '06 · Miền Bắc sau Genève', x: 2420, y: 1320, type: 'document'},
+    {id: 'independence', label: '07 · Độc lập dân tộc', x: 1770, y: 1540, type: 'document'},
+    {id: 'crossword', label: 'Bảng ô chữ lịch sử', x: 1400, y: 240, type: 'crossword'},
+    {id: 'board-t', label: 'Bàn mật mã T', x: 1080, y: 570, type: 'board'},
+    {id: 'board-l', label: 'Bàn mật mã L', x: 1720, y: 570, type: 'board'},
+    {id: 'chest', label: 'Rương mảnh tranh thứ tư', x: 1400, y: 950, type: 'chest'},
+    {id: 'door', label: 'Cửa ký ức', x: 1400, y: 100, type: 'door'},
+    {id: 'lamp', label: 'Ngọn đèn lưu trữ', x: 880, y: 1190, type: 'prop'},
+    {id: 'radio', label: 'Máy điện đài', x: 2050, y: 1120, type: 'prop'},
+  ].map(object => Object.freeze({...object, radius: 110})),
+});
+
+export const OBJECTS = WORLD.objects;

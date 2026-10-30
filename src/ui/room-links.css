@@ -1,0 +1,3 @@
+.r1-header-tools{flex-wrap:wrap}
+.r1-room-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:inherit;min-height:44px}
+@media(max-width:650px){.r1-header-tools{justify-content:flex-start}.r1-room-link{min-height:33px}.r1-header-tools .r1-header-button{flex:0 0 auto}}

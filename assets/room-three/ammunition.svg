@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#f2e8cf"/>
+  <path d="M60 333Q294 304 550 340L511 365L107 369Z" fill="#788369" opacity=".22"/>
+  <g stroke="#76623e" stroke-width="4" stroke-linejoin="round">
+    <path d="M74 205L294 171L385 218L164 255Z" fill="#bbaa7d"/>
+    <path d="M74 205L164 255V342L75 291Z" fill="#94734d"/>
+    <path d="M164 255L385 218V309L164 342Z" fill="#b38b56"/>
+    <path d="M90 218L148 251M90 244L148 276M90 268L148 301M177 275L372 244M177 299L371 269M177 323L372 293" fill="none" stroke-width="2"/>
+    <path d="M115 199L138 195L229 244V331L207 334V251ZM309 179L331 190L330 317L309 320V231L287 218" fill="#788369"/>
+    <path d="M225 274L287 264V288L225 298Z" fill="#283f41"/>
+    <path d="M240 280L271 275" fill="none" stroke="#c7b184" stroke-width="4"/>
+    <path d="M75 195L294 160L362 116L143 151Z" fill="#bbaa7d"/>
+    <path d="M75 195L143 151L144 140L74 182Z" fill="#94734d"/>
+    <path d="M96 182L308 148M119 166L331 132" fill="none" stroke-width="2"/>
+  </g>
+  <g stroke="#283f41" stroke-width="4" stroke-linejoin="round">
+    <path d="M398 305L398 187Q401 153 420 127Q441 153 443 187V305Z" fill="#788369"/>
+    <path d="M453 321V203Q456 169 475 142Q497 169 500 203V321Z" fill="#a8a17b"/>
+    <path d="M398 286H443V305H398ZM453 300H500V321H453Z" fill="#b38b56"/>
+    <path d="M399 192H442M454 208H499M410 160L409 278M466 178L465 293" fill="none" stroke="#c7b184" stroke-width="3"/>
+    <path d="M190 223L190 198Q194 183 202 174Q211 183 214 198V219M229 216L229 192Q232 177 241 168Q249 177 252 192V212M269 210V185Q272 171 280 161Q289 171 292 185V206" fill="#788369"/>
+  </g>
+  <g fill="#283f41"><circle cx="91" cy="220" r="3"/><circle cx="91" cy="279" r="3"/><circle cx="149" cy="259" r="3"/><circle cx="149" cy="321" r="3"/><circle cx="179" cy="269" r="3"/><circle cx="371" cy="237" r="3"/><circle cx="179" cy="327" r="3"/><circle cx="371" cy="299" r="3"/></g>
+  <path d="M56 352L91 354M513 338L544 335" fill="none" stroke="#b38b56" stroke-width="3"/>
+</svg>

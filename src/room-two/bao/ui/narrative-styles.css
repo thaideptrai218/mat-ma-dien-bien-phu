@@ -1,0 +1,23 @@
+.vn-dialog{color-scheme:dark;position:fixed;inset:auto 0 22px;margin:0 auto;width:min(1160px,calc(100% - 48px));max-height:calc(100dvh - 44px);padding:17px 24px 20px;background:#1c291f;color:#eee8d6;border-color:#b5a169;box-shadow:0 10px 40px #0a140ac9}
+.vn-dialog::backdrop{background:#0b130c77;backdrop-filter:none}
+.vn-dialog .dialog-top .eyebrow{color:#e4ba6b}
+.vn-dialog .dialog-close{color:#eee8d6;border-color:#77815a}
+.vn-dialog h2{font-size:23px;color:#e8dab1;margin:0 0 13px}
+.vn-layout{display:grid;grid-template-columns:180px minmax(0,1fr);gap:26px}
+.vn-portrait{display:flex;align-items:flex-end;justify-content:center;min-height:225px;background:radial-gradient(ellipse at 50% 80%,#83905a44,transparent 70%)}
+.vn-portrait img{display:block;width:180px;height:235px;object-fit:contain;object-position:bottom;image-rendering:pixelated}
+.vn-copy{min-width:0}
+.vn-speaker{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.vn-speaker strong{font:700 21px var(--display);letter-spacing:.12em;color:#e4ba6b}
+.vn-speaker span{font-size:11px;color:#c4c9ad;letter-spacing:.1em}
+.vn-text p{font-size:18px;line-height:1.7;margin:13px 0;color:#f1ecd9}
+.vn-text{min-height:94px}
+.vn-fiction{font-size:11px;line-height:1.7;color:#c1c6ac;margin:10px 0}
+.vn-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}
+.vn-dialog .vn-controls .quiet-button{color:#dedfc4;border-color:#75865a;font-size:13px}
+.vn-controls .primary-button{margin-left:auto;background:#d9bb78;color:#273323;border-color:#e2c487;font-size:14px}
+.vn-help{font-size:10px;color:#b9c4a5;line-height:1.7;margin:12px 0 0}
+.vn-dialog :is(button,a,[tabindex]):focus-visible{outline-color:#e4ba6b}
+@media(max-width:760px){
+ .vn-dialog{width:calc(100% - 24px);inset:auto 0 12px;max-height:calc(100dvh - 24px);padding:15px}.vn-dialog h2{font-size:22px;margin-top:7px}.vn-layout{grid-template-columns:76px minmax(0,1fr);gap:13px;align-items:start}.vn-portrait{min-height:126px;align-self:start}.vn-portrait img{width:84px;height:126px}.vn-speaker strong{font-size:19px}.vn-text p{font-size:17px;line-height:1.65}.vn-text{min-height:0}.vn-controls{margin-left:-89px;margin-top:20px}.vn-controls .primary-button{margin-left:0;flex:1;justify-content:center}.vn-dialog .vn-controls .quiet-button{flex:1;font-size:12px;padding:7px}.vn-fiction,.vn-help{margin-left:-89px}.vn-fiction{font-size:11px}
+}

@@ -3,32 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#171d18">
-  <link rel="icon" type="image/png" href="./assets/images/game-emblem.png">
-  <meta name="description" content="Theo chân Minh khám phá những dấu vết lịch sử và giải mật mã Điện Biên Phủ.">
-  <title>Mật mã Điện Biên Phủ</title>
+  <meta name="theme-color" content="#1e3127">
+  <meta name="description" content="Cùng Quang khám phá năm căn phòng, đọc những lá thư, giải mật mã lịch sử và hoàn thành bức tranh Điện Biên Phủ.">
+  <title>Mật mã Điện Biên Phủ · Hành trình của Quang</title>
 </head>
 <body>
-  <a class="skip-link" href="#game-host">Đến bản đồ khám phá</a>
-  <main class="game-shell">
-    <header class="game-header">
-      <div class="brand"><img data-brand-emblem width="60" height="60" alt=""><h1><span>MẬT MÃ</span>ĐIỆN BIÊN PHỦ</h1></div>
-      <nav aria-label="Bốn chương ký ức"><span class="journey-label">HÀNH TRÌNH TRỞ VỀ</span><ol id="chapter-progress" class="chapter-progress"></ol></nav>
-      <button class="quiet-button" data-ui-action="settings" aria-label="Mở tùy chọn và tạm dừng">Ⅱ <span>Tạm dừng</span></button>
-    </header>
-    <section class="mission-bar" aria-labelledby="chapter-title"><div><span class="eyebrow" id="chapter-kicker">BẢO TÀNG · HIỆN TẠI</span><h2 id="chapter-title">Một trang sổ còn mở</h2></div><p id="chapter-goal"></p><span id="clue-counter" class="clue-counter" aria-label="Manh mối đã ghi">0 / 0</span></section>
-    <section class="map-frame" aria-label="Bản đồ khám phá">
-      <div id="game-host" tabindex="0" role="region" aria-label="Bản đồ trò chơi, di chuyển bằng WASD hoặc phím mũi tên" aria-describedby="movement-help"></div>
-      <div class="map-topline"><span><i></i> KHÔNG GIAN KÝ ỨC</span><span>07 · 05 · 1954</span></div>
-      <div class="map-tools"><button class="quiet-button" data-ui-action="notebook">Sổ tay <kbd>N</kbd></button><button class="quiet-button" id="puzzle-button" data-ui-action="puzzle">Ghép hồ sơ ↗</button><button class="quiet-button" id="audio-button" data-ui-action="audio-toggle" aria-pressed="false">Bật âm thanh</button></div>
-      <button id="interaction-button" class="interaction-button" data-ui-action="interact" disabled><kbd>E</kbd><span>Đến gần một dấu vết</span><span aria-hidden="true">↗</span></button>
-      <div class="map-bottomline"><span>Khung cảnh minh họa, không phục dựng kiến trúc lịch sử</span><span id="room-status">THEO CHÂN MINH</span></div>
-    </section>
-    <footer class="game-footer"><button class="quiet-button" data-ui-action="focus-game">Đi vào bản đồ →</button><p id="movement-help"><strong>WASD / ↑ ↓ ← →</strong> Di chuyển · <strong>E</strong> Khám phá · <strong>N</strong> Sổ tay<span>Bấm bản đồ để đi · Tab chuyển sang các nút · Esc tạm dừng</span></p><button class="text-button" data-ui-action="backlog">Lời đã đọc</button><button class="text-button" data-ui-action="sources">Tư liệu</button></footer>
-  </main>
-  <dialog id="game-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-kicker" class="eyebrow"></span><button class="dialog-close" data-ui-action="close" aria-label="Đóng bảng">×</button></div><h2 id="dialog-title"></h2><div id="dialog-content"></div></dialog>
-  <div id="game-toast" class="game-toast" role="status" aria-live="polite" hidden></div>
-  <div id="game-announcement" class="sr-only" aria-live="polite"></div>
-  <script type="module" src="/src/main.js"></script>
+  <div id="app"></div>
+  <noscript>Hãy bật JavaScript để chơi Mật mã Điện Biên Phủ.</noscript>
+  <script type="module" src="/src/campaign/main.js"></script>
 </body>
 </html>

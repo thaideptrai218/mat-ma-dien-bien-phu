@@ -1,0 +1,48 @@
+/* Full local font files keep Vietnamese marks in the same family as each base letter. */
+@font-face {
+  font-family: 'DBP Hand';
+  src: url('../../assets/fonts/patrick-hand-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DBP Text';
+  src: url('../../assets/fonts/BeVietnamPro-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DBP Text';
+  src: url('../../assets/fonts/BeVietnamPro-SemiBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DBP Text';
+  src: url('../../assets/fonts/BeVietnamPro-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DBP Display';
+  src: url('../../assets/fonts/lora-variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DBP Display';
+  src: url('../../assets/fonts/lora-italic-variable.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+}

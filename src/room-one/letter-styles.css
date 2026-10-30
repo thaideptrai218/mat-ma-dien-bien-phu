@@ -1,0 +1,152 @@
+/* A paper object on an archive desk: tools never become part of the author's prose. */
+.r1-view-artifact {
+  --letter-ink: #273e59;
+  --letter-paper: #f2e5ca;
+  --letter-archive: #9d794a;
+  width: min(960px, calc(100vw - 20px));
+  height: min(880px, calc(100dvh - 20px));
+  max-height: calc(100dvh - 20px);
+  padding: 46px 18px 18px;
+  background: #e4d6ba;
+  border-color: #baa078;
+  overflow: auto;
+}
+.r1-view-artifact::backdrop { background: #111e1be3; }
+.r1-view-artifact .r1-modal-close {
+  min-height: 44px;
+  top: 0;
+  right: 10px;
+  color: #554733;
+  font-size: 12px;
+}
+.r1-document--artifact { min-width: 0; min-height: 0; height: 100%; display: flex; flex-direction: column; }
+.r1-document--artifact > :not(.r1-artifact-scroll) { flex-shrink: 0; }
+.r1-document--artifact .r1-document-heading { padding: 0 4px; }
+.r1-document--artifact .r1-document-heading .r1-eyebrow {
+  color: #765b38;
+  font-size: 10px !important;
+  margin-bottom: 6px;
+}
+.r1-document--artifact h2 { font-size: clamp(23px, 3.2vw, 33px); margin-bottom: 13px; }
+.r1-document-context { padding: 0 4px 14px; color: #5c503d; }
+.r1-document-context p { margin: 0; font-size: 11px; line-height: 1.6; }
+.r1-document-context .r1-fiction-disclosure { font-weight: 600; }
+.r1-document-context .r1-document-source { margin-top: 4px; }
+.r1-artifact-scroll {
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  max-height: none;
+  min-height: 100px;
+  padding: 22px 13px 12px;
+  background: #c4b18d;
+  background-image: linear-gradient(115deg, #a38c6933, transparent 50%, #745c3d22);
+  border: 1px solid #b49b74;
+  box-shadow: inset 0 3px 12px #5b43292b;
+  scrollbar-color: #816746 #d7c7a7;
+  user-select: text;
+}
+.r1-letter-envelope {
+  position: relative;
+  width: min(270px, 88%);
+  min-height: 115px;
+  margin: 0 3px -16px auto;
+  padding: 45px 28px 32px;
+  transform: rotate(3deg);
+  background: #d8c4a2;
+  border: 1px solid #af936c;
+  box-shadow: 1px 4px 7px #624a2e38;
+  color: #5d523e;
+}
+.r1-letter-envelope::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 54px;
+  background: linear-gradient(164deg, #e2cfad, #cbb38c);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  filter: drop-shadow(0 1px 0 #9b8058);
+}
+.r1-envelope-label { display: block; font: 10px/1.5 'DBP Text', sans-serif; }
+.r1-envelope-address { display: block; font: 22px/1.35 'DBP Hand', 'DBP Display', serif; }
+.r1-artifact-sheet {
+  position: relative;
+  max-width: 730px;
+  margin: 0 auto;
+  padding: 31px 24px 38px;
+  background-color: var(--letter-paper);
+  background-image: linear-gradient(90deg, #ad8d5730, transparent 8%, transparent 94%, #9d794a21),
+    linear-gradient(0deg, #a78a5b16, transparent 15%, #fff7e112 70%, #a78a5b0d);
+  border: 1px solid #c5af89;
+  box-shadow: 0 2px 3px #725d4030, 3px 7px 15px #634d3238;
+  color: var(--letter-ink);
+  overflow-wrap: break-word;
+}
+/* Fold impressions lie on the paper, behind selectable text; no artificial torn edge. */
+.r1-artifact-sheet::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(90deg, transparent calc(50% - 2px), #9d794a0b 50%, #fff9e737 calc(50% + 1px), transparent calc(50% + 3px)),
+    linear-gradient(0deg, transparent 33%, #92734310 33.15%, #fff9e757 33.3%, transparent 33.6%, transparent 66%, #92734310 66.15%, #fff9e752 66.3%, transparent 66.6%);
+  pointer-events: none;
+}
+.r1-artifact-sheet > * { position: relative; z-index: 1; }
+.r1-artifact-sheet p {
+  font: 400 19px/1.65 'DBP Hand', 'DBP Display', serif;
+  letter-spacing: normal;
+  margin: 0 0 21px;
+}
+.r1-artifact-sheet .r1-letter-date { text-align: right; margin-bottom: 32px; }
+.r1-artifact-sheet .r1-letter-salutation,
+.r1-artifact-sheet .r1-letter-recipient { margin-bottom: 25px; }
+.r1-artifact-sheet .r1-artifact-prose p { text-indent: 1.25em; }
+.r1-letter-signoff { margin: 29px 0 0 auto; max-width: 75%; text-align: right; }
+.r1-letter-signoff .r1-letter-closing { margin-bottom: 6px; }
+.r1-letter-signoff .r1-letter-signature { margin-bottom: 0; font-size: 29px; line-height: 1.35; }
+.r1-artifact-sheet--journal { background-color: #efe4c9; }
+.r1-artifact-sheet--journal .r1-letter-date { text-align: left; border-bottom: 1px solid #b3a18180; padding-bottom: 14px; }
+.r1-artifact-sheet--report { background-color: #eee5d2; }
+.r1-artifact-sheet--report p { font: 400 16px/1.85 'DBP Text', sans-serif; }
+.r1-artifact-sheet--report .r1-report-title { font: 600 22px/1.4 'DBP Display', serif; text-align: center; margin: 0 0 28px; }
+.r1-artifact-sheet--report .r1-letter-signature { font: 600 17px/1.6 'DBP Text', sans-serif; }
+.r1-letter-archive {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 730px;
+  margin: 22px auto 0;
+  padding: 14px 16px;
+  background: #eee1c4;
+  border-left: 3px solid var(--letter-archive);
+  color: #665135;
+}
+.r1-archive-mark { flex-shrink: 0; font: 600 27px/1.2 'DBP Display', serif; }
+.r1-letter-archive p { font: 400 12px/1.6 'DBP Text', sans-serif; margin: 0; }
+.r1-artifact-scroll .r1-document-end { font: 400 11px/1.6 'DBP Text', sans-serif; color: #58472f; margin: 22px 0 2px; }
+.r1-document--artifact .r1-document-footer { border-color: #baa17c; margin-top: 14px; padding-top: 14px; gap: 12px; }
+.r1-document--artifact .r1-document-footer .r1-muted { font-size: 11px; color: #5d503c; }
+.r1-document--artifact .r1-primary { background: var(--letter-ink); border-color: var(--letter-ink); color: #fff6e5; }
+.r1-document--artifact .r1-primary:hover:not(:disabled) { background: #355574; border-color: #355574; }
+.r1-artifact-scroll ::selection { background: #c5b68d; color: #19364c; }
+@media (min-width: 651px) {
+  .r1-view-artifact { width: min(960px, calc(100vw - 40px)); height: min(880px, calc(100dvh - 32px)); max-height: calc(100dvh - 32px); padding: 45px 35px 22px; }
+  .r1-document-context { max-width: 790px; }
+  .r1-artifact-scroll { padding: 28px 38px 15px; }
+  .r1-artifact-sheet { padding: 46px 55px 48px; }
+  .r1-artifact-sheet p { font-size: 21px; line-height: 1.65; margin-bottom: 24px; }
+  .r1-artifact-sheet--report p { font-size: 17px; line-height: 1.85; }
+  .r1-letter-signoff .r1-letter-signature { font-size: 33px; }
+  .r1-letter-envelope { margin-right: 20px; min-height: 126px; padding-top: 49px; }
+  .r1-document--artifact .r1-document-footer { display: flex; }
+}
+@media (max-width: 400px) {
+  .r1-view-artifact { padding-inline: 11px; }
+  .r1-artifact-scroll { padding-inline: 9px; }
+  .r1-artifact-sheet { padding-inline: 19px; }
+  .r1-document--artifact .r1-document-footer .r1-button { min-height: 46px; }
+}
+@media (max-height: 620px) and (min-width: 651px) {
+  .r1-view-artifact { padding-top: 40px; }
+}
