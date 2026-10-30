@@ -32,10 +32,10 @@ function drawPose(ctx,x,facing,pose,reduced){
   }
   ctx.restore();
 }
-export function characterAnimationKey(facing,walking,reduced=false){return `minh-${reduced?'steady':'normal'}-${facing}-${walking?'walk':'idle'}`;}
+export function characterAnimationKey(facing,walking,reduced=false){return `quang-${reduced?'steady':'normal'}-${facing}-${walking?'walk':'idle'}`;}
 export function registerCharacterAnimations(scene){
   for(const reduced of [false,true]){
-    const texture=`minh-${reduced?'steady':'normal'}`;
+    const texture=`quang-${reduced?'steady':'normal'}`;
     if(!scene.textures.exists(texture)){
       const canvas=document.createElement('canvas');canvas.width=64*20;canvas.height=96;
       const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
