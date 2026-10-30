@@ -12,6 +12,7 @@ export class RoomThreeScene extends RoomOneScene {
   create() {
     if (this.tornDown) return;
     super.create();
+    if (this.tornDown || !this.player) return;
     this.chestOverlay = this.add.graphics().setDepth(-10);
     this.fragmentLabel = this.add.text(2390, 1738, 'III', {
       fontFamily: '"DBP Text", serif', fontSize: '22px', color: '#694c30', fontStyle: 'bold',

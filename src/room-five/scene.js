@@ -10,7 +10,7 @@ export class RoomFiveScene extends RoomOneScene {
   }
   create() {
     super.create();
-    if (this.disposed || this.tornDown) return;
+    if (this.disposed || this.tornDown || !this.player) return;
     this.doorOverlay = this.add.graphics().setDepth(-10); this.drawDoor();
   }
   setDoorOpen(open) {

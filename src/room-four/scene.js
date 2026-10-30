@@ -12,6 +12,7 @@ export class RoomFourScene extends RoomOneScene {
   create() {
     if (this.tornDown) return;
     super.create();
+    if (this.tornDown || !this.player) return;
     this.chestOverlay = this.add.graphics().setDepth(-10);
     this.drawChest();
   }

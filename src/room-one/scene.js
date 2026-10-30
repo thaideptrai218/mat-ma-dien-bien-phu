@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
-import {PLAYER_BODY, collisionRects, nearbyTarget} from '../core/world-geometry.js';
-import {registerCharacterAnimations, characterAnimationKey, CHARACTER_FRAME} from '../game/character-animation.js';
+import {collisionRects, nearbyTarget} from '../core/world-geometry.js';
+import {preloadCharacter, releaseCharacterLoader, registerCharacterAnimations, characterAnimationKey, characterSnapshot,
+  CHARACTER_TEXTURE, CHARACTER_FRAME} from '../game/character-animation.js';
 import {WORLD} from './world.js';
 import {createRoomOneArtwork} from './art.js';
 import {bindRoomOneInput, movementVelocity} from './input.js';
@@ -11,14 +12,32 @@ export class RoomOneScene extends Phaser.Scene {
     super({key: sceneKey});
     this.callbacks = callbacks; this.map = world; this.heldKeys = new Set();
     this.artFactory = artFactory; this.textureKey = textureKey;
-    this.facing = 'up'; this.sprinting = false; this.walking = false;
+    this.facing = 'down'; this.sprinting = false; this.walking = false; this.motion = 'idle';
     this.windowFocused = true; this.nearby = null; this.goalId = initialGoal;
     this.lastPosition = null; this.didPhysicsStep = false; this.lastPublish = -Infinity;
   }
 
+  preload() {
+    if (this.tornDown) return;
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.teardown());
+    preloadCharacter(this);
+  }
+
   create() {
     if (this.tornDown) return;
-    registerCharacterAnimations(this);
+    try { registerCharacterAnimations(this); }
+    catch (error) {
+      this.characterError = error.message;
+      this.physics.pause();
+      const notice=this.add.text(this.scale.width/2, this.scale.height*.58, 'Không tải được nhân vật Quang.\nHãy tải lại trang để thử lại.', {
+        fontFamily:'"DBP Text", sans-serif', fontSize:'18px', color:'#fff1c9', backgroundColor:'#172d24',
+        padding:{x:18,y:18}, wordWrap:{width:Math.max(160, Math.min(480,this.scale.width-80))},
+      }).setOrigin(.5).setScrollFactor(0).setDepth(1000);
+      this.resizeCamera=size=>notice.setPosition(size.width/2,size.height*.58);
+      this.scale.on(Phaser.Scale.Events.RESIZE,this.resizeCamera);
+      return;
+    } finally { releaseCharacterLoader(this); }
+    this.reducedMotion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
     this.add.image(0, 0, this.artFactory(this, this.map, this.textureKey)).setOrigin(0).setDepth(-20);
     this.solids = this.physics.add.staticGroup();
     for (const [x, y, w, h] of collisionRects(this.map)) {
@@ -27,9 +46,9 @@ export class RoomOneScene extends Phaser.Scene {
     }
     const spawn = this.map.checkpoints[0];
     this.shadow = this.add.ellipse(spawn.x, spawn.y + 4, 34, 13, 0x18221b, .5).setDepth(2);
-    this.player = this.physics.add.sprite(spawn.x, spawn.y, 'minh-normal', 15)
-      .setOrigin(CHARACTER_FRAME.originX, CHARACTER_FRAME.originY).setDepth(5);
-    this.player.body.setSize(PLAYER_BODY.width, PLAYER_BODY.height, false)
+    this.player = this.physics.add.sprite(spawn.x, spawn.y, CHARACTER_TEXTURE, 0)
+      .setOrigin(CHARACTER_FRAME.originX, CHARACTER_FRAME.originY).setScale(CHARACTER_FRAME.scale).setDepth(5);
+    this.player.body.setSize(CHARACTER_FRAME.bodyWidth, CHARACTER_FRAME.bodyHeight, false)
       .setOffset(CHARACTER_FRAME.bodyOffsetX, CHARACTER_FRAME.bodyOffsetY);
     this.player.setCollideWorldBounds(true); this.player.body.setMaxVelocity(390, 390);
     this.physics.world.setBounds(0, 0, this.map.width, this.map.height);
@@ -55,8 +74,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.events.on(Phaser.Scenes.Events.POST_UPDATE, this.afterPhysics, this);
     this.resizeCamera = size => camera.setSize(size.width, size.height);
     this.scale.on(Phaser.Scale.Events.RESIZE, this.resizeCamera);
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.teardown());
-    this.player.play(characterAnimationKey(this.facing, false));
+    this.player.play(characterAnimationKey(this.facing, 'idle'));
     this.setGoal(this.goalId); this.updateNearby(); this.publishPosition(true);
     this.callbacks.onReady?.(this);
   }
@@ -72,12 +90,11 @@ export class RoomOneScene extends Phaser.Scene {
   }
 
   clearKeys() {
-    this.heldKeys.clear(); this.sprinting = false; this.walking = false;
+    this.heldKeys.clear(); this.sprinting = false; this.walking = false; this.motion = 'idle';
     this.player?.body?.setVelocity(0, 0);
     if (this.player?.anims) {
       this.lastPosition = {x: this.player.x, y: this.player.y};
-      this.player.play(characterAnimationKey(this.facing, false), true);
-      this.player.anims.timeScale = 1;
+      this.player.play(characterAnimationKey(this.facing, 'idle'), true);
     }
     this.callbacks.audio?.reportMotion({distance: 0, blocked: true});
   }
@@ -98,8 +115,8 @@ export class RoomOneScene extends Phaser.Scene {
     const distance = this.motionUnavailable() ? 0 : Math.hypot(dx, dy);
     this.walking = distance > .01;
     if (this.walking) this.facing = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up');
-    this.player.play(characterAnimationKey(this.facing, this.walking), true);
-    this.player.anims.timeScale = this.sprinting && this.walking ? 1.5 : 1;
+    this.motion = this.walking ? (this.sprinting ? 'run' : 'walk') : 'idle';
+    this.player.play(characterAnimationKey(this.facing, this.motion, this.reducedMotion?.matches), true);
     this.shadow.setPosition(point.x, point.y + 4);
     this.nameLabel.setPosition(point.x, point.y + 23);
     this.lastPosition = point;
@@ -149,7 +166,8 @@ export class RoomOneScene extends Phaser.Scene {
     const camera = this.cameras?.main;
     return { ...this.getPosition(), player: this.getPosition(), world: this.map,
       camera: camera ? {x: camera.scrollX, y: camera.scrollY, width: camera.width, height: camera.height} : null,
-      walking: this.walking, facing: this.facing, goalId: this.goalId};
+      walking: this.walking, facing: this.facing, goalId: this.goalId,
+      character:characterSnapshot(this), characterError:this.characterError || null};
   }
 
   publishPosition(force = false) {
@@ -169,6 +187,7 @@ export class RoomOneScene extends Phaser.Scene {
   teardown() {
     if (this.tornDown) return;
     this.tornDown = true;
+    releaseCharacterLoader(this); this.reducedMotion = null;
     this.unbindInput?.(); this.unbindInput = null;
     this.events?.off(Phaser.Scenes.Events.POST_UPDATE, this.afterPhysics, this);
     this.physics?.world?.off(Phaser.Physics.Arcade.Events.WORLD_STEP, this.markPhysicsStep);
