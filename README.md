@@ -69,6 +69,7 @@ Minh, lời tự sự, mẩu điện và kiến trúc hầm là hư cấu học 
 
 - [Cốt truyện bổ sung (PDF, bản 2)](docs/game-story-v2.pdf).
 - [Cốt truyện (Word)](docs/game-story.docx).
+- [Thiết kế GĐ2 – Phòng 2: Bàn cờ Đông Dương](docs/gd2-room-2-design.md) và [plan màn chơi (Thái)](docs/gd2-room-2-level-plan.md).
 - [Tổng quan và yêu cầu](docs/project-overview-pdr.md), [cấu trúc mã](docs/codebase-summary.md), [kiến trúc](docs/system-architecture.md).
 - [Quy ước mã](docs/code-standards.md), [chạy và build](docs/deployment-guide.md), [tiến độ](docs/project-roadmap.md).
 - [Phạm vi truyện và nguồn lịch sử](docs/game-proposal.md), [công nghệ](docs/tech-stack.md), [thiết kế](docs/design-guidelines.md).
