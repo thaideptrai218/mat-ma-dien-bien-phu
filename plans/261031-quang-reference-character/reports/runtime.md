@@ -39,4 +39,3 @@ Numbers above illustrate the schema, not actual asset measurements. Source dimen
 ## Unresolved questions
 
 None requiring user input. Actual grid/alpha/ground metadata and final browser/reviewer evidence remain integration work.
-

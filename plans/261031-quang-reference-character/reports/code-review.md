@@ -57,4 +57,3 @@ Update plan's128px width/offset40 to actual160px/offset56 and record final measu
 ## Unresolved questions
 
 None requiring user input or blocking code approval. Final rebuilt visual QA and documentation closeout belong to the lead.
-

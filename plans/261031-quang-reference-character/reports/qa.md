@@ -46,4 +46,3 @@ Status: DONE — refreshed built preview after root's16-pose walk replacement an
 - Final harnesses/evidence: `tmp/character-qa-final*.mjs`, `final-evidence.json`, `final-directions-evidence.json`, `final-failure-evidence.json`. A harness-only assertion initially included one previous-direction frame at a native input transition; filtering samples by the selected directional animation fixed the measurement. No product change was made.
 
 Unresolved questions: none. Full puzzle/campaign journey and OS-hidden lifecycle remain outside this character-focused pass, as stated above.
-

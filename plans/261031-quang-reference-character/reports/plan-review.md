@@ -45,4 +45,3 @@ Plan establishes scope, ownership, physical contract and validation gates. Proce
 ## Unresolved questions
 
 None blocking. Actual source grid/baseline and visual quality remain generation outputs to measure, not assumptions.
-
