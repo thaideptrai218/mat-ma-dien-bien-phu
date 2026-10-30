@@ -29,7 +29,7 @@ Phòng 5 2000×1400 dùng một victory-painting.svg sáng tác xuyên intro/2×
 - Diagnostics toàn snapshot được structuredClone, không live world reference hoặc setter tọa độ/state. Không production QA teleport/inventory injection.
 - Root dùng bản sao Bảo cùng origin, không iframe/cross-origin hoặc external-tab progress. Original registry/renderer/evaluator bảo toàn thay vì giả thành tích legacy museum/Him Lam.
 - Suy ngẫm là câu chuyện của Quang và không chấm quan điểm người chơi. Global archive chỉ lưu authored dialogue, không lưu textarea.
-- Thử lại/reset không tác động save preview/donor. Không private PDF/transcript hoặc absolute home paths trong docs bàn giao. Git publication theo sau QA, hosting không trong phạm vi.
+- Thử lại/reset không tác động save preview/donor. Không private PDF/transcript hoặc absolute home paths trong docs bàn giao. Đã push sau QA qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), hosting không trong phạm vi.
 
 ## Kiểm chứng hiện tại
 
@@ -41,12 +41,12 @@ Một build concurrent làm tab cũ mất lazy hash khi chuyển 4→5; reload g
 
 ## Việc tiếp theo
 
-QA/docs đã reconcile; update Git theo quyền đã có. Không hosting, chưa chứng nhận touch walking/narration/screen-reader/real-user timing. Giấy phép phân phối tài sản cần xác định.
+QA/docs đã reconcile; nhánh `feat/complete-five-room-campaign` đã push theo quyền đã có, [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3) chờ review vào main. Không hosting, chưa chứng nhận touch walking/narration/screen-reader/real-user timing. Giấy phép phân phối tài sản cần xác định.
 
 [Kế hoạch](../../plans/261031-campaign-link/plan.md) · [Review](../../plans/261031-campaign-link/reports/code-review.md) · [Lifecycle](../../plans/261031-campaign-link/reports/lifecycle.md) · [Bảo adapter](../../plans/261031-campaign-link/reports/room-two.md) · [Bảo QA](../../plans/261031-campaign-link/reports/room-two-qa.md) · [Phòng 5](../../plans/261031-campaign-link/reports/final-room.md)
 
 ## Câu hỏi còn mở
 
-Không có câu hỏi người dùng chặn integration. Git update theo sau acceptance, chưa tuyên bố push/deploy.
+Không có câu hỏi người dùng chặn integration. Git publication hoàn tất sau acceptance; main chưa merge, chưa deploy. [Báo cáo publication](../../plans/261031-campaign-link/reports/git-publication.md) ghi kiểm thử và bảo toàn byte nguồn.
 
 [QA toàn campaign](../../plans/261031-campaign-link/reports/campaign-qa.md)

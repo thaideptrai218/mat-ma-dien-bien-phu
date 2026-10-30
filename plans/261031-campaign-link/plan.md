@@ -1,6 +1,6 @@
 # Hành trình hoàn chỉnh — nối phòng1–5
 
-Status: implementation and browser acceptance complete; Git publication pending. [Review GO](reports/code-review.md), [full campaign QA](reports/campaign-qa.md). User accepted the remaining-work proposal: connect existing rooms with common progress, keep Bảo's room2, build final assembly/reflection and museum framing, verify and update shared code. Sources remain supplied PDF4/user text; no historical web research.
+Status: implementation, browser acceptance and Git publication complete; [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3) is open for review against main. [Review GO](reports/code-review.md), [full campaign QA](reports/campaign-qa.md). User accepted the remaining-work proposal: connect existing rooms with common progress, keep Bảo's room2, build final assembly/reflection and museum framing, verify and update shared code. Sources remain supplied PDF4/user text; no historical web research.
 
 ## Scope/output
 
