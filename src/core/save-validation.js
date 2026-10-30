@@ -45,15 +45,24 @@ function validateRecord(raw) {
   // Each clue and its beat are one atomic completion, in both directions.
   if (Object.values(clues).some(clue => collected.has(clue.id) !== completed.has(clue.beatId))) return null;
   if (raw.completedBeatIds.some(id => !isUnlocked(beats[id].chapterId)
+    || (beats[id].requiresRoomCompletion && !raw.completedRoomIds.includes(beats[id].chapterId))
     || beats[id].requiredDiscoveredClueIds.some(clueId => !discovered.has(clueId)))) return null;
   if (raw.completedRoomIds.some(id => id !== 'peace' && chapters[id].clueIds.some(clueId => !collected.has(clueId)))) return null;
+  // Saves written before per-puzzle progress existed imply every puzzle of each completed room.
+  const completedPuzzleIds = raw.completedPuzzleIds === undefined ? raw.completedRoomIds.flatMap(id => chapters[id].puzzleIds) : raw.completedPuzzleIds;
+  if (!validIds(completedPuzzleIds, puzzles)) return null;
+  const solved = new Set(completedPuzzleIds);
+  if (completedPuzzleIds.some(id => !isUnlocked(puzzles[id].chapterId) || (puzzles[id].requiresPuzzleId && !solved.has(puzzles[id].requiresPuzzleId))
+    || puzzles[id].requiredClueIds.some(clueId => !collected.has(clueId)))) return null;
+  // A room is complete exactly when all of its puzzles are solved.
+  if (roomOrder.some(id => chapters[id].puzzleIds.length && raw.completedRoomIds.includes(id) !== chapters[id].puzzleIds.every(puzzleId => solved.has(puzzleId)))) return null;
   if (!isRecord(raw.hintLevels)) return null;
   for (const [id, level] of Object.entries(raw.hintLevels)) {
     if (!Object.hasOwn(puzzles, id) || !isUnlocked(puzzles[id].chapterId) || !Number.isInteger(level) || level < 0 || level > puzzles[id].hints.length) return null;
   }
   return {
     version: 1, chapterId: raw.chapterId, checkpointId: raw.checkpointId,
-    completedRoomIds: [...raw.completedRoomIds], discoveredClueIds: [...raw.discoveredClueIds],
+    completedRoomIds: [...raw.completedRoomIds], completedPuzzleIds: [...completedPuzzleIds], discoveredClueIds: [...raw.discoveredClueIds],
     collectedClueIds: [...raw.collectedClueIds], completedBeatIds: [...raw.completedBeatIds],
     hintLevels: { ...raw.hintLevels }, settings: copySettings(raw.settings),
   };

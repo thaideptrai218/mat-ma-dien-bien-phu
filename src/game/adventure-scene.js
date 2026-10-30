@@ -13,10 +13,10 @@ export class AdventureScene extends Phaser.Scene{
   }
   create(){
     registerCharacterAnimations(this);
-    this.player=this.physics.add.sprite(0,0,'minh-normal',0).setOrigin(CHARACTER_FRAME.originX,CHARACTER_FRAME.originY);
+    this.player=this.physics.add.sprite(0,0,'quang-normal',0).setOrigin(CHARACTER_FRAME.originX,CHARACTER_FRAME.originY);
     this.player.body.setSize(PLAYER_BODY.width,PLAYER_BODY.height,false).setOffset(CHARACTER_FRAME.bodyOffsetX,CHARACTER_FRAME.bodyOffsetY);
     this.player.setCollideWorldBounds(true);this.player.body.setMaxVelocity(260,260);
-    this.nameLabel=this.add.text(0,0,'MINH',{fontFamily:'Segoe UI, Tahoma, sans-serif',fontSize:'15px',color:'#efdfb1'}).setOrigin(.5,0).setDepth(10);
+    this.nameLabel=this.add.text(0,0,'QUANG',{fontFamily:'Segoe UI, Tahoma, sans-serif',fontSize:'15px',color:'#efdfb1'}).setOrigin(.5,0).setDepth(10);
     this.windowFocused=document.hasFocus();this.unbindInput=bindSceneInput(this);
     this.didPhysicsStep=false;this.markPhysicsStep=()=>{this.didPhysicsStep=true;};
     this.physics.world.on(Phaser.Physics.Arcade.Events.WORLD_STEP,this.markPhysicsStep);

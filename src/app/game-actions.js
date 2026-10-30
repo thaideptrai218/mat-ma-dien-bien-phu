@@ -1,5 +1,5 @@
 import { beats, chapters, clues, puzzles } from '../content/story-data.js';
-import { evaluatePuzzle } from '../core/game-rules.js';
+import { currentPuzzleId, evaluatePuzzle } from '../core/game-rules.js';
 import { getMap } from '../content/world-data.js';
 
 export function interactWithTarget(app, target) {
@@ -50,21 +50,47 @@ function finishNarrative(app, intent) {
   else app.focusGame(intent.type === 'collect-clue' ? 'paper' : undefined);
 }
 
+function failureText(puzzle, result, answer) {
+  if (result.messageKey === 'missing-clues') return 'Bạn cần đọc hết và ghi đủ các manh mối trong sổ tay trước khi đối chiếu.';
+  if (result.messageKey === 'wrong-target') return puzzle.targets.find(target => target.id === answer?.target)?.hint || puzzle.messages['wrong-target'];
+  return puzzle.messages?.[result.messageKey] || 'Các dữ kiện chưa khớp. Bạn có thể sửa thứ tự, đọc lại sổ tay hoặc xem gợi ý.';
+}
+
 function submitPuzzle(app, intent) {
-  if (intent.puzzleId !== app.state.chapterId) return;
-  const result = evaluatePuzzle(intent.puzzleId, intent.answer, app.state.collectedClueIds);
-  if (!result.ok) {
+  const puzzle = puzzles[intent.puzzleId];
+  if (!puzzle || puzzle.chapterId !== app.state.chapterId) return;
+  if (puzzle.requiresPuzzleId && !app.state.completedPuzzleIds.includes(puzzle.requiresPuzzleId)) {
     app.audio.playCue('error');
-    app.ui.showPuzzleFeedback(result.messageKey === 'missing-clues'
-      ? 'Bạn cần đọc hết và ghi đủ các manh mối trong sổ tay trước khi đối chiếu.'
-      : 'Các dữ kiện chưa khớp. Bạn có thể sửa thứ tự, đọc lại sổ tay hoặc xem gợi ý.', 'error');
+    app.ui.showPuzzleFeedback(`Hãy hoàn thành bước trước: ${puzzles[puzzle.requiresPuzzleId].title}.`, 'error');
     return;
   }
-  app.commit(intent);
-  app.audio.playCue('success');
-  app.ui.showPuzzleFeedback('Đúng rồi! Cánh cửa phía đông đã mở. Bạn có thể tiếp tục hành trình.', 'success');
+  const result = evaluatePuzzle(puzzle.id, intent.answer, app.state.collectedClueIds);
+  if (!result.ok) {
+    app.audio.playCue('error');
+    app.ui.showPuzzleFeedback(failureText(puzzle, result, intent.answer), 'error');
+    return;
+  }
+  if (!app.commit(intent)) return;
+  app.audio.playCue(puzzle.type === 'fold' ? 'unlock' : 'success');
+  const chapter = chapters[puzzle.chapterId], steps = chapter.puzzleIds;
+  if (!app.state.completedRoomIds.includes(chapter.id)) {
+    app.ui.showPuzzle(puzzle.id);
+    app.ui.showPuzzleFeedback(puzzle.successText, 'success');
+    app.ui.showToast(`Bước ${steps.indexOf(puzzle.id) + 1}/${steps.length} xong. Tiếp theo: ${puzzles[currentPuzzleId(app.state)].title}.`);
+    return;
+  }
+  const outro = beats[chapter.outroBeatId];
+  if (outro && !app.state.completedBeatIds.includes(outro.id)) {
+    app.ui.showToast(puzzle.successText);
+    app.ui.showNarrative(outro.id);
+    return;
+  }
+  app.ui.showPuzzle(puzzle.id);
+  app.ui.showPuzzleFeedback(puzzle.successText || 'Đúng rồi! Cánh cửa phía đông đã mở. Bạn có thể tiếp tục hành trình.', 'success');
   app.ui.showToast('Một ký ức đã được kết nối. Đi tới cánh cửa phía đông.');
 }
+
+const puzzleCues = new Set(['weight', 'static', 'chain', 'fold', 'unlock', 'error']);
 
 export async function handleGameIntent(app, intent) {
   if (!intent || typeof intent !== 'object') return;
@@ -115,7 +141,8 @@ export async function handleGameIntent(app, intent) {
       } else app.commit(intent);
       break;
     }
-    case 'open-puzzle': app.ui.showPuzzle(chapters[app.state.chapterId]?.puzzleId || 'peace'); break;
+    case 'open-puzzle': app.ui.showPuzzle(currentPuzzleId(app.state) || 'peace'); break;
+    case 'play-cue': if (puzzleCues.has(intent.kind)) app.audio.playCue(intent.kind); break;
     default: break;
   }
 }

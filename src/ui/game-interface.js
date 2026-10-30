@@ -1,5 +1,6 @@
 import emblemUrl from '../../assets/images/game-emblem.png';
-import { chapters, clues, roomOrder } from '../content/story-data.js';
+import { chapters, clues, puzzles, roomOrder } from '../content/story-data.js';
+import { currentPuzzleId } from '../core/game-rules.js';
 import { DialogController } from './dialog-controller.js';
 import { NarrativeView } from './narrative-view.js';
 import { PuzzleView } from './puzzle-view.js';
@@ -14,10 +15,10 @@ export class GameInterface {
     this.dialog = new DialogController({ onModalChange, onClose: () => this.narrative.clear() });
     this.narrative = new NarrativeView({ dialog: this.dialog, onIntent, getState });
     this.puzzle = new PuzzleView({ dialog: this.dialog, getState, onIntent });
-    this.archive = new ArchiveView({ dialog: this.dialog, getState, onIntent, showStory: id => this.showStory(id), showPuzzle: id => this.showPuzzle(id) });
+    this.archive = new ArchiveView({ dialog: this.dialog, getState, onIntent, showBeat: id => this.showNarrative(id), showPuzzle: id => this.showPuzzle(id) });
     document.querySelector('[data-brand-emblem]').src = emblemUrl;
     const progress = document.querySelector('#chapter-progress');
-    roomOrder.forEach((id, index) => progress.append(element('li', { dataset: { chapterId: id } }, element('span', {}, String(index + 1).padStart(2, '0')), element('b', {}, ['Him Lam', 'Bản đồ', 'Điện báo', 'Hòa bình'][index]))));
+    roomOrder.forEach((id, index) => progress.append(element('li', { dataset: { chapterId: id } }, element('span', {}, String(index + 1).padStart(2, '0')), element('b', {}, ['Him Lam', 'Bàn cờ', 'Điện báo', 'Hòa bình'][index]))));
     document.addEventListener('click', event => {
       const control = event.target.closest('[data-ui-action]'); if (!control) return;
       const routes = { close: () => { if (this.dialog.dismissible) this.close(); }, settings: () => this.showSettings(), notebook: () => this.showNotebook(), puzzle: () => this.showPuzzle(), sources: () => this.showSources(), backlog: () => this.showBacklog(), interact: () => onIntent({ type: 'interact' }), 'focus-game': () => onIntent({ type: 'focus-game' }), 'audio-toggle': () => onIntent({ type: 'audio-toggle' }) };
@@ -37,7 +38,9 @@ export class GameInterface {
     const chapter = chapters[state.chapterId]; if (!chapter) return;
     document.querySelector('#chapter-kicker').textContent = chapter.kicker;
     document.querySelector('#chapter-title').textContent = chapter.title;
-    document.querySelector('#chapter-goal').textContent = state.completedRoomIds.includes(state.chapterId) ? 'Hồ sơ đã hoàn tất. Đến cánh cửa phía đông để tiếp tục.' : chapter.goal;
+    const steps = chapter.puzzleIds, step = currentPuzzleId(state);
+    document.querySelector('#chapter-goal').textContent = state.completedRoomIds.includes(state.chapterId) ? 'Hồ sơ đã hoàn tất. Đến cánh cửa phía đông để tiếp tục.'
+      : steps.length > 1 ? `Bước ${steps.indexOf(step) + 1}/${steps.length} · ${puzzles[step].goal}` : chapter.goal;
     const count = chapter.clueIds.filter(id => state.collectedClueIds.includes(id)).length;
     document.querySelector('#clue-counter').textContent = `${count} / ${chapter.clueIds.length}`;
     for (const item of document.querySelectorAll('#chapter-progress li')) {
@@ -50,7 +53,7 @@ export class GameInterface {
     interact.disabled = !nearby;
     interact.querySelector('span').textContent = nearby?.type === 'exit' ? nearby.label || 'Bước qua cánh cửa' : clueId && clues[clueId] ? clues[clueId].title : nearby?.label || 'Đến gần một dấu vết';
     const puzzleButton = document.querySelector('#puzzle-button');
-    puzzleButton.disabled = !chapter.puzzleId && state.chapterId !== 'peace';
+    puzzleButton.disabled = !steps.length && state.chapterId !== 'peace';
     puzzleButton.textContent = state.chapterId === 'peace' ? 'Điều mang về ↗' : 'Ghép hồ sơ ↗';
     const audioButton = document.querySelector('#audio-button');
     const enabled = state.settings.audioEnabled, unlocked = audioState?.running ?? audioState?.unlocked ?? false;
@@ -74,7 +77,7 @@ export class GameInterface {
   showNotebook() { this.narrative.clear(); this.archive.notebook(); }
   showBacklog() { this.narrative.clear(); this.archive.backlog(); }
   showSources() { this.narrative.clear(); this.archive.sourcePanel(this.menuMode ? { onBack: () => this.showMainMenu(this.menuOptions) } : {}); }
-  showPuzzle(puzzleId = chapters[this.getState().chapterId]?.puzzleId || this.getState().chapterId) { this.narrative.clear(); this.puzzle.show(puzzleId); }
+  showPuzzle(puzzleId = currentPuzzleId(this.getState()) || this.getState().chapterId) { this.narrative.clear(); this.puzzle.show(puzzleId); }
   showPuzzleFeedback(text, tone = 'error') { this.puzzle.showFeedback(text, tone); }
   showHint(text) { this.showPuzzleFeedback(text, 'hint'); }
 
@@ -92,7 +95,7 @@ export class GameInterface {
     const brightness = element('select', { id: 'brightness-setting', onChange: event => this.onIntent({ type: 'set-settings', settings: { brightness: event.target.value } }) }, element('option', { value: 'normal', selected: settings.brightness === 'normal' }, 'Ánh sáng gốc'), element('option', { value: 'bright', selected: settings.brightness === 'bright' }, 'Sáng rõ hơn'));
     const reduced = element('input', { type: 'checkbox', checked: settings.reducedMotion, onChange: event => this.onIntent({ type: 'set-settings', settings: { reducedMotion: event.target.checked } }) });
     const runtime = this.getAudioState();
-    const content = element('div', {}, paragraph('Không cần vội. Khi bảng này mở, Minh dừng bước để bạn đọc và điều chỉnh.'), element('label', { className: 'setting-row' }, sound, element('span', {}, 'Hiệu ứng âm thanh')), field(element('span', {}, 'Âm lượng ', volumeLabel), volume), field('Độ sáng khung cảnh', brightness), element('label', { className: 'setting-row' }, reduced, element('span', {}, 'Giảm chuyển động, camera theo ngay')));
+    const content = element('div', {}, paragraph('Không cần vội. Khi bảng này mở, Quang dừng bước để bạn đọc và điều chỉnh.'), element('label', { className: 'setting-row' }, sound, element('span', {}, 'Hiệu ứng âm thanh')), field(element('span', {}, 'Âm lượng ', volumeLabel), volume), field('Độ sáng khung cảnh', brightness), element('label', { className: 'setting-row' }, reduced, element('span', {}, 'Giảm chuyển động, camera theo ngay')));
     if (settings.audioEnabled && !(runtime.running ?? runtime.unlocked)) content.append(button('Bật lại âm thanh', () => this.onIntent({ type: 'audio-toggle' })), paragraph('Trình duyệt cần một lần bấm để phát âm thanh sau khi tải trang hoặc tạm dừng.', 'form-help'));
     content.append(actions(button('Trở lại căn hầm →', () => this.close(), 'primary-button'), button('Bắt đầu lại', () => this.showResetConfirm())), paragraph('Lời kể luôn có văn bản. Âm thanh có thể tắt bất cứ lúc nào.', 'dialog-note'));
     this.dialog.show({ title: 'Một khoảng dừng', kicker: 'TÙY CHỌN', content });

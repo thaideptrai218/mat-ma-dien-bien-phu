@@ -45,6 +45,11 @@ export class SynthVoices{
     else if(kind==='reveal'){this.rustle(.16,.13,1400);this.tone(392,0,.3,.14);this.tone(523,.09,.34,.12);}
     else if(kind==='success'){this.tone(392,0,.3,.16);this.tone(494,.12,.34,.15);this.tone(587,.24,.52,.14);}
     else if(kind==='error'){this.tone(196,0,.16,.13,'triangle');this.tone(165,.14,.23,.12,'triangle');}
+    else if(kind==='weight'){this.tone(880,0,.14,.09,'triangle');this.tone(1320,0,.09,.05);}
+    else if(kind==='static'){this.rustle(.32,.12,2600);this.tone(640,0,.08,.04,'square');}
+    else if(kind==='chain'){for(let i=0;i<4;i++)this.tone(1480+i*90,i*.05,.05,.05,'square');this.rustle(.22,.1,3200);}
+    else if(kind==='fold'){this.rustle(.34,.2,1200);this.rustle(.18,.12,2400);}
+    else if(kind==='unlock'){this.tone(1046,0,.06,.1,'square');this.tone(784,.07,.3,.12);this.tone(1175,.16,.4,.12);}
     else return false;
     return true;
   }

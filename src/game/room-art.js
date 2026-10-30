@@ -56,6 +56,31 @@ export function createRoomTexture(scene,map){
     }else if(type==='garden'){
       rect(x+8,y+h*.6,w-16,h*.4,'#8e6b45');rect(x+4,y+h*.55,w-8,12,'#b08a57');
       for(let i=0;i<8;i++){const px=x+8+random()*(w-28),py=y+random()*h*.55;rect(px,py,20,24,['#4c6640','#778552','#5b7849'][i%3]);}
+    }else if(type==='scale'){
+      // Brass balance, tipped toward the Bắc Bộ pan on the left.
+      const cx=x+w/2;rect(cx-20,y+h-12,40,10,'#6e5328');rect(cx-3,y+10,6,h-20,'#b48a3e');rect(cx-5,y+6,10,8,'#e2bd63');
+      line([[x+6,y+18],[x+w-6,y+6]],'#e2bd63',4);
+      for(const [px,py] of [[x+10,y+18],[x+w-10,y+6]]){line([[px,py],[px-10,py+16]],'#c9a24f',1);line([[px,py],[px+10,py+16]],'#c9a24f',1);rect(px-14,py+16,28,5,'#d9b25a');}
+      for(let i=0;i<4;i++)rect(x+3+i*6,y+28,5,5,'#7a6a4a');
+    }else if(type==='fist-table'){
+      // Sand table of Indochina with the iron fist pressing on the Bắc Bộ delta.
+      plank(x,y,w,h);rect(x+10,y+10,w-20,h-20,'#cdbf86');
+      line([[x+18,y+h-18],[x+w*.3,y+22],[x+w*.48,y+h*.6],[x+w*.6,y+h-16]],'#8a7b4c',3);
+      line([[x+w*.22,y+h*.45],[x+w*.45,y+h*.38],[x+w*.55,y+h*.7]],'#9b6a3f',2);
+      for(const [px,py] of [[.25,.3],[.2,.55],[.42,.62],[.6,.78]])rect(x+w*px,y+h*py,6,9,'#a2412f');
+      rect(x+w*.64,y+16,w*.26,h*.42,'#5d625f');for(let i=0;i<4;i++)rect(x+w*.64+i*w*.065,y+12,w*.055,10,'#7b827d');
+      rect(x+w*.64-8,y+h*.42,12,16,'#7b827d');
+    }else if(type==='chest'){
+      rect(x,y,w,h,'#2f3431');rect(x+4,y+4,w-8,h-8,'#56605a');rect(x+4,y+4,w-8,6,'#6d7871');
+      for(const px of [.2,.75])rect(x+w*px,y,7,h,'#2b302c');rect(x+w/2-8,y+h*.32,16,16,'#c9a24f');rect(x+w/2-2,y+h*.32+6,4,6,'#3b2f1c');
+      for(const px of [8,w-12])for(const py of [8,h-12])rect(x+px,y+py,4,4,'#9aa59d');
+    }else if(type==='rack'){
+      plank(x,y,w,h);
+      for(let dy=14;dy<h-24;dy+=36){rect(x+10,y+dy,w-20,26,'#e3d6aa');rect(x+14,y+dy+4,w*.5,4,'#5a5440');for(let ly=12;ly<24;ly+=5)rect(x+14,y+dy+ly,w-28,2,'#a9a07c');}
+    }else if(type==='calendar'){
+      plank(x,y,w,h);rect(x+w*.34,y+8,w*.32,h*.72,'#efe6c6');rect(x+w*.34,y+8,w*.32,12,'#a2412f');
+      for(let gy=26;gy<h*.72;gy+=10)for(let gx=6;gx<w*.32-6;gx+=10)rect(x+w*.34+gx,y+gy,6,6,'#b9ae88');
+      rect(x+w*.08,y+12,w*.2,h*.6,'#40543e');rect(x+w*.72,y+12,w*.2,h*.6,'#40543e');
     }
   }
   rect(0,0,map.width,map.height,'#1e2a20');rect(64,64,map.width-128,map.height-128,map.theme.floor);
@@ -67,6 +92,7 @@ export function createRoomTexture(scene,map){
   if(map.width===2400)for(let y=534;y<828;y+=24)for(let x=64;x<2336;x+=128){
     rect(x,y,126,22,['#726440','#7b6944','#6c613d'][Math.floor(random()*3)]);rect(x+6,y+4,110,2,'#a38b5544');
   }
+  for(const [x,y,w,h,color] of map.zones||[])rect(x,y,w,h,color);
   for(const [x,y,w,h] of map.walls){
     rect(x+7,y+10,w,h,'#17231b66');rect(x,y,w,h,'#34412c');
     if(w>h)for(let dy=0;dy<h;dy+=12)for(let dx=0;dx<w;dx+=46){
@@ -77,11 +103,8 @@ export function createRoomTexture(scene,map){
   const lights=map.width===2400?[[326,94],[696,464],[996,556],[1514,464],[2004,98],[148,792],[1974,790],[680,914],[888,1300],[2188,1276]]:
     [[180,130],[660,120],[1150,130],[180,690],[1120,680]];
   lights.forEach(([x,y])=>lamp(x,y));
-  if(map.width===2400){
-    label(map.theme.name,420,156,24,map.theme.accent);label('ĐIỆN ĐÀI · TƯ LIỆU',1180,132);label('KHO TIẾP TẾ',1942,108);
-    label('HÀNH LANG KÝ ỨC  →',1188,676,20);label('GIAN BẢN ĐỒ',424,916);label(map.id==='peace'?'GÓC VƯỜN YÊN TĨNH':'GÓC NGHỈ CHÂN',1180,922);
-    label('LỐI ĐI TIẾP  →',2030,810,16,map.theme.accent);
-  }else label(map.theme.name,640,110,26,map.theme.accent);
+  if(map.labels)for(const [text,x,y,size,color] of map.labels)label(text,x,y,size,color);
+  else label(map.theme.name,640,110,26,map.theme.accent);
   for(const target of map.interactables){
     rect(target.x-5,target.y-20,10,10,map.theme.accent);label(`${target.type==='puzzle'?'◇':'✧'} ${target.label}`,target.x,target.y-34,16,map.theme.accent);
   }
