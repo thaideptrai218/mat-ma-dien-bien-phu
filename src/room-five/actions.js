@@ -40,11 +40,11 @@ export function handleAction(session, action, payload = {}) {
       s.notice = '';
       if (!hasAllFragments(s.fragments)) return s.error('Cần đủ bốn mảnh thật từ hành trình trước khi ghép tranh.');
       if (!s.commit('assembly', {order: payload.order})) return s.error('Các đường nét chưa liền nhau. Chọn hai mảnh để đổi chỗ rồi thử lại.');
-      s.audio.playCue('success');
+      s.audio.playCue('painting-complete');
       return s.dialogue('Tranh đã nguyên vẹn, cửa vẫn đóng', [...LINES.assembly, ...GUIDE.assembly]);
     case 'reflection-continue':
       if (!matching('reflection') || active.readOnly || !s.commit('reflection')) return;
-      s.audio.playCue('reveal');
+      s.audio.playCue('door-final-swell');
       return s.dialogue('Cánh cửa đã mở', [...LINES.door, ...GUIDE.door]);
     case 'reflection-reread':
       if (inView('notebook') && s.state.reflectionSeen) s.show('reflection', {readOnly: true});

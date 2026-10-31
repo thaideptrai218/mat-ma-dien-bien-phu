@@ -38,11 +38,11 @@ Thực tế 332 câu (Quang 255 · Hệ Thống 59 · Lời kể 18, ~30.700 ký
 | # | Phase | Trạng thái | File |
 | --- | --- | --- | --- |
 | 1 | Kịch bản lồng tiếng + manifest có hash | **Xong** (332 câu) | [phase-01](phase-01-voice-script-and-manifest.md) |
-| 2 | Sinh giọng TTS + chuẩn hóa phát âm | Chưa làm | [phase-02](phase-02-tts-generation-pipeline.md) |
-| 3 | Giọng máy móc Hệ Thống + mastering | Preset mạnh đã chọn | [phase-03](phase-03-system-voice-fx-and-mastering.md) |
-| 4 | SFX + nền môi trường (không BGM) | Chưa làm | [phase-04](phase-04-sfx-and-ambience.md) |
-| 5 | Tích hợp vào game (player, mixer, cài đặt) | Chưa làm | [phase-05](phase-05-game-audio-integration.md) |
-| 6 | QA nghe duyệt + phát hành | Chưa làm | [phase-06](phase-06-listening-qa-and-delivery.md) |
+| 2 | Sinh giọng TTS + chuẩn hóa phát âm | **Xong** (332/332, 0 lỗi) | [phase-02](phase-02-tts-generation-pipeline.md) |
+| 3 | Giọng máy móc Hệ Thống + mastering | **Xong** (-17,3…-16,3 LUFS, 14 MB) | [phase-03](phase-03-system-voice-fx-and-mastering.md) |
+| 4 | SFX + nền môi trường (không BGM) | **Xong** (33 SFX + 7 nền, 3,8 MB) | [phase-04](phase-04-sfx-and-ambience.md) |
+| 5 | Tích hợp vào game (player, mixer, cài đặt) | **Xong** (154 test) | [phase-05](phase-05-game-audio-integration.md) |
+| 6 | QA nghe duyệt + phát hành | Kỹ thuật xong; **chờ người dùng nghe duyệt** ([voice-qa](reports/voice-qa.md), [sfx-qa](reports/sfx-qa.md)) | [phase-06](phase-06-listening-qa-and-delivery.md) |
 
 Thứ tự: 1 → 2 → 3 (2–3 lặp theo phòng); 4 song song với 1–3; 5 cần manifest của 1 và vài file mẫu của 3; 6 cuối.
 

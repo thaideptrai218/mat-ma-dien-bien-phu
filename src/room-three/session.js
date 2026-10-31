@@ -22,6 +22,7 @@ export class RoomThreeSession{
     else try{this.storage=window.localStorage;}catch{this.storage=null;}
     const loaded=loadSave(this.storage);this.state=loaded.state;this.notice=loaded.notice;this.active=null;this.nonce=0;this.position={...WORLD.checkpoints[0]};
     this.audio=options.audio||new AudioController({onStatusChange:()=>this.render()});
+    this.audio.setScene('room-3');
     this.ui=new RoomThreeUI({root,onAction:(action,payload)=>handleAction(this,action,payload)});
     this.scene=new RoomThreeScene({onInteract:id=>this.interact(id),onPosition:p=>{if(this.disposed)return;this.position=p;this.render();},
       onShortcut:key=>handleAction(this,({M:'map',N:'notebook',Q:'quests-toggle',Escape:'settings'})[key]),isPaused:()=>this.disposed||Boolean(this.options.isPaused?.())||this.ui.isOpen,audio:this.audio});

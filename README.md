@@ -104,7 +104,9 @@ Chiến dịch dùng **`mat-ma-dien-bien-phu:campaign:v1`**: state đã kiểm t
 
 Bốn bản thử giữ khóa riêng `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` với cùng tiền tố. Không tự chuyển/import các khóa này hoặc save gốc của Bảo sang chiến dịch. Reset phòng hiện tại giữ thành tích trước, loại tiến độ phụ thuộc phía sau; xác nhận hành trình mới chỉ xóa envelope chiến dịch. Dev/preview có vùng lưu riêng theo origin/cổng.
 
-Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật âm thanh** cần thao tác chủ động để mở Web Audio. Chiến dịch giữ một audio controller/context xuyên các phòng; dừng input/âm thanh khi mở sổ chung hoặc mất focus. Âm nền, bước chân và hiệu ứng cục bộ; chưa có lồng tiếng/TTS/backend/tài khoản hay điều khiển đi bộ cảm ứng.
+Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật âm thanh** cần thao tác chủ động để mở Web Audio. Chiến dịch giữ một audio controller/context xuyên các phòng; dừng input/âm thanh khi mở sổ chung hoặc mất focus. Có lồng tiếng toàn bộ 332 câu thoại (Quang, Hệ Thống giọng máy, Lời kể), hiệu ứng âm thanh và nền môi trường theo phòng; nút **Bật lồng tiếng** ở khung bảo tàng và bảng thoại, tùy chọn Lồng tiếng/âm lượng trong cài đặt. Tắt tiếng hoặc thiếu file vẫn chơi trọn bằng chữ. Chưa có backend/tài khoản hay điều khiển đi bộ cảm ứng.
+
+Làm lại giọng sau khi sửa lời thoại (cần CapCut bridge `:8124` và OmniVoice `:8123` của `F:\AI-auto-generate-video`): `npm run voice:script` → `npm run voice:generate` → `npm run voice:master` → `npm run voice:review` (trang nghe duyệt cục bộ `.cache/voice-review.html`). SFX/nền: `npm run audio:sfx`; nguồn và giấy phép ở `public/audio/sfx/credits.json`.
 
 ## Tài liệu và trạng thái kiểm chứng
 

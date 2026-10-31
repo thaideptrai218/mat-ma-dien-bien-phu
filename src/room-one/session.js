@@ -21,6 +21,7 @@ export class RoomOneSession {
     this.state = loaded.state; this.notice = loaded.notice;
     this.active = null; this.nonce = 0; this.position = {...WORLD.checkpoints[0]};
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
+    this.audio.setScene('room-1');
     this.ui = new RoomOneUI({root, onAction: (action, payload) => handleAction(this, action, payload)});
     this.scene = new RoomOneScene({
       onInteract: id => this.interact(id),

@@ -364,3 +364,24 @@ test('campaign store setAudio switches sound on for every room save and persists
   assert.equal(JSON.parse([...saved.values()][0]).settings.audioEnabled, true);
   assert.equal(JSON.parse(store.adapter(1, 'k').getItem('k')).audioEnabled, true, 'rooms read the campaign sound setting');
 });
+
+test('Hệ Thống lines are announced by the system chime and ducking follows the voice', async () => {
+  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), line('Quang', 'Đi thôi.')];
+  const { player, controller } = setup({ lines });
+  const events = [];
+  controller.cues = { play: name => { events.push(name); return true; } };
+  controller.voiceActivity = on => events.push(`duck:${on}`);
+  player.chimeGapMs = 1;
+  await player.playSequence(lines, { onLine: index => { if (index >= 0) events.push(`line:${index}`); } });
+  assert.deepEqual(events, ['duck:true', 'system-chime', 'line:0', 'line:1', 'duck:false'],
+    'chime only before the system line; duck released at the end');
+});
+
+test('voice manifest failure is retried after the delay', async () => {
+  const { player, calls } = setup({ lines: ['một'], manifestOk: false });
+  assert.deepEqual(await player.playSequence(['một']), { played: 0, skipped: 1 });
+  const ok = setup({ lines: ['một'] });
+  player.fetchImpl = ok.player.fetchImpl; player.retryAfter = 0;
+  assert.deepEqual(await player.playSequence(['một']), { played: 1, skipped: 0 });
+  assert.equal(calls.length, 1);
+});

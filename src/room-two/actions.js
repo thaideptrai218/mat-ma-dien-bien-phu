@@ -30,7 +30,7 @@ export function handleIntent(session, intent) {
     if (active?.kind !== 'puzzle' || active.puzzleId !== intent.puzzleId) return;
     const puzzle = puzzles[intent.puzzleId];
     if (!puzzle) return;
-    session.commit(intent.type, intent);
+    session.commit(intent.type, intent); session.audio.playCue('hint');
     const level = Math.max(1, session.state.hintLevels[puzzle.id] || 0);
     session.ui.puzzle.showFeedback(puzzle.hints[Math.min(level - 1, puzzle.hints.length - 1)], 'hint');
     return;

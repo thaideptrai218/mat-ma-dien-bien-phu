@@ -5,11 +5,12 @@
 // without it are treated as not recorded yet (no request, no 404 noise in the console).
 import {voiceIdFor, voiceOf} from './voice-id.js';
 import {voicePreferences} from './voice-preferences.js';
+import {MASTER_MAKEUP} from './cue-library.js';
 
 const MANIFEST_PATH = 'audio/voice/manifest.json';
 const FILE_PATTERN = /^audio\/voice\/[0-9a-f]{16}\.mp3$/; // same-origin recordings only
-// Master gain tops out at 0.45 and the recordings are mastered to -16 LUFS; this restores their level.
-const VOICE_MAKEUP = 2.2;
+const VOICE_MAKEUP = MASTER_MAKEUP; // master gain tops out at 0.45; recordings are mastered to -16 LUFS
+const MANIFEST_RETRY_MS = 5000;
 const noop = () => {};
 
 export function lineVoiceId(line) {
@@ -33,10 +34,10 @@ class BufferCache {
 export class VoiceLinePlayer {
   // controller needs: context, master, preferences.audioEnabled, voiceAudible() (see AudioController).
   constructor(controller, {fetchImpl = globalThis.fetch?.bind(globalThis), baseUrl = './', preferences = voicePreferences,
-    cacheSize = 40, gapMs = 220} = {}) {
-    this.controller = controller; this.fetchImpl = fetchImpl; this.baseUrl = baseUrl; this.prefs = preferences; this.gapMs = gapMs;
+    cacheSize = 16, gapMs = 220, chimeGapMs = 300} = {}) {
+    this.controller = controller; this.fetchImpl = fetchImpl; this.baseUrl = baseUrl; this.prefs = preferences; this.gapMs = gapMs; this.chimeGapMs = chimeGapMs;
     this.cache = new BufferCache(cacheSize); this.pending = new Map(); this.failed = new Set();
-    this.manifest = null; this.manifestPromise = null; this.gain = null; this.session = null; this.current = null;
+    this.manifest = new Map(); this.manifestPromise = null; this.retryAfter = 0; this.gain = null; this.session = null; this.current = null;
     this.unsubscribe = this.prefs.subscribe(({enabled}) => { if (!enabled) this.stop(); this.applyGain(); });
   }
   canPlay() {
@@ -56,6 +57,8 @@ export class VoiceLinePlayer {
     return this.gain;
   }
   loadManifest() {
+    // After a failed load the empty manifest is served for a short while, then the next call retries.
+    if (!this.manifestPromise && Date.now() < this.retryAfter) return Promise.resolve(this.manifest);
     this.manifestPromise ??= (async () => {
       const files = new Map();
       try {
@@ -64,8 +67,11 @@ export class VoiceLinePlayer {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         for (const entry of (await response.json())?.lines ?? [])
           if (typeof entry?.id === 'string' && FILE_PATTERN.test(entry.file) && entry.durationMs > 0) files.set(entry.id, entry.file);
-      } catch { files.clear(); } // no manifest → voice stays off
-      this.manifest = files;
+        this.manifest = files;
+      } catch { // no manifest → voice stays off until the retry delay passes
+        this.manifest = new Map(); this.manifestPromise = null; this.retryAfter = Date.now() + MANIFEST_RETRY_MS;
+        return this.manifest;
+      }
       return files;
     })();
     return this.manifestPromise;
@@ -122,7 +128,7 @@ export class VoiceLinePlayer {
     const result = {played: 0, skipped: 0};
     if (!Array.isArray(lines) || !this.canPlay()) return result;
     const session = {onLine: index => { try { onLine(index); } catch { /* highlight failures never stop audio */ } }};
-    this.session = session;
+    this.session = session; this.controller.voiceActivity?.(true);
     try {
       const manifest = await this.loadManifest();
       const ids = lines.map(line => { const id = lineVoiceId(line); return id && manifest.has(id) ? id : null; });
@@ -133,6 +139,11 @@ export class VoiceLinePlayer {
         const buffer = await this.load(ids[i]);
         if (!this.isCurrent(session) || !this.canPlay()) break;
         if (!buffer) { result.skipped++; continue; }
+        // Hệ Thống's lines are announced by its chime, which gets a moment to sound before the voice.
+        if (voiceOf(lines[i]) === 'system' && this.controller.cues?.play('system-chime') && this.chimeGapMs > 0) {
+          await new Promise(resolve => setTimeout(resolve, this.chimeGapMs));
+          if (!this.isCurrent(session)) break;
+        }
         await this.playBuffer(buffer, () => session.onLine(i));
         if (!this.isCurrent(session)) break;
         result.played++;
@@ -145,7 +156,7 @@ export class VoiceLinePlayer {
   stop() {
     const session = this.session; this.session = null;
     this.finishCurrent();
-    session?.onLine(-1);
+    if (session) { this.controller.voiceActivity?.(false); session.onLine(-1); }
   }
   getSnapshot() {
     const {enabled, volume} = this.prefs.get();

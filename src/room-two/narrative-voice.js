@@ -8,6 +8,7 @@ export function attachNarrativeVoice(narrative, getAudio) {
   const renderLine = narrative.renderLine.bind(narrative);
   narrative.renderLine = (...args) => {
     renderLine(...args);
+    if (args[0] !== false) getAudio()?.playCue?.('ui-advance'); // 'Tiếp lời' / '← Trước' (opening the view passes false)
     const active = narrative.active, beat = active && beats[active.beatId];
     if (!beat) return;
     const shown = {beatId: active.beatId, lineIndex: active.lineIndex, whole: narrative.wholeScene};

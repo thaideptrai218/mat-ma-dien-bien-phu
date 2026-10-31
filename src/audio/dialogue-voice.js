@@ -9,6 +9,7 @@ export function createDialogueVoice(audio, lines) {
     onLine: () => {},
     available: () => player.hasVoiceFor(lines),
     start: () => player.playSequence(lines, {onLine: index => handle.onLine(index)}),
+    muted: () => audio.preferences?.audioVolume === 0,
     soundReady: () => Boolean(audio.voiceReady?.()),
     replay: () => handle.start(),
     // Click handler of "Bật lồng tiếng": emit('audio-toggle') makes the room's own action turn sound on and unlock

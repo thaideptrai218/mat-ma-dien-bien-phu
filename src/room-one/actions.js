@@ -78,7 +78,7 @@ export function handleAction(s, action, p = {}) {
     case 'drawer-submit':
       if (!inView('drawer')) return;
       if (!s.commit('drawer', p)) return s.error('Ngăn kéo có bốn số. Hãy dùng mã 2413 từ bàn đối chiếu.');
-      s.audio.playCue('success'); return s.show('identity');
+      s.audio.playCue('drawer-open'); return s.show('identity');
     case 'identity-submit':
       if (!inView('identity')) return;
       if (!s.commit('identity', p)) return s.error('Đọc từng số bằng bảng A1Z26: 08 = H, 05 = E. Ghép đủ hai nhóm thành tên người.');
@@ -95,6 +95,6 @@ export function handleAction(s, action, p = {}) {
     case 'chest-submit':
       if (!inView('chest')) return;
       if (!s.commit('chest', p)) return s.error('Dùng họ theo cách gọi trong tài liệu tiếng Việt: NAVA.');
-      s.audio.playCue('success'); return s.dialogue('Mảnh ký ức đầu tiên', s.options?.onExit ? CAMPAIGN_ENDING : ENDING, 'Cất mảnh tranh và tìm cửa', 'close');
+      s.audio.playCue('chest-unlock'); setTimeout(() => { if (!s.disposed) s.audio.playCue('chest-open'); }, 350); return s.dialogue('Mảnh ký ức đầu tiên', s.options?.onExit ? CAMPAIGN_ENDING : ENDING, 'Cất mảnh tranh và tìm cửa', 'close');
   }
 }

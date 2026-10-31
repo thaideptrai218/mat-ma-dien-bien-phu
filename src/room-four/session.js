@@ -21,6 +21,7 @@ export class RoomFourSession {
     const loaded=loadSave(this.storage);this.state=loaded.state;this.notice=loaded.notice;
     this.active=null;this.nonce=0;this.position={...WORLD.checkpoints[0]};
     this.audio=options.audio||new AudioController({onStatusChange:()=>this.render()});
+    this.audio.setScene('room-4');
     this.ui=new RoomFourUI({root,onAction:(action,payload)=>handleAction(this,action,payload)});
     this.scene=new RoomFourScene({
       onInteract:id=>this.interact(id),onPosition:p=>{if(this.disposed)return;this.position=p;this.render();},

@@ -29,6 +29,7 @@ export class CampaignRuntime {
     this.frameVoice={
       ready:()=>this.audio.voiceReady(),
       speak:lines=>this.speakFrame(lines),
+      scene:name=>this.audio.setScene(name),cue:name=>this.audio.playCue(name),
       enable:async()=>{ // called inside the button's click so the browser allows audio
         this.store.setAudio(true);this.audio.setPreferences({audioEnabled:true});
         await this.audio.unlockFromGesture();return this.audio.voiceReady();

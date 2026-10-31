@@ -21,6 +21,7 @@ export class RoomFiveSession {
     const loaded = loadSave(this.storage, this.fragments); this.state = loaded.state; this.notice = loaded.notice;
     this.active = null; this.nonce = 0; this.position = {...WORLD.checkpoints[0]}; this.assemblyOrder = shuffledPieces();
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
+    this.audio.setScene('room-5');
     retainSharedAudioPreferences(this);
     this.ui = new RoomOneUI({root, onAction: (action, payload) => handleAction(this, action, payload)}, {
       subtitle: 'PHÒNG 5 · BỨC TRANH HÒA BÌNH', date: 'CĂN PHÒNG CUỐI', roomLabel: 'HÀNH TRÌNH PHÒNG 5',

@@ -29,25 +29,33 @@ export const OPENING = [
     'Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.'
   ],button:'Bước vào phòng 1'}
 ];
-// `voice` is optional ({ready, speak, enable} from the runtime): frames are read aloud once sound is on, and until
+// `voice` is optional ({ready, speak, enable, scene, cue} from the runtime): frames are read aloud once sound is on, and until
 // then offer "Bật lồng tiếng", a real click that unlocks audio and starts reading the current frame.
-function voiceButton(voice,lines) {
-  if(!voice||voice.ready())return null;
-  const node=button('Bật lồng tiếng',async()=>{
-    if(await voice.enable()){node.remove();voice.speak(lines);}
+// The control is always there: "Bật lồng tiếng" until sound is on, then "Nghe lại" (also after a blur stopped the voice).
+// isCurrent(node) stops a slow unlock from narrating a frame that is no longer on screen.
+function voiceButton(voice,lines,isCurrent) {
+  if(!voice)return null;
+  const refresh=()=>{
+    const on=voice.ready();node.textContent=on?'Nghe lại':'Bật lồng tiếng';
+    node.setAttribute('aria-label',on?'Nghe lại đoạn này':'Bật lồng tiếng để nghe đoạn này');
+  };
+  const node=button('',async()=>{
+    const on=voice.ready()||await voice.enable();
+    if(on&&isCurrent(node))voice.speak(lines);
+    refresh();
   },'r1-voice-enable');
-  node.setAttribute('aria-label','Bật lồng tiếng để nghe đoạn này');
-  return node;
+  refresh();return node;
 }
 export function introFrame(onBegin,voice) {
-  const section=element('section','campaign-story'); let step=0;
+  const section=element('section','campaign-story'); let step=0,drawn=0;
   const draw=()=>{
     const current=OPENING[step],copy=element('div','campaign-story-copy');
     copy.append(heading(current.title,current.eyebrow));
     current.paragraphs.forEach(text=>copy.append(element('p','',text)));
-    const lines=current.paragraphs.map(framingLine);
-    copy.append(button(current.button,()=>{if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}},'r1-primary'));
-    const enable=voiceButton(voice,lines);if(enable)copy.append(enable);
+    const lines=current.paragraphs.map(framingLine),token=++drawn;
+    voice?.scene(step===0?'museum':'bunker'); // bed: museum, then the Đờ Cát bunker once the light has taken Quang
+    copy.append(button(current.button,()=>{if(step===0)voice?.cue('time-warp');if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}},'r1-primary'));
+    const enable=voiceButton(voice,lines,node=>node.isConnected&&token===drawn);if(enable)copy.append(enable);
     section.replaceChildren(painting(),copy);
     voice?.speak(lines);
   };
@@ -61,7 +69,8 @@ export function returnFrame(complete,onFinish,onRestart,voice) {
   copy.append(element('blockquote','campaign-closing',CLOSING_LINE));
   copy.append(button(complete?'Bắt đầu một hành trình mới':'Khép lại hành trình',complete?onRestart:onFinish,'r1-primary'));
   const spoken=[...lines,CLOSING_LINE].map(line=>({speaker:'Lời kể',text:typeof line==='string'?line:line.text}));
-  const enable=voiceButton(voice,spoken);if(enable)copy.append(enable);
+  const enable=voiceButton(voice,spoken,node=>node.isConnected);if(enable)copy.append(enable);
+  voice?.scene('museum');
   section.append(painting(),copy);
   voice?.speak(spoken);
   return section;

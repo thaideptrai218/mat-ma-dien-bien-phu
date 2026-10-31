@@ -12,7 +12,8 @@
     "voice:script": "node scripts/build-voice-script.mjs",
     "voice:generate": "node scripts/generate-voice-lines.mjs",
     "voice:master": "node scripts/master-voice-lines.mjs",
-    "audio:sfx": "node scripts/build-sfx.mjs"
+    "audio:sfx": "node scripts/build-sfx.mjs",
+    "voice:review": "node scripts/build-voice-review-page.mjs"
   },
   "dependencies": {
     "phaser": "3.90.0"

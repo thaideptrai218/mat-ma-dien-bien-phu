@@ -38,6 +38,7 @@ export function deferRoomExit(session) {
   if (!session.options?.onExit || session.disposed) return false;
   if (session.exitQueued) return true;
   session.exitQueued = true;
+  session.audio?.playCue('door-open');
   const token = session.nonce;
   queueMicrotask(() => {
     session.exitQueued = false;

@@ -26,7 +26,9 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/room-five/{content,panels,archive}.js`, `room-five.css` | Tranh 2×2, cuộc trò chuyện, ô cá nhân không gửi/lưu, archive lời Quang. |
 | `assets/images/victory-painting.svg` | Một tranh sáng tác dùng xuyên museum intro/assembly/return. |
 | `src/ui/room-links.js`, `font-styles.css`, `game-fonts.js`, `assets/fonts/` | Preview links, font cục bộ và hàng rào đợi font Canvas. |
-| `src/core/world-geometry.js`, `src/game/character-animation.js`, `src/audio/` | Geometry/tầm E, animation và Web Audio chung, gồm cue Bảo. |
+| `src/core/world-geometry.js`, `src/game/character-animation.js`, `src/audio/` | Geometry/tầm E, animation và Web Audio chung, gồm cue Bảo; `voice-id.js` (mã câu theo nội dung), `voice-line-player.js`/`dialogue-voice.js`/`voice-preferences.js` (phát lồng tiếng theo dòng), bank SFX/nền. |
+| `scripts/voice/`, `scripts/{build-voice-script,generate-voice-lines,master-voice-lines,build-voice-review-page}.mjs` | Trích 332 câu từ content → `public/audio/voice/manifest.json`, bảng phát âm TTS, gọi CapCut/OmniVoice, hậu kỳ FFmpeg (Hệ Thống preset mạnh, -16 LUFS), trang duyệt. |
+| `scripts/build-sfx.mjs`, `scripts/sfx/`, `public/audio/{sfx,ambience}/` | 33 SFX + 7 nền (Kenney CC0 + tự tổng hợp), manifest và credits. |
 | `src/game/character-atlas.js`, `assets/characters/quang-reference/` | Clip idle/walk/run bốn hướng, crop/anchor chung và atlasRGBA theo ảnh mẫu; collider không đổi. |
 | `scripts/pack-character-sheet.ps1`, `tests/character-*.test.js` | Đóng bảng hình nguồn tùy chọn trên Windows; kiểm tra PNG thật, loader, clip, tỷ lệ/chân và body. |
 | `tests/campaign-*.test.js`, `tests/session-lifecycle.test.js` | Global graph/storage/archive/host, destroy-before-create, stale/reset/import guards. |
