@@ -62,3 +62,6 @@ Mỗi phòng: `AREA_GATES = []` tắt cổng; bỏ 1 dòng `install…`/import c
 3. Cho phép đổi câu `open` trong SYSTEM_HINTS (phải chạy lại voice:script/generate — có quyền TTS không?) hay để hướng dẫn thao tác ở dòng chữ trong panel, không lồng tiếng?
 4. Phòng 1 có chấp nhận khóa cả hai gian (8 song) hay chỉ khóa gian P (Pháp)?
 5. Phòng 4: giữ ô chữ gõ phím (đề xuất giữ) — đồng ý?
+
+## Trạng thái thực hiện (2026-10-31)
+Phase 1–6 đã làm, review và sửa; 250/250 test; người dùng tự chơi thử và xác nhận đã test xong. Nhánh `feat/system-voice-only`.

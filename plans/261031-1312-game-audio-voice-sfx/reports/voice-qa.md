@@ -32,5 +32,9 @@
 - Nghe mù 10 câu Hệ Thống (preset mạnh) để xác nhận ≥ 95 % nghe được chữ.
 - Chơi trọn hành trình có tiếng trên Chrome/Edge/Firefox (+ Safari nếu có).
 
+## Kết luận (2026-10-31)
+- Người dùng tự chơi thử toàn bộ và báo đã test xong; dừng ASR và e2e tự động theo yêu cầu.
+- Bản phát hành: nhánh `feat/system-voice-only` — chỉ Hệ Thống + Lời kể lồng tiếng (170 câu), cửa khóa + câu đố thao tác ở 5 phòng.
+
 ## Câu hỏi mở
 - Câu nào phát âm sai? (chờ người dùng nghe duyệt)
