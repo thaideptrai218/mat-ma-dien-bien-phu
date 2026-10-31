@@ -19,6 +19,11 @@
 - Hệ Thống preset mạnh: câu dài vẫn nghe ra ý, có chữ lệch (vd. “Phòng một” → “Trong một”). Cần người nghe xác nhận đạt ≥ 95 %.
 - Chạy tiếp khi có quota: script ASR chép lời bằng Gemini (resume được; nằm ở thư mục tạm của phiên, chưa đưa vào repo), kết quả ở `.cache/asr-results.json`.
 
+### Lượt 2 (gemini-3-flash-preview)
+- Tổng hợp lệ 45/332 câu (gồm 9/37 câu sinh lại sau sửa chữ cái), WER trung bình 14,5 %, rồi lại hết quota (429).
+- 2 câu WER > 100 % là ASR bịa lời (thời lượng file khớp độ dài câu ~20 ký tự/s) → cần người nghe xác nhận: `cfa46554fccf9ae4`, `87989a3d5f849064`.
+- Lỗi nghe còn lại chủ yếu ở preset mạnh của Hệ Thống và vài từ ngắn (“rương” → “giường/rừng”, “Na-va” → “nó và va”, “ô a” → “ông anh”). Chờ người nghe quyết định có hạ preset hay sửa cách đọc.
+
 ## Trình duyệt
 - Phòng 3, 4: 20/22 mục đạt; 2 lỗi nhỏ (thiếu chime ở câu Hệ Thống đầu tiên, còn sót highlight sau Esc) đã sửa (158 test). Chi tiết: [browser-audio-qa-rooms-3-5](browser-audio-qa-rooms-3-5.md). Phòng 5 chỉ kiểm tra bằng unit test (cần đủ 4 mảnh từ hành trình thật).
 
