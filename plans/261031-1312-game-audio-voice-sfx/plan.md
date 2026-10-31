@@ -42,7 +42,7 @@ Thực tế 332 câu (Quang 255 · Hệ Thống 59 · Lời kể 18, ~30.700 ký
 | 3 | Giọng máy móc Hệ Thống + mastering | **Xong** (-17,3…-16,3 LUFS, 14 MB) | [phase-03](phase-03-system-voice-fx-and-mastering.md) |
 | 4 | SFX + nền môi trường (không BGM) | **Xong** (33 SFX + 7 nền, 3,8 MB) | [phase-04](phase-04-sfx-and-ambience.md) |
 | 5 | Tích hợp vào game (player, mixer, cài đặt) | **Xong** (154 test) | [phase-05](phase-05-game-audio-integration.md) |
-| 6 | QA nghe duyệt + phát hành | **Xong** — người dùng tự chơi thử và nghe duyệt (2026-10-31); push nhánh `feat/system-voice-only` | [phase-06](phase-06-listening-qa-and-delivery.md) |
+| 6 | QA nghe duyệt + phát hành | Kỹ thuật xong, đã push `feat/system-voice-only`. Người dùng báo đã tự test (2026-10-31), **chưa có biên bản nghe duyệt từng câu**; ASR 45/332 câu; **chưa mở PR** | [phase-06](phase-06-listening-qa-and-delivery.md) |
 
 Thứ tự: 1 → 2 → 3 (2–3 lặp theo phòng); 4 song song với 1–3; 5 cần manifest của 1 và vài file mẫu của 3; 6 cuối.
 
