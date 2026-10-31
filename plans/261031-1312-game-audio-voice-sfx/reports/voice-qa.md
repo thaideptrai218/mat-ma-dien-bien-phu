@@ -15,9 +15,9 @@
 
 ## Kiểm tra nghe tự động (Gemini ASR, 2026-10-31)
 - Chép lời mù 22/332 câu trước khi hết quota Gemini (lỗi 429 với 14 câu; chưa chạy phần còn lại).
-- Lỗi thật phát hiện: CapCut đọc chữ cái đứng riêng sai (A→“anh”, V→“năm”, P→“Vi”, Q→“cuộn”, E→“em-mờ”). Đã thêm quy tắc đọc tên chữ cái tiếng Việt (a, vê, pê, quy, e…) trong , sinh lại và master lại 37 câu bị ảnh hưởng.
+- Lỗi thật phát hiện: CapCut đọc chữ cái đứng riêng sai (A→“anh”, V→“năm”, P→“Vi”, Q→“cuộn”, E→“em-mờ”). Đã thêm quy tắc đọc tên chữ cái tiếng Việt (a, vê, pê, quy, e…) trong `scripts/voice/tts-pronunciation.mjs`, sinh lại và master lại 37 câu bị ảnh hưởng.
 - Hệ Thống preset mạnh: câu dài vẫn nghe ra ý, có chữ lệch (vd. “Phòng một” → “Trong một”). Cần người nghe xác nhận đạt ≥ 95 %.
-- Chạy tiếp khi có quota: script  (resume được), kết quả ở .
+- Chạy tiếp khi có quota: script ASR chép lời bằng Gemini (resume được; nằm ở thư mục tạm của phiên, chưa đưa vào repo), kết quả ở `.cache/asr-results.json`.
 
 ## Trình duyệt
 - Phòng 3, 4: 20/22 mục đạt; 2 lỗi nhỏ (thiếu chime ở câu Hệ Thống đầu tiên, còn sót highlight sau Esc) đã sửa (158 test). Chi tiết: [browser-audio-qa-rooms-3-5](browser-audio-qa-rooms-3-5.md). Phòng 5 chỉ kiểm tra bằng unit test (cần đủ 4 mảnh từ hành trình thật).
