@@ -15,6 +15,7 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/room-one/{ui,ui-panels,ui-puzzles,ui-map,document-reader}.js` | Shell, native dialog/reader, mini/full map, settings và panel factory cấu hình. |
 | `src/core/session-lifecycle.js` | Disposed guards, cleanup, shared-audio ownership, async idempotent Game DESTROY và deferred real-door onExit. |
 | `src/room-two/{session,actions,rules,save,ui,scene,archive}.js` | Adapter Bảo, clue/beat và puzzle prefix thật, fold cấp II, cửa đông, toàn văn cho global journal, key riêng. |
+| `src/room-two/system-guidance.js` | Lớp lời thoại campaign cho Phòng 2: đổi xưng hô Hệ Thống ở intro/outro, thêm lời dẫn sau mỗi trạm; registry donor không đổi. |
 | `src/room-two/bao/` | Story/world/source registries, donor snapshot/provenance hashes, renderer/evaluator/art/CSS giữ gốc hoặc chỉ đổi import. |
 | `src/room-three/{session,actions,rules,save,goals,answers,puzzle-data}.js` | Năm giấy/bốn hoạt động xen kẽ, validators ngữ nghĩa, token, khóa ngày/rương/pickup III/cửa, graph restore. |
 | `src/room-three/{documents,content,world,art,scene}.js` | Năm giấy đầy đủ, trại 3200×2000 và 14 vật, lớp rương/mảnh theo state. |
@@ -33,6 +34,8 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `vite.config.js` | Năm entry: campaign+preview 1–4;5173 dev/4173 preview, Phaser chunk dùng chung. |
 
 ## Hợp đồng cần giữ
+
+Xưng hô: Hệ Thống gọi Quang là **Ký Chủ** (không dùng “ngươi”/“bạn”); Quang gọi **Hệ Thống**, xưng **tao** khi nói với nó, xưng “mình” khi tự nghĩ. Phòng 1/3/4/5 có `GUIDE` (lời dẫn sau từng bước), Phòng 2 có `PUZZLE_GUIDE`; Phòng 1/3/4 dùng mảng `CAMPAIGN_*` thay cho thay chuỗi (Phòng 2 dùng lời trung tính cho cả hai chế độ); `tests/system-address-dialogue.test.js` khóa quy ước này. Lời đáp cuối của Quang ở Phòng 5 giữ nguyên văn cốt truyện (“Tôi…”).
 
 UI không cấp tiến độ, scene không ghi storage; controller kiểm tra active view/token/parent pause/disposal. Session nhận optional storage/audio/isPaused/onExit, không lấy save preview khi campaign đã inject adapter. Parent await destroy thực trước khi tái dùng root, giữ một shared audio context. Diagnostics trả bản clone, không setter gameplay.
 

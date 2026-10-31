@@ -1,16 +1,45 @@
-// Quang and the system dialogue are authored for this standalone learning room.
-export const INTRO = [
-  { speaker: 'Hệ thống', text: 'Phòng 4 — Những ngày quyết định. Phần của Trâm trong PDF bản 4: từ 30/3 đến chiến thắng 7/5/1954, rồi nhìn lại kết quả và ý nghĩa.' },
-  { speaker: 'Quang', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Mình bắt đầu ở cuối tháng ba.' },
-  { speaker: 'Hệ thống', text: 'Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.' },
-  { speaker: 'Hệ thống', text: 'Đi bằng WASD hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn E. Đọc hết giấy, nghe Quang suy nghĩ rồi xác nhận. N mở sổ tay, M mở sơ đồ, Q xem nhiệm vụ.' },
+// Quang and the system dialogue are authored for this learning room.
+// Hệ Thống calls Quang "Ký Chủ"; Quang calls it "Hệ Thống" and says "tao" to it.
+const introLines = scopeNote => [
+  { speaker: 'Hệ Thống', text: 'Phòng 4 — Những ngày quyết định. Từ 30/3 đến chiến thắng 7/5/1954, rồi nhìn lại kết quả và ý nghĩa.' },
+  { speaker: 'Quang', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tao bắt đầu ở cuối tháng ba nhé?' },
+  { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ: đọc bảy tư liệu theo dòng thời gian, giải bảng ô chữ lịch sử, tìm cột chữ có nghĩa, rồi lần theo lời chỉ dẫn để mở rương mảnh tranh thứ tư.' },
+  { speaker: 'Hệ Thống', text: `${scopeNote} Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên phần của Trâm trong tài liệu được cung cấp, với nguồn ghi ngoài lời văn.` },
+  { speaker: 'Hệ Thống', text: 'Đi bằng WASD hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn E. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. N mở sổ tay, M mở sơ đồ, Q xem nhiệm vụ.' },
 ];
+export const INTRO = introLines('Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này.');
+export const CAMPAIGN_INTRO = introLines('Chặng này giữ mảnh tranh IV của hành trình.');
 
-export const ENDING = [
+// Guidance appended to the success dialogue of each Room 4 step.
+export const GUIDE = {
+  documents: [
+    { speaker: 'Hệ Thống', text: 'Bảy tư liệu đã được ghi nhận. Nhiệm vụ tiếp theo: bảng ô chữ lịch sử ở phía bắc. Mỗi câu hỏi gắn với một tờ giấy Ký Chủ đã đọc.' },
+    { speaker: 'Quang', text: 'Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tao không sợ.' },
+  ],
+  column: [
+    { speaker: 'Hệ Thống', text: 'Lời chỉ dẫn đã hiện. Bàn mật mã T ở bên trái, bàn mật mã L ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.' },
+    { speaker: 'Quang', text: 'Hình T trước, hình L sau. Hệ Thống cứ xem tao làm.' },
+  ],
+  final: [
+    { speaker: 'Hệ Thống', text: 'Khẩu hiệu đã được xác nhận. Ký Chủ đến gần rương và nhấn E để nhận mảnh tranh số IV.' },
+  ],
+};
+
+const ENDING_STORY = [
   { speaker: 'Quang', text: 'Mảnh IV đã ở đây. Bảy tờ giấy đi từ cuộc chiến giành từng đoạn hào đến những đổi thay vượt xa Điện Biên Phủ.' },
   { speaker: 'Quang', text: 'Bình vẫn mong về với mẹ, Hạnh muốn gửi tin cho em. Đọc đến kết quả rồi, mình vẫn nhớ những lời ấy.' },
-  { speaker: 'Hệ thống', text: 'Bạn đã nhận mảnh tranh IV. Tới cửa phía bắc để hoàn thành Phòng 4 độc lập.' },
-  { speaker: 'Hệ thống', text: 'Phòng 5 ghép tranh và suy ngẫm nằm trong hành trình năm phòng ở trang chính. Bản chơi riêng này giữ tiến độ riêng, không tự chuyển mảnh tranh vào hành trình.' },
+];
+export const ENDING = [
+  ...ENDING_STORY,
+  { speaker: 'Hệ Thống', text: 'Ký Chủ đã nhận mảnh tranh IV. Tới cửa phía bắc để hoàn thành Phòng 4 độc lập.' },
+  { speaker: 'Hệ Thống', text: 'Phòng 5 ghép tranh và suy ngẫm nằm trong hành trình năm phòng ở trang chính. Bản chơi riêng này giữ tiến độ riêng, không tự chuyển mảnh tranh vào hành trình.' },
+];
+export const CAMPAIGN_ENDING = [
+  ...ENDING_STORY,
+  { speaker: 'Hệ Thống', text: 'Ký Chủ đã nhận mảnh tranh IV. Tới cửa phía bắc để tiếp tục hành trình.' },
+  { speaker: 'Hệ Thống', text: 'Qua cửa là Phòng 5: ghép bốn mảnh tranh trên cánh cửa cuối cùng.' },
+  { speaker: 'Quang', text: 'Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tao về được chứ?' },
+  { speaker: 'Hệ Thống', text: 'Câu trả lời nằm sau cánh cửa, thưa Ký Chủ.' },
 ];
 
 export const REACTIONS = {

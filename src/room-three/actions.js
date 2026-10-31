@@ -1,5 +1,5 @@
 import {DOCUMENTS} from './documents.js';
-import {ENDING} from './content.js';
+import {ENDING,CAMPAIGN_ENDING,GUIDE} from './content.js';
 import {CHALLENGES} from './puzzle-data.js';
 import {recoveredTokens} from './rules.js';
 import {goalFor} from './goals.js';
@@ -15,7 +15,7 @@ export function handleAction(s,action,p={}){
   if(activity){
     if(!inView(activity)||active.solved)return;
     if(!s.commit('challenge',{id:activity,answers:p}))return s.error(errors[activity]);
-    const ch=CHALLENGES.find(c=>c.id===activity);s.audio.playCue('success');return s.dialogue('Dữ kiện vừa khôi phục',[ch.reward,explanations[activity]]);
+    const ch=CHALLENGES.find(c=>c.id===activity);s.audio.playCue('success');return s.dialogue('Dữ kiện vừa khôi phục',[ch.reward,explanations[activity],...GUIDE[activity]]);
   }
   switch(action){
     case'modal-open':s.scene?.clearKeys();return;
@@ -41,7 +41,7 @@ export function handleAction(s,action,p={}){
     }
     case'document-collect':if(confirmed('document-collect')&&p.id===active.payload.id&&s.commit('collect',p)){s.audio.playCue('paper');s.notice='Đã ghi dữ kiện. Sổ tay N giữ toàn văn và các mật mã đã khôi phục.';s.close();}return;
     case'document-reread':if(inView('notebook')&&s.state.collectedNoteIds.includes(p.id))s.show('document',{document:DOCUMENTS.find(d=>d.id===p.id),readOnly:true});return;
-    case'final-submit':if(!inView('final'))return;if(!s.commit('final',p))return s.error('Ghép NGÀY 13, THÁNG 3 và NĂM 1954 thành ngày mở màn. Phương châm được giữ riêng.');s.audio.playCue('success');return s.dialogue('13/03/1954',['Ngày mở màn Chiến dịch Điện Biên Phủ đã được khôi phục. Rương vừa mở.','Mình sẽ cất mảnh tranh số III trước khi đi tiếp.']);
-    case'fragment-collect':if(confirmed('fragment-collect')&&p.id==='chest'&&active.payload.id==='chest'&&s.commit('fragment')){s.audio.playCue('reveal');s.dialogue('Mảnh tranh số III',s.options?.onExit?ENDING.map(line=>({...line,text:line.text.replace('Phòng 4 của Trâm và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.','Qua cửa, mình sẽ đến Phòng 4 của Trâm rồi tiếp tục tới phòng ghép tranh và suy ngẫm.')})):ENDING);}return;
+    case'final-submit':if(!inView('final'))return;if(!s.commit('final',p))return s.error('Ghép NGÀY 13, THÁNG 3 và NĂM 1954 thành ngày mở màn. Phương châm được giữ riêng.');s.audio.playCue('success');return s.dialogue('13/03/1954',['Ngày mở màn Chiến dịch Điện Biên Phủ đã được khôi phục. Rương vừa mở.','Mình sẽ cất mảnh tranh số III trước khi đi tiếp.',...GUIDE.final]);
+    case'fragment-collect':if(confirmed('fragment-collect')&&p.id==='chest'&&active.payload.id==='chest'&&s.commit('fragment')){s.audio.playCue('reveal');s.dialogue('Mảnh tranh số III',s.options?.onExit?CAMPAIGN_ENDING:ENDING);}return;
   }
 }

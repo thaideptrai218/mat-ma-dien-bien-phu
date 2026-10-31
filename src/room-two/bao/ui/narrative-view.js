@@ -1,6 +1,7 @@
 import portraitUrl from '../../../../assets/images/quang-portrait.png';
 import emblemUrl from '../../../../assets/images/game-emblem.png';
-import { beats, clues, chapters } from '../content/story-data.js';
+import { clues, chapters } from '../content/story-data.js';
+import { beats } from '../../system-guidance.js';
 import { element, button, paragraph } from '../../../ui/dom-elements.js';
 
 const speakers = {

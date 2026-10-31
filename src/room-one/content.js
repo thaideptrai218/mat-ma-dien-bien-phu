@@ -1,17 +1,55 @@
 // Quang and these conversations are authored fiction for the learning game.
+// Hệ Thống calls Quang "Ký Chủ"; Quang calls it "Hệ Thống" and says "tao" to it, "mình" when thinking alone.
 export const INTRO = [
-  { speaker: 'Hệ thống', text: 'Phòng 1 — Trước bản kế hoạch. Từ bước chuyển năm 1950 đến tình thế năm 1953; lá thư mở đầu được viết vào đầu năm 1953.' },
-  { speaker: 'Quang', text: 'Một lá thư gửi người em ở nhà. Mình đọc xem người anh viết gì.' },
-  { speaker: 'Hệ thống', text: 'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn E để xem. N mở sổ tay, M mở bản đồ, Q xem nhiệm vụ.' },
-  { speaker: 'Hệ thống', text: 'Thư, ghi chép và nhân vật là hư cấu dựa trên tài liệu được cung cấp. Thông tin nguồn nằm bên ngoài lời văn. Đọc hết giấy rồi cùng Quang suy nghĩ để ghi nhận hồ sơ.' },
+  { speaker: 'Hệ Thống', text: 'Phòng 1 — Trước bản kế hoạch. Không gian này tái hiện chặng đường từ bước chuyển năm 1950 đến tình thế năm 1953. Lá thư mở đầu được viết vào đầu năm 1953.' },
+  { speaker: 'Quang', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tao đọc nó trước được chứ?' },
+  { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ đầu tiên: đọc trọn lá thư trên bàn gần cửa vào. Ký Chủ hãy để ý những ký hiệu nằm ngoài lời thư.' },
+  { speaker: 'Hệ Thống', text: 'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn E để xem. N mở sổ tay, M mở bản đồ, Q xem nhiệm vụ.' },
+  { speaker: 'Hệ Thống', text: 'Thư, ghi chép và nhân vật là hư cấu dựa trên tài liệu được cung cấp. Thông tin nguồn nằm bên ngoài lời văn. Ký Chủ đọc hết giấy rồi cùng suy nghĩ để ghi nhận hồ sơ.' },
 ];
 
-export const ENDING = [
+// Step-by-step guidance appended to the success dialogue of each Room 1 step.
+export const GUIDE = {
+  letter: [
+    { speaker: 'Hệ Thống', text: 'Ký Chủ hãy ghi nhớ ký hiệu A-03. Nhiệm vụ tiếp theo: tìm ô A-03 trên bản đồ treo ở bức tường phía bắc.' },
+    { speaker: 'Quang', text: 'Hàng A, cột 03. Tao đi xem ngay.' },
+  ],
+  a03: [
+    { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },
+    { speaker: 'Quang', text: 'Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tao lo.' },
+  ],
+  dossiers: [
+    { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã được ghi nhận. Nhiệm vụ tiếp theo: mang dữ kiện đến bàn đối chiếu ở giữa phòng, so từng mặt của hai phía.' },
+    { speaker: 'Quang', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tao không?' },
+    { speaker: 'Hệ Thống', text: 'Hệ Thống không trả lời thay Ký Chủ. Sổ tay N vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.' },
+  ],
+  comparison: [
+    { speaker: 'Hệ Thống', text: 'Mã 2413 đã được ghi nhận. Ngăn kéo mật mã đang chờ Ký Chủ.' },
+    { speaker: 'Quang', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tao không cần gợi ý.' },
+  ],
+  identity: [
+    { speaker: 'Hệ Thống', text: 'Danh tính đã được xác nhận. Ký Chủ hãy đọc bản tin tháng 7/1953 trước khi tới rương sắt.' },
+    { speaker: 'Quang', text: 'Rõ. Đọc xong, tao sẽ mang cái tên ấy tới rương.' },
+  ],
+  chest: [
+    { speaker: 'Hệ Thống', text: 'Rương sắt đang chờ. Nhập đúng họ ấy, mảnh ghép thứ nhất sẽ thuộc về Ký Chủ.' },
+  ],
+};
+
+const ENDING_STORY = [
   { speaker: 'Quang', text: 'Tên trong bản điện là Henri Navarre, thường gọi là Nava. Tháng 5/1953, Chính phủ Pháp cử ông làm tổng chỉ huy quân đội viễn chinh Pháp ở Đông Dương.' },
   { speaker: 'Quang', text: 'Đến tháng 7/1953, Chính phủ Pháp thông qua kế hoạch mới, nhằm giành thắng lợi quân sự quyết định và kết thúc chiến tranh trong điều kiện có lợi cho Pháp.' },
   { speaker: 'Quang', text: 'Trong lá thư đầu, anh Lâm vẫn còn chờ ngày về. Mình muốn biết kế hoạch mới này sẽ đưa cuộc chiến đến đâu.' },
-  { speaker: 'Hệ thống', text: 'Bạn đã nhận mảnh tranh đầu tiên. Tới cửa phía bắc để hoàn thành Phòng 1.' },
-  { speaker: 'Hệ thống', text: 'Sau khi hoàn thành, bạn có thể mở bản thử Phòng 2 của Bảo bằng liên kết riêng. Tiến độ của hai bản được lưu riêng.' },
+  { speaker: 'Hệ Thống', text: 'Ký Chủ đã nhận mảnh tranh đầu tiên. Tới cửa phía bắc để hoàn thành Phòng 1.' },
+];
+export const ENDING = [
+  ...ENDING_STORY,
+  { speaker: 'Hệ Thống', text: 'Sau khi hoàn thành, Ký Chủ có thể mở bản thử Phòng 2 của Bảo bằng liên kết riêng. Tiến độ của hai bản được lưu riêng.' },
+];
+export const CAMPAIGN_ENDING = [
+  ...ENDING_STORY,
+  { speaker: 'Quang', text: 'Một mảnh rồi. Còn ba mảnh nữa, Hệ Thống.' },
+  { speaker: 'Hệ Thống', text: 'Phía sau cánh cửa là Phòng 2, nơi kế hoạch của Nava được bày lên bàn cờ Đông Dương.' },
 ];
 
 export const REACTIONS = {

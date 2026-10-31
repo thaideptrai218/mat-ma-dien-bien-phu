@@ -1,10 +1,8 @@
 import {DOCUMENTS} from './documents.js';
 import {goalFor} from './rules.js';
-import {ENDING} from './content.js';
+import {ENDING,CAMPAIGN_ENDING,GUIDE} from './content.js';
 
-const endingFor=s=>s.options?.onExit?ENDING.map(line=>({...line,text:line.text
-  .replace('Tới cửa phía bắc để hoàn thành Phòng 4 độc lập.','Tới cửa phía bắc để tiếp tục hành trình.')
-  .replace('Phòng 5 ghép tranh và suy ngẫm nằm trong hành trình năm phòng ở trang chính. Bản chơi riêng này giữ tiến độ riêng, không tự chuyển mảnh tranh vào hành trình.','Qua cửa là Phòng 5: ghép bốn mảnh tranh và cùng Quang suy ngẫm về hành trình.')})):ENDING;
+const endingFor=s=>s.options?.onExit?CAMPAIGN_ENDING:ENDING;
 
 export function handleAction(s,action,p={}) {
   if(s.disposed||s.options?.isPaused?.())return;
@@ -38,7 +36,11 @@ export function handleAction(s,action,p={}) {
     }
     case 'document-collect':
       if(!confirmed('document-collect')||p.id!==active.payload.id)return;
-      if(s.commit('collect',p)){s.audio.playCue('paper');s.notice='Đã ghi dữ kiện. Sổ tay N giữ toàn văn để đối chiếu.';s.close();}return;
+      if(s.commit('collect',p)){
+        s.audio.playCue('paper');s.notice='Đã ghi dữ kiện. Sổ tay N giữ toàn văn để đối chiếu.';
+        if(DOCUMENTS.every(d=>s.state.collectedNoteIds.includes(d.id)))return s.dialogue('Đủ bảy tư liệu',GUIDE.documents);
+        s.close();
+      }return;
     case 'document-reread':
       if(inView('notebook')&&s.state.collectedNoteIds.includes(p.id))s.show('document',{document:DOCUMENTS.find(d=>d.id===p.id),readOnly:true});return;
     case 'crossword-submit':
@@ -49,7 +51,7 @@ export function handleAction(s,action,p={}) {
     case 'column-submit':
       if(!inView('column'))return;
       if(!s.commit('column',p))return s.error('Cột này chưa thành một lời chỉ dẫn đủ bảy chữ. Hãy đọc từ hàng đầu tới hàng cuối.');
-      s.audio.playCue('success');return s.dialogue('TÌM T VÀ L',['T · I · M · T · V · A · L. Đọc thành “TÌM T VÀ L”.','Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.']);
+      s.audio.playCue('success');return s.dialogue('TÌM T VÀ L',['T · I · M · T · V · A · L. Đọc thành “TÌM T VÀ L”.','Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.',...GUIDE.column]);
     case 'shape-submit':{
       if(!inView('board')||p.board!==active.board)return;
       if(!s.commit('shape',p))return s.error(p.board==='t'?'Chọn trọn hàng trên cùng và cột giữa kéo xuống để thành hình T.':'Chọn cột đầu tiên từ trên xuống, rồi hàng cuối sang phải để thành hình L.');
@@ -58,7 +60,7 @@ export function handleAction(s,action,p={}) {
     case 'final-submit':
       if(!inView('final'))return;
       if(!s.commit('final',p))return s.error('Ghép hai phần đọc được ở hình T và hình L thành khẩu hiệu trên lá cờ chiến thắng.');
-      s.audio.playCue('success');return s.dialogue('Rương ký ức đã mở',['“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.','Mình sẽ lấy mảnh tranh số IV rồi tới cánh cửa phía bắc.']);
+      s.audio.playCue('success');return s.dialogue('Rương ký ức đã mở',['“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.','Mình sẽ lấy mảnh tranh số IV rồi tới cánh cửa phía bắc.',...GUIDE.final]);
     case 'fragment-collect':
       if(confirmed('fragment-collect')&&p.id==='chest'&&active.payload.id==='chest'&&s.commit('fragment')){s.audio.playCue('reveal');s.dialogue('Mảnh tranh số IV',endingFor(s));}return;
   }

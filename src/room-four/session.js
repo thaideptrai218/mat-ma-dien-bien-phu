@@ -3,15 +3,14 @@ import {AudioController} from '../audio/audio-controller.js';
 import {RoomFourScene} from './scene.js';
 import {RoomFourUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
-import {INTRO,REACTIONS} from './content.js';
+import {INTRO,CAMPAIGN_INTRO,REACTIONS} from './content.js';
 import {WORLD,OBJECTS} from './world.js';
 import {createState,goalFor,reduce,nextDocumentId} from './rules.js';
 import {loadSave,persistSave} from './save.js';
 import {handleAction} from './actions.js';
 import {disposeRoomSession,deferRoomExit,retainSharedAudioPreferences} from '../core/session-lifecycle.js';
 
-const introFor=options=>options.onExit?INTRO.map(line=>({...line,text:line.text
-  .replace('Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này.','Chặng này giữ mảnh tranh IV của hành trình.')})):INTRO;
+const introFor=options=>options.onExit?CAMPAIGN_INTRO:INTRO;
 
 export class RoomFourSession {
   constructor(root,options={}) {

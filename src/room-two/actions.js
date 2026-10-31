@@ -1,4 +1,12 @@
 import {CHAPTER, clues, puzzles, beats, evaluatePuzzle} from './content.js';
+import {PUZZLE_GUIDE} from './system-guidance.js';
+
+// Hệ Thống points to the next station first; the solved board stays one button away.
+function showGuide(session, puzzle) {
+  const lines = [puzzle.successText, ...PUZZLE_GUIDE[puzzle.id].map(line => `${line.speaker} — ${line.text}`)];
+  session.show('dialogue', {title: puzzle.title, speaker: 'Quang', lines, buttonLabel: 'Xem lại kết quả trên bàn',
+    action: 'puzzle-review', payload: {puzzleId: puzzle.id, token: session.nonce + 1}});
+}
 
 function failureText(puzzle, result, answer) {
   if (result.messageKey === 'missing-clues') return 'Bạn cần đọc hết và ghi đủ các manh mối trong sổ tay trước khi đối chiếu.';
@@ -42,6 +50,7 @@ export function handleIntent(session, intent) {
     session.notice = puzzle.successText;
     if (session.state.fragmentCollected && !session.state.completedBeatIds.includes(CHAPTER.outroBeatId))
       session.showNarrative(CHAPTER.outroBeatId);
+    else if (PUZZLE_GUIDE[puzzle.id]) showGuide(session, puzzle);
     else { session.showPuzzle(puzzle.id); session.ui.puzzle.showFeedback(puzzle.successText, 'success'); }
     return;
   }
@@ -68,6 +77,13 @@ export function handleAction(session, action, payload = {}) {
   if (session.options.isPaused?.()) return;
   switch (action) {
     case 'close': return session.close();
+    case 'puzzle-review': {
+      const active = session.active, puzzle = puzzles[payload.puzzleId];
+      if (active?.kind !== 'dialogue' || payload.token !== active.token || payload.puzzleId !== active.payload?.puzzleId) return;
+      if (!puzzle || !session.state.completedPuzzleIds.includes(puzzle.id)) return;
+      session.showPuzzle(puzzle.id); session.ui.puzzle.showFeedback(puzzle.successText, 'success');
+      return;
+    }
     case 'interact': return session.interact(session.position.nearbyId);
     case 'map': return session.show('map');
     case 'notebook': return session.show('notebook', {state: session.state});

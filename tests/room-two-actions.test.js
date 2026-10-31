@@ -5,12 +5,13 @@ import {createState, reduce} from '../src/room-two/rules.js';
 import {CLUE_IDS, PUZZLE_IDS, CHAPTER, clues, puzzles} from '../src/room-two/content.js';
 
 function session() {
-  return {state: createState(), active: null, options: {}, disposed: false, notice: '',
+  return {state: createState(), active: null, options: {}, disposed: false, notice: '', nonce: 0,
     audio: {playCue() {}},
     ui: {narrative: {getActive: () => null, clear() {}}, puzzle: {showFeedback() {}}},
     commit(action, payload) { const next = reduce(this.state, action, payload); if (next === this.state) return false; this.state = next; return true; },
     showNarrative(beatId) { this.active = {kind: 'narrative', beatId}; },
     showPuzzle(puzzleId) { this.active = {kind: 'puzzle', puzzleId}; },
+    show(view, data = {}) { this.active = {kind: view, ...data, token: ++this.nonce}; },
     close() { this.active = null; }, render() {},
   };
 }
@@ -59,4 +60,19 @@ test('the actual final fold awards II and opens original outro without committin
   const before = structuredClone(s.state);
   s.disposed = true; handleAction(s, 'notebook'); handleIntent(s, {type: 'complete-beat', beatId: CHAPTER.outroBeatId});
   assert.deepEqual(s.state, before);
+});
+
+test('a solved station shows Hệ Thống guidance first; only its live token reopens the solved board', () => {
+  const s = session(); record(s);
+  const puzzleId = PUZZLE_IDS[0];
+  s.active = {kind: 'puzzle', puzzleId};
+  handleIntent(s, {type: 'submit-puzzle', puzzleId, answer: structuredClone(puzzles[puzzleId].answerSpec)});
+  assert.equal(s.active.kind, 'dialogue');
+  assert.equal(s.active.action, 'puzzle-review');
+  assert.ok(s.active.lines.some(line => line.startsWith('Hệ Thống — ') && line.includes('Ký Chủ')));
+  const {token} = s.active;
+  handleAction(s, 'puzzle-review', {puzzleId, token: token + 1}); assert.equal(s.active.kind, 'dialogue');
+  handleAction(s, 'puzzle-review', {puzzleId: PUZZLE_IDS[1], token}); assert.equal(s.active.kind, 'dialogue');
+  handleAction(s, 'puzzle-review', {puzzleId, token});
+  assert.deepEqual(s.active, {kind: 'puzzle', puzzleId});
 });

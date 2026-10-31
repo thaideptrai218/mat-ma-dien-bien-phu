@@ -3,7 +3,7 @@ import {AudioController} from '../audio/audio-controller.js';
 import {RoomThreeScene} from './scene.js';
 import {RoomThreeUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
-import {INTRO,REACTIONS} from './content.js';
+import {INTRO,CAMPAIGN_INTRO,REACTIONS} from './content.js';
 import {CHALLENGES} from './puzzle-data.js';
 import {WORLD,OBJECTS} from './world.js';
 import {createState,reduce,nextDocumentId,canSolve,recoveredTokens} from './rules.js';
@@ -12,9 +12,7 @@ import {loadSave,persistSave} from './save.js';
 import {handleAction} from './actions.js';
 import {disposeRoomSession,deferRoomExit,retainSharedAudioPreferences} from '../core/session-lifecycle.js';
 
-const introFor = options => options.onExit ? INTRO.map(line => ({...line,text:line.text
-  .replace('Chỉ mảnh III được trao ở phòng độc lập này.','Mảnh III thuộc chặng tiếp vận này.')
-  .replace('Các phòng giữ tiến độ riêng.','Tiến độ được giữ chung trong hành trình.')})) : INTRO;
+const introFor = options => options.onExit ? CAMPAIGN_INTRO : INTRO;
 
 export class RoomThreeSession{
   constructor(root,options={}){

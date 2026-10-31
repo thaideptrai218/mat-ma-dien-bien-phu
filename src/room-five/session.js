@@ -63,7 +63,8 @@ export class RoomFiveSession {
   dialogue(title, lines, buttonLabel = 'Trở lại bản đồ', action = 'close', payload = {}) {
     if (this.disposed) return;
     const token = this.nonce + 1;
-    this.show('dialogue', {title, speaker: 'Quang', lines, buttonLabel, action, payload: {...payload, token}});
+    const messages = lines.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
+    this.show('dialogue', {title, speaker: 'Quang', lines: messages, buttonLabel, action, payload: {...payload, token}});
   }
   close() {
     if (this.disposed) return;

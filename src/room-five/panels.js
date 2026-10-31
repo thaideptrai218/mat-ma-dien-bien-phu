@@ -58,7 +58,7 @@ function reflection(data, emit) {
   const node = element('section', 'r5-reflection');
   node.append(heading('Câu hỏi không nằm trong mật mã', 'PHÒNG 5 · LỜI KỂ HƯ CẤU'), element('p', 'r1-muted', SOURCE_LABEL));
   for (const line of REFLECTION_SCRIPT) {
-    const passage = element('div', `r5-script r5-speaker-${line.speaker === 'Quang' ? 'quang' : line.speaker === 'Hệ thống' ? 'system' : 'narrator'}`);
+    const passage = element('div', `r5-script r5-speaker-${line.speaker === 'Quang' ? 'quang' : line.speaker === 'Hệ Thống' ? 'system' : 'narrator'}`);
     passage.append(element('h3', '', line.speaker), element('p', '', line.text)); node.append(passage);
   }
   node.append(element('blockquote', 'r5-door-message', DOOR_MESSAGE));

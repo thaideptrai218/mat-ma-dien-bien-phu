@@ -1,17 +1,54 @@
 // Authored dialogue for the supplied logistics activity; no historical witness claim.
-export const INTRO = [
-  {speaker: 'Hệ thống', text: 'Phòng 3 — Mật mã hậu phương: Giải cứu tuyến tiếp vận. Bối cảnh từ quyết định tháng 12/1953 đến những trận mở đầu tháng 3/1954.'},
-  {speaker: 'Quang', text: 'Có kho hàng, con đường, lều chỉ huy và những bản tin. Mình bắt đầu từ tờ giấy gần kho xem họ đã chuẩn bị những gì.'},
-  {speaker: 'Hệ thống', text: 'Bốn thử thách khôi phục bốn dữ kiện. Đọc trọn giấy rồi cùng Quang suy nghĩ và xác nhận trước khi đến trạm tương ứng. Chỉ mảnh III được trao ở phòng độc lập này.'},
-  {speaker: 'Hệ thống', text: 'Thư, người viết và chuyện riêng là hư cấu; sáu tranh vận chuyển là minh họa sáng tác, không phải ảnh tư liệu. Nguồn lịch sử ghi bên ngoài lời văn.'},
-  {speaker: 'Hệ thống', text: 'WASD hoặc mũi tên để đi, Shift để chạy, E để xem vật gần. M mở sơ đồ, N mở sổ tay, Q thu/mở nhiệm vụ. Các phòng giữ tiến độ riêng.'},
+// Hệ Thống calls Quang "Ký Chủ"; Quang calls it "Hệ Thống" and says "tao" to it.
+const introLines = (fragmentNote, progressNote) => [
+  {speaker: 'Hệ Thống', text: 'Phòng 3 — Mật mã hậu phương: Giải cứu tuyến tiếp vận. Bối cảnh từ quyết định tháng 12/1953 đến những trận mở đầu tháng 3/1954.'},
+  {speaker: 'Quang', text: 'Kho hàng, con đường, lều chỉ huy, trạm điện đài… Hệ Thống, nhiệm vụ lần này là gì?'},
+  {speaker: 'Hệ Thống', text: 'Kế hoạch tiếp vận đã bị mã hóa. Ký Chủ phải vượt bốn thử thách để khôi phục bốn dữ kiện: hồ sơ chuẩn bị, những chuyến hàng, mật lệnh của Bộ Chỉ huy và mật điện chiến thắng.'},
+  {speaker: 'Hệ Thống', text: `Trước mỗi trạm, Ký Chủ đọc trọn tờ giấy liên quan rồi suy nghĩ và xác nhận. Tờ đầu tiên nằm gần kho hàng. ${fragmentNote}`},
+  {speaker: 'Quang', text: 'Đọc trước, giải sau. Tao nhớ rồi.'},
+  {speaker: 'Hệ Thống', text: 'Thư, người viết và chuyện riêng là hư cấu; sáu tranh vận chuyển là minh họa sáng tác, không phải ảnh tư liệu. Nguồn lịch sử ghi bên ngoài lời văn.'},
+  {speaker: 'Hệ Thống', text: `WASD hoặc mũi tên để đi, Shift để chạy, E để xem vật gần. M mở sơ đồ, N mở sổ tay, Q thu/mở nhiệm vụ. ${progressNote}`},
 ];
+export const INTRO = introLines('Chỉ mảnh III được trao ở phòng độc lập này.', 'Các phòng giữ tiến độ riêng.');
+export const CAMPAIGN_INTRO = introLines('Mảnh III thuộc chặng tiếp vận này.', 'Tiến độ được giữ chung trong hành trình.');
 
-export const ENDING = [
+// Guidance appended to the reward dialogue of each challenge, keyed by challenge id.
+export const GUIDE = {
+  preparation: [
+    {speaker: 'Hệ Thống', text: 'Mật mã 1 đã được ghi nhận. Thử thách tiếp theo: Bí mật những chuyến hàng. Ký Chủ đọc nhật ký tiếp vận, rồi tới bãi hàng để ghép sáu bức tranh với chú thích.'},
+    {speaker: 'Quang', text: 'Sáu bức tranh bị mất chú thích. Để tao xem ai đã đưa gạo, đạn ra mặt trận.'},
+  ],
+  cargo: [
+    {speaker: 'Hệ Thống', text: 'Mật mã 2 đã được ghi nhận. Thử thách tiếp theo: Mật lệnh của Bộ Chỉ huy. Hai bức điện đang chờ Ký Chủ đọc; bàn điện nằm trong lều chỉ huy.'},
+    {speaker: 'Quang', text: 'Hai bức điện, hai phương châm. Tao sẽ đọc thật chậm.'},
+  ],
+  strategy: [
+    {speaker: 'Hệ Thống', text: 'Mật mã 3 đã được ghi nhận. Thử thách cuối: Giải mã mật điện chiến thắng. Ký Chủ đọc thư sau trận Độc Lập và báo cáo phía bắc, rồi tới trạm điện đài.'},
+    {speaker: 'Quang', text: 'Những ngày đầu của chiến dịch. Lần này tao phải nhớ cả ngày tháng.'},
+  ],
+  opening: [
+    {speaker: 'Hệ Thống', text: 'Đủ bốn dữ kiện. Nhiệm vụ cuối: ghép ngày, tháng và năm thành ngày mở màn chiến dịch, rồi nhập vào khóa rương.'},
+    {speaker: 'Quang', text: 'Các dữ kiện ấy đều nằm trong sổ tay. Hệ Thống chờ tao một chút.'},
+  ],
+  final: [
+    {speaker: 'Hệ Thống', text: 'Hồ sơ tiếp vận đã được khôi phục. Ký Chủ đến gần rương và nhấn E để nhận mảnh tranh số III.'},
+  ],
+};
+
+const ENDING_STORY = [
   {speaker: 'Quang', text: 'Tháng 3, năm 1954, ngày 13: các mốc ghép lại thành ngày mở màn. Dữ kiện Đánh chắc, tiến chắc nhắc mình nhớ cách những người chỉ huy đã cân nhắc.'},
   {speaker: 'Quang', text: 'Sau những bản tin là người làm đường, dân công, thanh niên xung phong, người kéo pháo và những chuyến gạo, đạn, thuốc. Mặt trận cần họ tiếp tục góp sức.'},
-  {speaker: 'Hệ thống', text: 'Bạn đã khôi phục bốn dữ kiện và nhận riêng mảnh tranh III. Tới cửa để hoàn thành Phòng 3; không có mảnh của các phòng khác được cấp ở đây.'},
-  {speaker: 'Hệ thống', text: 'Chiến dịch còn tiếp tục sau ngày 17/3. Phòng 4 của Trâm và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.'},
+];
+export const ENDING = [
+  ...ENDING_STORY,
+  {speaker: 'Hệ Thống', text: 'Ký Chủ đã khôi phục bốn dữ kiện và nhận riêng mảnh tranh III. Tới cửa để hoàn thành Phòng 3; không có mảnh của các phòng khác được cấp ở đây.'},
+  {speaker: 'Hệ Thống', text: 'Chiến dịch còn tiếp tục sau ngày 17/3. Phòng 4 của Trâm và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.'},
+];
+export const CAMPAIGN_ENDING = [
+  ...ENDING_STORY,
+  {speaker: 'Hệ Thống', text: 'Ký Chủ đã khôi phục bốn dữ kiện và nhận mảnh tranh số III. Tới cửa để đi tiếp.'},
+  {speaker: 'Hệ Thống', text: 'Chiến dịch còn tiếp tục sau ngày 17/3. Phía sau cánh cửa là Phòng 4: những ngày tiến công quyết định.'},
+  {speaker: 'Quang', text: 'Ba mảnh rồi. Chặng cuối là gì thì tao cũng đi tới cùng, Hệ Thống.'},
 ];
 
 export const REACTIONS = {
