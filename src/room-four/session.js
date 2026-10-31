@@ -4,7 +4,7 @@ import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.j
 import {RoomFourScene} from './scene.js';
 import {RoomFourUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
-import {INTRO,CAMPAIGN_INTRO,REACTIONS,LINES} from './content.js';
+import {INTRO,CAMPAIGN_INTRO,REACTIONS,LINES,SYSTEM_HINTS} from './content.js';
 import {WORLD,OBJECTS} from './world.js';
 import {createState,goalFor,reduce,nextDocumentId} from './rules.js';
 import {loadSave,persistSave} from './save.js';
@@ -22,7 +22,7 @@ export class RoomFourSession {
     this.active=null;this.nonce=0;this.position={...WORLD.checkpoints[0]};
     this.audio=options.audio||new AudioController({onStatusChange:()=>this.render()});
     this.audio.setScene('room-4');
-    this.ui=new RoomFourUI({root,onAction:(action,payload)=>handleAction(this,action,payload)});
+    this.ui=new RoomFourUI({root,onAction:(action,payload)=>handleAction(this,action,payload),audio:this.audio,hints:SYSTEM_HINTS});
     this.scene=new RoomFourScene({
       onInteract:id=>this.interact(id),onPosition:p=>{if(this.disposed)return;this.position=p;this.render();},
       onShortcut:key=>handleAction(this,({M:'map',N:'notebook',Q:'quests-toggle',Escape:'settings'})[key]),
@@ -56,11 +56,11 @@ export class RoomFourSession {
     if(this.disposed)return;
     const token=++this.nonce;
     const voice=createDialogueVoice(this.audio,lines);
-    this.show('dialogue',{title,speaker:'Quang',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),voice,buttonLabel,action,payload:{...payload,token}});
+    this.show('dialogue',{title,speaker:'Quang',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),script:lines,voice,buttonLabel,action,payload:{...payload,token}});
     this.active.token=token;startDialogueVoice(this,voice);
   }
   close(){if(this.disposed)return;this.audio.voice?.stop();this.ui.close();this.active=null;this.scene?.clearKeys();this.scene?.focus();this.render();}
-  error(message){if(this.disposed)return;this.notice=message;this.audio.playCue('error');this.render();}
+  error(message){if(this.disposed)return;this.notice=message;this.audio.playCue('error');this.ui.noteMistake();this.render();}
   isLocked(id) {
     const s=this.state;
     if(DOCUMENTS.some(d=>d.id===id))return !s.collectedNoteIds.includes(id)&&id!==nextDocumentId(s);

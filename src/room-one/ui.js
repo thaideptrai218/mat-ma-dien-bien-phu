@@ -2,11 +2,14 @@ import { element, button, audioLabel } from './ui-elements.js';
 import { createPanel } from './ui-panels.js';
 import { createRoomMap } from './ui-map.js';
 import { WORLD } from './world.js';
+import { SystemHintCard } from '../ui/system-hint-card.js';
 
 export class RoomOneUI {
-  constructor({ root, onAction }, { subtitle = 'PHÒNG 1 · TRƯỚC BẢN KẾ HOẠCH', date = '1950 — 7/1953', roomLabel = 'HÀNH TRÌNH PHÒNG 1', world = WORLD, panelFactory = createPanel } = {}) {
+  // audio/hints: optional voice controller and the room's SYSTEM_HINTS ({puzzleId: {open, hints}}) for the Hệ Thống side card.
+  constructor({ root, onAction, audio = null, hints = {} }, { subtitle = 'PHÒNG 1 · TRƯỚC BẢN KẾ HOẠCH', date = '1950 — 7/1953', roomLabel = 'HÀNH TRÌNH PHÒNG 1', world = WORLD, panelFactory = createPanel } = {}) {
     this.root = root;
     this.onAction = onAction;
+    this.hintCard = new SystemHintCard({ hints, audio });
     this.world = world;
     this.panelFactory = panelFactory;
     this.snapshot = {};
@@ -130,13 +133,16 @@ export class RoomOneUI {
     }
     this.panel?.cleanup?.();
     this.currentView = view;
-    this.dialog.className = `r1-modal r1-view-${view}${view === 'document' && ['letter', 'journal', 'report'].includes(data.document?.kind) ? ' r1-view-artifact' : ''}`;
+    const className = `r1-modal r1-view-${view}${view === 'document' && ['letter', 'journal', 'report'].includes(data.document?.kind) ? ' r1-view-artifact' : ''}`;
     const close = button('Đóng · Esc', () => this.close(), 'r1-modal-close');
     this.panel = this.panelFactory(view, data, (action, payload) => this.emit(action, payload), this.snapshot, this.world);
+    this.dialog.className = `${className}${this.panel.dialogClass ? ' ' + this.panel.dialogClass : ''}`;
     this.modalNotice = element('p', 'r1-modal-notice', typeof data.notice === 'string' ? data.notice : '');
     this.modalNotice.setAttribute('role', 'status');
     this.modalNotice.hidden = !this.modalNotice.textContent;
     this.dialog.replaceChildren(close, this.panel.node, this.modalNotice);
+    const hintKey = this.hintKeyFor(view, data);
+    if (hintKey && !data.solved) this.hintCard.open(hintKey, this.dialog); else this.hintCard.hide();
     if (!this.isOpen) { this.dialog.showModal(); this.onAction('modal-open', { view }); }
     this.dialog.scrollTop = 0;
     const openedPanel = this.panel;
@@ -150,9 +156,16 @@ export class RoomOneUI {
     });
   }
 
+  // Key of the SYSTEM_HINTS entry for the view being shown (Room 2 overrides it for its donor puzzle view).
+  hintKeyFor(view, data) { return view === 'board' ? `board-${data.board}` : view; }
+
+  // A wrong submission: the Hệ Thống card (if a puzzle is open) speaks its next hint.
+  noteMistake() { if (!this.destroyed) this.hintCard.mistake(); }
+
   close() {
     if (this.destroyed) return;
     if (!this.isOpen) return;
+    this.hintCard.hide();
     this.panel?.cleanup?.();
     this.dialog.close();
     this.currentView = null;
@@ -165,6 +178,7 @@ export class RoomOneUI {
     this.onAction = () => {};
     if (this.openFrame) cancelAnimationFrame(this.openFrame);
     this.openFrame = null;
+    this.hintCard.hide();
     this.panel?.cleanup?.(); this.panel = null;
     this.currentView = null;
     if (this.dialog.open) this.dialog.close();

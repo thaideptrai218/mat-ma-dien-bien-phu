@@ -128,3 +128,28 @@ export const LINES = {
   fragmentReady: ['Mảnh tranh này thuộc chặng cuối của chiến dịch. Mình sẽ giữ lại để ghép với những mảnh ở các phòng trước.'],
   chestEmpty: ['Mình đã cất mảnh tranh. Cánh cửa ở phía bắc.'],
 };
+
+// Hệ Thống's side card while a Room 4 puzzle is open: a short reminder, then a gentle nudge (level 1, first wrong
+// try) and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
+export const SYSTEM_HINTS = {
+  crossword: {
+    open: 'Ký Chủ, mỗi hàng ô chữ ứng với một giấy tờ trong sổ tay.',
+    hints: ['Ký Chủ thử đọc câu hỏi, rồi tìm lại giấy tờ nói về ý đó trong sổ tay.', 'Ký Chủ để ý cách viết đáp án: viết liền, không dấu, và con số nếu có thì viết bằng chữ.'],
+  },
+  column: {
+    open: 'Ký Chủ, có một cột dọc của ô chữ tạo thành lời chỉ dẫn.',
+    hints: ['Ký Chủ thử đọc các ô trong cùng một cột, từ hàng đầu xuống hàng cuối.', 'Lời chỉ dẫn phải là một câu có nghĩa. Ký Chủ thử cột nào đọc lên thành lời.'],
+  },
+  'board-t': {
+    open: 'Ký Chủ, hãy dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
+    hints: ['Ký Chủ nhớ lại lời chỉ dẫn vừa tìm được để biết cần dò theo hình nào.', 'Hình này gồm một nét ngang và một nét dọc. Các chữ được chọn sẽ đọc thành một nửa khẩu hiệu.'],
+  },
+  'board-l': {
+    open: 'Ký Chủ, hãy dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
+    hints: ['Ký Chủ nhớ lại lời chỉ dẫn vừa tìm được để biết cần dò theo hình nào.', 'Hình này gồm một nét dọc và một nét ngang. Các chữ được chọn sẽ đọc thành nửa còn lại của khẩu hiệu.'],
+  },
+  final: {
+    open: 'Ký Chủ, hai nửa khẩu hiệu cần được ghép lại với nhau.',
+    hints: ['Ký Chủ nhớ lại hai phần đọc được từ hai bảng chữ.', 'Ký Chủ thử đọc hai phần cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.'],
+  },
+};

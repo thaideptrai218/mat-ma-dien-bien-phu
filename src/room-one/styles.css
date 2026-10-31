@@ -1,3 +1,5 @@
+@import '../ui/visual-novel-dialogue.css';
+@import '../ui/system-hint-card.css';
 :root{color-scheme:light;--r1-ink:#25392f;--r1-forest:#193b30;--r1-ivory:#f4ecda;--r1-paper:#eee2c8;--r1-copper:#965832;--r1-muted:#706650;--r1-line:#b9a482;font-family:'DBP Text',Georgia,serif;background:#18261f;color:var(--r1-ink)}
 *{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default;opacity:.48}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #c8893e;outline-offset:4px}button[hidden],[hidden]{display:none!important}
 .r1-app{min-height:100dvh;display:grid;grid-template-rows:auto minmax(440px,1fr) auto;background:#1c2c23}

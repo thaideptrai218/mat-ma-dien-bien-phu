@@ -68,3 +68,12 @@ export const NOTICES = {
   introMissing: 'Căn phòng cuối cần bốn mảnh tranh kiếm được trong bốn phòng của hành trình. Mở riêng căn phòng không tự cấp các mảnh còn thiếu.',
   resetMissing: 'Cần đủ bốn mảnh kiếm được trong hành trình để hoàn thiện bức tranh.',
 };
+
+// Hệ Thống's side card while the assembly puzzle is open: a short reminder, then a gentle nudge (level 1, first
+// wrong try) and a slightly clearer one (level 2, second wrong try on). Hints never place the pieces.
+export const SYSTEM_HINTS = {
+  assembly: {
+    open: 'Ký Chủ, bốn mảnh cần khớp thành một bức tranh liền nét.',
+    hints: ['Ký Chủ thử nhìn các đường nét ở mép từng mảnh. Chỗ nào còn bị đứt?', 'Ký Chủ thử xếp từng hàng một. Hàng trên nối với hàng dưới ở những nét nào?'],
+  },
+};

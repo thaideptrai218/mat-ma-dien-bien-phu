@@ -1,0 +1,31 @@
+/* Shared visual-novel dialogue: reuses Room 2's .vn-* layout (donor file untouched) and re-themes the room modal. */
+@import '../room-two/bao/ui/narrative-styles.css';
+
+.r1-modal.vn-dialog{--display:'DBP Display',serif;color-scheme:dark;background:#1c291f;color:#eee8d6;border-color:#b5a169;padding:34px 24px 20px;width:min(1160px,calc(100% - 48px));overflow:auto}
+.r1-modal.vn-dialog::backdrop{background:#0b130c77}
+.r1-modal.vn-dialog .r1-eyebrow{color:#e4ba6b;margin:0 0 4px}
+.r1-modal.vn-dialog h2{font-size:23px;color:#e8dab1;margin:0 0 13px;letter-spacing:0}
+.r1-modal.vn-dialog .r1-modal-close{color:#eee8d6}
+.r1-modal.vn-dialog .r1-modal-notice{color:#3b2a1c}
+.r1-modal.vn-dialog :is(button,a,[tabindex]):focus-visible{outline-color:#e4ba6b}
+.vn-dialogue .vn-text p{margin:13px 0}
+.vn-dialogue .vn-text p.is-speaking{border-left:3px solid #e4ba6b;padding-left:12px;margin-left:-15px;background:linear-gradient(90deg,#e4ba6b22,transparent)}
+.vn-line-name{font:700 12px var(--display);letter-spacing:.12em;color:#e4ba6b;margin-right:4px}
+.vn-narrator-card{display:grid;place-content:center;justify-items:center;gap:6px;width:150px;height:200px;border:1px solid #b5a169;border-radius:70px 70px 3px 3px;background:#26362a;color:#e4ba6b;font:700 13px var(--display);letter-spacing:.14em}
+.vn-narrator-glyph{font-size:44px;line-height:1}
+.vn-narrator-card[hidden],.vn-portrait img[hidden]{display:none}
+.vn-extra{margin-top:12px}
+.vn-extra .r1-muted{color:#c1c6ac}
+.vn-extra .r5-personal-label{color:#eee8d6}
+.vn-extra textarea{width:100%;background:#f5eed8;color:#303e28;border:1px solid #8f9c76;padding:9px 12px;font:inherit}
+.vn-extra blockquote{border-left:3px solid #e4ba6b;margin:12px 0;padding-left:14px;color:#f1ecd9;font-style:italic}
+.vn-controls .r1-button{min-height:44px;padding:9px 15px;font-size:13px}
+.vn-controls .vn-quiet,.vn-controls .vn-voice{background:transparent;color:#dedfc4;border-color:#75865a}
+.vn-controls .vn-quiet:hover:not(:disabled),.vn-controls .vn-voice:hover:not(:disabled){background:#2c3d2f;border-color:#a3b57f}
+.vn-controls .vn-next{margin-left:auto;background:#d9bb78;color:#273323;border-color:#e2c487;font-size:14px}
+.vn-controls .vn-next:hover:not(:disabled){background:#e8cd8f;border-color:#f0d9a4}
+@media(max-width:760px){
+ .r1-modal.vn-dialog{width:calc(100% - 24px);padding:34px 15px 15px;inset:auto 0 12px}
+ .vn-narrator-card{width:84px;height:126px;border-radius:42px 42px 3px 3px;font-size:9px}.vn-narrator-glyph{font-size:26px}
+ .vn-controls .vn-next{margin-left:0;flex:1;justify-content:center}.vn-controls .vn-quiet{flex:1}
+}

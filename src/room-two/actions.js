@@ -1,5 +1,6 @@
 import {CHAPTER, clues, puzzles, beats, evaluatePuzzle} from './content.js';
 import {PUZZLE_GUIDE} from './system-guidance.js';
+import {NEUTRAL_WRONG} from '../ui/neutral-notice.js';
 import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.js';
 
 // Hệ Thống points to the next station first; the solved board stays one button away.
@@ -7,15 +8,9 @@ function showGuide(session, puzzle) {
   const spoken = [puzzle.successText, ...PUZZLE_GUIDE[puzzle.id]];
   const lines = spoken.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
   const voice = createDialogueVoice(session.audio, spoken);
-  session.show('dialogue', {title: puzzle.title, speaker: 'Quang', lines, voice, buttonLabel: 'Xem lại kết quả trên bàn',
+  session.show('dialogue', {title: puzzle.title, speaker: 'Quang', lines, script: spoken, voice, buttonLabel: 'Xem lại kết quả trên bàn',
     action: 'puzzle-review', payload: {puzzleId: puzzle.id, token: session.nonce + 1}});
   startDialogueVoice(session, voice);
-}
-
-function failureText(puzzle, result, answer) {
-  if (result.messageKey === 'missing-clues') return 'Bạn cần đọc hết và ghi đủ các manh mối trong sổ tay trước khi đối chiếu.';
-  if (result.messageKey === 'wrong-target') return puzzle.targets.find(target => target.id === answer?.target)?.hint || puzzle.messages['wrong-target'];
-  return puzzle.messages?.[result.messageKey] || 'Các dữ kiện chưa khớp. Bạn có thể sửa thứ tự, đọc lại sổ tay hoặc xem gợi ý.';
 }
 
 export function handleIntent(session, intent) {
@@ -26,27 +21,20 @@ export function handleIntent(session, intent) {
       session.audio.playCue(intent.kind);
     return;
   }
-  if (intent.type === 'use-hint') {
-    if (active?.kind !== 'puzzle' || active.puzzleId !== intent.puzzleId) return;
-    const puzzle = puzzles[intent.puzzleId];
-    if (!puzzle) return;
-    session.commit(intent.type, intent); session.audio.playCue('hint');
-    const level = Math.max(1, session.state.hintLevels[puzzle.id] || 0);
-    session.ui.puzzle.showFeedback(puzzle.hints[Math.min(level - 1, puzzle.hints.length - 1)], 'hint');
-    return;
-  }
+  // Hints now come from Hệ Thống after a wrong try (see ui.js); the donor hint button is hidden and unreachable.
+  if (intent.type === 'use-hint') return;
   if (intent.type === 'submit-puzzle') {
     if (active?.kind !== 'puzzle' || active.puzzleId !== intent.puzzleId) return;
     const puzzle = puzzles[intent.puzzleId];
     if (!puzzle || session.state.completedPuzzleIds.includes(puzzle.id)) return;
     if (puzzle.requiresPuzzleId && !session.state.completedPuzzleIds.includes(puzzle.requiresPuzzleId)) {
       session.audio.playCue('error');
-      session.ui.puzzle.showFeedback(`Hãy hoàn thành bước trước: ${puzzles[puzzle.requiresPuzzleId].title}.`, 'error');
+      session.ui.puzzle.showFeedback(NEUTRAL_WRONG, 'error');
       return;
     }
     const result = evaluatePuzzle(puzzle.id, intent.answer, session.state.collectedClueIds);
     if (!result.ok) {
-      session.audio.playCue('error'); session.ui.puzzle.showFeedback(failureText(puzzle, result, intent.answer), 'error');
+      session.audio.playCue('error'); session.ui.puzzle.showFeedback(NEUTRAL_WRONG, 'error');
       return;
     }
     if (!session.commit(intent.type, intent)) return;

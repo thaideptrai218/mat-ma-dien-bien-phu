@@ -1,36 +1,6 @@
 import { element, button } from './ui-elements.js';
 import { voicePreferences, mixPreferences } from '../audio/voice-preferences.js';
 
-// Dialogue panel: highlights the paragraph being read and, while recordings exist, offers "Nghe lại"
-// (or "Bật lồng tiếng" when sound is still off/locked: a real click that unlocks audio and reads the panel).
-// `voice` is the handle from createDialogueVoice(); without it the panel stays plain text. Returns a cleanup.
-export function attachDialogueVoice(prose, paragraphs, voice, emit) {
-  if (!voice) return () => {};
-  let alive = true;
-  const replay = button('Nghe lại', async () => {
-    if (voice.soundReady()) { voice.replay(); return; }
-    const ready = await voice.enable(emit);
-    if (alive && ready) voice.start();
-    refresh();
-  }, 'r1-voice-replay');
-  replay.hidden = true;
-  const refresh = () => voice.available().then(ok => {
-    if (!alive) return;
-    const ready = voice.soundReady();
-    replay.hidden = !ok || voice.muted(); // nothing to hear while the master volume is 0
-    replay.textContent = ready ? 'Nghe lại' : 'Bật lồng tiếng';
-    replay.setAttribute('aria-label', ready ? 'Nghe lại lời thoại' : 'Bật lồng tiếng để nghe lời thoại');
-  }, () => {});
-  voice.onLine = index => {
-    paragraphs.forEach((paragraph, i) => paragraph.classList.toggle('is-speaking', i === index));
-    if (index < 0) refresh();
-  };
-  prose.append(replay);
-  refresh();
-  // Clear the highlight first: a closing dialog (Esc) detaches us before the voice's own end-of-reading callback.
-  return () => { alive = false; paragraphs.forEach(paragraph => paragraph.classList.remove('is-speaking')); voice.onLine = () => {}; };
-}
-
 // A 0-100% slider bound to one numeric field of a preferences store; returns {label, render(values)}.
 function volumeSlider(preferences, field, title) {
   const label = element('label', 'r1-voice-volume');

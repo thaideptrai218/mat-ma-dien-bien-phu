@@ -7,7 +7,7 @@ import * as r1 from '../../src/room-one/content.js';
 import {DOCUMENTS as R1_DOCUMENTS} from '../../src/room-one/documents.js';
 import {LETTER_DOCUMENT} from '../../src/room-one/letter-document.js';
 import {NAVA_CONTEXT_DOCUMENT} from '../../src/room-one/nava-context.js';
-import {beats as R2_BEATS, PUZZLE_GUIDE} from '../../src/room-two/system-guidance.js';
+import {beats as R2_BEATS, PUZZLE_GUIDE, SYSTEM_HINTS as R2_HINTS} from '../../src/room-two/system-guidance.js';
 import * as r3 from '../../src/room-three/content.js';
 import {DOCUMENTS as R3_DOCUMENTS} from '../../src/room-three/documents.js';
 import {CHALLENGES} from '../../src/room-three/puzzle-data.js';
@@ -24,6 +24,10 @@ function walk(value, group, emit) {
   if (value && typeof value === 'object') for (const [key, item] of Object.entries(value)) walk(item, `${group}.${key}`, emit);
 }
 
+// SYSTEM_HINTS are {open, hints[]} per puzzle; every line is spoken by Hệ Thống.
+const hintLines = hints => Object.fromEntries(Object.entries(hints).map(([id, {open, hints: levels}]) =>
+  [id, [open, ...levels].map(text => ({speaker: 'Hệ Thống', text}))]));
+
 const reflections = documents => Object.fromEntries(documents.map(doc => [doc.id, doc.reflection || []]));
 
 // [room, group, value] in playthrough order; groups are export names, so a line's origin is easy to find.
@@ -32,17 +36,17 @@ function sources() {
     ['museum', 'OPENING', OPENING.flatMap(frame => frame.paragraphs).map(framingLine)],
     ['r1', 'INTRO', r1.INTRO], ['r1', 'GUIDE', r1.GUIDE], ['r1', 'LINES', r1.LINES], ['r1', 'REACTIONS', r1.REACTIONS],
     ['r1', 'reflection', {...reflections(R1_DOCUMENTS), 'restored-letter': LETTER_DOCUMENT.reflection, 'nava-context': NAVA_CONTEXT_DOCUMENT.reflection}],
-    ['r1', 'ENDING', r1.ENDING], ['r1', 'CAMPAIGN_ENDING', r1.CAMPAIGN_ENDING],
+    ['r1', 'ENDING', r1.ENDING], ['r1', 'CAMPAIGN_ENDING', r1.CAMPAIGN_ENDING], ['r1', 'SYSTEM_HINTS', hintLines(r1.SYSTEM_HINTS)],
     ['r2', 'beats', Object.fromEntries(Object.entries(R2_BEATS).map(([id, beat]) =>
       [id, beat.lines.map(line => ({speaker: BEAT_SPEAKERS[line.speakerId], text: line.text}))]))],
-    ['r2', 'PUZZLE_GUIDE', PUZZLE_GUIDE],
+    ['r2', 'PUZZLE_GUIDE', PUZZLE_GUIDE], ['r2', 'SYSTEM_HINTS', hintLines(R2_HINTS)],
     ['r3', 'INTRO', r3.INTRO], ['r3', 'CAMPAIGN_INTRO', r3.CAMPAIGN_INTRO], ['r3', 'GUIDE', r3.GUIDE],
     ['r3', 'rewards', CHALLENGES.map(challenge => challenge.reward)], ['r3', 'LINES', r3.LINES], ['r3', 'REACTIONS', r3.REACTIONS],
-    ['r3', 'reflection', reflections(R3_DOCUMENTS)], ['r3', 'ENDING', r3.ENDING], ['r3', 'CAMPAIGN_ENDING', r3.CAMPAIGN_ENDING],
+    ['r3', 'reflection', reflections(R3_DOCUMENTS)], ['r3', 'ENDING', r3.ENDING], ['r3', 'CAMPAIGN_ENDING', r3.CAMPAIGN_ENDING], ['r3', 'SYSTEM_HINTS', hintLines(r3.SYSTEM_HINTS)],
     ['r4', 'INTRO', r4.INTRO], ['r4', 'CAMPAIGN_INTRO', r4.CAMPAIGN_INTRO], ['r4', 'GUIDE', r4.GUIDE], ['r4', 'LINES', r4.LINES],
     ['r4', 'REACTIONS', r4.REACTIONS], ['r4', 'reflection', reflections(R4_DOCUMENTS)],
-    ['r4', 'ENDING', r4.ENDING], ['r4', 'CAMPAIGN_ENDING', r4.CAMPAIGN_ENDING],
-    ['r5', 'INTRO', r5.INTRO], ['r5', 'GUIDE', r5.GUIDE], ['r5', 'LINES', r5.LINES], ['r5', 'REFLECTION_SCRIPT', r5.REFLECTION_SCRIPT],
+    ['r4', 'ENDING', r4.ENDING], ['r4', 'CAMPAIGN_ENDING', r4.CAMPAIGN_ENDING], ['r4', 'SYSTEM_HINTS', hintLines(r4.SYSTEM_HINTS)],
+    ['r5', 'INTRO', r5.INTRO], ['r5', 'GUIDE', r5.GUIDE], ['r5', 'LINES', r5.LINES], ['r5', 'REFLECTION_SCRIPT', r5.REFLECTION_SCRIPT], ['r5', 'SYSTEM_HINTS', hintLines(r5.SYSTEM_HINTS)],
     ['museum', 'MUSEUM_RETURN', r5.MUSEUM_RETURN.map(text => ({speaker: 'Lời kể', text}))],
     ['museum', 'CLOSING_LINE', [{speaker: 'Lời kể', text: r5.CLOSING_LINE}]],
   ];

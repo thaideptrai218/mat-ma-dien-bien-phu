@@ -2,28 +2,13 @@ import { element, button, heading, audioLabel } from './ui-elements.js';
 import { documentPanel } from './document-reader.js';
 import { puzzlePanel } from './ui-puzzles.js';
 import { createRoomMap } from './ui-map.js';
-import { attachDialogueVoice, voiceSettings } from './ui-voice-controls.js';
+import { voiceSettings } from './ui-voice-controls.js';
+import { visualNovelDialogue } from '../ui/visual-novel-dialogue.js';
 
-const portraitUrl = new URL('../../assets/images/quang-portrait.png', import.meta.url).href;
-
+// Dialogue view: the shared visual-novel component (one line per step); sessions pass the raw script.
 function dialogue(data, emit) {
-  const panel = element('section', 'r1-dialogue');
-  const portrait = element('div', 'r1-portrait');
-  const image = element('img');
-  image.src = portraitUrl;
-  image.alt = 'Quang';
-  image.width = 150;
-  image.height = 180;
-  image.addEventListener('error', () => { image.hidden = true; portrait.classList.add('r1-portrait-fallback'); });
-  portrait.append(image, element('span', 'r1-portrait-name', data.speaker || 'Quang'));
-  const prose = element('div', 'r1-dialogue-prose');
-  prose.append(heading(data.title || 'Một lời tự nhủ', data.speaker || 'QUANG · SUY NGHĨ'));
-  const paragraphs = (data.lines || []).map(line => element('p', '', line));
-  prose.append(...paragraphs);
-  const cleanup = attachDialogueVoice(prose, paragraphs, data.voice, emit);
-  prose.append(button(data.buttonLabel || 'Tiếp tục', () => emit(data.action || 'dialogue-finish', data.payload || {}), 'r1-primary'));
-  panel.append(portrait, prose);
-  return { node: panel, cleanup };
+  return visualNovelDialogue({title: data.title || 'Một lời tự nhủ', script: data.script ?? data.lines ?? [], voice: data.voice,
+    finish: {label: data.buttonLabel || 'Tiếp tục', onClick: () => emit(data.action || 'dialogue-finish', data.payload || {})}}, emit);
 }
 
 function notebook(data, emit) {

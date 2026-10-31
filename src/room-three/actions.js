@@ -5,7 +5,8 @@ import {recoveredTokens} from './rules.js';
 import {goalFor} from './goals.js';
 
 const activities={'preparation-submit':'preparation','cargo-submit':'cargo','strategy-submit':'strategy','opening-submit':'opening'};
-const errors={preparation:'Kiểm tra hai mốc ngày và nhóm công việc chuẩn bị. Chọn đủ nhu cầu hậu cần để duy trì chiến đấu lâu dài.',cargo:'Còn chú thích hoặc nhận định chưa đúng. Xem lại xe thồ, vai trò dân công và thanh niên xung phong.',strategy:'Kiểm tra hai phương châm cùng lý do bảo đảm chắc thắng. Những thẻ NHANH hoặc CHẮC giống nhau có thể đổi chỗ cho nhau.',opening:'Xem lại ba mốc 13, 15 và 17/3/1954. Đợt đầu phá tuyến phòng ngự phía Bắc, chưa kết thúc toàn chiến dịch.'};
+const neutral='Có chỗ chưa khớp.';
+const errors={preparation:neutral,cargo:neutral,strategy:neutral,opening:neutral};
 export function handleAction(s,action,p={}){
   if(s.disposed||s.options?.isPaused?.())return;
   const active=s.active,inView=kind=>active?.kind===kind,confirmed=expected=>inView('dialogue')&&active.action===expected&&active.token===p.token;
@@ -40,7 +41,7 @@ export function handleAction(s,action,p={}){
     }
     case'document-collect':if(confirmed('document-collect')&&p.id===active.payload.id&&s.commit('collect',p)){s.audio.playCue('paper');s.notice='Đã ghi dữ kiện. Sổ tay N giữ toàn văn và các mật mã đã khôi phục.';s.close();}return;
     case'document-reread':if(inView('notebook')&&s.state.collectedNoteIds.includes(p.id))s.show('document',{document:DOCUMENTS.find(d=>d.id===p.id),readOnly:true});return;
-    case'final-submit':if(!inView('final'))return;if(!s.commit('final',p))return s.error('Ghép NGÀY 13, THÁNG 3 và NĂM 1954 thành ngày mở màn. Phương châm được giữ riêng.');s.audio.playCue('success');return s.dialogue('13/03/1954',[...LINES.final,...GUIDE.final]);
+    case'final-submit':if(!inView('final'))return;if(!s.commit('final',p))return s.error('Chưa đúng.');s.audio.playCue('success');return s.dialogue('13/03/1954',[...LINES.final,...GUIDE.final]);
     case'fragment-collect':if(confirmed('fragment-collect')&&p.id==='chest'&&active.payload.id==='chest'&&s.commit('fragment')){s.audio.playCue('reveal');s.dialogue('Mảnh tranh số III',s.options?.onExit?CAMPAIGN_ENDING:ENDING);}return;
   }
 }

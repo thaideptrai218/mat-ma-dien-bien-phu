@@ -23,7 +23,7 @@ export class RoomTwoSession {
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
     this.audio.setScene('room-2');
     this.ui = new RoomTwoUI({root, onAction: (action, payload) => handleAction(this, action, payload),
-      getState: () => rendererState(this.state), onIntent: intent => handleIntent(this, intent)});
+      audio: this.audio, getState: () => rendererState(this.state), onIntent: intent => handleIntent(this, intent)});
     attachNarrativeVoice(this.ui.narrative, () => this.audio);
     this.scene = new RoomTwoScene({onInteract: id => this.interact(id),
       onPosition: position => { if (!this.disposed) { this.position = position; this.render(); } },

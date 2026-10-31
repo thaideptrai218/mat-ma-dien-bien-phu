@@ -5,7 +5,7 @@ import {disposeRoomSession, deferRoomExit, retainSharedAudioPreferences} from '.
 import {RoomOneUI} from '../room-one/ui.js';
 import {RoomFiveScene} from './scene.js';
 import {createPanel, shuffledPieces} from './panels.js';
-import {INTRO, SOURCE_LABEL, LINES, NOTICES, REFLECTION_SCRIPT} from './content.js';
+import {INTRO, SOURCE_LABEL, LINES, NOTICES, REFLECTION_SCRIPT, SYSTEM_HINTS} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, hasAllFragments, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
@@ -23,7 +23,7 @@ export class RoomFiveSession {
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
     this.audio.setScene('room-5');
     retainSharedAudioPreferences(this);
-    this.ui = new RoomOneUI({root, onAction: (action, payload) => handleAction(this, action, payload)}, {
+    this.ui = new RoomOneUI({root, onAction: (action, payload) => handleAction(this, action, payload), audio: this.audio, hints: SYSTEM_HINTS}, {
       subtitle: 'PHÒNG 5 · BỨC TRANH HÒA BÌNH', date: 'CĂN PHÒNG CUỐI', roomLabel: 'HÀNH TRÌNH PHÒNG 5',
       world: WORLD, panelFactory: createPanel,
     });
@@ -70,14 +70,14 @@ export class RoomFiveSession {
     const token = this.nonce + 1;
     const messages = lines.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
     const voice = createDialogueVoice(this.audio, lines);
-    this.show('dialogue', {title, speaker: 'Quang', lines: messages, voice, buttonLabel, action, payload: {...payload, token}});
+    this.show('dialogue', {title, speaker: 'Quang', lines: messages, script: lines, voice, buttonLabel, action, payload: {...payload, token}});
     startDialogueVoice(this, voice);
   }
   close() {
     if (this.disposed) return;
     this.audio.voice?.stop(); this.ui.close(); this.active = null; this.scene?.clearKeys(); this.scene?.focus(); this.render();
   }
-  error(message) {if (!this.disposed) {this.notice = message; this.audio.playCue('error'); this.render();}}
+  error(message) {if (!this.disposed) {this.notice = message; this.audio.playCue('error'); this.ui.noteMistake(); this.render();}}
   interact(id) {
     if (this.disposed || this.options.isPaused?.() || this.ui.isOpen || this.state.exitReached) return;
     const object = OBJECTS.find(o => o.id === id), position = this.scene.getPosition();

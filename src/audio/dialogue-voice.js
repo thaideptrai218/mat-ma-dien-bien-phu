@@ -7,7 +7,11 @@ export function createDialogueVoice(audio, lines) {
     lines,
     // The panel replaces this to highlight the paragraph being read (index, or -1 when reading ends).
     onLine: () => {},
-    available: () => player.hasVoiceFor(lines),
+    // subset: the lines currently on screen (defaults to the whole script).
+    available: (subset = lines) => player.hasVoiceFor(subset),
+    // Plays just these lines (a visual-novel step or the remaining lines); onLine(i) is relative to the subset.
+    speak: (subset, onLine) => player.playSequence(subset, {onLine}),
+    stop: () => player.stop(),
     start: () => player.playSequence(lines, {onLine: index => handle.onLine(index)}),
     muted: () => audio.preferences?.audioVolume === 0,
     soundReady: () => Boolean(audio.voiceReady?.()),

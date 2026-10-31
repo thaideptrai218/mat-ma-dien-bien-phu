@@ -17,6 +17,9 @@
 .r2-modal.vn-dialog .r1-modal-close{color:#eee8d6}
 .r2-modal.vn-dialog .vn-controls .primary-button{margin-left:auto;background:#d9bb78;color:#273323;border-color:#e2c487}
 .r2-modal.vn-dialog .vn-controls .quiet-button{color:#dedfc4;border-color:#75865a}
+/* Hints come only from the Hệ Thống side card: hide the donor "Xem gợi ý" button (second to last action) and the
+   fold preview hint text that spells out what each flag shows (the donor bodies stay untouched). */
+.r2-modal #puzzle-form .dialog-actions>.quiet-button:nth-last-child(2),.r2-modal .fold-preview .feedback.hint{display:none}
 .r2-notebook-entry{display:grid;text-align:left;justify-items:start;gap:7px}
 .r2-notebook-entry .r1-muted{white-space:normal}
 .r2-sr-only,.r2-modal .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}

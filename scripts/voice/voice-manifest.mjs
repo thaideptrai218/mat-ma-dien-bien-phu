@@ -6,8 +6,10 @@ export const MANIFEST_PATH = 'public/audio/voice/manifest.json';
 export const REVIEW_CSV_PATH = 'plans/261031-1312-game-audio-voice-sfx/reports/voice-script.csv';
 
 // Fields owned by the build; later phases may add per-line fields (e.g. durationMs) that are carried over.
+// Only Hệ Thống and the narrator are voiced; Quang stays text-only (user decision 2026-10-31).
+export const VOICED = new Set(['system', 'narrator']);
 export function buildManifestLines() {
-  return collectVoiceLines().map(line => ({
+  return collectVoiceLines().filter(line => VOICED.has(line.voice)).map(line => ({
     id: line.id, voice: line.voice, speaker: line.speaker, rooms: line.rooms, groups: line.groups,
     text: line.text, ttsText: toTtsText(line.text), file: `audio/voice/${line.id}.mp3`,
   }));

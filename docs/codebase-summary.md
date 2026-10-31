@@ -26,6 +26,8 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/room-five/{content,panels,archive}.js`, `room-five.css` | Tranh 2×2, cuộc trò chuyện, ô cá nhân không gửi/lưu, archive lời Quang. |
 | `assets/images/victory-painting.svg` | Một tranh sáng tác dùng xuyên museum intro/assembly/return. |
 | `src/ui/room-links.js`, `font-styles.css`, `game-fonts.js`, `assets/fonts/` | Preview links, font cục bộ và hàng rào đợi font Canvas. |
+| `src/ui/visual-novel-{dialogue,speakers,voice}.js`, `visual-novel-dialogue.css` | Hội thoại kiểu visual novel dùng chung (mọi phòng): một câu mỗi bước, chân dung theo người nói, Trước/Tiếp lời/Đọc toàn cảnh, nút cuối giữ action/token của session; đọc giọng từng câu (chỉ Hệ Thống/Lời kể). |
+| `src/ui/system-hint-card.{js,css}`, `SYSTEM_HINTS` trong content từng phòng (Phòng 2: `system-guidance.js`) | Thẻ Hệ Thống bên trái giữa màn hình trong dialog khi mở câu đố: lời nhắc khi mở, gợi ý nhẹ mức 1 sau lần sai đầu, mức 2 từ lần sai thứ hai; bảng chỉ báo “Chưa đúng.”, không còn nút gợi ý. |
 | `src/core/world-geometry.js`, `src/game/character-animation.js`, `src/audio/` | Geometry/tầm E, animation và Web Audio chung, gồm cue Bảo; `voice-id.js` (mã câu theo nội dung), `voice-line-player.js`/`dialogue-voice.js`/`voice-preferences.js` (phát lồng tiếng theo dòng), bank SFX/nền. |
 | `scripts/voice/`, `scripts/{build-voice-script,generate-voice-lines,master-voice-lines,build-voice-review-page}.mjs` | Trích 332 câu từ content → `public/audio/voice/manifest.json`, bảng phát âm TTS, gọi CapCut/OmniVoice, hậu kỳ FFmpeg (Hệ Thống preset mạnh, -16 LUFS), trang duyệt. |
 | `scripts/build-sfx.mjs`, `scripts/sfx/`, `public/audio/{sfx,ambience}/` | 33 SFX + 7 nền (Kenney CC0 + tự tổng hợp), manifest và credits. |

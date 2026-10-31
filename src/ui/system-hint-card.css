@@ -1,0 +1,21 @@
+/* Hệ Thống hint card: fixed at the left edge, vertically centered, inside the open dialog (top layer). */
+.sys-hint{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:30;width:252px;max-width:calc(100vw - 28px);color:#eee8d6;font-family:'DBP Text',Georgia,serif}
+.sys-hint[hidden]{display:none}
+.sys-hint-body{background:#1c291ff2;border:1px solid #b5a169;border-left:4px solid #e4ba6b;box-shadow:0 8px 28px #0a140ac9;padding:12px 14px 14px;border-radius:3px}
+.sys-hint-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sys-hint-head strong{font:700 13px 'DBP Display',serif;letter-spacing:.14em;color:#e4ba6b}
+.sys-hint-step{margin-left:auto;font-size:10px;letter-spacing:.1em;color:#c4c9ad;text-transform:uppercase}
+.sys-hint-emblem{display:block;width:28px;height:28px;object-fit:contain}
+.sys-hint-text{margin:0;font-size:15px;line-height:1.6}
+.sys-hint-toggle{display:none;position:relative;width:48px;height:48px;padding:0;border:1px solid #b5a169;border-radius:50%;background:#1c291f;box-shadow:0 4px 16px #0a140ac9;cursor:pointer;align-items:center;justify-content:center}
+.sys-hint-toggle .sys-hint-emblem{width:30px;height:30px}
+.sys-hint-toggle:focus-visible{outline:3px solid #e4ba6b;outline-offset:3px}
+.sys-hint-badge{position:absolute;right:-3px;top:-3px;min-width:18px;height:18px;border-radius:9px;background:#e4ba6b;color:#273323;font:700 12px/18px sans-serif;text-align:center}
+.sys-hint-badge[hidden]{display:none}
+.sys-hint-live{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* Small card: only the emblem button until the player opens it (it then overlays the left edge, tap again to close). */
+.sys-hint.is-compact{width:auto}
+.sys-hint.is-compact .sys-hint-toggle{display:flex}
+.sys-hint.is-compact .sys-hint-body{display:none;position:absolute;left:0;top:56px;width:min(260px,calc(100vw - 28px))}
+.sys-hint.is-compact.is-open .sys-hint-body{display:block}
+@media(max-width:760px){.sys-hint{left:2px}.sys-hint-toggle{width:40px;height:40px}.sys-hint-toggle .sys-hint-emblem{width:24px;height:24px}.sys-hint.is-compact .sys-hint-body{top:46px;width:min(260px,calc(100vw - 8px))}}

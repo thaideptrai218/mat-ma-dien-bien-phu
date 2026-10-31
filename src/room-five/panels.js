@@ -1,6 +1,6 @@
 import {element, button, heading} from '../room-one/ui-elements.js';
 import {createPanel as sharedPanel} from '../room-one/ui-panels.js';
-import {attachDialogueVoice} from '../room-one/ui-voice-controls.js';
+import {visualNovelDialogue} from '../ui/visual-novel-dialogue.js';
 import {PAINTING_URL, PAINTING_ALT, SOURCE_LABEL, REFLECTION_SCRIPT, DOOR_MESSAGE, CLOSING_LINE} from './content.js';
 
 export function shuffledPieces(random = Math.random) {
@@ -55,27 +55,27 @@ function assembly(data, emit) {
   return {node};
 }
 
+// The conversation reads as a visual novel (one line per step, voiced by line). On the last line the door
+// message and the optional personal box appear; the box is never voiced, scored, saved or sent.
 function reflection(data, emit) {
-  const node = element('section', 'r5-reflection');
-  node.append(heading('Câu hỏi không nằm trong mật mã', 'PHÒNG 5 · LỜI KỂ HƯ CẤU'), element('p', 'r1-muted', SOURCE_LABEL));
-  const passages = [];
-  for (const line of REFLECTION_SCRIPT) {
-    const passage = element('div', `r5-script r5-speaker-${line.speaker === 'Quang' ? 'quang' : line.speaker === 'Hệ Thống' ? 'system' : 'narrator'}`);
-    passage.append(element('h3', '', line.speaker), element('p', '', line.text)); node.append(passage); passages.push(passage);
+  const extra = element('div');
+  extra.append(element('blockquote', 'r5-door-message', DOOR_MESSAGE));
+  let textarea = null;
+  if (!data.readOnly) {
+    const label = element('label', 'r5-personal-label', 'Suy nghĩ riêng của bạn (không bắt buộc)');
+    textarea = element('textarea', 'r5-personal-response'); textarea.rows = 3;
+    textarea.autocomplete = 'off'; textarea.setAttribute('aria-describedby', 'r5-personal-privacy');
+    label.append(textarea);
+    const privacy = element('p', 'r1-muted', 'Có thể để trống. Không chấm đúng/sai, không dùng để mở khóa; nội dung chỉ ở ô này và được xóa khi đóng bảng. Không gửi hoặc lưu vào tiến độ.');
+    privacy.id = 'r5-personal-privacy';
+    extra.append(label, privacy);
   }
-  // Voice-over: the script is read in order (also when re-read); the personal textarea is never voiced.
-  const stopVoice = attachDialogueVoice(node, passages, data.voice, emit);
-  node.append(element('blockquote', 'r5-door-message', DOOR_MESSAGE));
-  if (data.readOnly) return {node, cleanup: stopVoice};
-  const label = element('label', 'r5-personal-label', 'Suy nghĩ riêng của bạn (không bắt buộc)');
-  const textarea = element('textarea', 'r5-personal-response'); textarea.rows = 4;
-  textarea.autocomplete = 'off'; textarea.setAttribute('aria-describedby', 'r5-personal-privacy');
-  label.append(textarea);
-  const privacy = element('p', 'r1-muted', 'Có thể để trống. Không chấm đúng/sai, không dùng để mở khóa; nội dung chỉ ở ô này và được xóa khi đóng bảng. Không gửi hoặc lưu vào tiến độ.');
-  privacy.id = 'r5-personal-privacy';
   // Do not read the textarea in callbacks: the narrative acknowledgment is the sole intent.
-  node.append(label, privacy, button('Tiếp tục cùng Quang · Có thể để trống', () => emit('reflection-continue', {token: data.token}), 'r1-primary'));
-  return {node, cleanup: () => {textarea.value = ''; stopVoice();}};
+  const finish = data.readOnly ? {label: 'Đóng cuộc trò chuyện', onClick: () => emit('close')}
+    : {label: 'Tiếp tục cùng Quang · Có thể để trống', onClick: () => emit('reflection-continue', {token: data.token})};
+  const panel = visualNovelDialogue({title: 'Câu hỏi không nằm trong mật mã', eyebrow: 'PHÒNG 5 · LỜI KỂ HƯ CẤU', script: REFLECTION_SCRIPT,
+    voice: data.voice, finish, lastExtra: extra, note: SOURCE_LABEL}, emit);
+  return {...panel, cleanup: () => {if (textarea) textarea.value = ''; panel.cleanup();}};
 }
 
 export function createPanel(view, data, emit, snapshot, world) {

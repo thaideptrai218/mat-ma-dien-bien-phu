@@ -139,3 +139,28 @@ export const LINES = {
   fragmentReady: ['Bốn dữ kiện đã trở về đúng chỗ. Mảnh tranh số III nằm cạnh hồ sơ.'],
   chestEmpty: ['Mảnh tranh đã cất rồi. Mình đi tới cửa ra.'],
 };
+
+// Hệ Thống's side card while a Room 3 puzzle is open: a short reminder, then a gentle nudge (level 1, first wrong
+// try) and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
+export const SYSTEM_HINTS = {
+  preparation: {
+    open: 'Ký Chủ, hồ sơ chuẩn bị cần được phân loại cho đúng.',
+    hints: ['Ký Chủ thử tách việc nào gắn với một ngày cụ thể, việc nào diễn ra song song trong thời gian chuẩn bị.', 'Ký Chủ đọc lại hồ sơ chuẩn bị trong sổ tay. Chiến đấu lâu dài cần những gì được bảo đảm trước?'],
+  },
+  cargo: {
+    open: 'Ký Chủ, mỗi bức tranh cần một chú thích đúng với vai trò của nó.',
+    hints: ['Ký Chủ thử đọc lại nhật ký tiếp vận. Mỗi phương tiện hay lực lượng được nhắc để làm việc gì?', 'Ký Chủ để ý sự khác nhau giữa người chuyên chở, người mở đường và thứ được chuyên chở.'],
+  },
+  strategy: {
+    open: 'Ký Chủ, hai bức điện mang hai phương châm khác nhau.',
+    hints: ['Ký Chủ thử so hai bức điện trong sổ tay. Từ nào đã thay đổi giữa bức trước và bức sau?', 'Ký Chủ thử nghĩ vì sao người chỉ huy đổi cách nói, và điều đó cho thấy họ coi trọng điều gì.'],
+  },
+  opening: {
+    open: 'Ký Chủ, ba trận mở màn cần được xếp đúng ngày.',
+    hints: ['Ký Chủ thử đọc lại thư và báo cáo phía bắc. Mỗi cứ điểm được nhắc cùng một mốc thời gian.', 'Ký Chủ thử tìm trận nào mở màn chiến dịch, trận nào đến sau, và nơi nào kết thúc bằng sự đầu hàng.'],
+  },
+  final: {
+    open: 'Ký Chủ, khóa rương cần ngày mở màn của chiến dịch.',
+    hints: ['Ký Chủ thử xem lại các dữ kiện đã khôi phục. Dữ kiện nào nhắc đến một mốc thời gian?', 'Không phải dữ kiện nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.'],
+  },
+};

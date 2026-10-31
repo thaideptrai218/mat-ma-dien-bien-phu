@@ -45,3 +45,24 @@ export const PUZZLE_GUIDE = {
     {speaker: 'Quang', text: 'Hòm sắt ở phía đông hành lang. Tao đi ngay.'},
   ],
 };
+// Hệ Thống's side card while a station is open: a short reminder, then a gentle nudge (level 1, first wrong try)
+// and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
+export const SYSTEM_HINTS = {
+  'nava-balance': {
+    open: 'Ký Chủ, Sổ kế hoạch của Nava là nơi cần đọc kỹ cho bàn cân này.',
+    hints: ['Ký Chủ thử đọc lại Sổ kế hoạch: mỗi việc thuộc bước nào, vào lúc nào?', 'Ký Chủ để ý lề của Sổ kế hoạch. Lề sổ ghi gì về các chiến trường ngoài Bắc Bộ?'],
+  },
+  'nava-radio': {
+    open: 'Ký Chủ, hai bức điện đang phát chen nhau trên một sóng.',
+    hints: ['Ký Chủ thử đọc cuộn băng theo một cách khác, không đọc liền một mạch.', 'Ký Chủ nhớ lại ghi chú ở điện đài: bên nào muốn dồn quân, bên nào muốn chia nhỏ lực lượng đối phương?'],
+  },
+  'nava-fist': {
+    open: 'Ký Chủ, bốn mẩu tin trong sổ tay cho biết các nước đi.',
+    hints: ['Ký Chủ thử đọc lại từng mẩu tin: mỗi mẩu nhắc một nơi, và nơi ấy thuộc vùng nào?', 'Ký Chủ để ý ngày tháng trên mỗi mẩu tin, rồi nghĩ nơi nào xảy ra trước, nơi nào sau.'],
+  },
+  'nava-fold': {
+    open: 'Ký Chủ, hồ sơ trên nắp hòm sắt chỉ ra nơi cần gấp tới.',
+    hints: ['Ký Chủ thử đọc lại Hồ sơ Điện Biên Phủ: nơi ấy khác các căn cứ còn lại ở điểm nào?', 'Khi gấp đúng nơi, dòng chữ hiện ra có nhắc một ngày. Ký Chủ thử đọc kỹ dòng chữ ấy.'],
+  },
+};
+

@@ -145,3 +145,28 @@ export const LINES = {
     'Rương đã mở. Mình cất mảnh tranh rồi đi đến cánh cửa phía bắc.',
   ],
 };
+
+// Hệ Thống's side card while a Room 1 puzzle is open: a short reminder, then a gentle nudge (level 1, first wrong
+// try) and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
+export const SYSTEM_HINTS = {
+  a03: {
+    open: 'Ký Chủ, nhãn lưu trữ ở cuối lá thư là chỉ dẫn cho bản đồ này.',
+    hints: ['Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.', 'Ký hiệu có một chữ cái và một con số. Một cái ứng với cột, cái còn lại ứng với hàng của bản đồ.'],
+  },
+  comparison: {
+    open: 'Ký Chủ, bốn hồ sơ trong sổ tay là căn cứ cho bảng này.',
+    hints: ['Mỗi hàng của bảng đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng hàng một.', 'Ký Chủ để ý hồ sơ nào nói về số liệu, hồ sơ nào nói về thế trận và sức ép của hai phía.'],
+  },
+  drawer: {
+    open: 'Ký Chủ, ngăn kéo này cần một mã gồm bốn chữ số.',
+    hints: ['Mã ấy không nằm ở ngăn kéo. Ký Chủ nhớ lại việc vừa làm ở bàn đối chiếu.', 'Khi đối chiếu xong, bàn đối chiếu đã cho Ký Chủ một dãy số. Ký Chủ thử xem lại ở đó.'],
+  },
+  identity: {
+    open: 'Ký Chủ, dãy số trong điện mật là tên của một người.',
+    hints: ['Ký Chủ thử đối chiếu từng số với bảng chữ cái ở phía trên.', 'Giải từng cặp số một rồi ghép thành hai từ. Ký Chủ thử nhớ lại người đã được nhắc ở các hồ sơ trước.'],
+  },
+  chest: {
+    open: 'Ký Chủ, chiếc rương cần một từ khóa lấy từ danh tính vừa giải.',
+    hints: ['Ký Chủ thử nghĩ xem tiếng Việt thường gọi người ấy bằng phần nào của tên.', 'Các tài liệu tiếng Việt thường gọi nhân vật này bằng họ chứ không đọc đủ tên. Ký Chủ để ý cách gọi trong sổ tay.'],
+  },
+};

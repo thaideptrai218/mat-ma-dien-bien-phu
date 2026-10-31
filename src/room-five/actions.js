@@ -39,7 +39,7 @@ export function handleAction(session, action, payload = {}) {
       if (!matching('assembly') || s.state.assemblySolved) return;
       s.notice = '';
       if (!hasAllFragments(s.fragments)) return s.error('Cần đủ bốn mảnh thật từ hành trình trước khi ghép tranh.');
-      if (!s.commit('assembly', {order: payload.order})) return s.error('Các đường nét chưa liền nhau. Chọn hai mảnh để đổi chỗ rồi thử lại.');
+      if (!s.commit('assembly', {order: payload.order})) return s.error('Chưa đúng.');
       s.audio.playCue('painting-complete');
       return s.dialogue('Tranh đã nguyên vẹn, cửa vẫn đóng', [...LINES.assembly, ...GUIDE.assembly]);
     case 'reflection-continue':

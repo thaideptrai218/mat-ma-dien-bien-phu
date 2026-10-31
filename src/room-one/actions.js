@@ -44,7 +44,7 @@ export function handleAction(s, action, p = {}) {
       return;
     case 'map-submit':
       if (!inView('a03')) return;
-      if (!s.commit('map', p)) return s.error('Nhãn lưu trữ ở cuối thư ghi A-03. Hãy đối chiếu hàng và cột.');
+      if (!s.commit('map', p)) return s.error('Chưa đúng.');
       s.audio.playCue('success');
       return s.dialogue('Ngăn lưu trữ A-03', [...LINES.a03, ...GUIDE.a03]);
     case 'document-finish': {
@@ -72,16 +72,16 @@ export function handleAction(s, action, p = {}) {
     }
     case 'comparison-submit':
       if (!inView('comparison')) return;
-      if (!s.commit('comparison', p)) return s.error('Có nhận định chưa khớp với chứng cứ. Số quân: V-02/P-01; trang bị: V-02/P-01; thế trận: V-01/P-01; sức ép: V-02/P-02.');
+      if (!s.commit('comparison', p)) return s.error('Có chỗ chưa khớp.');
       s.audio.playCue('success');
       return s.dialogue('Bốn hàng dữ kiện', [...LINES.comparison, ...GUIDE.comparison], 'Ghi mã ngăn kéo 2413', 'close');
     case 'drawer-submit':
       if (!inView('drawer')) return;
-      if (!s.commit('drawer', p)) return s.error('Ngăn kéo có bốn số. Hãy dùng mã 2413 từ bàn đối chiếu.');
+      if (!s.commit('drawer', p)) return s.error('Chưa đúng.');
       s.audio.playCue('drawer-open'); return s.show('identity');
     case 'identity-submit':
       if (!inView('identity')) return;
-      if (!s.commit('identity', p)) return s.error('Đọc từng số bằng bảng A1Z26: 08 = H, 05 = E. Ghép đủ hai nhóm thành tên người.');
+      if (!s.commit('identity', p)) return s.error('Chưa đúng.');
       s.audio.playCue('success');
       return s.dialogue('Henri Navarre · Tháng 5/1953', [...LINES.identity, ...GUIDE.identity], 'Đọc bản tin tháng 7/1953', 'nava-context-open');
     case 'nava-context-open':
@@ -94,7 +94,7 @@ export function handleAction(s, action, p = {}) {
       return;
     case 'chest-submit':
       if (!inView('chest')) return;
-      if (!s.commit('chest', p)) return s.error('Dùng họ theo cách gọi trong tài liệu tiếng Việt: NAVA.');
+      if (!s.commit('chest', p)) return s.error('Chưa đúng.');
       s.audio.playCue('chest-unlock'); setTimeout(() => { if (!s.disposed) s.audio.playCue('chest-open'); }, 350); return s.dialogue('Mảnh ký ức đầu tiên', s.options?.onExit ? CAMPAIGN_ENDING : ENDING, 'Cất mảnh tranh và tìm cửa', 'close');
   }
 }
