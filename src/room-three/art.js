@@ -129,7 +129,7 @@ export function createRoomThreeArtwork(scene, world, key = 'room-three-camp') {
   label(c, 'LỀU CHỈ HUY', 2160, 360, 25); label(c, 'TRẠM NHẬN TIN', 2780, 1370, 23);
   label(c, 'PHÒNG 3 · MẬT MÃ HẬU PHƯƠNG', 1550, 1880, 29);
   label(c, 'BỐ CỤC HỌC TẬP · KHÔNG PHẢI BẢN ĐỒ TÁC CHIẾN', 1550, 1910, 15, '#d5ceb0');
-  for (const object of world.objects.filter(item => item.type !== 'prop')) {
+  for (const object of world.objects.filter(item => item.type !== 'prop' && !item.gateId)) {
     const y = object.y + (object.id === 'chest' ? 105 : 80);
     c.font = '600 18px "DBP Text", serif'; const width = c.measureText(object.label).width + 25;
     rect(c, object.x - width / 2, y - 23, width, 33, '#233c32ee'); label(c, object.label, object.x, y, 18);

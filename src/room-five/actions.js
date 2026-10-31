@@ -40,7 +40,9 @@ export function handleAction(session, action, payload = {}) {
     case 'assembly-submit':
       if (!matching('assembly') || s.state.assemblySolved) return;
       s.notice = '';
-      if (!hasAllFragments(s.fragments)) return s.error('Cần đủ bốn mảnh thật từ hành trình trước khi ghép tranh.');
+      if (!hasAllFragments(s.fragments)) { // missing prerequisite, not a wrong answer: notice only, no hint escalation
+        s.notice = 'Cần đủ bốn mảnh thật từ hành trình trước khi ghép tranh.'; s.audio.playCue('error'); return s.render();
+      }
       if (!s.commit('assembly', {order: payload.order})) return s.error('Chưa đúng.');
       s.audio.playCue('painting-complete');
       return s.dialogue('Tranh đã nguyên vẹn, cửa vẫn đóng', [...LINES.assembly, ...GUIDE.assembly]);

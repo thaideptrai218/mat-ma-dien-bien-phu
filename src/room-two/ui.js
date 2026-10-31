@@ -6,6 +6,8 @@ import {installTactileStations} from './tactile-stations.js';
 import {DoorPuzzleView} from './door-puzzle-view.js';
 import {WORLD} from './world.js';
 import {SYSTEM_HINTS} from './system-guidance.js';
+import {puzzles} from './content.js';
+import {revealOddHighlight} from './tactile-radio-station.js';
 
 import {NEUTRAL_WRONG} from '../ui/neutral-notice.js';
 
@@ -46,6 +48,13 @@ export class RoomTwoUI extends RoomOneUI {
   hintKeyFor(view) {
     const id = this.puzzle?.activeId;
     return view === 'bao-content' && id && !this.getState().completedPuzzleIds.includes(id) ? id : null;
+  }
+
+  // A wrong radio try gives Hệ Thống's level-1 hint and with it the odd-letter highlighter (tactile station).
+  noteMistake() {
+    super.noteMistake();
+    const id = this.puzzle?.activeId;
+    if (!this.destroyed && id && puzzles[id]?.type === 'interleave') revealOddHighlight(this.puzzle, id);
   }
 
   destroy() {

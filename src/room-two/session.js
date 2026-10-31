@@ -49,7 +49,7 @@ export class RoomTwoSession {
     const goal = goalFor(this.state), nearby = OBJECTS.find(object => object.id === this.position.nearbyId) || null;
     const hudState = {...this.state, collectedNoteIds: this.state.collectedClueIds, seenObjectIds: this.state.discoveredClueIds};
     this.ui.render({state: hudState, position: this.position, nearby, goal, notice: this.notice, audio: this.audio.getSnapshot(),
-      lockedGateRects: lockedGateRects(AREA_GATES, this.state)});
+      lockedGateRects: lockedGateRects(AREA_GATES, this.state), gateObjects: doorObjects(lockedGateIds(AREA_GATES, this.state))});
     this.scene?.setLockedGates(lockedGateIds(AREA_GATES, this.state));
     this.scene?.setGoal(goal.id); this.scene?.setRoomComplete(this.state.fragmentCollected);
     this.audio.setPreferences(this.state);

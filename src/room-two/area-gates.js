@@ -34,7 +34,7 @@ const GATE_SPECS = [
     legacy: anyOf(collected('nava-allied-telegram', 'nava-calendar'), solved('nava-fist')),
     notice: 'Cửa gian đông nam có khóa. Nhấn E để mở khóa.',
     door: {kind: 'ruler', label: 'Mở khóa cửa gian đông nam', title: 'Khóa cửa gian đông nam',
-      prompt: 'Trang báo cũ ghi ngày liên quân Việt – Lào giải phóng Thà Khẹt. Kéo thước tới đúng ngày ấy rồi bấm Mở khóa.',
+      prompt: 'Trang báo cũ ghi ngày liên quân Việt – Lào bắt đầu tiến công hướng Trung Lào. Kéo thước tới đúng ngày ấy rồi bấm Mở khóa.',
       rulerLabel: 'Ngày trong tháng', min: 1, max: 31, value: 1, answer: 21},
   },
   {id: 'north-room', method: 'puzzle', guards: ['nava-calendar'], style: 'door', rects: [[1180, 500, 180, 32]],

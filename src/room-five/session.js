@@ -54,7 +54,7 @@ export class RoomFiveSession {
     const goal = doorGoal ? {...base, id: doorGoal, label: 'Mở khóa lối vào gian phục dựng', detail: 'Một sợi dây chắn ngang gian phục dựng. Đến sợi dây rồi nhấn E để mở khóa.'} : base;
     const nearby = [...OBJECTS, ...doors].find(o => o.id === this.position.nearbyId) || null;
     this.ui.render({state: this.state, position: this.position, nearby, goal, notice: this.notice, audio: this.audio.getSnapshot(),
-      lockedGateRects: lockedGateRects(AREA_GATES, this.state)});
+      lockedGateRects: lockedGateRects(AREA_GATES, this.state), gateObjects: doors});
     this.scene?.setLockedGates(locked); this.scene?.setGoal(goal.id); this.scene?.setDoorOpen(this.state.reflectionSeen);
     const mode = this.options.isPaused?.() ? 'inactive' : this.ui.isOpen ? 'dialogue' : 'exploration';
     if (this.audio.mode !== mode) this.audio.setMode(mode);

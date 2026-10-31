@@ -50,9 +50,9 @@ export class RoomOneSession {
     const goal = goalFor(this.state);
     const nearby = [...OBJECTS, ...gateAnchors(this.state)].find(o => o.id === this.position.nearbyId) || null;
     const anchorKey = gateAnchors(this.state).map(a => a.id).join();
-    if (this.scene && anchorKey !== this.anchorKey) { this.anchorKey = anchorKey; this.scene.map = this.sceneWorld(); }
+    if (this.scene && anchorKey !== this.anchorKey) { this.anchorKey = anchorKey; this.scene.map = this.sceneWorld(); this.scene.updateNearby?.(); }
     this.ui.render({state: this.state, position: this.position, nearby, goal,
-      lockedGateRects: lockedGateRects(AREA_GATES, this.state), notice: this.notice, audio: this.audio.getSnapshot()});
+      lockedGateRects: lockedGateRects(AREA_GATES, this.state), gateObjects: gateAnchors(this.state), notice: this.notice, audio: this.audio.getSnapshot()});
     this.scene?.setGoal?.(goal.id);
     this.scene?.setLockedGates?.(lockedGateIds(AREA_GATES, this.state));
     const mode = this.options.isPaused?.() ? 'inactive' : this.ui.isOpen ? 'dialogue' : 'exploration';

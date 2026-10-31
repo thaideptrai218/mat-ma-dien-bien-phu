@@ -1024,7 +1024,7 @@
       "durationMs": 3472
     },
     {
-      "id": "670311862a70c07b",
+      "id": "f85b0f2674bac6e8",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1033,10 +1033,10 @@
       "groups": [
         "r2.SYSTEM_HINTS.door-south-east"
       ],
-      "text": "Ký Chủ thử mở sổ tay đọc lại trang báo cũ: tít lớn nói về nơi nào được giải phóng?",
-      "ttsText": "Ký Chủ thử mở sổ tay đọc lại trang báo cũ: tít lớn nói về nơi nào được giải phóng?",
-      "file": "audio/voice/670311862a70c07b.mp3",
-      "durationMs": 4292
+      "text": "Ký Chủ thử mở sổ tay đọc lại trang báo cũ: bài viết kể về cuộc tiến công ở hướng nào?",
+      "ttsText": "Ký Chủ thử mở sổ tay đọc lại trang báo cũ: bài viết kể về cuộc tiến công ở hướng nào?",
+      "file": "audio/voice/f85b0f2674bac6e8.mp3",
+      "durationMs": 4402
     },
     {
       "id": "8fa228aadad81f1d",

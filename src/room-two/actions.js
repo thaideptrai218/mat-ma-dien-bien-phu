@@ -36,8 +36,9 @@ export function handleIntent(session, intent) {
     const puzzle = puzzles[intent.puzzleId];
     if (!puzzle || session.state.completedPuzzleIds.includes(puzzle.id)) return;
     if (puzzle.requiresPuzzleId && !session.state.completedPuzzleIds.includes(puzzle.requiresPuzzleId)) {
+      // Not a wrong answer: the station is simply not ready, so no hint escalation (tone 'hint', not 'error').
       session.audio.playCue('error');
-      session.ui.puzzle.showFeedback(NEUTRAL_WRONG, 'error');
+      session.ui.puzzle.showFeedback('Trạm này chưa mở. Hãy hoàn thành trạm trước đó.', 'hint');
       return;
     }
     const result = evaluatePuzzle(puzzle.id, intent.answer, session.state.collectedClueIds);

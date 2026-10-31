@@ -105,7 +105,7 @@ export function createRoomFourArtwork(scene, world, key = 'room-four-archive') {
   label(ctx, 'PHÒNG LƯU TRỮ · TRÂM', 1400, 1470, 21, '#b8c6b1');
   label(ctx, 'GÓC GIẢI MÃ', 1400, 365, 23, '#d4bd7c');
   label(ctx, 'BỐ CỤC HỌC TẬP · KHÔNG PHẢI BẢN ĐỒ TÁC CHIẾN', 1400, 1694, 14, '#aeb9a2');
-  for (const object of world.objects.filter(item => item.type !== 'prop')) {
+  for (const object of world.objects.filter(item => item.type !== 'prop' && !item.gateId)) {
     const y = object.id === 'door' ? 142 : object.y + (object.id === 'chest' ? 105 : 84);
     ctx.font = '600 18px "DBP Text", serif';
     const w = Math.max(140, ctx.measureText(object.label).width + 26);

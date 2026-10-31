@@ -118,7 +118,7 @@ export function createRoomOneArtwork(scene, world) {
   label(ctx, 'HỒ SƠ PHÁP', 1828, 425, 30, '#d6dcce', 'DBP Display');
   label(ctx, 'TƯƠNG QUAN LỰC LƯỢNG · ĐẦU 1953', 1200, 1516, 20, '#cfc7a4');
   label(ctx, 'PHÒNG LƯU TRỮ', 1200, 185, 20, '#d4c48f', 'DBP Display');
-  for (const object of world.objects.filter(o => o.type !== 'prop')) {
+  for (const object of world.objects.filter(o => o.type !== 'prop' && !o.gateId)) {
     const code = `${object.id[0].toUpperCase()}-0${object.id[1]}`;
     const text = object.type === 'document' ? `${code} · HỒ SƠ` : object.label;
     const y = object.id === 'door' ? 135 : object.y + (object.id === 'comparison' ? 91 : 85);

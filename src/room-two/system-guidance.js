@@ -67,7 +67,7 @@ export const SYSTEM_HINTS = {
   },
   'door-south-east': {
     open: 'Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trên trang báo cũ.',
-    hints: ['Ký Chủ thử mở sổ tay đọc lại trang báo cũ: tít lớn nói về nơi nào được giải phóng?', 'Ký Chủ để ý bài báo kể từ ngày nào liên quân tiến công hướng Trung Lào.'],
+    hints: ['Ký Chủ thử mở sổ tay đọc lại trang báo cũ: bài viết kể về cuộc tiến công ở hướng nào?', 'Ký Chủ để ý bài báo kể từ ngày nào liên quân tiến công hướng Trung Lào.'],
   },
   'door-north-room': {
     open: 'Ký Chủ, hai bánh số này chỉ một tháng ghi trên bức điện liên quân.',

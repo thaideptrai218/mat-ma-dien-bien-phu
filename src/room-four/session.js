@@ -43,7 +43,7 @@ export class RoomFourSession {
     if (this.disposed||!this.ui) return;
     const locked=lockedGateIds(AREA_GATES,this.state);
     const goal=goalFor(this.state),nearby=[...OBJECTS,...doorObjects(locked)].find(o=>o.id===this.position.nearbyId)||null;
-    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),lockedGateRects:lockedGateRects(AREA_GATES,this.state)});
+    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),lockedGateRects:lockedGateRects(AREA_GATES,this.state),gateObjects:doorObjects(locked)});
     this.scene?.setLockedGates(locked);this.scene?.setGoal(goal.id);this.scene?.setChestOpen(this.state.chestOpened);this.scene?.setFragmentCollected?.(this.state.fragmentCollected);
     const mode=this.options.isPaused?.()?'inactive':this.ui.isOpen?'dialogue':'exploration';if(this.audio.mode!==mode)this.audio.setMode(mode);
   }

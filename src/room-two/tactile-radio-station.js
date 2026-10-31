@@ -8,12 +8,21 @@ import {hide, setControl, focusToken} from './tactile-dom.js';
 
 const DRAG_PX = 6;
 
-export function enhanceRadio({puzzle, draft, form, solved}) {
+// Hệ Thống's first hint (first wrong try) unlocks the donor's odd-letter highlighter. The donor only reads
+// hintLevels, which the adapter never advances, so the station owns this: a per-view set survives form re-renders.
+const oddToggleOf = root => root?.querySelector?.('.radio-workspace > button.quiet-button');
+export function revealOddHighlight(view, puzzleId) {
+  (view.oddHighlightReady ||= new Set()).add(puzzleId);
+  const toggle = oddToggleOf(document); if (toggle) toggle.hidden = false;
+}
+
+export function enhanceRadio({view, puzzle, draft, form, solved}) {
   const workspace = form.querySelector('.radio-workspace'), tape = workspace?.querySelector('.radio-tape');
   const inputs = Object.fromEntries(puzzle.channels.map(channel => [channel.id, form.querySelector(`.radio-channels input[name="${channel.id}"]`)]));
   if (!workspace || !tape || Object.values(inputs).some(input => !input)) return; // donor markup changed: keep the donor UI
   const locked = Object.values(inputs).every(input => input.disabled);
   hide(tape);
+  const oddToggle = oddToggleOf(form); if (oddToggle && view?.oddHighlightReady?.has(puzzle.id)) oddToggle.hidden = false;
   for (const input of Object.values(inputs)) input.readOnly = true;
 
   const channelIds = puzzle.channels.map(channel => channel.id);

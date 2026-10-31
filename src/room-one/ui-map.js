@@ -30,7 +30,9 @@ export function createRoomMap(snapshot = {}, compact = false, world = WORLD) {
     svg.append(shape('rect', { x, y, width, height, fill: '#9c572e55', stroke: '#8a3b2a', 'stroke-width': 8, 'stroke-dasharray': '18 10', 'data-gate': 'locked' }));
   }
   const seen = new Set([...(state.seenObjectIds || []), ...(state.collectedNoteIds || [])]);
-  for (const object of world.objects || []) {
+  // Gate/door goals (gate:*, door:*) live outside WORLD.objects; resolve them to their anchor so the marker survives.
+  const goalAnchors = (snapshot.gateObjects || []).filter(item => item && item.id === goal.id);
+  for (const object of [...(world.objects || []), ...goalAnchors]) {
     const current = goal.id === object.id;
     if (current) svg.append(shape('circle', { cx: object.x, cy: object.y, r: 90, fill: 'none', stroke: '#9c572e', 'stroke-width': 13, 'stroke-dasharray': '22 12' }));
     svg.append(shape('circle', { cx: object.x, cy: object.y, r: compact ? 30 : 24, fill: current ? '#9c572e' : seen.has(object.id) ? '#355547' : '#8b806b', stroke: '#f7edd8', 'stroke-width': 6 }));

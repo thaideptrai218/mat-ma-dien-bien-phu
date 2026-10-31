@@ -38,7 +38,7 @@ export class RoomThreeSession{
   }
   render(){
     if(this.disposed||!this.ui)return;const goal=goalFor(this.state),nearby=OBJECTS.find(o=>o.id===this.position.nearbyId)||null;
-    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),tokens:recoveredTokens(this.state),lockedGateRects:lockedGateRects(AREA_GATES,this.state)});
+    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),tokens:recoveredTokens(this.state),lockedGateRects:lockedGateRects(AREA_GATES,this.state),gateObjects:doorObjects(lockedGateIds(AREA_GATES,this.state))});
     this.scene?.setLockedGates(lockedGateIds(AREA_GATES,this.state));
     this.scene?.setGoal(goal.id);this.scene?.setChestOpen(this.state.chestOpened);this.scene?.setFragmentCollected(this.state.fragmentCollected);
     const mode=this.options.isPaused?.()?'inactive':this.ui.isOpen?'dialogue':'exploration';if(this.audio.mode!==mode)this.audio.setMode(mode);
