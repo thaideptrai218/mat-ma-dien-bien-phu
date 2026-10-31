@@ -13,7 +13,7 @@ function dialogue(data, emit) {
 
 function notebook(data, emit) {
   const body = element('section');
-  body.append(heading('Sổ tay của Quang'), element('p', 'r1-lead', 'Những hồ sơ đã đọc và xác nhận. Mở lại để đối chiếu toàn văn.'));
+  body.append(heading('Sổ tay của Long'), element('p', 'r1-lead', 'Những hồ sơ đã đọc và xác nhận. Mở lại để đối chiếu toàn văn.'));
   const list = element('div', 'r1-notebook-list');
   for (const doc of data.documents || []) {
     const row = button('', () => emit('document-reread', { id: doc.id }), 'r1-notebook-row');

@@ -1,6 +1,6 @@
 // Collects every spoken line of the campaign straight from the game content modules.
-// Plain strings are Quang's thoughts; {speaker, text} objects and Room 2 beats name their speaker.
-// Document prose (letters, reports) is read on screen and is not voiced; only Quang's reflections are.
+// Plain strings are Long's thoughts; {speaker, text} objects and Room 2 beats name their speaker.
+// Document prose (letters, reports) is read on screen and is not voiced; only Long's reflections are.
 import {voiceIdFor, voiceOf, framingLine, VOICES} from '../../src/audio/voice-id.js';
 import {OPENING} from '../../src/campaign/framing.js';
 import * as r1 from '../../src/room-one/content.js';
@@ -15,7 +15,7 @@ import * as r4 from '../../src/room-four/content.js';
 import {DOCUMENTS as R4_DOCUMENTS} from '../../src/room-four/documents.js';
 import * as r5 from '../../src/room-five/content.js';
 
-const BEAT_SPEAKERS = {system: 'Hệ Thống', quang: 'Quang'};
+const BEAT_SPEAKERS = {system: 'Hệ Thống', quang: 'Long'};
 
 // Walks arrays and plain objects in key order, emitting each string or {speaker, text} line.
 function walk(value, group, emit) {

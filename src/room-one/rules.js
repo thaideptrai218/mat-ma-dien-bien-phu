@@ -58,7 +58,7 @@ function baseGoal(s) {
   if (s.envelopeOpened) {
     step = 1; id = NOTE_IDS.find(note => !s.collectedNoteIds.includes(note)) || 'comparison';
     label = id === 'comparison' ? 'Đối chiếu lực lượng hai phía' : `Đọc hồ sơ ${id[0] === 'v' ? 'V' : 'P'}-0${id[1]}`;
-    detail = id === 'comparison' ? 'Đưa dữ kiện về bàn đối chiếu ở giữa phòng.' : 'Đọc đầy đủ trang giấy, cùng Quang suy luận rồi ghi dữ kiện.';
+    detail = id === 'comparison' ? 'Đưa dữ kiện về bàn đối chiếu ở giữa phòng.' : 'Đọc đầy đủ trang giấy, cùng Long suy luận rồi ghi dữ kiện.';
   }
   if (s.comparisonSolved) { step = 2; id = 'drawer'; label = 'Mở ngăn kéo: 2413'; detail = 'Bốn hàng đối chiếu đã cho bốn chữ số 2 · 4 · 1 · 3.'; }
   if (s.drawerOpened) { id = 'drawer'; label = 'Giải tên người trong điện mật'; detail = 'Dùng bảng A1Z26 nằm trong ngăn kéo.'; }

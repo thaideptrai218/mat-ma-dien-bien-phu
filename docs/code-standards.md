@@ -17,7 +17,7 @@
 - Shared settings là authoritative khi mount/merge. Không để default audio phòng mới ghi đè preference đã chọn. Runtime unlock tách preference.
 - Preview keys room-one/two/three/four:v 1 với tiền tố `mat-ma-dien-bien-phu:` giữ riêng; không auto-migrate/import donor/preview vào campaign. Reset room giữ trước/cắt downstream; global new game xác nhận, chỉ reset campaign envelope.
 - Không lưu tọa độ, cursor, draft hoặc suy nghĩ cá nhân Room 5; suy nghĩ không vào payload/validator/network. Optional, để trống được, không chấm.
-- Storage hỏng/bị chặn có thông báo, vẫn chơi trong phiên. Hồ sơ cần đọc cuối và current Quang confirmation; readonly reread không cấp tiến độ.
+- Storage hỏng/bị chặn có thông báo, vẫn chơi trong phiên. Hồ sơ cần đọc cuối và current Long confirmation; readonly reread không cấp tiến độ.
 - Room 3 giữ graph giấy/thử thách xen kẽ; ba việc chuẩn bị cùng nhóm, NHANH/CHẮC hoán đổi tương đương. Room 4 giữ bảy giấy→ô chữ→cột→T/L→rương→pickup→cửa.
 
 ## Bảo toàn nội dung và tương tác

@@ -41,7 +41,7 @@ const RULES = [
   [/WASD/gu, 'W, A, S, D'],
   [/(^|[.;,] |\. )([ENMQ]) (mở|xem|thu|để)/gu, (_, lead, key, verb) => `${lead}phím ${key} ${verb}`],
   [/nhấn ([EQNM])\b/gu, 'nhấn phím $1'],
-  [/^(?:Quang|Hệ Thống): /u, ''],
+  [/^(?:Long|Hệ Thống): /u, ''],
   [/thu\/mở/gu, 'thu hoặc mở'],
   [/T · I · M · T · V · A · L/gu, 'T, I, M, T, V, A, L'],
   [/\b([AVPN])-0(\d)\b/gu, (_, letter, digit) => `${letter} không ${DIGITS[Number(digit)]}`],

@@ -67,7 +67,7 @@ function reflection(data, emit) {
   }
   // Do not read the textarea in callbacks: the narrative acknowledgment is the sole intent.
   const finish = data.readOnly ? {label: 'Đóng cuộc trò chuyện', onClick: () => emit('close')}
-    : {label: 'Tiếp tục cùng Quang · Có thể để trống', onClick: () => emit('reflection-continue', {token: data.token})};
+    : {label: 'Tiếp tục cùng Long · Có thể để trống', onClick: () => emit('reflection-continue', {token: data.token})};
   const panel = visualNovelDialogue({title: 'Câu hỏi không nằm trong mật mã', eyebrow: 'PHÒNG 5 · LỜI KỂ HƯ CẤU', script: REFLECTION_SCRIPT,
     voice: data.voice, finish, lastExtra: extra, note: SOURCE_LABEL}, emit);
   return {...panel, cleanup: () => {if (textarea) textarea.value = ''; panel.cleanup();}};

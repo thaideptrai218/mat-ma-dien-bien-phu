@@ -60,7 +60,7 @@ export class RoomFourSession {
     if(this.disposed)return;
     const token=++this.nonce;
     const voice=createDialogueVoice(this.audio,lines);
-    this.show('dialogue',{title,speaker:'Quang',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),script:lines,voice,buttonLabel,action,payload:{...payload,token}});
+    this.show('dialogue',{title,speaker:'Long',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),script:lines,voice,buttonLabel,action,payload:{...payload,token}});
     this.active.token=token;startDialogueVoice(this,voice);
   }
   close(){if(this.disposed)return;this.audio.voice?.stop();this.ui.close();this.active=null;this.scene?.clearKeys();this.scene?.focus();this.render();}

@@ -2,7 +2,7 @@
 
 **Chơi trực tuyến:** [mat-ma-dien-bien-phu.vercel.app](https://mat-ma-dien-bien-phu.vercel.app/). Đã triển khai production bằng MCP Vercel; [cấu hình và kiểm tra](docs/deployment.md).
 
-Bản chính hiện tại là **hành trình năm phòng hoàn chỉnh**: bảo tàng → Phòng 1 → **Phòng 2 của Bảo** → Phòng 3 hậu phương → Phòng 4 của Trâm → Phòng 5 ghép tranh/suy ngẫm → trở lại bảo tàng. Quang đọc giấy tờ, giải đố và tự kiếm đủ bốn mảnh tranh. Game dùng Phaser, JavaScript và tài nguyên cục bộ.
+Bản chính hiện tại là **hành trình năm phòng hoàn chỉnh**: bảo tàng → Phòng 1 → **Phòng 2 của Bảo** → Phòng 3 hậu phương → Phòng 4 của Trâm → Phòng 5 ghép tranh/suy ngẫm → trở lại bảo tàng. Long đọc giấy tờ, giải đố và tự kiếm đủ bốn mảnh tranh. Game dùng Phaser, JavaScript và tài nguyên cục bộ.
 
 Entry `/` chạy toàn hành trình trong cùng trang/cùng origin; chỉ đổi phòng sau khi tới cửa thật. **Sổ hành trình** giữ toàn văn các giấy đã thu thập ở những phòng trước. Các bản thử riêng vẫn có tại `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html`, dùng save riêng và không được nhập thành thành tích chiến dịch. Checkout gốc và preview [Bảo 4180](http://127.0.0.1:4180/) giữ nguyên, không cần mở tab ấy để hoàn thành bản chính.
 
@@ -35,18 +35,18 @@ Bản build có năm entry: `index.html` cho chiến dịch và bốn bản th�
 
 Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuyển tiếp; mở rương hoặc nhận mảnh chưa thay thao tác ra cửa. **Sổ hành trình** trên thanh chung đọc lại giấy đã kiếm được mà không cấp thêm tiến độ. **Bắt đầu lại phòng** giữ các phòng trước; **Hành trình mới** cần xác nhận và chỉ xóa save chiến dịch. Không nhập thành tích từ bản thử riêng.
 
-### Nhân vật Quang theo ảnh mẫu
+### Nhân vật Long theo ảnh mẫu
 
 Sprite di chuyển mới giữ tóc nâu gợn, áo khoác nâu đỏ, áo trắng, quần be và túi ô liu theo hình người dùng cung cấp. PNG nền trong suốt có32 tư thế cho bốn hướng; đi bộ8fps và chạy12fps dùng các khung riêng. Đứng lại, đụng tường hoặc mở nội dung sẽ về tư thế đứng. Giảm chuyển động của hệ điều hành giữ hình đứng theo hướng nhưng vẫn cho đi/chạy.
 
-Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 hiển thị80×96, collider vẫn24×16; tốc độ260/390 và save/câu đố không đổi. [Sprite và thông số](assets/characters/quang-reference/README.md), [PNG](assets/characters/quang-reference/motion-sheet.png), [review](plans/261031-quang-reference-character/reports/code-review.md), [QA nhân vật](plans/261031-quang-reference-character/reports/qa.md). Phạm vi lần này là sprite khám phá; chân dung hội thoại là tài nguyên riêng.
+Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 hiển thị80×96, collider vẫn24×16; tốc độ260/390 và save/câu đố không đổi. [Sprite và thông số](assets/characters/long/README.md), [PNG](assets/characters/long/motion-sheet.png), [review](plans/261031-quang-reference-character/reports/code-review.md), [QA nhân vật](plans/261031-quang-reference-character/reports/qa.md). Phạm vi lần này là sprite khám phá; chân dung hội thoại là tài nguyên riêng.
 
 ### Phòng 1 — Trước bản kế hoạch
 
 | Bước | Việc cần làm |
 | --- | --- |
-| 1 | Mở lá thư anh Lâm gửi em Tín, đọc hết rồi cùng Quang nhận ra ký hiệu lưu trữ A-03. Không còn câu đố xếp mảnh thư. |
-| 2 | Đọc hết V-01, V-02, P-01, P-02; cùng Quang suy luận rồi xác nhận từng hồ sơ. Đối chiếu đủ bốn mặt của tương quan lực lượng. |
+| 1 | Mở lá thư anh Lâm gửi em Tín, đọc hết rồi cùng Long nhận ra ký hiệu lưu trữ A-03. Không còn câu đố xếp mảnh thư. |
+| 2 | Đọc hết V-01, V-02, P-01, P-02; cùng Long suy luận rồi xác nhận từng hồ sơ. Đối chiếu đủ bốn mặt của tương quan lực lượng. |
 | 3 | Dùng mã từ bàn đối chiếu để mở ngăn kéo; đọc bảng thay số bằng chữ cái và giải tên người trong điện mật. |
 | 4 | Dùng tên theo cách gọi tiếng Việt để mở rương, nhận mảnh tranh đầu tiên rồi đi tới cửa phía bắc để hoàn thành phòng. |
 
@@ -80,15 +80,15 @@ Phòng 2800×1800 có rương ở giữa, hai bàn mật mã phía sau và bảy
 | 3 | Tìm hình T và L trên hai bảng chữ, ghép câu mở khóa. Rương tự mở và đổi hình ngay khi đúng. |
 | 4 | Đến gần rương, nhấn E và nhận riêng mảnh IV; đi tới cửa phía bắc mới hoàn thành phòng. |
 
-Giấy đọc dùng văn bản chọn/copy được. Ngày viết, nguồn và nhãn hư cấu nằm ngoài lời văn; thư có lời chào, chữ ký và phong bì. Đọc hết mới tới suy nghĩ của Quang; đóng sớm không nhận dữ kiện. Ô chữ giữ đủ 17 cột trong vùng cuộn ngang trên màn hẹp; các ô chọn hình có kích thước tối thiểu 44 px.
+Giấy đọc dùng văn bản chọn/copy được. Ngày viết, nguồn và nhãn hư cấu nằm ngoài lời văn; thư có lời chào, chữ ký và phong bì. Đọc hết mới tới suy nghĩ của Long; đóng sớm không nhận dữ kiện. Ô chữ giữ đủ 17 cột trong vùng cuộn ngang trên màn hẹp; các ô chọn hình có kích thước tối thiểu 44 px.
 
 ### Phòng 5 — Bức tranh và cánh cửa trở về
 
-Đủ bốn mảnh thật và đã ra cửa bốn phòng trước mới tới bàn phục dựng. Chọn hai mảnh để đổi chỗ, ghép đúng bốn phần tư của bức tranh. Cửa vẫn chờ cuộc trò chuyện cuối giữa Quang và hệ thống; có ô viết suy nghĩ **tự chọn, không chấm đúng/sai, không lưu hoặc gửi đi**. Có thể để trống, tiếp tục rồi đi tới cửa thật. Trở lại cùng bức tranh trong bảo tàng và bấm **Khép lại hành trình** mới ghi hoàn tất. Tranh SVG dùng ở mở đầu, mảnh ghép và đoạn trở về là minh họa do dự án sáng tác, không phải bản sao tranh bảo tàng.
+Đủ bốn mảnh thật và đã ra cửa bốn phòng trước mới tới bàn phục dựng. Chọn hai mảnh để đổi chỗ, ghép đúng bốn phần tư của bức tranh. Cửa vẫn chờ cuộc trò chuyện cuối giữa Long và hệ thống; có ô viết suy nghĩ **tự chọn, không chấm đúng/sai, không lưu hoặc gửi đi**. Có thể để trống, tiếp tục rồi đi tới cửa thật. Trở lại cùng bức tranh trong bảo tàng và bấm **Khép lại hành trình** mới ghi hoàn tất. Tranh SVG dùng ở mở đầu, mảnh ghép và đoạn trở về là minh họa do dự án sáng tác, không phải bản sao tranh bảo tàng.
 
 ## Nguồn và cách kể
 
-Chỉ dùng PDF bản 4, `lich su.txt` tại máy và [nội dung người dùng bổ sung ngày 31/10](plans/261031-room-three-logistics/source-brief.md); không nghiên cứu lịch sử trên web. Quang, người viết thư, chuyện riêng, điện mật và căn phòng là sáng tác, không phải thư thật, lời chứng hay trích dẫn lịch sử. Sơ đồ là bố cục học tập, không phục dựng di tích/tuyến tác chiến.
+Chỉ dùng PDF bản 4, `lich su.txt` tại máy và [nội dung người dùng bổ sung ngày 31/10](plans/261031-room-three-logistics/source-brief.md); không nghiên cứu lịch sử trên web. Long, người viết thư, chuyện riêng, điện mật và căn phòng là sáng tác, không phải thư thật, lời chứng hay trích dẫn lịch sử. Sơ đồ là bố cục học tập, không phục dựng di tích/tuyến tác chiến.
 
 Quân số **252.000 phía Việt Nam / 445.000 phía Pháp** trong Phòng 1 dùng theo tài liệu cung cấp, có nhãn **“Số liệu theo tài liệu cung cấp”**. Không coi các số ấy là thống kê được kiểm chứng độc lập. Các đoạn hỏng của bản chữ không dùng làm đáp án bắt buộc. Phòng 1 giới thiệu Henri Navarre/Nava ở cuối chuỗi; nội dung hai bước của kế hoạch Nava dành cho Phòng 2.
 
@@ -104,7 +104,7 @@ Chiến dịch dùng **`mat-ma-dien-bien-phu:campaign:v1`**: state đã kiểm t
 
 Bốn bản thử giữ khóa riêng `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` với cùng tiền tố. Không tự chuyển/import các khóa này hoặc save gốc của Bảo sang chiến dịch. Reset phòng hiện tại giữ thành tích trước, loại tiến độ phụ thuộc phía sau; xác nhận hành trình mới chỉ xóa envelope chiến dịch. Dev/preview có vùng lưu riêng theo origin/cổng.
 
-Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật âm thanh** cần thao tác chủ động để mở Web Audio. Chiến dịch giữ một audio controller/context xuyên các phòng; dừng input/âm thanh khi mở sổ chung hoặc mất focus. Có lồng tiếng toàn bộ 332 câu thoại (Quang, Hệ Thống giọng máy, Lời kể), hiệu ứng âm thanh và nền môi trường theo phòng; nút **Bật lồng tiếng** ở khung bảo tàng và bảng thoại, tùy chọn Lồng tiếng/âm lượng trong cài đặt. Tắt tiếng hoặc thiếu file vẫn chơi trọn bằng chữ. Chưa có backend/tài khoản hay điều khiển đi bộ cảm ứng.
+Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật âm thanh** cần thao tác chủ động để mở Web Audio. Chiến dịch giữ một audio controller/context xuyên các phòng; dừng input/âm thanh khi mở sổ chung hoặc mất focus. Có lồng tiếng toàn bộ 332 câu thoại (Long, Hệ Thống giọng máy, Lời kể), hiệu ứng âm thanh và nền môi trường theo phòng; nút **Bật lồng tiếng** ở khung bảo tàng và bảng thoại, tùy chọn Lồng tiếng/âm lượng trong cài đặt. Tắt tiếng hoặc thiếu file vẫn chơi trọn bằng chữ. Chưa có backend/tài khoản hay điều khiển đi bộ cảm ứng.
 
 Làm lại giọng sau khi sửa lời thoại (cần CapCut bridge `:8124` và OmniVoice `:8123` của `F:\AI-auto-generate-video`): `npm run voice:script` → `npm run voice:generate` → `npm run voice:master` → `npm run voice:review` (trang nghe duyệt cục bộ `.cache/voice-review.html`). SFX/nền: `npm run audio:sfx`; nguồn và giấy phép ở `public/audio/sfx/credits.json`.
 
@@ -119,6 +119,6 @@ Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-c
 - [Tổng quan](docs/project-overview-pdr.md), [cấu trúc mã](docs/codebase-summary.md), [kiến trúc](docs/system-architecture.md).
 - [Quy ước mã](docs/code-standards.md), [thiết kế](docs/design-guidelines.md), [chạy và build](docs/deployment-guide.md), [tiến độ](docs/project-roadmap.md).
 - Cốt truyện mới nhất (Word, 5 phòng + thiết kế từng giai đoạn): [docs/game-story-v4.docx](docs/game-story-v4.docx); link chỉnh sửa Canva nội bộ đã được gỡ khỏi bản trong repo.
-- [Kế hoạch âm thanh: lồng tiếng Quang/Hệ Thống/Lời kể, SFX, môi trường](plans/261031-1312-game-audio-voice-sfx/plan.md).
+- [Kế hoạch âm thanh: lồng tiếng Long/Hệ Thống/Lời kể, SFX, môi trường](plans/261031-1312-game-audio-voice-sfx/plan.md).
 - Nguồn truyện các phiên bản trước: [PDF bản 2](docs/game-story-v2.pdf), [Word](docs/game-story.docx). Các tệp giữ provenance, không thay phạm vi PDF bản 4 đã chấp thuận.
 - Mã nguồn: [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu). Nhánh `feat/complete-five-room-campaign` đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), giữ lịch sử đóng góp của Bảo; main chưa merge, đã có bản production Vercel ở đường dẫn đầu trang. Giấy phép phân phối cốt truyện và tài sản chưa xác định.

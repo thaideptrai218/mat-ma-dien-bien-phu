@@ -36,7 +36,7 @@ test('walking and sprint diagonals normalize, opposing keys cancel, idle Shift d
   assert.deepEqual(movementVelocity(new Set(['KeyW', 'KeyS', 'KeyA', 'KeyD', 'ShiftRight'])), {x: 0, y: 0, sprinting: false});
 });
 
-test('focus interruption clears sprint and rejects held repeats; text inputs cannot move Quang', () => {
+test('focus interruption clears sprint and rejects held repeats; text inputs cannot move Long', () => {
   const originalWindow = globalThis.window, originalDocument = globalThis.document;
   const canvas = new EventTarget(); canvas.setAttribute = () => {};
   globalThis.window = new EventTarget(); globalThis.document = new EventTarget();

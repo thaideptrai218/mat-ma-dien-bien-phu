@@ -75,9 +75,9 @@ export function documentPanel(data, emit) {
   scroll.append(element('p', 'r1-document-end', '— Hết tư liệu —'));
 
   const footer = element('div', 'r1-document-footer');
-  const hint = element('p', 'r1-muted', data.readOnly ? 'Bản đầy đủ đã lưu trong sổ tay.' : 'Đọc đến cuối tư liệu để cùng Quang suy luận.');
+  const hint = element('p', 'r1-muted', data.readOnly ? 'Bản đầy đủ đã lưu trong sổ tay.' : 'Đọc đến cuối tư liệu để cùng Long suy luận.');
   hint.setAttribute('role', 'status');
-  const finish = button(data.readOnly ? 'Đóng tư liệu' : 'Cùng Quang suy luận', () => emit(data.readOnly ? 'ui-close' : data.finishAction || 'document-finish', { id: doc.id }), 'r1-primary');
+  const finish = button(data.readOnly ? 'Đóng tư liệu' : 'Cùng Long suy luận', () => emit(data.readOnly ? 'ui-close' : data.finishAction || 'document-finish', { id: doc.id }), 'r1-primary');
   finish.disabled = !data.readOnly;
   footer.append(hint, finish);
   body.append(scroll, footer);
@@ -85,7 +85,7 @@ export function documentPanel(data, emit) {
     if (data.readOnly || !scroll.isConnected || !scroll.clientHeight) return;
     if (scroll.scrollHeight - scroll.scrollTop - scroll.clientHeight < 8) {
       finish.disabled = false;
-      hint.textContent = 'Đã tới cuối tư liệu. Tiếp tục với suy luận của Quang.';
+      hint.textContent = 'Đã tới cuối tư liệu. Tiếp tục với suy luận của Long.';
     }
   };
   scroll.addEventListener('scroll', check, { passive: true });

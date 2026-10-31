@@ -37,7 +37,7 @@ export function handleAction(s, action, p = {}) {
     }
     case 'letter-finish':
       if (inView('document') && !active.readOnly && active.document.id === 'restored-letter' && p.id === active.document.id)
-        return s.dialogue('Quang · Sau khi đọc thư', [...LETTER_DOCUMENT.reflection, ...LINES.letterArchive, ...GUIDE.letter], 'Nhớ ký hiệu A-03', 'letter-record', {documentId:'restored-letter'});
+        return s.dialogue('Long · Sau khi đọc thư', [...LETTER_DOCUMENT.reflection, ...LINES.letterArchive, ...GUIDE.letter], 'Nhớ ký hiệu A-03', 'letter-record', {documentId:'restored-letter'});
       return;
     case 'letter-record':
       if (dialogueToken() && active.action === 'letter-record' && s.commit('letter', p)) s.close();
@@ -53,7 +53,7 @@ export function handleAction(s, action, p = {}) {
         if (!s.state.readNoteIds.includes(p.id)) return;
       }
       const doc = DOCUMENTS.find(d => d.id === p.id);
-      return s.dialogue(`Quang suy luận · ${doc.code}`, doc.reflection, 'Ghi dữ kiện vào sổ tay', 'document-collect', {id:p.id});
+      return s.dialogue(`Long suy luận · ${doc.code}`, doc.reflection, 'Ghi dữ kiện vào sổ tay', 'document-collect', {id:p.id});
     }
     case 'document-collect':
       if (!dialogueToken() || p.id !== active.payload.id) return;
@@ -90,7 +90,7 @@ export function handleAction(s, action, p = {}) {
       return;
     case 'nava-context-finish':
       if (inView('document') && !active.readOnly && s.state.identitySolved && active.document.id === 'nava-context' && p.id === active.document.id)
-        return s.dialogue('Quang · Sau bản tin tháng bảy',[...NAVA_CONTEXT_DOCUMENT.reflection,...LINES.navaContext, ...GUIDE.chest]);
+        return s.dialogue('Long · Sau bản tin tháng bảy',[...NAVA_CONTEXT_DOCUMENT.reflection,...LINES.navaContext, ...GUIDE.chest]);
       return;
     case 'door-submit':
       if (!inView(`door-${p.id}`)) return;

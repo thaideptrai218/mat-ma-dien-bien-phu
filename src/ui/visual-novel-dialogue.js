@@ -5,11 +5,11 @@ import {attachLineVoice} from './visual-novel-voice.js';
 // Visual-novel dialogue shared by every room (same .vn-* markup as Room 2's narrative view): one line per
 // step with speaker label + portrait, "i / n" counter, Trước / Tiếp lời / Đọc toàn cảnh. On the last line the
 // next button becomes the session's own button (finish), so action tokens keep their old meaning.
-//   script: strings (Quang) or {speaker, text}; voice: createDialogueVoice() handle or null
+//   script: strings (Long) or {speaker, text}; voice: createDialogueVoice() handle or null
 //   finish: {label, onClick} | null (read-only: no confirm button); lastExtra: node shown only on the last line
 export function visualNovelDialogue({title, eyebrow = 'LỜI THOẠI', script = [], voice = null, finish = null, lastExtra = null, note = ''}, emit) {
   const lines = script.map(normalizeLine);
-  if (!lines.length) lines.push({speaker: 'Quang', text: ''});
+  if (!lines.length) lines.push({speaker: 'Long', text: ''});
   let index = 0, wholeFrom = null; // wholeFrom: line the "Đọc toàn cảnh" reading started from
   const isLast = () => index === lines.length - 1;
 

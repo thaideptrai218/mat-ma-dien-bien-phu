@@ -73,7 +73,7 @@ function setup({ lines, autoEnd = true, audible = true, audioEnabled = true, pre
 }
 
 test('plays a sequence in order, reports the line being read and cleans up', async () => {
-  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), 'Mình cần xem kỹ.', line('Quang', 'Đi thôi.')];
+  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), 'Mình cần xem kỹ.', line('Long', 'Đi thôi.')];
   const { player, context, controller } = setup({ lines });
   const seen = [];
   const result = await player.playSequence(lines, { onLine: index => seen.push(index) });
@@ -305,7 +305,7 @@ test('createDialogueVoice is null without a player; enable() runs the room audio
 
 test('framing paragraphs map to the speaker named by their prefix', () => {
   assert.deepEqual(framingLine('Hệ Thống: Chào.'), { speaker: 'Hệ Thống', text: 'Chào.' });
-  assert.deepEqual(framingLine('Quang: Khoan đã.'), { speaker: 'Quang', text: 'Khoan đã.' });
+  assert.deepEqual(framingLine('Long: Khoan đã.'), { speaker: 'Long', text: 'Khoan đã.' });
   assert.deepEqual(framingLine('Một đoạn kể.'), { speaker: 'Lời kể', text: 'Một đoạn kể.' });
 });
 
@@ -322,7 +322,7 @@ test('Room 2 narrative hook voices the shown line (or whole scene) without touch
   assert.deepEqual(played, [], 'playback waits a microtask for the session to enter dialogue mode');
   await Promise.resolve();
   const expected = beat.lines[1];
-  assert.deepEqual(played, [[{ speaker: expected.speakerId === 'system' ? 'Hệ Thống' : 'Quang', text: expected.text }]]);
+  assert.deepEqual(played, [[{ speaker: expected.speakerId === 'system' ? 'Hệ Thống' : 'Long', text: expected.text }]]);
 
   narrative.active.lineIndex = 0; narrative.renderLine(); narrative.active.lineIndex = 2; // moved on before the microtask ran
   await Promise.resolve();
@@ -366,7 +366,7 @@ test('campaign store setAudio switches sound on for every room save and persists
 });
 
 test('Hệ Thống lines are announced by the system chime and ducking follows the voice', async () => {
-  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), line('Quang', 'Đi thôi.')];
+  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), line('Long', 'Đi thôi.')];
   const { player, controller } = setup({ lines });
   const events = [];
   controller.cues = { play: name => { events.push(name); return true; } };

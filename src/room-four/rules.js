@@ -49,7 +49,7 @@ export function goalFor(s) {
     {title:'Nhận mảnh tranh IV, tới cửa',done:s.exitReached},
   ];
   const titles=['Theo dấu những đường hào','Đọc ghi chép đợt tiến công cuối','Đọc trang sổ sau đêm A1','Đọc thư tối 7/5','Đọc tổng kết chiến dịch','Đọc câu chuyện về miền Bắc','Đọc thư về độc lập dân tộc'];
-  let id=nextDocumentId(s),step=0,label=titles[s.collectedNoteIds.length],detail='Đi tới dấu vàng trên bản đồ. Đọc trọn trang giấy rồi cùng Quang suy nghĩ.';
+  let id=nextDocumentId(s),step=0,label=titles[s.collectedNoteIds.length],detail='Đi tới dấu vàng trên bản đồ. Đọc trọn trang giấy rồi cùng Long suy nghĩ.';
   if (!id) {id='crossword';step=1;label='Điền bảy hàng ô chữ';detail='Bàn ô chữ ở phía bắc. Mỗi câu hỏi gắn với một giấy tờ đã đọc.';}
   if (s.crosswordSolved) {label='Tìm cột chữ có nghĩa';detail='Chọn một cột dọc, đọc từ trên xuống dưới.';}
   if (s.columnSolved) {step=2;id=s.boardTSolved?'board-l':'board-t';label=s.boardTSolved?'Tìm hình L trên bảng bên phải':'Tìm hình T trên bảng bên trái';detail='Hai bàn mật mã nằm phía sau rương. Chọn các ô tạo thành hình cần tìm.';}

@@ -9,7 +9,7 @@ function showGuide(session, puzzle) {
   const spoken = [puzzle.successText, ...PUZZLE_GUIDE[puzzle.id]];
   const lines = spoken.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
   const voice = createDialogueVoice(session.audio, spoken);
-  session.show('dialogue', {title: puzzle.title, speaker: 'Quang', lines, script: spoken, voice, buttonLabel: 'Xem lại kết quả trên bàn',
+  session.show('dialogue', {title: puzzle.title, speaker: 'Long', lines, script: spoken, voice, buttonLabel: 'Xem lại kết quả trên bàn',
     action: 'puzzle-review', payload: {puzzleId: puzzle.id, token: session.nonce + 1}});
   startDialogueVoice(session, voice);
 }

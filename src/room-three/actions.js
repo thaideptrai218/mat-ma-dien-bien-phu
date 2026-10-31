@@ -44,7 +44,7 @@ export function handleAction(s,action,p={}){
     case'document-finish':{
       if(!inView('document')||active.readOnly||p.id!==active.document.id)return;
       if(!s.commit('read',p)&&!s.state.readNoteIds.includes(p.id))return;
-      const d=DOCUMENTS.find(doc=>doc.id===p.id);if(d)return s.dialogue(`Quang · ${d.title}`,d.reflection,'Ghi dữ kiện vào sổ tay','document-collect',{id:p.id});return;
+      const d=DOCUMENTS.find(doc=>doc.id===p.id);if(d)return s.dialogue(`Long · ${d.title}`,d.reflection,'Ghi dữ kiện vào sổ tay','document-collect',{id:p.id});return;
     }
     case'document-collect':if(confirmed('document-collect')&&p.id===active.payload.id&&s.commit('collect',p)){s.audio.playCue('paper');s.notice='Đã ghi dữ kiện. Sổ tay N giữ toàn văn và các mật mã đã khôi phục.';s.close();}return;
     case'document-reread':if(inView('notebook')&&s.state.collectedNoteIds.includes(p.id))s.show('document',{document:DOCUMENTS.find(d=>d.id===p.id),readOnly:true});return;

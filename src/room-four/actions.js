@@ -33,7 +33,7 @@ export function handleAction(s,action,p={}) {
       if(!inView('document')||active.readOnly||p.id!==active.document.id)return;
       if(!s.commit('read',p)&&!s.state.readNoteIds.includes(p.id))return;
       const d=DOCUMENTS.find(doc=>doc.id===p.id);if(!d)return;
-      return s.dialogue(`Quang · ${d.title}`,d.reflection,'Ghi dữ kiện vào sổ tay','document-collect',{id:p.id});
+      return s.dialogue(`Long · ${d.title}`,d.reflection,'Ghi dữ kiện vào sổ tay','document-collect',{id:p.id});
     }
     case 'document-collect':
       if(!confirmed('document-collect')||p.id!==active.payload.id)return;

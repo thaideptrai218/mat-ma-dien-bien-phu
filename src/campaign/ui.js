@@ -47,14 +47,14 @@ export class CampaignUI {
     if(notify)this.onOverlayChange?.(false);
   }
   showArchive(state) {
-    const section=element('section');section.append(heading('Sổ hành trình','NHỮNG GIẤY TỜ QUANG ĐÃ GHI NHẬN'),element('p','r1-lead','Đọc lại toàn văn để đối chiếu những việc đã đi qua.'));
+    const section=element('section');section.append(heading('Sổ hành trình','NHỮNG GIẤY TỜ LONG ĐÃ GHI NHẬN'),element('p','r1-lead','Đọc lại toàn văn để đối chiếu những việc đã đi qua.'));
     const docs=archiveEntries(state),list=element('div','r1-notebook-list');
     let previous=0;
     for(const doc of docs){
       if(previous!==doc.room){list.append(element('h3','',`Phòng ${doc.room} · ${ROOM_NAMES[doc.room-1]}`));previous=doc.room;}
       list.append(button(doc.title,()=>this.showDocument(doc,state),'r1-notebook-row'));
     }
-    if(!docs.length)list.append(element('p','r1-empty','Chưa có giấy tờ nào được ghi nhận. Đọc và xác nhận cùng Quang trong mỗi phòng.'));
+    if(!docs.length)list.append(element('p','r1-empty','Chưa có giấy tờ nào được ghi nhận. Đọc và xác nhận cùng Long trong mỗi phòng.'));
     section.append(list);this.show(section);
   }
   showDocument(doc,state) {

@@ -1,12 +1,12 @@
 # Tổng quan và yêu cầu sản phẩm
 
-Mật mã Điện Biên Phủ là game khám phá/visual novel lịch sử tiếng Việt. Entry `/` nối bảo tàng→bốn thử thách lịch sử→phòng ghép tranh/suy ngẫm→trở về bảo tàng. Quang là sinh viên thích công nghệ và giải đố; chuyến du hành là hư cấu học tập theo PDF bản 4. Chỉ lịch sử do người dùng cung cấp, không nghiên cứu web.
+Mật mã Điện Biên Phủ là game khám phá/visual novel lịch sử tiếng Việt. Entry `/` nối bảo tàng→bốn thử thách lịch sử→phòng ghép tranh/suy ngẫm→trở về bảo tàng. Long là sinh viên thích công nghệ và giải đố; chuyến du hành là hư cấu học tập theo PDF bản 4. Chỉ lịch sử do người dùng cung cấp, không nghiên cứu web.
 
 ## Hành trình hiện tại
 
 | Giai đoạn | Nội dung và điều kiện hoàn tất |
 | --- | --- |
-| Bảo tàng | Quang chạm tranh chiến thắng, vào không gian hư cấu hầm Đờ Cát 7/5/1954; hệ thống giải thích năm phòng/bốn mảnh. |
+| Bảo tàng | Long chạm tranh chiến thắng, vào không gian hư cấu hầm Đờ Cát 7/5/1954; hệ thống giải thích năm phòng/bốn mảnh. |
 | Phòng 1 — Trước bản kế hoạch | Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc, quân đội/hậu phương, tình thế hai phía 1953. Thư→A-03→bốn hồ sơ→đối chiếu→điện danh tính→N-01 tháng 7→rương I→cửa. N-01 không thêm khóa/gating cũ. |
 | Phòng 2 — Bảo | Giữ exact world/bảy manh mối/bốn câu đố/renderers gốc: cân, băng tần, nắm đấm, gấp phong bì. Fold cuối hợp lệ cấp II, cửa đông sang 3; donor 4180 không bị sửa. |
 | Phòng 3 — Hậu phương | Năm giấy/bốn hoạt động xen kẽ: chuẩn bị song song, sáu vai trò vận chuyển, phương châm/lý do,13/15/17 March/ý nghĩa. Đủ cả 4 token→13/03/1954→rương→pickup III→cửa. |
@@ -20,7 +20,7 @@ Mảnh chỉ từ kết quả thật, không cấp lạiI–IV ở phòng cuối
 
 - WASD/mũi tên, Shift 260/390, E gần-only, M mini/full map, N sổ trong phòng, Q HUD góc phải. Sổ hành trình trên header giữ toàn văn giấy đã kiếm qua các phòng, gồm clue beats Bảo; không biến thành tóm tắt.
 - Scene geometry/va chạm/camera theo đúng world: Phòng 1 2400×1600, Bảo exact donor, hậu phương 3200×2000, Trâm 2800×1800, phòng cuối 2000×1400. Bố cục học tập, không tọa độ lịch sử.
-- Giấy full prose, nguồn/fiction riêng, đọc cuối→Quang→xác nhận; readonly reread không cấp tiến độ. Personal reflection không vào payload/save/network; blank vẫn tiếp tục, không có đáp án tư tưởng bắt buộc.
+- Giấy full prose, nguồn/fiction riêng, đọc cuối→Long→xác nhận; readonly reread không cấp tiến độ. Personal reflection không vào payload/save/network; blank vẫn tiếp tục, không có đáp án tư tưởng bắt buộc.
 - Global key `mat-ma-dien-bien-phu:campaign:v1`, rooms sanitize/chuỗi exit liên tục, mảnh/current room suy ra. Reset phòng giữ trước, restart global có xác nhận chỉ global key; preview và donor tách biệt.
 - Một parent runtime/session/Game tại một thời điểm, shared audio; async destroy thực trước mount phòng mới. Font/art/audio local, gesture mở tiếng, storage lỗi vẫn chơi được. Không tài khoản/backend/TTS/touch walking.
 

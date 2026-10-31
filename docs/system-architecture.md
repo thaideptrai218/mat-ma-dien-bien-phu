@@ -12,7 +12,7 @@ UI phòng gửi intent → controller kiểm tra view/token → reducer thuần 
 
 ## Các phòng và đồ thị tiến độ
 
-Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `character-atlas.js` giữ một phép biến đổi chung cho32 ô; `character-animation.js` đăng ký texture/clip một lần trong mỗi Game. Chỉ chuyển idle/walk/run sau bước physics thật, giữ cadence8/12fps riêng; reduced-motion chọn idle. Nạp ảnh lỗi thì pausephysics, hiện thông báo giữa màn hình và không tạo sprite giả. Các scene con không tạo lớp phủ nếu base chưa có player. Collider nguồn48×32/offset56,160/scale.5 trở thành24×16 đặt tâm tại vị trí người chơi. [Hợp đồng](../assets/characters/quang-reference/README.md) · [Review](../plans/261031-quang-reference-character/reports/code-review.md).
+Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `character-atlas.js` giữ một phép biến đổi chung cho 64 ô (16 cột: đi 0–7, chạy 8–15); `character-animation.js` đăng ký texture/clip một lần trong mỗi Game. Chỉ chuyển idle/walk/run sau bước physics thật, giữ cadence8/12fps riêng; reduced-motion chọn idle. Nạp ảnh lỗi thì pausephysics, hiện thông báo giữa màn hình và không tạo sprite giả. Các scene con không tạo lớp phủ nếu base chưa có player. Collider nguồn48×32/offset56,160/scale.5 trở thành24×16 đặt tâm tại vị trí người chơi. [Hợp đồng](../assets/characters/long/README.md) · [Review](../plans/261031-quang-reference-character/reports/code-review.md).
 
 - Phòng 1: thế giới 2400×1600; thư → A-03 → bốn hồ sơ → đối chiếu → ngăn kéo/tên → rương I → cửa. Nền 1950–7/1953: thư đầu năm chỉ nhìn lại; N-01 tháng bảy đọc sau giải danh tính, không thêm gating cũ.
 - Phòng 2: world/gate/art và renderer puzzle/narrative gốc Bảo; bảy clues, chín beats, bốn puzzles. Registry deep-compare với donor, renderer/art bodies và CSS đối chiếu hash. Adapter không gọi reducer/save legacy hoặc dựng thành tích bảo tàng/Him Lam giả. Fold cuối hợp lệ cấp II; cửa đông mới sang 3, không thêm rương/pickup hoặc bắt đọc hết outro. [Bảo toàn nguồn](../plans/261031-campaign-link/reports/room-two.md).
@@ -24,7 +24,7 @@ Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `ch
 
 ## Giấy đọc, sổ chung và UI
 
-Reader dùng nguyên văn HTML chọn/copy được; nguồn/hư cấu ngoài thân giấy. Đọc đến cuối → suy nghĩ Quang → token xác nhận hiện hành mới thu thập. Đóng/reset/dispose vô hiệu callback cũ; notebook reread không cấp tiến độ.
+Reader dùng nguyên văn HTML chọn/copy được; nguồn/hư cấu ngoài thân giấy. Đọc đến cuối → suy nghĩ Long → token xác nhận hiện hành mới thu thập. Đóng/reset/dispose vô hiệu callback cũ; notebook reread không cấp tiến độ.
 
 `src/campaign/archive.js` tập hợp giấy đã kiếm được từ phòng 1–5, gồm toàn bộ các đoạn clue gốc Bảo và N-01 khi đủ điều kiện. Sổ hành trình pause child input/audio qua isPaused; không cho gửi intent trong lúc overlay mở. Có sổ trong phòng và sổ xuyên phòng, không rút hồ sơ thành tóm tắt.
 
@@ -52,4 +52,4 @@ Be Vietnam Pro/Lora/Patrick Hand và ảnh đều cục bộ, đợi font trư�
 
 ## Cổng khu vực (area gates)
 
-`save state → lockedGateIds(AREA_GATES, state) → scene.setLockedGates(ids)` (zone tĩnh + overlay theo `style`, fade 250 ms, tức thì khi reduced-motion) và `lockedGateRects → ui.render() → createRoomMap` (ô nét đứt). `RoomOneScene` nhận option `areaGates`, gọi `callbacks.onGateBlocked(id)` (throttle 1,5 s) khi Quang đụng cổng khóa và `callbacks.onGateOpened(id)` khi cổng vừa mở; snapshot có `lockedGateIds`. Mặc định `areaGates=[]` không đổi hành vi.
+`save state → lockedGateIds(AREA_GATES, state) → scene.setLockedGates(ids)` (zone tĩnh + overlay theo `style`, fade 250 ms, tức thì khi reduced-motion) và `lockedGateRects → ui.render() → createRoomMap` (ô nét đứt). `RoomOneScene` nhận option `areaGates`, gọi `callbacks.onGateBlocked(id)` (throttle 1,5 s) khi Long đụng cổng khóa và `callbacks.onGateOpened(id)` khi cổng vừa mở; snapshot có `lockedGateIds`. Mặc định `areaGates=[]` không đổi hành vi.

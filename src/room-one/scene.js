@@ -31,7 +31,7 @@ export class RoomOneScene extends Phaser.Scene {
     catch (error) {
       this.characterError = error.message;
       this.physics.pause();
-      const notice=this.add.text(this.scale.width/2, this.scale.height*.58, 'Không tải được nhân vật Quang.\nHãy tải lại trang để thử lại.', {
+      const notice=this.add.text(this.scale.width/2, this.scale.height*.58, 'Không tải được nhân vật Long.\nHãy tải lại trang để thử lại.', {
         fontFamily:'"DBP Text", sans-serif', fontSize:'18px', color:'#fff1c9', backgroundColor:'#172d24',
         padding:{x:18,y:18}, wordWrap:{width:Math.max(160, Math.min(480,this.scale.width-80))},
       }).setOrigin(.5).setScrollFactor(0).setDepth(1000);
@@ -56,7 +56,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, this.map.width, this.map.height);
     this.collider = this.physics.add.collider(this.player, this.solids);
     this.gateLayer.build(this.player); // area gates: no-op without areaGates
-    this.nameLabel = this.add.text(spawn.x, spawn.y + 23, 'QUANG', {
+    this.nameLabel = this.add.text(spawn.x, spawn.y + 23, 'LONG', {
       fontFamily: '"DBP Text", serif', fontSize: '13px', color: '#f6e7bb',
       backgroundColor: '#21392dd9', padding: {x: 7, y: 3},
     }).setOrigin(.5, 0).setDepth(9);

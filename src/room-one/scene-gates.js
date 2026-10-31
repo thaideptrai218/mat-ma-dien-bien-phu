@@ -57,7 +57,7 @@ export class SceneGates {
     const player = this.scene.player;
     for (const zone of this.zones.get(id) || []) {
       if (zone.body) zone.body.enable = true;
-      if (player && this.overlaps(zone, player)) this.scene.resetPosition?.(); // never trap Quang inside a re-locked gate
+      if (player && this.overlaps(zone, player)) this.scene.resetPosition?.(); // never trap Long inside a re-locked gate
     }
     const art = this.art.get(id);
     this.scene.tweens?.killTweensOf(art);

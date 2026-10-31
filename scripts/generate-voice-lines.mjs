@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {MANIFEST_PATH} from './voice/voice-manifest.mjs';
-import {health, synthesize} from './voice/tts-engines.mjs';
+import {health, synthesize, VOICE_CONFIG} from './voice/tts-engines.mjs';
 import {splitSentences, joinWithPauses} from './voice/sentence-join.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -22,7 +22,7 @@ const todo = manifest.lines
 
 const status = await health();
 console.log('services', status);
-const needed = new Set(['omnivoice']);
+const needed = new Set(todo.map(line => VOICE_CONFIG[line.voice].engine)); // only the engines this run uses
 const offline = [...needed].filter(engine => status[engine] !== 'ready');
 if (offline.length) { console.error(`Not ready: ${offline.join(', ')}. Start the service(s) and rerun.`); process.exit(1); }
 

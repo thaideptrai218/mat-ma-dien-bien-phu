@@ -4,7 +4,7 @@ Oct 30, 2026 · @BaoPham
 
 ## 1. Tóm tắt
 
-Phòng 2 – "Bàn cờ Đông Dương" đưa Quang từ cái tên Henri Navarre (đáp án Phòng 1) đến quyết định mở Chiến dịch Điện Biên Phủ ngày 6/12/1953. Người chơi đọc trộm Kế hoạch Nava, bắt điện chủ trương Đông – Xuân, rồi tự tay bẻ mở "nắm đấm thép" của Nava trên sa bàn, kéo khối quân cơ động của Pháp tản ra 5 nơi. Mảnh ghép thứ hai nằm trong hòm sắt khóa bằng ngày 6/12.
+Phòng 2 – "Bàn cờ Đông Dương" đưa Long từ cái tên Henri Navarre (đáp án Phòng 1) đến quyết định mở Chiến dịch Điện Biên Phủ ngày 6/12/1953. Người chơi đọc trộm Kế hoạch Nava, bắt điện chủ trương Đông – Xuân, rồi tự tay bẻ mở "nắm đấm thép" của Nava trên sa bàn, kéo khối quân cơ động của Pháp tản ra 5 nơi. Mảnh ghép thứ hai nằm trong hòm sắt khóa bằng ngày 6/12.
 
 Kế hoạch dựng màn chơi cho Thái: [Plan màn chơi (Thái)](gd2-room-2-level-plan.md)
 
@@ -12,8 +12,8 @@ Kế hoạch dựng màn chơi cho Thái: [Plan màn chơi (Thái)](gd2-room-2-l
 | --- | --- |
 | Giai đoạn | GĐ2: Kế hoạch Nava và cuộc tiến công chiến lược Đông – Xuân 1953–1954 (giữa 1953 – đầu 1954) |
 | Phụ trách | Bảo, Thái |
-| Quang mang vào phòng | Mảnh ghép 1 + tên Henri Navarre (từ Phòng 1 của Vy, Sơn) |
-| Quang mang ra khỏi phòng | Mảnh ghép 2 + "Lệnh chuẩn bị chiến dịch" → Phòng 3 (Tiến, Hùng) bắt đầu từ 12/1953 |
+| Long mang vào phòng | Mảnh ghép 1 + tên Henri Navarre (từ Phòng 1 của Vy, Sơn) |
+| Long mang ra khỏi phòng | Mảnh ghép 2 + "Lệnh chuẩn bị chiến dịch" → Phòng 3 (Tiến, Hùng) bắt đầu từ 12/1953 |
 | Chuỗi giải đố | 4 bước: cán cân 84 → hai giọng trên một sóng → nắm đấm thép → bản đồ gấp |
 | Thời lượng chơi | 10–15 phút |
 | Thông điệp | Sức mạnh nằm ở việc nắm tình hình, chủ động chọn hướng đánh và buộc địch phân tán lực lượng (đúng câu trong cốt truyện) |
@@ -147,20 +147,20 @@ Bản in (Canva) làm được cả bốn câu đố: bảng cân có thể thay
 
 ## 5. Lời dẫn và lời thoại
 
-Giọng hệ thống chỉ nói 3 lần (vào phòng, trước nước quyết định, khi mở hòm); phần còn lại là Quang tự nói, để người chơi nghe suy luận của nhân vật. Các bức điện, nhật ký, tráng báo trong phòng là văn bản biên soạn cho trò chơi, không phải nguyên văn tư liệu; game cần ghi rõ điều này.
+Giọng hệ thống chỉ nói 3 lần (vào phòng, trước nước quyết định, khi mở hòm); phần còn lại là Long tự nói, để người chơi nghe suy luận của nhân vật. Các bức điện, nhật ký, tráng báo trong phòng là văn bản biên soạn cho trò chơi, không phải nguyên văn tư liệu; game cần ghi rõ điều này.
 
 | Thời điểm | Ai nói | Lời thoại |
 | --- | --- | --- |
 | Vào phòng | Hệ thống | "Ngươi đã biết tên người cầm quân Pháp. Giờ hãy đọc kế hoạch của hắn. Một bên muốn nắm chặt nắm đấm, một bên muốn buộc nắm đấm ấy xòe ra. Nước cờ đúng sẽ mở cánh cửa." |
-| Nhìn quanh | Quang | "Bên trái là bàn của Nava, bên phải là một lán tham mưu. Ở giữa là cả Đông Dương thu nhỏ. Muốn biết ta đánh thế nào, trước hết phải biết địch định làm gì." |
-| Giải xong Bước 1 | Quang | "Mười tám tháng, hai bước: giữ miền Bắc trước, dồn sức đánh lớn sau. Và 44 trong 84 tiểu đoàn cơ động đều nằm ở đồng bằng Bắc Bộ – hơn một nửa." |
-| Giải xong Bước 2 | Quang | "Nava nói "tập trung", ta nói "phân tán". Ta cũng tập trung, nhưng tập trung đánh vào chỗ địch yếu để địch phải tự chia quân ra." |
-| Mỗi ngón tay mở | Quang | "Địch lại phải rút quân khỏi đồng bằng…" (câu ngắn, đổi nhẹ theo từng nơi) |
-| Giải xong Bước 3 | Quang | "Năm nơi tập trung quân. Nắm đấm của Nava đã thành năm ngón tay rời rạc. Tích cực, chủ động, cơ động, linh hoạt – mình vừa tự tay đi đúng bốn chữ ấy." |
+| Nhìn quanh | Long | "Bên trái là bàn của Nava, bên phải là một lán tham mưu. Ở giữa là cả Đông Dương thu nhỏ. Muốn biết ta đánh thế nào, trước hết phải biết địch định làm gì." |
+| Giải xong Bước 1 | Long | "Mười tám tháng, hai bước: giữ miền Bắc trước, dồn sức đánh lớn sau. Và 44 trong 84 tiểu đoàn cơ động đều nằm ở đồng bằng Bắc Bộ – hơn một nửa." |
+| Giải xong Bước 2 | Long | "Nava nói "tập trung", ta nói "phân tán". Ta cũng tập trung, nhưng tập trung đánh vào chỗ địch yếu để địch phải tự chia quân ra." |
+| Mỗi ngón tay mở | Long | "Địch lại phải rút quân khỏi đồng bằng…" (câu ngắn, đổi nhẹ theo từng nơi) |
+| Giải xong Bước 3 | Long | "Năm nơi tập trung quân. Nắm đấm của Nava đã thành năm ngón tay rời rạc. Tích cực, chủ động, cơ động, linh hoạt – mình vừa tự tay đi đúng bốn chữ ấy." |
 | Trước Bước 4 | Hệ thống | "Năm ngọn cờ đã dựng. Muốn kết thúc kế hoạch của Nava, phải chọn đúng một nơi để đánh trận quyết chiến." |
-| Chọn đúng | Quang | "Điện Biên Phủ mạnh nhất, nhưng nằm giữa núi rừng, xa hậu phương, sống nhờ máy bay. Đánh tan nơi này là đánh vào trái tim kế hoạch." |
+| Chọn đúng | Long | "Điện Biên Phủ mạnh nhất, nhưng nằm giữa núi rừng, xa hậu phương, sống nhờ máy bay. Đánh tan nơi này là đánh vào trái tim kế hoạch." |
 | Mở hòm | Hệ thống | "Ngày 6/12/1953, quyết định đã được đưa ra. Mảnh ghép thứ hai thuộc về ngươi. Phía sau cánh cửa, cả một dân tộc đang chuẩn bị." |
-| Rời phòng | Quang | "Sức mạnh không chỉ nằm ở đối đầu trực diện, mà còn ở việc nắm tình hình, chủ động chọn hướng đánh và buộc đối phương phải phân tán." |
+| Rời phòng | Long | "Sức mạnh không chỉ nằm ở đối đầu trực diện, mà còn ở việc nắm tình hình, chủ động chọn hướng đánh và buộc đối phương phải phân tán." |
 
 ## 6. Gợi ý, phản hồi khi sai và trợ năng
 
@@ -168,9 +168,9 @@ Mỗi bước có 2 mức gợi ý, giống game hiện tại: mức 1 chỉ ch�
 
 | Bước | Gợi ý 1 | Gợi ý 2 | Khi làm sai |
 | --- | --- | --- | --- |
-| 1. Cán cân 84 | "Bước 1 bắt đầu từ thu – đông 1953; ghi chú ở lề trang mới nói số quân." | "84 − 40 = 44 tiểu đoàn cho đồng bằng Bắc Bộ." | Cân không khóa. Quang: "Nava muốn đĩa Bắc Bộ nặng hơn tất cả phần còn lại cộng lại." |
+| 1. Cán cân 84 | "Bước 1 bắt đầu từ thu – đông 1953; ghi chú ở lề trang mới nói số quân." | "84 − 40 = 44 tiểu đoàn cho đồng bằng Bắc Bộ." | Cân không khóa. Long: "Nava muốn đĩa Bắc Bộ nặng hơn tất cả phần còn lại cộng lại." |
 | 2. Hai giọng | "Thử đọc cách một chữ." | "Chữ lẻ: T-A-P-T-R-U-N-G. Ai muốn dồn quân?" | Gán ngược bên: "Người muốn dồn quân thành nắm đấm là Nava, không phải ta." |
-| 3. Nắm đấm thép | "Manh mối nào nói "nơi tập trung quân thứ hai"?" | Bảng thứ tự: Lai Châu → Trung Lào → Thượng Lào → Bắc Tây Nguyên. | Sai vùng: mũi tên bật ra. Sai lượt: bàn tay nắm lại, Quang: "Nava kịp gom quân. Phải đánh đúng lúc." |
+| 3. Nắm đấm thép | "Manh mối nào nói "nơi tập trung quân thứ hai"?" | Bảng thứ tự: Lai Châu → Trung Lào → Thượng Lào → Bắc Tây Nguyên. | Sai vùng: mũi tên bật ra. Sai lượt: bàn tay nắm lại, Long: "Nava kịp gom quân. Phải đánh đúng lúc." |
 | 4. Bản đồ gấp | "Đọc lại Hồ sơ Điện Biên Phủ: nơi nào mạnh nhất nhưng sống nhờ máy bay?" | "Gấp tới Điện Biên Phủ." | Chữ vô nghĩa + câu nhắc theo nơi chọn, ví dụ đồng bằng Bắc Bộ: "Đây là nơi địch mạnh và gần hậu phương nhất." |
 
 **Độ khó và thời lượng:** Bước 1 và 2 dễ (2–3 phút mỗi bước), Bước 3 khó nhất (4–5 phút), Bước 4 vừa (2–3 phút). Tổng 10–15 phút.
@@ -230,8 +230,8 @@ Hạn nộp phần GĐ2 là 23h59 Oct 30, 2026. Năm việc dưới đây cần 
 - [ ] **Ranh giới Phòng 1 – Phòng 2 (Vy, Sơn):** Phòng 1 kết thúc ở tên Henri Navarre; Phòng 2 bắt đầu từ nội dung kế hoạch và không hỏi lại tên.
 - [ ] **Ranh giới Phòng 2 – Phòng 3 (Tiến, Hùng):** Phòng 2 dừng ở quyết định 6/12/1953 và phương châm chiến lược Đông – Xuân; Phòng 3 nói phương châm tác chiến (đánh nhanh, giải quyết nhanh → đánh chắc, tiến chắc). Cần ghi rõ hai chữ "chiến lược" và "tác chiến" để người chơi không nhầm.
 - [ ] **Hình trên mảnh ghép 2:** bức tranh trên cửa cuối chia 4 mảnh thế nào? Đề xuất: mảnh 2 là hình bàn tay xòe ra trên bản đồ Đông Dương.
-- [ ] **Nhân vật trong game:** cốt truyện mới dùng Quang, game hiện dùng Minh và 4 phòng; cần người phụ trách chuyển game sang 5 phòng.
-- [ ] **Hạn của Quang và Thiện:** tài liệu ghi "thứ 7 (1/11)", nhưng 1/11/2026 là Chủ nhật; thứ Bảy là 31/10.
+- [ ] **Nhân vật trong game:** cốt truyện mới dùng Long, game hiện dùng Minh và 4 phòng; cần người phụ trách chuyển game sang 5 phòng.
+- [ ] **Hạn của Long và Thiện:** tài liệu ghi "thứ 7 (1/11)", nhưng 1/11/2026 là Chủ nhật; thứ Bảy là 31/10.
 
 Chia việc đề xuất trong cặp Bảo – Thái: một người lo nội dung lịch sử, câu hỏi và phiếu Canva; người còn lại lo thiết kế câu đố và phần game.
 

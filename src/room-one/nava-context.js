@@ -14,8 +14,8 @@ export const NAVA_CONTEXT_DOCUMENT = Object.freeze({
     'Viện trợ quân sự và kinh tế của Hoa Kỳ tiếp tục là chỗ dựa mà Pháp ngày càng phụ thuộc. Người ta trông đợi kế hoạch mới mở ra một lối thoát, nhưng những mong muốn vừa ghi xuống chưa phải kết quả đã có. Tôi khép bản tin ở đó. Điều còn phải chờ là diễn biến thực tế trên chiến trường, nơi mọi dự tính sẽ bị thử thách.',
   ],
   reflection: [
-    'Quang: Bổ nhiệm tháng năm, thông qua kế hoạch tháng bảy: hai mốc khác nhau.',
-    'Quang: Pháp tìm một thắng lợi quyết định để kết thúc chiến tranh trong điều kiện có lợi cho họ.',
+    'Long: Bổ nhiệm tháng năm, thông qua kế hoạch tháng bảy: hai mốc khác nhau.',
+    'Long: Pháp tìm một thắng lợi quyết định để kết thúc chiến tranh trong điều kiện có lợi cho họ.',
   ],
   summary: 'Henri Navarre được cử tháng 5/1953; Chính phủ Pháp thông qua kế hoạch tháng 7/1953, nhằm thắng lợi quân sự quyết định và kết thúc chiến tranh có lợi cho Pháp.',
 });

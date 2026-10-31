@@ -2,7 +2,7 @@
   "version": 1,
   "lines": [
     {
-      "id": "53707df44c75218c",
+      "id": "9d47ff32e0ca1034",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -11,13 +11,13 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Quang thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
-      "ttsText": "Quang thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
-      "file": "audio/voice/53707df44c75218c.mp3",
-      "durationMs": 7531
+      "text": "Long thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
+      "ttsText": "Long thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
+      "file": "audio/voice/9d47ff32e0ca1034.mp3",
+      "durationMs": 7677
     },
     {
-      "id": "c402d15a431f7916",
+      "id": "9d8a1f718cb8493c",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -26,13 +26,13 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Quang dừng lại trước bức tranh về chiến thắng sau 56 ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
-      "ttsText": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Quang dừng lại trước bức tranh về chiến thắng sau năm mươi sáu ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
-      "file": "audio/voice/c402d15a431f7916.mp3",
-      "durationMs": 13851
+      "text": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức tranh về chiến thắng sau 56 ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
+      "ttsText": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức tranh về chiến thắng sau năm mươi sáu ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
+      "file": "audio/voice/9d8a1f718cb8493c.mp3",
+      "durationMs": 13538
     },
     {
-      "id": "a30ba6aa7cc5e903",
+      "id": "9a710d8fedfc4a8b",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -41,13 +41,13 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Quang đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
-      "ttsText": "Quang đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
-      "file": "audio/voice/a30ba6aa7cc5e903.mp3",
-      "durationMs": 4648
+      "text": "Long đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
+      "ttsText": "Long đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
+      "file": "audio/voice/9a710d8fedfc4a8b.mp3",
+      "durationMs": 4372
     },
     {
-      "id": "fdff2bc808f0ee52",
+      "id": "81b8c219b48e1754",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -56,10 +56,10 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Khi mở mắt, Quang thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.",
-      "ttsText": "Khi mở mắt, Quang thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.",
-      "file": "audio/voice/fdff2bc808f0ee52.mp3",
-      "durationMs": 8849
+      "text": "Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.",
+      "ttsText": "Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.",
+      "file": "audio/voice/81b8c219b48e1754.mp3",
+      "durationMs": 8959
     },
     {
       "id": "b2db73aa754f10eb",
@@ -79,7 +79,7 @@
     {
       "id": "45dd54ff78bd765d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "museum"
       ],
@@ -124,7 +124,7 @@
     {
       "id": "f1e74273b3337729",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "museum"
       ],
@@ -199,7 +199,7 @@
     {
       "id": "4caf994063446a35",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -274,7 +274,7 @@
     {
       "id": "2ef3f680e40afad2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -304,7 +304,7 @@
     {
       "id": "7e1ab5fdea36b06a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -334,7 +334,7 @@
     {
       "id": "8dd38896dd299e71",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -379,7 +379,7 @@
     {
       "id": "b43179728164a09b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -409,7 +409,7 @@
     {
       "id": "842ea074d1ae148b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -439,7 +439,7 @@
     {
       "id": "d342d10949159f09",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -454,7 +454,7 @@
     {
       "id": "4d011ac754276783",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -469,7 +469,7 @@
     {
       "id": "0b04857758df9756",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -484,7 +484,7 @@
     {
       "id": "1769521df335f33e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -499,7 +499,7 @@
     {
       "id": "e97766dad3e3b60a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -514,7 +514,7 @@
     {
       "id": "26563b24ccb440c9",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -529,7 +529,7 @@
     {
       "id": "da390d7be148d90f",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -544,7 +544,7 @@
     {
       "id": "cfa46554fccf9ae4",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -559,7 +559,7 @@
     {
       "id": "d92cd0a4ac5de6d1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -574,7 +574,7 @@
     {
       "id": "67bc791c71027688",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -589,7 +589,7 @@
     {
       "id": "0072e13d4b176f14",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -604,7 +604,7 @@
     {
       "id": "7f810ca96dc6af6c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -619,7 +619,7 @@
     {
       "id": "2cb1f4a3be0144aa",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -634,7 +634,7 @@
     {
       "id": "4c520726b07ace5f",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -649,7 +649,7 @@
     {
       "id": "2ff01f398bbf200d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -664,7 +664,7 @@
     {
       "id": "294be3a318cf57d7",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -679,7 +679,7 @@
     {
       "id": "c399c7dbba3432f1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -694,7 +694,7 @@
     {
       "id": "87989a3d5f849064",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -709,7 +709,7 @@
     {
       "id": "f56545f0abc32528",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -724,7 +724,7 @@
     {
       "id": "604f0024b7992277",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -739,7 +739,7 @@
     {
       "id": "90270c1f7c9a50d1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -754,7 +754,7 @@
     {
       "id": "6bc60203bf225825",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -769,7 +769,7 @@
     {
       "id": "e6894cee506f1ddb",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -784,7 +784,7 @@
     {
       "id": "291ba48c09e1a6d4",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -799,7 +799,7 @@
     {
       "id": "08e65485fb35ad3c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -814,7 +814,7 @@
     {
       "id": "068feb1c0f7f6822",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -829,7 +829,7 @@
     {
       "id": "9352d0be2b7eb6fb",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -844,7 +844,7 @@
     {
       "id": "13d276f3faffb775",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -859,7 +859,7 @@
     {
       "id": "f8e8eb681d0cd313",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -874,7 +874,7 @@
     {
       "id": "31c035a78f5fc4e4",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -889,7 +889,7 @@
     {
       "id": "543e4548169f7d2b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -904,7 +904,7 @@
     {
       "id": "7e9907d82ad4bac4",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -919,7 +919,7 @@
     {
       "id": "933e4869a713cf4b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -934,7 +934,7 @@
     {
       "id": "9b80a68486ea2a81",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -949,7 +949,7 @@
     {
       "id": "7dd1e60f5c85349c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -964,7 +964,7 @@
     {
       "id": "c3503b6d12a9c40b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -979,7 +979,7 @@
     {
       "id": "bbdbdda115f6cfa5",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -994,7 +994,7 @@
     {
       "id": "3db45084cbaf8483",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1009,7 +1009,7 @@
     {
       "id": "1221a36a57626492",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1024,7 +1024,7 @@
     {
       "id": "6cfb1f34a335ddf5",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1039,7 +1039,7 @@
     {
       "id": "618cacf20a977d8c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1054,7 +1054,7 @@
     {
       "id": "72ef934d5a81a347",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1069,7 +1069,7 @@
     {
       "id": "e95c8bd4c74e958c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1084,7 +1084,7 @@
     {
       "id": "04c972a53c0d9a07",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1099,7 +1099,7 @@
     {
       "id": "3c0f58523cc8b9f2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1114,7 +1114,7 @@
     {
       "id": "9b78a231455afa65",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1129,7 +1129,7 @@
     {
       "id": "91f46f0f9d631980",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1144,7 +1144,7 @@
     {
       "id": "66688a5051d0f492",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1159,7 +1159,7 @@
     {
       "id": "d52182a4891314ea",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1172,189 +1172,189 @@
       "durationMs": 1643
     },
     {
-      "id": "faf7fdc53aa8e38e",
+      "id": "a3c345cc3c08e0ec",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.v1"
       ],
-      "text": "Quang: Thế chủ động ấy được giữ bằng nhiều năm chiến đấu và học hỏi.",
+      "text": "Long: Thế chủ động ấy được giữ bằng nhiều năm chiến đấu và học hỏi.",
       "ttsText": "Thế chủ động ấy được giữ bằng nhiều năm chiến đấu và học hỏi.",
-      "file": "audio/voice/faf7fdc53aa8e38e.mp3",
-      "durationMs": 2756
+      "file": "audio/voice/a3c345cc3c08e0ec.mp3",
+      "durationMs": 2340
     },
     {
-      "id": "0445cb43cac93367",
+      "id": "91f109bfa792beb5",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.v1"
       ],
-      "text": "Quang: Có kinh nghiệm rồi, họ vẫn phải đương đầu với một đối phương hơn về người và vũ khí.",
+      "text": "Long: Có kinh nghiệm rồi, họ vẫn phải đương đầu với một đối phương hơn về người và vũ khí.",
       "ttsText": "Có kinh nghiệm rồi, họ vẫn phải đương đầu với một đối phương hơn về người và vũ khí.",
-      "file": "audio/voice/0445cb43cac93367.mp3",
-      "durationMs": 3775
+      "file": "audio/voice/91f109bfa792beb5.mp3",
+      "durationMs": 3362
     },
     {
-      "id": "0a6d5514daac6147",
+      "id": "7d80d737e2ac5861",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.v2"
       ],
-      "text": "Quang: 252.000 người: sau con số còn là lương ăn và vũ khí cho từng người lính.",
+      "text": "Long: 252.000 người: sau con số còn là lương ăn và vũ khí cho từng người lính.",
       "ttsText": "hai trăm năm mươi hai nghìn người: sau con số còn là lương ăn và vũ khí cho từng người lính.",
-      "file": "audio/voice/0a6d5514daac6147.mp3",
-      "durationMs": 3991
+      "file": "audio/voice/7d80d737e2ac5861.mp3",
+      "durationMs": 4182
     },
     {
-      "id": "47edb8e7d653b81b",
+      "id": "c496ce009c89c3e1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.v2"
       ],
-      "text": "Quang: Nguồn viện trợ giúp sức, trong khi trang bị của ta vẫn hạn chế hơn phía Pháp.",
+      "text": "Long: Nguồn viện trợ giúp sức, trong khi trang bị của ta vẫn hạn chế hơn phía Pháp.",
       "ttsText": "Nguồn viện trợ giúp sức, trong khi trang bị của ta vẫn hạn chế hơn phía Pháp.",
-      "file": "audio/voice/47edb8e7d653b81b.mp3",
-      "durationMs": 3225
+      "file": "audio/voice/c496ce009c89c3e1.mp3",
+      "durationMs": 3136
     },
     {
-      "id": "c8cdae7970207d3e",
+      "id": "df114cf749b1a228",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.p1"
       ],
-      "text": "Quang: Pháp có 445.000 người và nhiều phương tiện hiện đại.",
+      "text": "Long: Pháp có 445.000 người và nhiều phương tiện hiện đại.",
       "ttsText": "Pháp có bốn trăm bốn mươi lăm nghìn người và nhiều phương tiện hiện đại.",
-      "file": "audio/voice/c8cdae7970207d3e.mp3",
-      "durationMs": 3221
+      "file": "audio/voice/df114cf749b1a228.mp3",
+      "durationMs": 3021
     },
     {
-      "id": "692aee6a75bb50c2",
+      "id": "32118e5503583ac8",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.p1"
       ],
-      "text": "Quang: Nhưng quân phải chia khắp Bắc, Nam; muốn dồn sức vào một hướng cũng khó.",
+      "text": "Long: Nhưng quân phải chia khắp Bắc, Nam; muốn dồn sức vào một hướng cũng khó.",
       "ttsText": "Nhưng quân phải chia khắp Bắc, Nam; muốn dồn sức vào một hướng cũng khó.",
-      "file": "audio/voice/692aee6a75bb50c2.mp3",
-      "durationMs": 3091
+      "file": "audio/voice/32118e5503583ac8.mp3",
+      "durationMs": 3284
     },
     {
-      "id": "98f6d4caf50af123",
+      "id": "5c666912fddfc989",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.p2"
       ],
-      "text": "Quang: Chiến tranh kéo dài đè nặng lên kinh tế Pháp, khiến họ cần viện trợ Mỹ.",
+      "text": "Long: Chiến tranh kéo dài đè nặng lên kinh tế Pháp, khiến họ cần viện trợ Mỹ.",
       "ttsText": "Chiến tranh kéo dài đè nặng lên kinh tế Pháp, khiến họ cần viện trợ Mỹ.",
-      "file": "audio/voice/98f6d4caf50af123.mp3",
-      "durationMs": 2987
+      "file": "audio/voice/5c666912fddfc989.mp3",
+      "durationMs": 2902
     },
     {
-      "id": "7f85ab4238c975a4",
+      "id": "7bb1e12dd426c52e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.p2"
       ],
-      "text": "Quang: Sức ép từ tiền bạc và chiến trường cùng thúc họ tìm một kế hoạch mới.",
+      "text": "Long: Sức ép từ tiền bạc và chiến trường cùng thúc họ tìm một kế hoạch mới.",
       "ttsText": "Sức ép từ tiền bạc và chiến trường cùng thúc họ tìm một kế hoạch mới.",
-      "file": "audio/voice/7f85ab4238c975a4.mp3",
-      "durationMs": 3055
+      "file": "audio/voice/7bb1e12dd426c52e.mp3",
+      "durationMs": 2960
     },
     {
-      "id": "86d2c7d60a8ce2d2",
+      "id": "89e59c1c14f5bb50",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.restored-letter"
       ],
-      "text": "Quang: Từ Biên giới 1950 qua Trung Du, Hòa Bình, Tây Bắc, quân đội và hậu phương cùng trưởng thành.",
+      "text": "Long: Từ Biên giới 1950 qua Trung Du, Hòa Bình, Tây Bắc, quân đội và hậu phương cùng trưởng thành.",
       "ttsText": "Từ Biên giới một nghìn chín trăm năm mươi qua Trung Du, Hòa Bình, Tây Bắc, quân đội và hậu phương cùng trưởng thành.",
-      "file": "audio/voice/86d2c7d60a8ce2d2.mp3",
-      "durationMs": 5344
+      "file": "audio/voice/89e59c1c14f5bb50.mp3",
+      "durationMs": 4932
     },
     {
-      "id": "df0cec444d6673d1",
+      "id": "e94881c3078f985b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.restored-letter"
       ],
-      "text": "Quang: Anh Lâm vẫn chưa biết ngày về. Gia đình chỉ có thể đợi tin qua từng lá thư.",
+      "text": "Long: Anh Lâm vẫn chưa biết ngày về. Gia đình chỉ có thể đợi tin qua từng lá thư.",
       "ttsText": "Anh Lâm vẫn chưa biết ngày về. Gia đình chỉ có thể đợi tin qua từng lá thư.",
-      "file": "audio/voice/df0cec444d6673d1.mp3",
-      "durationMs": 4060
+      "file": "audio/voice/e94881c3078f985b.mp3",
+      "durationMs": 4179
     },
     {
-      "id": "a18cd08f49dab0c7",
+      "id": "a90c7d046abb05f1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.nava-context"
       ],
-      "text": "Quang: Bổ nhiệm tháng năm, thông qua kế hoạch tháng bảy: hai mốc khác nhau.",
+      "text": "Long: Bổ nhiệm tháng năm, thông qua kế hoạch tháng bảy: hai mốc khác nhau.",
       "ttsText": "Bổ nhiệm tháng năm, thông qua kế hoạch tháng bảy: hai mốc khác nhau.",
-      "file": "audio/voice/a18cd08f49dab0c7.mp3",
-      "durationMs": 2893
+      "file": "audio/voice/a90c7d046abb05f1.mp3",
+      "durationMs": 2673
     },
     {
-      "id": "c5d74764a0ead17e",
+      "id": "a152c5cb712f5bac",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
       "groups": [
         "r1.reflection.nava-context"
       ],
-      "text": "Quang: Pháp tìm một thắng lợi quyết định để kết thúc chiến tranh trong điều kiện có lợi cho họ.",
+      "text": "Long: Pháp tìm một thắng lợi quyết định để kết thúc chiến tranh trong điều kiện có lợi cho họ.",
       "ttsText": "Pháp tìm một thắng lợi quyết định để kết thúc chiến tranh trong điều kiện có lợi cho họ.",
-      "file": "audio/voice/c5d74764a0ead17e.mp3",
-      "durationMs": 3570
+      "file": "audio/voice/a152c5cb712f5bac.mp3",
+      "durationMs": 3557
     },
     {
       "id": "7f789e521021049d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1370,7 +1370,7 @@
     {
       "id": "3b0637b01370c14b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1386,7 +1386,7 @@
     {
       "id": "3ab19b2b510ade99",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1433,7 +1433,7 @@
     {
       "id": "8bc5392d833b784b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r1"
       ],
@@ -1809,7 +1809,7 @@
     {
       "id": "7741c6e99f7e8336",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1854,7 +1854,7 @@
     {
       "id": "28c37588cc107841",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1884,7 +1884,7 @@
     {
       "id": "a7c2bb728fe07269",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1914,7 +1914,7 @@
     {
       "id": "c17e88164e364ae1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1929,7 +1929,7 @@
     {
       "id": "441e5457a5ea5371",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1959,7 +1959,7 @@
     {
       "id": "27926c17d3a07336",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1974,7 +1974,7 @@
     {
       "id": "94edab5b0a6ed423",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -1989,7 +1989,7 @@
     {
       "id": "e9da253b2f7adaf1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2004,7 +2004,7 @@
     {
       "id": "91841dec189a7890",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2019,7 +2019,7 @@
     {
       "id": "9389052acffa674c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2034,7 +2034,7 @@
     {
       "id": "a7135bec4f1d3817",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2049,7 +2049,7 @@
     {
       "id": "de3c0c817a6c11cb",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2064,7 +2064,7 @@
     {
       "id": "0f54e44549204f77",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2079,7 +2079,7 @@
     {
       "id": "147a02f676b5837b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2094,7 +2094,7 @@
     {
       "id": "afaec2ed01cbb102",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2109,7 +2109,7 @@
     {
       "id": "b13b1f67e36e7f03",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2124,7 +2124,7 @@
     {
       "id": "acff38cafd43e726",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2139,7 +2139,7 @@
     {
       "id": "4e983983c2482952",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2154,7 +2154,7 @@
     {
       "id": "163cab05b046f727",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2169,7 +2169,7 @@
     {
       "id": "0ad105a4aa4a16ad",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2184,7 +2184,7 @@
     {
       "id": "8948d946d836ec16",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2199,7 +2199,7 @@
     {
       "id": "db66b2356447ba2b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2214,7 +2214,7 @@
     {
       "id": "ae57a788d25fde20",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2244,7 +2244,7 @@
     {
       "id": "1f16eec4e03bb3b7",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2274,7 +2274,7 @@
     {
       "id": "4fe87207d88e8a2b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2304,7 +2304,7 @@
     {
       "id": "2b910c064d9cf71b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r2"
       ],
@@ -2650,7 +2650,7 @@
     {
       "id": "552b24b5dce19896",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2697,7 +2697,7 @@
     {
       "id": "e4d8a5c2908e1728",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2789,7 +2789,7 @@
     {
       "id": "5d03a97124705822",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2819,7 +2819,7 @@
     {
       "id": "d575ad0af5806ac5",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2849,7 +2849,7 @@
     {
       "id": "49e372bf12dea0f8",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2879,7 +2879,7 @@
     {
       "id": "f3029bdd536fadbd",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2909,7 +2909,7 @@
     {
       "id": "514c5b7c58bd9581",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2924,7 +2924,7 @@
     {
       "id": "5ae83af954b674d7",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2939,7 +2939,7 @@
     {
       "id": "4b60db15677e391f",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2954,7 +2954,7 @@
     {
       "id": "128aad1b718d4d0a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2969,7 +2969,7 @@
     {
       "id": "83bad6f4d3f212c6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2984,7 +2984,7 @@
     {
       "id": "b4c22e07f08fd7f1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -2999,7 +2999,7 @@
     {
       "id": "5ef6b922d99af6ba",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3014,7 +3014,7 @@
     {
       "id": "de4dfc632260ce16",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3029,7 +3029,7 @@
     {
       "id": "1dc17613870b3acc",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3044,7 +3044,7 @@
     {
       "id": "4ef483fee134b013",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3059,7 +3059,7 @@
     {
       "id": "3c8df17af38f5d0c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3074,7 +3074,7 @@
     {
       "id": "d5ba3b02cb0de31f",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3089,7 +3089,7 @@
     {
       "id": "41f937441ccad7f6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3104,7 +3104,7 @@
     {
       "id": "c780e475a3c2a761",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3119,7 +3119,7 @@
     {
       "id": "0bade6e8411f2289",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3134,7 +3134,7 @@
     {
       "id": "2497e97dd0e142d8",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3149,7 +3149,7 @@
     {
       "id": "8e003edf849478a1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3164,7 +3164,7 @@
     {
       "id": "f4555e8c784446eb",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3179,7 +3179,7 @@
     {
       "id": "115d0be46e3fba79",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3194,7 +3194,7 @@
     {
       "id": "bd0ad75ebea533fb",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3209,7 +3209,7 @@
     {
       "id": "64d33c0ccea900e5",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3224,7 +3224,7 @@
     {
       "id": "005106fcb0b4d33a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3239,7 +3239,7 @@
     {
       "id": "e89132a61c22d6f3",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3254,7 +3254,7 @@
     {
       "id": "f7214e3f5421d194",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3269,7 +3269,7 @@
     {
       "id": "9dccb59c9f9db2fe",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3284,7 +3284,7 @@
     {
       "id": "ff4f3d4cd4229b34",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3299,7 +3299,7 @@
     {
       "id": "15d758c039c82459",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3314,7 +3314,7 @@
     {
       "id": "a9063374ac06f707",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3329,7 +3329,7 @@
     {
       "id": "d1c449a3a2dec140",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3344,7 +3344,7 @@
     {
       "id": "f94064f9c1fe4d1e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3359,7 +3359,7 @@
     {
       "id": "81b6685b2e162cb6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3374,7 +3374,7 @@
     {
       "id": "0d4c9e12b6075a1c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3389,7 +3389,7 @@
     {
       "id": "13cfbc1d548bb205",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3404,7 +3404,7 @@
     {
       "id": "4b61c8b5a3acc938",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3419,7 +3419,7 @@
     {
       "id": "5bd4e068d0a8241b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3434,7 +3434,7 @@
     {
       "id": "7d145e41da3b96c6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3449,7 +3449,7 @@
     {
       "id": "aa9524b3cbaef69a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3464,7 +3464,7 @@
     {
       "id": "7f9ea7c3e11cee80",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3479,7 +3479,7 @@
     {
       "id": "6ce741aff24db8b9",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3494,7 +3494,7 @@
     {
       "id": "7568962825af8f07",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3509,7 +3509,7 @@
     {
       "id": "9f0a0236cbcb9535",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3524,7 +3524,7 @@
     {
       "id": "2487eb51d4ed81ef",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3539,7 +3539,7 @@
     {
       "id": "5d11e9ee09c18f06",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3554,7 +3554,7 @@
     {
       "id": "7adc2e0b1e3bb157",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3569,7 +3569,7 @@
     {
       "id": "ac4cc51b9097677e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3584,7 +3584,7 @@
     {
       "id": "c473ab32f3155663",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3599,7 +3599,7 @@
     {
       "id": "d2c0c72a5a8c8866",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3614,7 +3614,7 @@
     {
       "id": "337e5f52c1983291",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3629,7 +3629,7 @@
     {
       "id": "fbb85d68b27521fd",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3644,7 +3644,7 @@
     {
       "id": "fb9cbfe34c2ae1b0",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3659,7 +3659,7 @@
     {
       "id": "eaff8a1d8bcbcbd3",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3674,7 +3674,7 @@
     {
       "id": "cbce89ed6a9e4b3c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3689,7 +3689,7 @@
     {
       "id": "e8b802aea67b7531",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3704,7 +3704,7 @@
     {
       "id": "311ccf0666b55b97",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3717,159 +3717,159 @@
       "durationMs": 2232
     },
     {
-      "id": "90a9793b0638eea1",
+      "id": "fd050412529d361b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.preparation-record"
       ],
-      "text": "Quang: Quyết định 6/12 mở đầu nhiều việc chuẩn bị diễn ra song song, không phải lần lượt.",
+      "text": "Long: Quyết định 6/12 mở đầu nhiều việc chuẩn bị diễn ra song song, không phải lần lượt.",
       "ttsText": "Quyết định sáu tháng mười hai mở đầu nhiều việc chuẩn bị diễn ra song song, không phải lần lượt.",
-      "file": "audio/voice/90a9793b0638eea1.mp3",
-      "durationMs": 4373
+      "file": "audio/voice/fd050412529d361b.mp3",
+      "durationMs": 3995
     },
     {
-      "id": "185c70ccd69bc788",
+      "id": "2d3bf64af632a25a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.preparation-record"
       ],
-      "text": "Quang: Có đủ lương thực, vũ khí, đạn và thuốc mới giữ được sức cho chiến đấu lâu dài.",
+      "text": "Long: Có đủ lương thực, vũ khí, đạn và thuốc mới giữ được sức cho chiến đấu lâu dài.",
       "ttsText": "Có đủ lương thực, vũ khí, đạn và thuốc mới giữ được sức cho chiến đấu lâu dài.",
-      "file": "audio/voice/185c70ccd69bc788.mp3",
-      "durationMs": 3126
+      "file": "audio/voice/2d3bf64af632a25a.mp3",
+      "durationMs": 3331
     },
     {
-      "id": "be9b5352fd41c6de",
+      "id": "6cc9915205731c38",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.supply-journal"
       ],
-      "text": "Quang: Xe thồ, đôi vai dân công, người kéo pháo và đường công binh làm đều nối vào chuyến hàng.",
+      "text": "Long: Xe thồ, đôi vai dân công, người kéo pháo và đường công binh làm đều nối vào chuyến hàng.",
       "ttsText": "Xe thồ, đôi vai dân công, người kéo pháo và đường công binh làm đều nối vào chuyến hàng.",
-      "file": "audio/voice/be9b5352fd41c6de.mp3",
-      "durationMs": 4055
+      "file": "audio/voice/6cc9915205731c38.mp3",
+      "durationMs": 4021
     },
     {
-      "id": "14b9318f83ca374c",
+      "id": "bae254ac85a733ae",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.supply-journal"
       ],
-      "text": "Quang: Ngoài bộ đội còn có dân công, thanh niên xung phong và nhân dân cùng góp sức.",
+      "text": "Long: Ngoài bộ đội còn có dân công, thanh niên xung phong và nhân dân cùng góp sức.",
       "ttsText": "Ngoài bộ đội còn có dân công, thanh niên xung phong và nhân dân cùng góp sức.",
-      "file": "audio/voice/14b9318f83ca374c.mp3",
-      "durationMs": 3155
+      "file": "audio/voice/bae254ac85a733ae.mp3",
+      "durationMs": 3449
     },
     {
-      "id": "4f49c32b2a04c94d",
+      "id": "47057e967c7dff6b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.command-telegrams"
       ],
-      "text": "Quang: Đánh nhanh, giải quyết nhanh chuyển thành Đánh chắc, tiến chắc.",
+      "text": "Long: Đánh nhanh, giải quyết nhanh chuyển thành Đánh chắc, tiến chắc.",
       "ttsText": "Đánh nhanh, giải quyết nhanh chuyển thành Đánh chắc, tiến chắc.",
-      "file": "audio/voice/4f49c32b2a04c94d.mp3",
-      "durationMs": 2970
+      "file": "audio/voice/47057e967c7dff6b.mp3",
+      "durationMs": 2561
     },
     {
-      "id": "0c66843ca154c324",
+      "id": "eafb15ec1acd6ed6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.command-telegrams"
       ],
-      "text": "Quang: Quyết định phải bám thực tế, thận trọng và đặt chắc thắng lên đầu; lương thực chỉ là một phần.",
+      "text": "Long: Quyết định phải bám thực tế, thận trọng và đặt chắc thắng lên đầu; lương thực chỉ là một phần.",
       "ttsText": "Quyết định phải bám thực tế, thận trọng và đặt chắc thắng lên đầu; lương thực chỉ là một phần.",
-      "file": "audio/voice/0c66843ca154c324.mp3",
-      "durationMs": 4040
+      "file": "audio/voice/eafb15ec1acd6ed6.mp3",
+      "durationMs": 3977
     },
     {
-      "id": "6603dfd519150f43",
+      "id": "533055aeb50ec3d9",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.opening-letter"
       ],
-      "text": "Quang: Him Lam ngày 13/3 mở màn; Độc Lập ngày 15/3 nối tiếp những trận đầu.",
+      "text": "Long: Him Lam ngày 13/3 mở màn; Độc Lập ngày 15/3 nối tiếp những trận đầu.",
       "ttsText": "Him Lam ngày mười ba tháng ba mở màn; Độc Lập ngày mười lăm tháng ba nối tiếp những trận đầu.",
-      "file": "audio/voice/6603dfd519150f43.mp3",
-      "durationMs": 3888
+      "file": "audio/voice/533055aeb50ec3d9.mp3",
+      "durationMs": 3878
     },
     {
-      "id": "d386622781ee10f2",
+      "id": "f1899b627ea4a1b0",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.opening-letter"
       ],
-      "text": "Quang: Anh Sơn vẫn chưa hẹn được ngày về. Chiến dịch còn tiếp tục.",
+      "text": "Long: Anh Sơn vẫn chưa hẹn được ngày về. Chiến dịch còn tiếp tục.",
       "ttsText": "Anh Sơn vẫn chưa hẹn được ngày về. Chiến dịch còn tiếp tục.",
-      "file": "audio/voice/d386622781ee10f2.mp3",
-      "durationMs": 3493
+      "file": "audio/voice/f1899b627ea4a1b0.mp3",
+      "durationMs": 3676
     },
     {
-      "id": "b90c16047cfb5e7c",
+      "id": "28b8780be51c9916",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.north-report"
       ],
-      "text": "Quang: Bản Kéo đầu hàng ngày 17/3; tuyến phòng ngự Bắc và Đông Bắc bị phá vỡ.",
+      "text": "Long: Bản Kéo đầu hàng ngày 17/3; tuyến phòng ngự Bắc và Đông Bắc bị phá vỡ.",
       "ttsText": "Bản Kéo đầu hàng ngày mười bảy tháng ba; tuyến phòng ngự Bắc và Đông Bắc bị phá vỡ.",
-      "file": "audio/voice/b90c16047cfb5e7c.mp3",
-      "durationMs": 3741
+      "file": "audio/voice/28b8780be51c9916.mp3",
+      "durationMs": 3363
     },
     {
-      "id": "a682ad785e4b1fa5",
+      "id": "ec23bfb9bc828e87",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
       "groups": [
         "r3.reflection.north-report"
       ],
-      "text": "Quang: Đợt đầu mở thế cho những đợt sau. Sức người và vật tư hậu phương vẫn phải tiếp tục tới.",
+      "text": "Long: Đợt đầu mở thế cho những đợt sau. Sức người và vật tư hậu phương vẫn phải tiếp tục tới.",
       "ttsText": "Đợt đầu mở thế cho những đợt sau. Sức người và vật tư hậu phương vẫn phải tiếp tục tới.",
-      "file": "audio/voice/a682ad785e4b1fa5.mp3",
-      "durationMs": 4561
+      "file": "audio/voice/ec23bfb9bc828e87.mp3",
+      "durationMs": 4642
     },
     {
       "id": "1ef3a3ebcfc4e3f0",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3885,7 +3885,7 @@
     {
       "id": "d53a5f7fce80de9b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -3961,7 +3961,7 @@
     {
       "id": "9a87a6906bbbd6e0",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r3"
       ],
@@ -4307,7 +4307,7 @@
     {
       "id": "91fcf319c1a1789e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4400,7 +4400,7 @@
     {
       "id": "26544ee243e529ee",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4430,7 +4430,7 @@
     {
       "id": "bc2d83d5f9cac467",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4460,7 +4460,7 @@
     {
       "id": "2138405f08ec9349",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4475,7 +4475,7 @@
     {
       "id": "e6a5e59c8d206a5f",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4490,7 +4490,7 @@
     {
       "id": "e3a8849b76b5daa1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4505,7 +4505,7 @@
     {
       "id": "a6376131b7b605a8",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4520,7 +4520,7 @@
     {
       "id": "a765ef07a294a325",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4535,7 +4535,7 @@
     {
       "id": "61fdf6fa70f3ce0e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4550,7 +4550,7 @@
     {
       "id": "dce41a7daea54ef5",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4565,7 +4565,7 @@
     {
       "id": "f306f64834c482d4",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4580,7 +4580,7 @@
     {
       "id": "d420aedecdce9e0d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4595,7 +4595,7 @@
     {
       "id": "db87dd82caf5bd71",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4610,7 +4610,7 @@
     {
       "id": "0faeb1cf5587c289",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4625,7 +4625,7 @@
     {
       "id": "99e47a91672b4590",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4640,7 +4640,7 @@
     {
       "id": "48a341c02c3f68c2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4655,7 +4655,7 @@
     {
       "id": "2089799ea0938a6a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4670,7 +4670,7 @@
     {
       "id": "5b5f1abd47ff885c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4685,7 +4685,7 @@
     {
       "id": "8155b3b61f740e17",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4700,7 +4700,7 @@
     {
       "id": "ea1af15543c0e3a2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4715,7 +4715,7 @@
     {
       "id": "2e105c07d2e7c03e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4730,7 +4730,7 @@
     {
       "id": "478e642bc338a97a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4745,7 +4745,7 @@
     {
       "id": "7876ab4db41cf09a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4760,7 +4760,7 @@
     {
       "id": "3b6b28ea2673526d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4775,7 +4775,7 @@
     {
       "id": "1a9a0a6d593992d1",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4790,7 +4790,7 @@
     {
       "id": "c550e8178eec7b0b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4805,7 +4805,7 @@
     {
       "id": "895fa18767054ed9",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4820,7 +4820,7 @@
     {
       "id": "435ad1b283adc0da",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4835,7 +4835,7 @@
     {
       "id": "4d08afea4e118e01",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4850,7 +4850,7 @@
     {
       "id": "c34d34e4380bfb00",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4865,7 +4865,7 @@
     {
       "id": "3d541cf1d301c476",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4880,7 +4880,7 @@
     {
       "id": "cd84ce38069d1e46",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4895,7 +4895,7 @@
     {
       "id": "fecfb3c6c6d5594c",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4910,7 +4910,7 @@
     {
       "id": "beb4b8ed7d4fa212",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4925,7 +4925,7 @@
     {
       "id": "b4e15a7ee26939db",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4940,7 +4940,7 @@
     {
       "id": "b24710df5d1a5e69",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4955,7 +4955,7 @@
     {
       "id": "bfd952b4b07086a6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4970,7 +4970,7 @@
     {
       "id": "d5127cdc026f3da9",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -4985,7 +4985,7 @@
     {
       "id": "fc954617aee5dec8",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5000,7 +5000,7 @@
     {
       "id": "72bbf0a22c773789",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5015,7 +5015,7 @@
     {
       "id": "3f8a907246feb7dd",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5030,7 +5030,7 @@
     {
       "id": "a3e2bdf79023a47b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5045,7 +5045,7 @@
     {
       "id": "d0388490b0a55f0d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5060,7 +5060,7 @@
     {
       "id": "f03a05c7ec3865e6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5075,7 +5075,7 @@
     {
       "id": "f51ac20f70a8cb9d",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5090,7 +5090,7 @@
     {
       "id": "d509533000ddcce3",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5105,7 +5105,7 @@
     {
       "id": "13bcc670e1d706a8",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5120,7 +5120,7 @@
     {
       "id": "f35b0b5836d4aec9",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5135,7 +5135,7 @@
     {
       "id": "080778345f668b2b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5150,7 +5150,7 @@
     {
       "id": "cb558269957f2d2a",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5165,7 +5165,7 @@
     {
       "id": "a0d45ed9ce086821",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5178,219 +5178,219 @@
       "durationMs": 2778
     },
     {
-      "id": "6044b133635caa5d",
+      "id": "146b788d8cb4ccff",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.east-offensive"
       ],
-      "text": "Quang: Từ cuối tháng ba, từng đoạn hào đã đưa vòng vây sát hơn vào trung tâm.",
+      "text": "Long: Từ cuối tháng ba, từng đoạn hào đã đưa vòng vây sát hơn vào trung tâm.",
       "ttsText": "Từ cuối tháng ba, từng đoạn hào đã đưa vòng vây sát hơn vào trung tâm.",
-      "file": "audio/voice/6044b133635caa5d.mp3",
-      "durationMs": 2964
+      "file": "audio/voice/146b788d8cb4ccff.mp3",
+      "durationMs": 2796
     },
     {
-      "id": "27dbfbd908328c57",
+      "id": "6b8cbcb8beb26055",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.east-offensive"
       ],
-      "text": "Quang: Mất dần vị trí và đường tiếp tế, quân Pháp rơi vào thế bị động.",
+      "text": "Long: Mất dần vị trí và đường tiếp tế, quân Pháp rơi vào thế bị động.",
       "ttsText": "Mất dần vị trí và đường tiếp tế, quân Pháp rơi vào thế bị động.",
-      "file": "audio/voice/27dbfbd908328c57.mp3",
-      "durationMs": 2493
+      "file": "audio/voice/6b8cbcb8beb26055.mp3",
+      "durationMs": 2630
     },
     {
-      "id": "512fac5ce478a921",
+      "id": "abfa2711e521b187",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.final-assault"
       ],
-      "text": "Quang: Đợt ba bắt đầu ngày 1/5, với mục tiêu tiêu diệt những cứ điểm còn lại.",
+      "text": "Long: Đợt ba bắt đầu ngày 1/5, với mục tiêu tiêu diệt những cứ điểm còn lại.",
       "ttsText": "Đợt ba bắt đầu ngày một tháng năm, với mục tiêu tiêu diệt những cứ điểm còn lại.",
-      "file": "audio/voice/512fac5ce478a921.mp3",
-      "durationMs": 3093
+      "file": "audio/voice/abfa2711e521b187.mp3",
+      "durationMs": 3564
     },
     {
-      "id": "2d141f69c3c8cc65",
+      "id": "e522358aa6f61fff",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.final-assault"
       ],
-      "text": "Quang: Đánh chiếm vị trí và đào hào sâu hơn cùng chuẩn bị cho tổng công kích.",
+      "text": "Long: Đánh chiếm vị trí và đào hào sâu hơn cùng chuẩn bị cho tổng công kích.",
       "ttsText": "Đánh chiếm vị trí và đào hào sâu hơn cùng chuẩn bị cho tổng công kích.",
-      "file": "audio/voice/2d141f69c3c8cc65.mp3",
-      "durationMs": 2858
+      "file": "audio/voice/e522358aa6f61fff.mp3",
+      "durationMs": 2892
     },
     {
-      "id": "7f47dc110a58d2c6",
+      "id": "e81426e2f0b28c50",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.a1"
       ],
-      "text": "Quang: Khoảng một tấn thuốc nổ ở A1 nối với công sức đào hầm từ trước.",
+      "text": "Long: Khoảng một tấn thuốc nổ ở A1 nối với công sức đào hầm từ trước.",
       "ttsText": "Khoảng một tấn thuốc nổ ở a một nối với công sức đào hầm từ trước.",
-      "file": "audio/voice/7f47dc110a58d2c6.mp3",
-      "durationMs": 2878
+      "file": "audio/voice/e81426e2f0b28c50.mp3",
+      "durationMs": 2839
     },
     {
-      "id": "a00aaafa366aa335",
+      "id": "5234774c9f152c53",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.a1"
       ],
-      "text": "Quang: Sau tiếng nổ, bộ binh còn phải tiến công để làm chủ cao điểm.",
+      "text": "Long: Sau tiếng nổ, bộ binh còn phải tiến công để làm chủ cao điểm.",
       "ttsText": "Sau tiếng nổ, bộ binh còn phải tiến công để làm chủ cao điểm.",
-      "file": "audio/voice/a00aaafa366aa335.mp3",
-      "durationMs": 2337
+      "file": "audio/voice/5234774c9f152c53.mp3",
+      "durationMs": 2483
     },
     {
-      "id": "ed23473b48f75e4e",
+      "id": "8c180dfa32700500",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.headquarters"
       ],
-      "text": "Quang: Khoảng 17 giờ 30 ngày 7/5, sở chỉ huy bị chiếm và Đờ Cát bị bắt.",
+      "text": "Long: Khoảng 17 giờ 30 ngày 7/5, sở chỉ huy bị chiếm và Đờ Cát bị bắt.",
       "ttsText": "Khoảng mười bảy giờ ba mươi ngày bảy tháng năm, sở chỉ huy bị chiếm và Đờ Cát bị bắt.",
-      "file": "audio/voice/ed23473b48f75e4e.mp3",
-      "durationMs": 3242
+      "file": "audio/voice/8c180dfa32700500.mp3",
+      "durationMs": 3478
     },
     {
-      "id": "6dab45eb69a6e688",
+      "id": "9589dea0eec6bff2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.headquarters"
       ],
-      "text": "Quang: Tin thắng trận đến rồi, nhưng trong đêm vẫn còn những người tiếp tục truy kích.",
+      "text": "Long: Tin thắng trận đến rồi, nhưng trong đêm vẫn còn những người tiếp tục truy kích.",
       "ttsText": "Tin thắng trận đến rồi, nhưng trong đêm vẫn còn những người tiếp tục truy kích.",
-      "file": "audio/voice/6dab45eb69a6e688.mp3",
-      "durationMs": 3199
-    },
-    {
-      "id": "076b11c371cef68d",
-      "voice": "quang",
-      "speaker": "Quang",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.reflection.results"
-      ],
-      "text": "Quang: 16.200 là tổng số bị tiêu diệt và bắt sống; chiến lợi phẩm còn có vũ khí.",
-      "ttsText": "mười sáu nghìn hai trăm là tổng số bị tiêu diệt và bắt sống; chiến lợi phẩm còn có vũ khí.",
-      "file": "audio/voice/076b11c371cef68d.mp3",
-      "durationMs": 3753
-    },
-    {
-      "id": "2bd9e9c37124482b",
-      "voice": "quang",
-      "speaker": "Quang",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.reflection.results"
-      ],
-      "text": "Quang: Kế hoạch Nava phá sản. Thắng lợi góp phần tạo cơ sở cho Hiệp định Genève năm 1954.",
-      "ttsText": "Kế hoạch Nava phá sản. Thắng lợi góp phần tạo cơ sở cho Hiệp định Giơ-ne-vơ năm một nghìn chín trăm năm mươi tư.",
-      "file": "audio/voice/2bd9e9c37124482b.mp3",
-      "durationMs": 5887
-    },
-    {
-      "id": "c668633b7ae64731",
-      "voice": "quang",
-      "speaker": "Quang",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.reflection.north"
-      ],
-      "text": "Quang: Miền Bắc được giải phóng trong bước chuyển sau Genève, không phải ngay chiều 7/5.",
-      "ttsText": "Miền Bắc được giải phóng trong bước chuyển sau Giơ-ne-vơ, không phải ngay chiều bảy tháng năm.",
-      "file": "audio/voice/c668633b7ae64731.mp3",
-      "durationMs": 3965
-    },
-    {
-      "id": "c4120ff150222404",
-      "voice": "quang",
-      "speaker": "Quang",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.reflection.north"
-      ],
-      "text": "Quang: Hậu phương mới còn phải được xây dựng để tiếp sức cho cuộc đấu tranh thống nhất.",
-      "ttsText": "Hậu phương mới còn phải được xây dựng để tiếp sức cho cuộc đấu tranh thống nhất.",
-      "file": "audio/voice/c4120ff150222404.mp3",
-      "durationMs": 3217
-    },
-    {
-      "id": "a543fa3ef5ab1115",
-      "voice": "quang",
-      "speaker": "Quang",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.reflection.independence"
-      ],
-      "text": "Quang: Điện Biên Phủ còn cổ vũ những dân tộc thuộc địa đấu tranh giành độc lập dân tộc.",
-      "ttsText": "Điện Biên Phủ còn cổ vũ những dân tộc thuộc địa đấu tranh giành độc lập dân tộc.",
-      "file": "audio/voice/a543fa3ef5ab1115.mp3",
+      "file": "audio/voice/9589dea0eec6bff2.mp3",
       "durationMs": 3093
     },
     {
-      "id": "de3b94ea8e78c40e",
+      "id": "7dd2bff49efe582f",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.reflection.results"
+      ],
+      "text": "Long: 16.200 là tổng số bị tiêu diệt và bắt sống; chiến lợi phẩm còn có vũ khí.",
+      "ttsText": "mười sáu nghìn hai trăm là tổng số bị tiêu diệt và bắt sống; chiến lợi phẩm còn có vũ khí.",
+      "file": "audio/voice/7dd2bff49efe582f.mp3",
+      "durationMs": 3678
+    },
+    {
+      "id": "7b51b63a8839cfc1",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.reflection.results"
+      ],
+      "text": "Long: Kế hoạch Nava phá sản. Thắng lợi góp phần tạo cơ sở cho Hiệp định Genève năm 1954.",
+      "ttsText": "Kế hoạch Nava phá sản. Thắng lợi góp phần tạo cơ sở cho Hiệp định Giơ-ne-vơ năm một nghìn chín trăm năm mươi tư.",
+      "file": "audio/voice/7b51b63a8839cfc1.mp3",
+      "durationMs": 5949
+    },
+    {
+      "id": "d4e4c8844a82cd1f",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.reflection.north"
+      ],
+      "text": "Long: Miền Bắc được giải phóng trong bước chuyển sau Genève, không phải ngay chiều 7/5.",
+      "ttsText": "Miền Bắc được giải phóng trong bước chuyển sau Giơ-ne-vơ, không phải ngay chiều bảy tháng năm.",
+      "file": "audio/voice/d4e4c8844a82cd1f.mp3",
+      "durationMs": 4431
+    },
+    {
+      "id": "8b0249846f2bd90a",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.reflection.north"
+      ],
+      "text": "Long: Hậu phương mới còn phải được xây dựng để tiếp sức cho cuộc đấu tranh thống nhất.",
+      "ttsText": "Hậu phương mới còn phải được xây dựng để tiếp sức cho cuộc đấu tranh thống nhất.",
+      "file": "audio/voice/8b0249846f2bd90a.mp3",
+      "durationMs": 3221
+    },
+    {
+      "id": "7269b1f0b0217543",
+      "voice": "quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
         "r4.reflection.independence"
       ],
-      "text": "Quang: Một thắng lợi ở Việt Nam đã tiếp thêm niềm tin cho những người ở rất xa.",
+      "text": "Long: Điện Biên Phủ còn cổ vũ những dân tộc thuộc địa đấu tranh giành độc lập dân tộc.",
+      "ttsText": "Điện Biên Phủ còn cổ vũ những dân tộc thuộc địa đấu tranh giành độc lập dân tộc.",
+      "file": "audio/voice/7269b1f0b0217543.mp3",
+      "durationMs": 3262
+    },
+    {
+      "id": "e9645839072d6088",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.reflection.independence"
+      ],
+      "text": "Long: Một thắng lợi ở Việt Nam đã tiếp thêm niềm tin cho những người ở rất xa.",
       "ttsText": "Một thắng lợi ở Việt Nam đã tiếp thêm niềm tin cho những người ở rất xa.",
-      "file": "audio/voice/de3b94ea8e78c40e.mp3",
-      "durationMs": 3263
+      "file": "audio/voice/e9645839072d6088.mp3",
+      "durationMs": 3227
     },
     {
       "id": "828899cb07970040",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5406,7 +5406,7 @@
     {
       "id": "04d0f4b8dcc3245e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5482,7 +5482,7 @@
     {
       "id": "fdb38c4f8124c335",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r4"
       ],
@@ -5842,7 +5842,7 @@
       "durationMs": 6339
     },
     {
-      "id": "b3a12daf3c313bb9",
+      "id": "51be6b84f4f79fe1",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -5851,15 +5851,15 @@
       "groups": [
         "r5.INTRO"
       ],
-      "text": "Với hy vọng sắp được trở về hiện tại, Quang bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức tranh còn thiếu những mảnh ghép cuối cùng.",
-      "ttsText": "Với hy vọng sắp được trở về hiện tại, Quang bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức tranh còn thiếu những mảnh ghép cuối cùng.",
-      "file": "audio/voice/b3a12daf3c313bb9.mp3",
-      "durationMs": 8730
+      "text": "Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức tranh còn thiếu những mảnh ghép cuối cùng.",
+      "ttsText": "Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức tranh còn thiếu những mảnh ghép cuối cùng.",
+      "file": "audio/voice/51be6b84f4f79fe1.mp3",
+      "durationMs": 8469
     },
     {
       "id": "c6f0f137d0ed8738",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -5889,7 +5889,7 @@
     {
       "id": "29789c350d896f66",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -5919,7 +5919,7 @@
     {
       "id": "1d454feccfa63a9b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -5949,7 +5949,7 @@
     {
       "id": "eebfd678802f0546",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -5964,7 +5964,7 @@
     {
       "id": "7d3db9f13c21abe2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -5979,7 +5979,7 @@
     {
       "id": "5611fe5e514c73b0",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -5994,7 +5994,7 @@
     {
       "id": "c5ff1ec69082dee2",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6009,7 +6009,7 @@
     {
       "id": "8fe4255f91272da4",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6024,7 +6024,7 @@
     {
       "id": "d69c7d92f49307b6",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6039,7 +6039,7 @@
     {
       "id": "7f62cdfe03ca558e",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6054,7 +6054,7 @@
     {
       "id": "55f9ebf61aa2523b",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6069,7 +6069,7 @@
     {
       "id": "1ab97e875f7f89d7",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6084,7 +6084,7 @@
     {
       "id": "e8823ef30fa048d3",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6099,7 +6099,7 @@
     {
       "id": "7bc66d47f4b908bb",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6187,7 +6187,7 @@
       "durationMs": 16781
     },
     {
-      "id": "e0bf54c9944329de",
+      "id": "cf6bfbb30975aef4",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6196,13 +6196,13 @@
       "groups": [
         "r5.REFLECTION_SCRIPT"
       ],
-      "text": "Quang lặng người. Không còn bản đồ để phân tích, không còn mật mã để suy luận, cũng chẳng có tài liệu nào cung cấp sẵn đáp án. Từ khi bị đưa về quá khứ, cậu chỉ tập trung tìm cách thoát khỏi nơi này để trở về cuộc sống quen thuộc. Nhưng sau khi lần theo từng dấu mốc của chiến dịch, Quang dần nhận ra rằng những gì mình vừa khám phá không đơn thuần là các sự kiện cần ghi nhớ. Đằng sau chiến thắng ấy là sự hy sinh của những người lính, những tháng ngày gian khổ của lực lượng dân công và sự đóng góp của biết bao con người đã đặt độc lập, tự do của dân tộc lên trên lợi ích cá nhân. Chính những hy sinh ấy đã góp phần tạo nên nền hòa bình để các thế hệ sau được học tập, làm việc và tự do xây dựng tương lai.",
-      "ttsText": "Quang lặng người. Không còn bản đồ để phân tích, không còn mật mã để suy luận, cũng chẳng có tài liệu nào cung cấp sẵn đáp án. Từ khi bị đưa về quá khứ, cậu chỉ tập trung tìm cách thoát khỏi nơi này để trở về cuộc sống quen thuộc. Nhưng sau khi lần theo từng dấu mốc của chiến dịch, Quang dần nhận ra rằng những gì mình vừa khám phá không đơn thuần là các sự kiện cần ghi nhớ. Đằng sau chiến thắng ấy là sự hy sinh của những người lính, những tháng ngày gian khổ của lực lượng dân công và sự đóng góp của biết bao con người đã đặt độc lập, tự do của dân tộc lên trên lợi ích cá nhân. Chính những hy sinh ấy đã góp phần tạo nên nền hòa bình để các thế hệ sau được học tập, làm việc và tự do xây dựng tương lai.",
-      "file": "audio/voice/e0bf54c9944329de.mp3",
-      "durationMs": 41401
+      "text": "Long lặng người. Không còn bản đồ để phân tích, không còn mật mã để suy luận, cũng chẳng có tài liệu nào cung cấp sẵn đáp án. Từ khi bị đưa về quá khứ, cậu chỉ tập trung tìm cách thoát khỏi nơi này để trở về cuộc sống quen thuộc. Nhưng sau khi lần theo từng dấu mốc của chiến dịch, Long dần nhận ra rằng những gì mình vừa khám phá không đơn thuần là các sự kiện cần ghi nhớ. Đằng sau chiến thắng ấy là sự hy sinh của những người lính, những tháng ngày gian khổ của lực lượng dân công và sự đóng góp của biết bao con người đã đặt độc lập, tự do của dân tộc lên trên lợi ích cá nhân. Chính những hy sinh ấy đã góp phần tạo nên nền hòa bình để các thế hệ sau được học tập, làm việc và tự do xây dựng tương lai.",
+      "ttsText": "Long lặng người. Không còn bản đồ để phân tích, không còn mật mã để suy luận, cũng chẳng có tài liệu nào cung cấp sẵn đáp án. Từ khi bị đưa về quá khứ, cậu chỉ tập trung tìm cách thoát khỏi nơi này để trở về cuộc sống quen thuộc. Nhưng sau khi lần theo từng dấu mốc của chiến dịch, Long dần nhận ra rằng những gì mình vừa khám phá không đơn thuần là các sự kiện cần ghi nhớ. Đằng sau chiến thắng ấy là sự hy sinh của những người lính, những tháng ngày gian khổ của lực lượng dân công và sự đóng góp của biết bao con người đã đặt độc lập, tự do của dân tộc lên trên lợi ích cá nhân. Chính những hy sinh ấy đã góp phần tạo nên nền hòa bình để các thế hệ sau được học tập, làm việc và tự do xây dựng tương lai.",
+      "file": "audio/voice/cf6bfbb30975aef4.mp3",
+      "durationMs": 41763
     },
     {
-      "id": "84e8ec0cc27894cf",
+      "id": "981ad9a65831bb29",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6211,15 +6211,15 @@
       "groups": [
         "r5.REFLECTION_SCRIPT"
       ],
-      "text": "Quang hiểu rằng mình không thể quay lại để thay đổi quá khứ, nhưng hoàn toàn có thể lựa chọn cách sống trong hiện tại. Cậu nhận ra rằng lòng biết ơn không chỉ thể hiện qua những lời nói, mà còn phải được chứng minh bằng hành động. Sau một hồi suy nghĩ, Quang dõng dạc trả lời.",
-      "ttsText": "Quang hiểu rằng mình không thể quay lại để thay đổi quá khứ, nhưng hoàn toàn có thể lựa chọn cách sống trong hiện tại. Cậu nhận ra rằng lòng biết ơn không chỉ thể hiện qua những lời nói, mà còn phải được chứng minh bằng hành động. Sau một hồi suy nghĩ, Quang dõng dạc trả lời.",
-      "file": "audio/voice/84e8ec0cc27894cf.mp3",
-      "durationMs": 15808
+      "text": "Long hiểu rằng mình không thể quay lại để thay đổi quá khứ, nhưng hoàn toàn có thể lựa chọn cách sống trong hiện tại. Cậu nhận ra rằng lòng biết ơn không chỉ thể hiện qua những lời nói, mà còn phải được chứng minh bằng hành động. Sau một hồi suy nghĩ, Long dõng dạc trả lời.",
+      "ttsText": "Long hiểu rằng mình không thể quay lại để thay đổi quá khứ, nhưng hoàn toàn có thể lựa chọn cách sống trong hiện tại. Cậu nhận ra rằng lòng biết ơn không chỉ thể hiện qua những lời nói, mà còn phải được chứng minh bằng hành động. Sau một hồi suy nghĩ, Long dõng dạc trả lời.",
+      "file": "audio/voice/981ad9a65831bb29.mp3",
+      "durationMs": 15656
     },
     {
       "id": "978c29f378d748ea",
       "voice": "quang",
-      "speaker": "Quang",
+      "speaker": "Long",
       "rooms": [
         "r5"
       ],
@@ -6232,7 +6232,7 @@
       "durationMs": 17853
     },
     {
-      "id": "5f01c927cad337f7",
+      "id": "130abdbe0d401315",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6241,10 +6241,10 @@
       "groups": [
         "r5.REFLECTION_SCRIPT"
       ],
-      "text": "Ngay khi Quang dứt lời, căn phòng chìm vào im lặng trong giây lát. Một luồng sáng dịu dàng dần lan tỏa, cánh cửa từ từ mở ra.",
-      "ttsText": "Ngay khi Quang dứt lời, căn phòng chìm vào im lặng trong giây lát. Một luồng sáng dịu dàng dần lan tỏa, cánh cửa từ từ mở ra.",
-      "file": "audio/voice/5f01c927cad337f7.mp3",
-      "durationMs": 7246
+      "text": "Ngay khi Long dứt lời, căn phòng chìm vào im lặng trong giây lát. Một luồng sáng dịu dàng dần lan tỏa, cánh cửa từ từ mở ra.",
+      "ttsText": "Ngay khi Long dứt lời, căn phòng chìm vào im lặng trong giây lát. Một luồng sáng dịu dàng dần lan tỏa, cánh cửa từ từ mở ra.",
+      "file": "audio/voice/130abdbe0d401315.mp3",
+      "durationMs": 7259
     },
     {
       "id": "bdd9015c17fe718c",
@@ -6337,7 +6337,7 @@
       "durationMs": 7364
     },
     {
-      "id": "eaef44a07a7e39de",
+      "id": "15b0b276bf527c14",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6346,13 +6346,13 @@
       "groups": [
         "museum.MUSEUM_RETURN"
       ],
-      "text": "Một luồng sáng bao trùm lấy Quang, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức tranh như thể chưa từng rời đi.",
-      "ttsText": "Một luồng sáng bao trùm lấy Quang, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức tranh như thể chưa từng rời đi.",
-      "file": "audio/voice/eaef44a07a7e39de.mp3",
-      "durationMs": 13321
+      "text": "Một luồng sáng bao trùm lấy Long, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức tranh như thể chưa từng rời đi.",
+      "ttsText": "Một luồng sáng bao trùm lấy Long, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức tranh như thể chưa từng rời đi.",
+      "file": "audio/voice/15b0b276bf527c14.mp3",
+      "durationMs": 13473
     },
     {
-      "id": "fa602164f81164b5",
+      "id": "0d42be72f3de2dbb",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6361,13 +6361,13 @@
       "groups": [
         "museum.MUSEUM_RETURN"
       ],
-      "text": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Quang, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay bức tranh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Quang không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
-      "ttsText": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Quang, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay bức tranh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Quang không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
-      "file": "audio/voice/fa602164f81164b5.mp3",
-      "durationMs": 33023
+      "text": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Long, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay bức tranh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Long không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
+      "ttsText": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Long, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay bức tranh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Long không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
+      "file": "audio/voice/0d42be72f3de2dbb.mp3",
+      "durationMs": 33247
     },
     {
-      "id": "1f60466c5fafd2e5",
+      "id": "96f8542a2269c2ff",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6376,10 +6376,10 @@
       "groups": [
         "museum.MUSEUM_RETURN"
       ],
-      "text": "Quang nhận ra rằng mỗi thế hệ đều có một hành trình lịch sử của riêng mình. Nếu thế hệ cha ông đã chiến đấu để giành độc lập, tự do, thì thế hệ hôm nay cần học tập, rèn luyện, sống có trách nhiệm và biến lòng biết ơn thành những hành động thiết thực để xây dựng đất nước ngày càng tốt đẹp hơn. Bởi hành trình của Quang chưa thực sự kết thúc khi cậu trở về từ quá khứ. Nó chỉ vừa bắt đầu, trong cách cậu lựa chọn sống, cống hiến và viết tiếp câu chuyện của dân tộc bằng chính những hành động của mình.",
-      "ttsText": "Quang nhận ra rằng mỗi thế hệ đều có một hành trình lịch sử của riêng mình. Nếu thế hệ cha ông đã chiến đấu để giành độc lập, tự do, thì thế hệ hôm nay cần học tập, rèn luyện, sống có trách nhiệm và biến lòng biết ơn thành những hành động thiết thực để xây dựng đất nước ngày càng tốt đẹp hơn. Bởi hành trình của Quang chưa thực sự kết thúc khi cậu trở về từ quá khứ. Nó chỉ vừa bắt đầu, trong cách cậu lựa chọn sống, cống hiến và viết tiếp câu chuyện của dân tộc bằng chính những hành động của mình.",
-      "file": "audio/voice/1f60466c5fafd2e5.mp3",
-      "durationMs": 28932
+      "text": "Long nhận ra rằng mỗi thế hệ đều có một hành trình lịch sử của riêng mình. Nếu thế hệ cha ông đã chiến đấu để giành độc lập, tự do, thì thế hệ hôm nay cần học tập, rèn luyện, sống có trách nhiệm và biến lòng biết ơn thành những hành động thiết thực để xây dựng đất nước ngày càng tốt đẹp hơn. Bởi hành trình của Long chưa thực sự kết thúc khi cậu trở về từ quá khứ. Nó chỉ vừa bắt đầu, trong cách cậu lựa chọn sống, cống hiến và viết tiếp câu chuyện của dân tộc bằng chính những hành động của mình.",
+      "ttsText": "Long nhận ra rằng mỗi thế hệ đều có một hành trình lịch sử của riêng mình. Nếu thế hệ cha ông đã chiến đấu để giành độc lập, tự do, thì thế hệ hôm nay cần học tập, rèn luyện, sống có trách nhiệm và biến lòng biết ơn thành những hành động thiết thực để xây dựng đất nước ngày càng tốt đẹp hơn. Bởi hành trình của Long chưa thực sự kết thúc khi cậu trở về từ quá khứ. Nó chỉ vừa bắt đầu, trong cách cậu lựa chọn sống, cống hiến và viết tiếp câu chuyện của dân tộc bằng chính những hành động của mình.",
+      "file": "audio/voice/96f8542a2269c2ff.mp3",
+      "durationMs": 29002
     },
     {
       "id": "f1f606a2116977e0",

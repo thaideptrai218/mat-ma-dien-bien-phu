@@ -1,0 +1,40 @@
+{
+  "columns": 16,
+  "rows": 4,
+  "sourceWidth": 3296,
+  "sourceHeight": 1024,
+  "crop": {
+    "x": 27,
+    "y": 12,
+    "width": 174,
+    "height": 236
+  },
+  "anchor": {
+    "x": 103,
+    "y": 248
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "poses": [
+    "walk-0",
+    "walk-1",
+    "walk-2",
+    "walk-3",
+    "walk-4",
+    "walk-5",
+    "walk-6",
+    "walk-7",
+    "run-0",
+    "run-1",
+    "run-2",
+    "run-3",
+    "run-4",
+    "run-5",
+    "run-6",
+    "run-7"
+  ]
+}

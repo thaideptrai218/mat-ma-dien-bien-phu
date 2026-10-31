@@ -79,7 +79,7 @@ export class RoomFiveSession {
     const token = this.nonce + 1;
     const messages = lines.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
     const voice = createDialogueVoice(this.audio, lines);
-    this.show('dialogue', {title, speaker: 'Quang', lines: messages, script: lines, voice, buttonLabel, action, payload: {...payload, token}});
+    this.show('dialogue', {title, speaker: 'Long', lines: messages, script: lines, voice, buttonLabel, action, payload: {...payload, token}});
     startDialogueVoice(this, voice);
   }
   close() {

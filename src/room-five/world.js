@@ -19,7 +19,7 @@ export const WORLD = Object.freeze({
     {id: 'reflection', label: 'Nơi ánh sáng bên cửa', x: 1455, y: 287, type: 'reflection'},
     {id: 'door', label: 'Cánh cửa trở về', x: 1000, y: 108, type: 'door'},
     {id: 'lamp', label: 'Ngọn đèn cuối hành trình', x: 505, y: 941, type: 'prop'},
-    {id: 'satchel', label: 'Chiếc túi đã đi cùng Quang', x: 1505, y: 1059, type: 'prop'},
+    {id: 'satchel', label: 'Chiếc túi đã đi cùng Long', x: 1505, y: 1059, type: 'prop'},
   ].map(object => Object.freeze({...object, radius: 110})),
 });
 export const OBJECTS = WORLD.objects;

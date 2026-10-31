@@ -4,7 +4,7 @@ Cập nhật 2026-10-31. Campaign năm phòng có museum intro/return, common jo
 
 ## Nhân vật theo ảnh mẫu
 
-Quang trong bản đồ dùng tóc nâu, áo khoác nâu đỏ ngoài áo trắng, quần be, giày sáng/túi ô liu. AssetRGBA32 tư thế, bốn hướng; atlas160×192 ởscale .5, vùng va chạm24×16 đặt đúng tâm vật lý. Giữ chung tỷ lệ và mặt đất giữa các tư thế; khung chạy trên không giữ độ nâng chân. Bộ đi bộ có contact/passing rõ ràng; chạy dùng bộ khung riêng. Giảm chuyển động giữ idle theo hướng, vẫn điều khiển được. [Thông số/prompt](../assets/characters/quang-reference/README.md), [QA hình mới](../plans/261031-quang-reference-character/reports/qa.md).
+Long trong bản đồ: tóc đen dựng, khẩu trang đen kéo xuống cằm, sơ mi trắng, quần đen, giày trắng. Asset RGBA 64 tư thế (8 đi + 8 chạy mỗi hướng), bốn hướng; atlas160×192 ởscale .5, vùng va chạm24×16 đặt đúng tâm vật lý. Giữ chung tỷ lệ và mặt đất giữa các tư thế; khung chạy trên không giữ độ nâng chân. Đi bộ và chạy mỗi loại 8 khung riêng. Giảm chuyển động giữ idle theo hướng, vẫn điều khiển được. [Thông số](../assets/characters/long/README.md), [QA hình mới](../plans/261031-quang-reference-character/reports/qa.md).
 
 ## Không gian, mục tiêu và di chuyển
 
@@ -16,7 +16,7 @@ Quang trong bản đồ dùng tóc nâu, áo khoác nâu đỏ ngoài áo trắn
 | 4 | Archive 2800×1800: rương giữa, hai bàn T/L sau rương, bảy giấy quanh tường, ô chữ bắc. |
 | 5 | 2000×1400: bàn phục dựng, điểm ánh sáng/câu hỏi, cửa bắc và props. |
 
-Đây là sơ đồ học tập, không dựng tọa độ đơn vị/di tích thật. Physics và tầm E cùng nguồn world với mini/full map. Camera theo Quang trong biên; map/journal không đi hộ nhân vật. WASD/mũi tên 260, Shift 390 chuẩn hóa đường chéo; E vật gần, M map, N sổ phòng, Q nhiệm vụ, Esc tùy chọn/đóng. Form giữ nhập liệu bình thường; blur/modal/tabẩn xóa phím giữ.
+Đây là sơ đồ học tập, không dựng tọa độ đơn vị/di tích thật. Physics và tầm E cùng nguồn world với mini/full map. Camera theo Long trong biên; map/journal không đi hộ nhân vật. WASD/mũi tên 260, Shift 390 chuẩn hóa đường chéo; E vật gần, M map, N sổ phòng, Q nhiệm vụ, Esc tùy chọn/đóng. Form giữ nhập liệu bình thường; blur/modal/tabẩn xóa phím giữ.
 
 HUD phòng góc phải có mục tiêu/tiến độ; mini-map thường dưới phải, desktop thấp dùng vị trí gọn dưới trái để tránh cắt/chồng. Header campaign có phòng hiện tại, mảnh thật, Sổ hành trình và restart; không link nhảy tới phòng chưa đạt. Chuyển phòng sau cửa thật, có khoảng loading sau await hủy Game cũ, không giữ canvas/listener cũ.
 
@@ -24,7 +24,7 @@ HUD phòng góc phải có mục tiêu/tiến độ; mini-map thường dưới 
 
 Giấy nguyên văn HTML chọn/copy được, cuộn trong native dialog. Nguồn/ngày/hư cấu ngoài thân thư, có greeting/signature đúng loại. Lâm/Thành nhìn lại Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc trong thư đầu 1953; bổ nhiệm tháng 5/thông qua tháng 7 nằm riêng N-01 sau identity. Không thêm lời hướng dẫn giải đố vào thân thư.
 
-Phòng 1 có thư/bốn hồ sơ 341–370 từ và N-01331 từ; Phòng 3 năm giấy 321–340 từ; Phòng 4 bảy giấy 301–330 từ, mỗi giấy năm đoạn và hai suy nghĩ Quang riêng. Đọc hết→Quang→explicit confirmation mới thu thập; đóng sớm không tính. Bảo giữ original narrative/clue beats, final “Ghi manh mối”, phản hồi/hint/outro và renderer nguyên gốc; không rewrite văn bản để giống reader khác.
+Phòng 1 có thư/bốn hồ sơ 341–370 từ và N-01331 từ; Phòng 3 năm giấy 321–340 từ; Phòng 4 bảy giấy 301–330 từ, mỗi giấy năm đoạn và hai suy nghĩ Long riêng. Đọc hết→Long→explicit confirmation mới thu thập; đóng sớm không tính. Bảo giữ original narrative/clue beats, final “Ghi manh mối”, phản hồi/hint/outro và renderer nguyên gốc; không rewrite văn bản để giống reader khác.
 
 Sổ phòng/N giữ giấy và token của phòng. **Sổ hành trình** giữ toàn văn prior collected papers, các đoạn clue gốc Bảo, N-01 và cuộc trò chuyện cuối khi đã đạt; readonly, không cấp mảnh hoặc làm thay bước hiện tại. Mở sổ chung pause phòng/input/audio, đóng cần phím mới; source labels vẫn thấy trong reread.
 
@@ -41,7 +41,7 @@ Các form native, lựa chọn ngữ nghĩa rõ, nút lên/xuống có nhãn, v�
 
 `victory-painting.svg` là tranh sáng tác, cùng một ảnh ở bảo tàng mở đầu, bốn phần tư ghép 2×2 và return. Caption/alt ghi minh họa, không ảnh/bản sao tranh thật. Trước puzzle cần đủ I–IV và các cửa trước; chọn hai native buttons để swap, hỗ trợ keyboard, thứ tự đúng mới hoàn tất assembly.
 
-Ghép xong cửa vẫn chờ cuộc trò chuyện. Hiển thị câu hỏi từ PDF bản 4/phòng 5 và lời đáp sáng tác của Quang; ô suy nghĩ cá nhân **optional/ungraded/skippable**, không truyền qua callback/payload/save hoặc network. Blank vẫn tiếp tục. Nút tiếp tục hoàn tất đoạn trò chuyện rồi người chơi phải đến cửa E. Không dùng câu trả lời cá nhân làm mật khẩu tư tưởng.
+Ghép xong cửa vẫn chờ cuộc trò chuyện. Hiển thị câu hỏi từ PDF bản 4/phòng 5 và lời đáp sáng tác của Long; ô suy nghĩ cá nhân **optional/ungraded/skippable**, không truyền qua callback/payload/save hoặc network. Blank vẫn tiếp tục. Nút tiếp tục hoàn tất đoạn trò chuyện rồi người chơi phải đến cửa E. Không dùng câu trả lời cá nhân làm mật khẩu tư tưởng.
 
 Museum return hiển thị cùng tranh và thông điệp cuối. Nút “Khép lại hành trình” là acknowledgment riêng mới ghi complete; không kết thúc campaign ngay sau phòng 4 hoặc assembly. Hành trình mới cần xác nhận, không xóa preview/donor; reset phòng giữ earlier progress và bỏ phần phụ thuộc.
 

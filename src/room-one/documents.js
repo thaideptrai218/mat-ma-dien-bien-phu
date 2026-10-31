@@ -22,8 +22,8 @@ export const DOCUMENTS = [
     "closing": "Mong ngày gặp lại em,",
     "signature": "Thành",
     "reflection": [
-      "Quang: Thế chủ động ấy được giữ bằng nhiều năm chiến đấu và học hỏi.",
-      "Quang: Có kinh nghiệm rồi, họ vẫn phải đương đầu với một đối phương hơn về người và vũ khí."
+      "Long: Thế chủ động ấy được giữ bằng nhiều năm chiến đấu và học hỏi.",
+      "Long: Có kinh nghiệm rồi, họ vẫn phải đương đầu với một đối phương hơn về người và vũ khí."
     ],
     "summary": "Từ Biên giới 1950 qua Trung Du, Hòa Bình, Tây Bắc, quân đội và hậu phương trưởng thành, thay đổi tương quan; Việt Nam giữ thế chủ động nhưng còn khó khăn."
   },
@@ -44,8 +44,8 @@ export const DOCUMENTS = [
       "Cuối buổi, tôi soát lại mấy dòng vừa chép rồi khép sổ. Tôi mong có ngày chỉ phải tính chuyện bữa ăn trong nhà mình. Bây giờ chưa được. Chiến tranh còn tiếp diễn, công việc bảo đảm lương thực và vũ khí vẫn không thể bỏ dở. Mai tôi sẽ đọc lại từ đầu, lúc mắt đỡ mỏi hơn."
     ],
     "reflection": [
-      "Quang: 252.000 người: sau con số còn là lương ăn và vũ khí cho từng người lính.",
-      "Quang: Nguồn viện trợ giúp sức, trong khi trang bị của ta vẫn hạn chế hơn phía Pháp."
+      "Long: 252.000 người: sau con số còn là lương ăn và vũ khí cho từng người lính.",
+      "Long: Nguồn viện trợ giúp sức, trong khi trang bị của ta vẫn hạn chế hơn phía Pháp."
     ],
     "summary": "Việt Nam có 252.000 người; chủ yếu bộ binh, có pháo binh và súng phòng không; nhận viện trợ lương thực, vũ khí."
   },
@@ -66,8 +66,8 @@ export const DOCUMENTS = [
       "Tôi đề nghị xem xét lại khả năng tập trung lực lượng. Quân số ấy còn đang vướng nhiều nhiệm vụ. Nếu chưa giải quyết trở ngại đó, ưu thế hiện có vẫn khó chuyển thành một thay đổi quyết định trên chiến trường. Những thất bại và khó khăn vừa qua còn làm chúng ta phụ thuộc nhiều hơn vào viện trợ quân sự, kinh tế của Hoa Kỳ. Có thêm nguồn hỗ trợ không có nghĩa trở ngại trên chiến trường đã được giải quyết."
     ],
     "reflection": [
-      "Quang: Pháp có 445.000 người và nhiều phương tiện hiện đại.",
-      "Quang: Nhưng quân phải chia khắp Bắc, Nam; muốn dồn sức vào một hướng cũng khó."
+      "Long: Pháp có 445.000 người và nhiều phương tiện hiện đại.",
+      "Long: Nhưng quân phải chia khắp Bắc, Nam; muốn dồn sức vào một hướng cũng khó."
     ],
     "summary": "Pháp có 445.000 người, ưu thế trang bị; chiến tranh nhân dân và du kích buộc quân Pháp phân tán."
   },
@@ -92,8 +92,8 @@ export const DOCUMENTS = [
     "closing": "Mong thư em,",
     "signature": "Chị Louise",
     "reflection": [
-      "Quang: Chiến tranh kéo dài đè nặng lên kinh tế Pháp, khiến họ cần viện trợ Mỹ.",
-      "Quang: Sức ép từ tiền bạc và chiến trường cùng thúc họ tìm một kế hoạch mới."
+      "Long: Chiến tranh kéo dài đè nặng lên kinh tế Pháp, khiến họ cần viện trợ Mỹ.",
+      "Long: Sức ép từ tiền bạc và chiến trường cùng thúc họ tìm một kế hoạch mới."
     ],
     "summary": "Chiến tranh gây gánh nặng kinh tế cho Pháp; viện trợ Mỹ và nhu cầu tìm lối thoát ngày càng lớn."
   }

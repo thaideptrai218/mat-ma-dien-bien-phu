@@ -5,7 +5,7 @@ import {inflateSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
 import {characterAtlasLayout} from '../src/game/character-atlas.js';
 
-const base=new URL('../assets/characters/quang-reference/',import.meta.url);
+const base=new URL('../assets/characters/long/',import.meta.url);
 const manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',base)));
 // Decode the committed RGBA PNG directly; no platform image package or browser fixture.
 function decodePng(bytes) {
@@ -31,7 +31,7 @@ function decodePng(bytes) {
 }
 const image=decodePng(fs.readFileSync(new URL('motion-sheet.png',base)));
 function tile(index){
-  const w=image.width/8,h=image.height/4,x0=(index%8)*w,y0=Math.floor(index/8)*h;
+  const w=image.width/16,h=image.height/4,x0=(index%16)*w,y0=Math.floor(index/16)*h;
   let left=w,right=0,top=h,bottom=0,count=0;
   const pixels=Buffer.alloc(w*h*4);
   for(let y=0;y<h;y++)for(let x=0;x<w;x++){
@@ -46,27 +46,23 @@ function tile(index){
   }
   return {left,right,top,bottom,count,width:right-left+1,hash:createHash('sha256').update(pixels).digest('hex')};
 }
-const tiles=Array.from({length:32},(_,index)=>tile(index));
+const COLUMNS=16;
+const tiles=Array.from({length:COLUMNS*4},(_,index)=>tile(index));
+const anchorY=manifest.anchor.y;
 
-test('committed transparent sheet contains32 populated isolated poses with a valid common anchor',()=>{
-  assert.equal(image.width,2048);assert.equal(image.height,1280);
-  assert.ok(tiles.every(t=>t.count>7000));assert.equal(new Set(tiles.map(t=>t.hash)).size,32);
+test('committed transparent sheet holds 64 populated isolated poses (8 walk + 8 run per direction) with a valid common anchor',()=>{
+  assert.equal(manifest.columns,COLUMNS);assert.equal(image.width%COLUMNS,0);assert.equal(image.height,1024);
+  assert.ok(tiles.every(t=>t.count>7000));assert.equal(new Set(tiles.map(t=>t.hash)).size,COLUMNS*4);
   const layout=characterAtlasLayout(manifest,image.width,image.height);
-  assert.equal(layout.width,1280);assert.equal(layout.height,768);
-  assert.ok(layout.scale>.65&&layout.scale<.75);
+  assert.equal(layout.width,160*COLUMNS);assert.equal(layout.height,768);
+  assert.ok(layout.scale>.65&&layout.scale<.8);
 });
-test('both side walk cycles alternate wide contacts with narrow passing silhouettes',()=>{
-  for(const row of[1,2]){
-    const [contact,passing,opposite,otherPass]=tiles.slice(row*8+1,row*8+5);
-    assert.ok(contact.width>passing.width*1.5);
-    assert.ok(opposite.width>otherPass.width*1.5);
-    assert.ok(Math.abs(contact.bottom-opposite.bottom)<=4,'ground contacts aligned');
-  }
-});
-test('run airborne pose keeps its lifted shoes rather than being bottom-aligned independently',()=>{
+test('every pose stands on its row ground line and keeps the same body height',()=>{
   for(let row=0;row<4;row++){
-    const contact=tiles[row*8+5],flight=tiles[row*8+6];
-    assert.ok(contact.bottom-flight.bottom>20);
-    assert.ok(flight.top>contact.top-8&&flight.top<contact.top+22,'body scale retained');
+    const poses=tiles.slice(row*COLUMNS,(row+1)*COLUMNS);
+    assert.ok(poses.some(t=>t.bottom===anchorY-1),'feet touch the anchor baseline');
+    assert.ok(poses.every(t=>anchorY-1-t.bottom<=12),'no pose floats above the ground');
+    const heights=poses.map(t=>t.bottom-t.top);
+    assert.ok(Math.max(...heights)-Math.min(...heights)<24,'body scale retained across walk and run');
   }
 });

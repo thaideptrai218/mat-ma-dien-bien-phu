@@ -7,7 +7,7 @@ import * as roomFive from '../src/room-five/content.js';
 import {beats as voicedBeats, PUZZLE_GUIDE, SYSTEM_HINTS as roomTwoHints} from '../src/room-two/system-guidance.js';
 import {beats as donorBeats, CHAPTER} from '../src/room-two/content.js';
 
-// Hệ Thống calls Quang "Ký Chủ"; Quang calls it "Hệ Thống" and says "tao" to it.
+// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tao" to it.
 const lists = [
   roomOne.INTRO, roomOne.ENDING, roomOne.CAMPAIGN_ENDING, ...Object.values(roomOne.GUIDE),
   roomThree.INTRO, roomThree.CAMPAIGN_INTRO, roomThree.ENDING, roomThree.CAMPAIGN_ENDING, ...Object.values(roomThree.GUIDE),
@@ -20,9 +20,9 @@ const hintLines = hintSets.flatMap(set => Object.values(set)).flatMap(({open, hi
   .map(text => ({speaker: 'Hệ Thống', text}));
 const lines = [...lists.flat(), ...hintLines];
 const roomTwoLines = [CHAPTER.introBeatId, CHAPTER.outroBeatId].flatMap(id => voicedBeats[id].lines)
-  .map(line => ({speaker: line.speakerId === 'system' ? 'Hệ Thống' : 'Quang', text: line.text}));
+  .map(line => ({speaker: line.speakerId === 'system' ? 'Hệ Thống' : 'Long', text: line.text}));
 
-test('Hệ Thống addresses Quang as Ký Chủ and never as ngươi or bạn', () => {
+test('Hệ Thống addresses Long as Ký Chủ and never as ngươi or bạn', () => {
   const system = [...lines, ...roomTwoLines].filter(line => line.speaker === 'Hệ Thống');
   assert.ok(system.length > 30);
   for (const line of system) assert.doesNotMatch(line.text, /(^|[\s,.;:!?“"(])([Nn]gươi|[Bb]ạn)(?=$|[\s,.;:!?”")])/u, line.text);
@@ -30,9 +30,9 @@ test('Hệ Thống addresses Quang as Ký Chủ and never as ngươi or bạn', 
   assert.ok(lines.every(line => line.speaker !== 'Hệ thống'), 'speaker label is the proper name Hệ Thống');
 });
 
-test('Quang says tao to Hệ Thống in the guidance conversations', () => {
+test('Long says tao to Hệ Thống in the guidance conversations', () => {
   const guidance = [roomOne.GUIDE, roomThree.GUIDE, roomFour.GUIDE, roomFive.GUIDE, PUZZLE_GUIDE].flatMap(Object.values).flat();
-  const quang = guidance.filter(line => line.speaker === 'Quang');
+  const quang = guidance.filter(line => line.speaker === 'Long');
   assert.ok(quang.length >= 10);
   for (const line of quang) assert.match(line.text, /\b[Tt]ao\b|Hệ Thống/u, line.text);
 });

@@ -1,13 +1,13 @@
-import {CHARACTER_TEXTURE, CHARACTER_FRAME, characterClips, characterAtlasLayout} from './character-atlas.js';
+import {CHARACTER_TEXTURE, CHARACTER_FRAME, CHARACTER_COLUMNS, characterClips, characterAtlasLayout} from './character-atlas.js';
 export {CHARACTER_TEXTURE, CHARACTER_FRAME, characterAnimationKey} from './character-atlas.js';
 const SOURCE_KEY = `${CHARACTER_TEXTURE}-source`, MANIFEST_KEY = `${CHARACTER_TEXTURE}-manifest`;
-const sheetUrl = new URL('../../assets/characters/quang-reference/motion-sheet.png', import.meta.url).href;
-const manifestUrl = new URL('../../assets/characters/quang-reference/manifest.json', import.meta.url).href;
+const sheetUrl = new URL('../../assets/characters/long/motion-sheet.png', import.meta.url).href;
+const manifestUrl = new URL('../../assets/characters/long/manifest.json', import.meta.url).href;
 
 export function preloadCharacter(scene) {
   if (scene.textures.exists(CHARACTER_TEXTURE)) return;
   scene.characterLoadFailure = file => {
-    if (!scene.tornDown && [SOURCE_KEY, MANIFEST_KEY].includes(file.key)) scene.characterError = 'Không tải được hình nhân vật Quang.';
+    if (!scene.tornDown && [SOURCE_KEY, MANIFEST_KEY].includes(file.key)) scene.characterError = 'Không tải được hình nhân vật Long.';
   };
   scene.load.on('loaderror', scene.characterLoadFailure);
   if (!scene.textures.exists(SOURCE_KEY)) scene.load.image(SOURCE_KEY, sheetUrl);
@@ -24,7 +24,7 @@ function packCharacter(scene) {
   if (!sourceContext) throw new Error('Canvas is unavailable.');
   sourceContext.drawImage(image, 0, 0);
   const rgba = sourceContext.getImageData(0, 0, image.width, image.height).data;
-  for (let row=0; row<4; row++) for (let column=0; column<8; column++) {
+  for (let row=0; row<4; row++) for (let column=0; column<CHARACTER_COLUMNS; column++) {
     let visible = false;
     for (let y=0; y<layout.tileHeight; y++) for (let x=0; x<layout.tileWidth; x++) {
       const alpha = rgba[((row*layout.tileHeight+y)*image.width+column*layout.tileWidth+x)*4+3];

@@ -6,7 +6,7 @@ export const MANIFEST_PATH = 'public/audio/voice/manifest.json';
 export const REVIEW_CSV_PATH = 'plans/261031-1312-game-audio-voice-sfx/reports/voice-script.csv';
 
 // Fields owned by the build; later phases may add per-line fields (e.g. durationMs) that are carried over.
-// Hệ Thống, Quang (mck clone, user decision 2026-11-01) and the narrator are voiced.
+// Hệ Thống, Long (mck clone, user decision 2026-11-01) and the narrator are voiced.
 export const VOICED = new Set(['system', 'quang', 'narrator']);
 export function buildManifestLines() {
   return collectVoiceLines().filter(line => VOICED.has(line.voice)).map(line => ({

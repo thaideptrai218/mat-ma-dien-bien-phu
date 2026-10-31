@@ -14,7 +14,7 @@ Thái dựng trọn màn 2 trong game: một phòng khám phá, 4 câu đố n�
 - Cơ chế nhiều câu đố trong một phòng (các phòng khác dùng lại được).
 - Kiểm thử luật chơi cho 4 kiểu câu đố mới.
 
-**Ngoài phạm vi** (việc chung của nhóm): đổi nhân vật Minh thành Quang, chuyển game sang 5 phòng, các phòng 1, 3, 4, 5 và cánh cửa ghép tranh cuối. Màn 2 chỉ cần ghi lại "đã nhận mảnh ghép 2" để phòng cuối đọc.
+**Ngoài phạm vi** (việc chung của nhóm): đổi nhân vật Minh thành Long, chuyển game sang 5 phòng, các phòng 1, 3, 4, 5 và cánh cửa ghép tranh cuối. Màn 2 chỉ cần ghi lại "đã nhận mảnh ghép 2" để phòng cuối đọc.
 
 **Thế nào là xong:**
 
@@ -147,9 +147,9 @@ Văn bản dưới đây dán thẳng vào `story-data.js`. Giọng hệ thống
 
 **Lời dẫn vào phòng** (`navarre-plan-intro`):
 
-1. Quang: "Cánh cửa sau lưng khép lại. Bên trái là một bàn làm việc kiểu Pháp, bên phải là lán tham mưu vách nứa. Ở giữa là sa bàn Đông Dương với một bàn tay sắt nắm chặt."
+1. Long: "Cánh cửa sau lưng khép lại. Bên trái là một bàn làm việc kiểu Pháp, bên phải là lán tham mưu vách nứa. Ở giữa là sa bàn Đông Dương với một bàn tay sắt nắm chặt."
 2. Hệ thống: "Ngươi đã biết tên người cầm quân Pháp. Giờ hãy đọc kế hoạch của hắn. Một bên muốn nắm chặt nắm đấm, một bên muốn buộc nắm đấm ấy xòe ra."
-3. Quang: "Muốn biết ta đánh thế nào, trước hết phải hiểu địch định làm gì. Mình bắt đầu từ bàn của Nava."
+3. Long: "Muốn biết ta đánh thế nào, trước hết phải hiểu địch định làm gì. Mình bắt đầu từ bàn của Nava."
 
 **Bảy manh mối** (`title` · nội dung sổ tay · vị trí):
 
@@ -175,7 +175,7 @@ Văn bản dưới đây dán thẳng vào `story-data.js`. Giọng hệ thống
 
 **Khi sai lượt ở Nắm đấm:** "Nava kịp gom quân lại. Đọc lại các mẩu tin: nơi tập trung quân thứ hai là ở đâu?"
 
-**Rời phòng** (Quang): "Sức mạnh không chỉ nằm ở đối đầu trực diện, mà còn ở việc nắm tình hình, chủ động chọn hướng đánh và buộc đối phương phải phân tán."
+**Rời phòng** (Long): "Sức mạnh không chỉ nằm ở đối đầu trực diện, mà còn ở việc nắm tình hình, chủ động chọn hướng đánh và buộc đối phương phải phân tán."
 
 ## 7. Việc kỹ thuật và thứ tự làm
 
