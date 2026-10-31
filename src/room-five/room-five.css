@@ -16,3 +16,4 @@
 .r5-personal-response{display:block;box-sizing:border-box;width:100%;max-width:100%;margin-top:12px;min-height:120px;padding:14px;border:1px solid #9c987c;border-radius:4px;background:#fffaf0;color:#263d33;resize:vertical;font:400 17px/1.7 'DBP Text',serif}
 .r5-reflection>.r1-primary{margin-top:16px}
 @media(max-width:650px){.r5-piece-grid{gap:3px;padding:4px}.r5-piece-label{left:4px;bottom:4px;padding:2px 6px;font-size:12px}.r5-script{padding-left:12px}.r5-script p{font-size:16px}.r5-door-message{font-size:20px;padding:15px}.r5-complete-painting{border-width:4px}}
+.r5-script.is-speaking{border-left:3px solid #9b5f37;background:linear-gradient(90deg,#e9ddc166,transparent)}.r5-reflection .r1-voice-replay{margin:4px 0 14px}

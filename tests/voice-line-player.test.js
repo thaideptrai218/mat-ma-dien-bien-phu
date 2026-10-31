@@ -410,3 +410,27 @@ test('the first Hệ Thống line waits for the chime to finish decoding, and gi
   assert.deepEqual(seen, []);
 });
 
+
+test('Room 5 reflection script resolves to recorded manifest lines and is handed to the player in order', async () => {
+  const { REFLECTION_SCRIPT } = await import('../src/room-five/content.js');
+  const { lineVoiceId } = await import('../src/audio/voice-line-player.js');
+  const { readFile } = await import('node:fs/promises');
+  const manifest = JSON.parse(await readFile(new URL('../public/audio/voice/manifest.json', import.meta.url), 'utf8'));
+  const known = new Map(manifest.lines.map(entry => [entry.id, entry]));
+  assert.equal(REFLECTION_SCRIPT.length, 6);
+  for (const scriptLine of REFLECTION_SCRIPT) {
+    const entry = known.get(lineVoiceId(scriptLine));
+    assert.ok(entry, `no manifest entry for: ${scriptLine.text.slice(0, 40)}`);
+    assert.equal(entry.text, scriptLine.text.normalize('NFC'));
+  }
+  assert.ok(REFLECTION_SCRIPT.some(l => l.speaker === 'Hệ Thống'), 'the question is voiced by Hệ Thống (chime applies)');
+
+  const received = [];
+  const audio = { voice: { playSequence: (lines, options) => { received.push(lines); options.onLine(0); return Promise.resolve({}); } } };
+  const handle = createDialogueVoice(audio, REFLECTION_SCRIPT);
+  const marks = [];
+  handle.onLine = index => marks.push(index);
+  await handle.start();
+  assert.deepEqual(received, [REFLECTION_SCRIPT]);
+  assert.deepEqual(marks, [0]);
+});

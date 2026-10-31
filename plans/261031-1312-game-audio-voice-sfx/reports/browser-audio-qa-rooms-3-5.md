@@ -92,7 +92,66 @@ Gap: no browser evidence for Room 5 voice, ambience `room-5.mp3`, or footsteps (
 
 **Summary:** Rooms 3 and 4 pass 20/22 browser checks each. Voice order, highlight, replay, Esc stop, settings, ambience, footsteps, and network (no 404 except favicon) all pass. Two low-severity issues: first system line unchimed on unlock (race), and stale highlight after native Esc. Room 5 browser run not done (campaign fragments needed); its unit tests pass (38 subset, 156 full suite).
 
+## Follow-up
+
+Date: 2026-10-31. HEAD 47bc509 (fixes in b5362ec). `npm run build` exit 0. `vite preview` 127.0.0.1:4199, stopped after run. Tree clean. Probe: `C:\Users\pgb31\AppData\Local\Temp\claude\C--Users-pgb31\c5c9ddd7-2161-4ee6-8a8d-f82bf232b9e8\scratchpad\qa-followup-audio.mjs` (copy of the room probe; adds strict Esc DOM check and first-Hệ Thống chime check). Run: `node qa-followup-audio.mjs three|one`. Room 1 added as config `one`.
+
+### 1. Fix re-verification
+
+| Check | Room 3 | Room 1 |
+|---|---|---|
+| Intro "Bật lồng tiếng", paragraphs = manifest group | PASS 7/7 | PASS 5/5 |
+| Pre-click no audio requests; real click unlocks | PASS | PASS |
+| Voice order, file ids match DOM text | PASS 7/7 | PASS 5/5 |
+| is-speaking 0..N-1 | PASS | PASS |
+| Hệ Thống lines chimed | PASS 5/5 (gaps 301–305 ms) | PASS 4/4 (301–305 ms) |
+| **Fix a**: FIRST Hệ Thống line preceded by chime | **PASS** (304 ms, 1 chime start before it) | **PASS** (302 ms) |
+| system-chime request before first voice request | **FAIL** (chime 1841 ms, voice 1823 ms, +18 ms) | **FAIL** (chime 1648 ms, voice 1620 ms, +28 ms) |
+| **Fix b**: Esc during voice → voice stops, dialog closed | PASS | PASS |
+| **Fix b**: Esc leaves 0 `.is-speaking` in DOM | **PASS** (0) | **PASS** (0) |
+| No voice starts 3 s after Esc | PASS (8 starts before, none after) | PASS (6 before, none after) |
+| Nghe lại replays from line 1 | PASS | PASS |
+| Ambience bed requested and started | PASS (`room-3`) | PASS (`room-1`) |
+| Settings: toggle Tắt/Bật, 3 sliders, Esc closes | PASS | PASS |
+| Walking → 8 footstep starts (earth), 9/9 files 200 | PASS | PASS |
+| No 4xx/5xx, no console or page errors | PASS | PASS |
+| Total | 23/24 | 23/24 |
+
+Notes:
+- Fix a works audibly: `CHIME_WAIT_MS = 400` lets the chime finish decoding after unlock, then 300 ms gap. Only failing check is request order. Chime is fetched at unlock in parallel with line 0, so its request lands 18–28 ms after the first voice request. Audible result meets the goal; strict request-order criterion from first QA does not.
+- Residual risk: if chime decode takes over 400 ms (slow device or network), first Hệ Thống line still plays unchimed, silently. Not reproduced here.
+- Fix b confirmed: native Esc now clears highlight in the closed dialog. Single run per room, not repeated.
+
+### 2. Room 5 in real campaign (`index.html`): NOT RUN
+
+Stopped per instruction. Not feasible within reason:
+- Room 5 needs earned completion of Rooms 1–4: full paper reads, puzzle answers, physical walks across four scenes. Hundreds of scripted interactions, plus per-room answer tuning.
+- No usable driver in repo. `plans/261029-1757-mat-ma-dien-bien-phu-game/reports/browser-journey-driver.js` targets the old standalone `gameDebug` API (him-lam, campaign-map, command-post). Campaign QA harness lived in ignored `tmp/`; absent here.
+- Save seeding forbidden. No teleport or progress setter used.
+
+Static checks for Room 5 (code inspection only, no browser evidence):
+- Intro: `room-five/session.js:39` uses `dialogue()` → `createDialogueVoice` → `r5.INTRO` (4 recorded lines). Code PASS.
+- Painting-complete: `room-five/actions.js:43` plays `painting-complete` on assembly. Code PASS.
+- Door: `room-five/actions.js:47` plays `door-final-swell`. Code PASS.
+- Ambience `room-5` and surface `wood`: `audio-controller.js` maps `room-5`. Not traced end to end.
+- Museum return narration (`museum.MUSEUM_RETURN`, 3 recordings): wiring under `src/campaign/` not traced. Unverified.
+
+**Issue 3 (medium, code inspection): final reflection has no voice path.**
+- `room-five/panels.js` `reflection()` renders `REFLECTION_SCRIPT` as plain text. Does not call `createDialogueVoice` or `startDialogueVoice`.
+- `room-five/session.js:94` opens it via `show('reflection')`, which has no voice wiring. Reread path (`actions.js:50`) same.
+- Manifest has 6 recorded `r5.REFLECTION_SCRIPT` lines (incl. Hệ Thống `SYSTEM_QUESTION`, index 1) with `durationMs`. They are never played.
+- No test asserts reflection voice (`tests/room-five-*.test.js`). Spec "final question voiced by Hệ Thống" is not met.
+- Fix direction: route reflection through the dialogue voice path (keep reread voiced), add a unit test that the reflection view attaches a voice handle.
+
+### Summary
+Fix a and fix b verified in Room 3 and Room 1 (browser). Chime request-order check still fails by 18–28 ms (audible result fine). Room 5 browser run not done (no driver, fragments require full play). Static review found the final Hệ Thống reflection question is never voiced.
+
+**Status:** DONE_WITH_CONCERNS
+
 ## Unresolved questions
 - Is the missing first-line chime intended, or should it be treated as a bug? Current code has no guard.
 - Should Esc open settings or close the panel? Current behaviour closes; confirm intent.
 - Is a campaign-free way to reach Room 5 acceptable for browser QA?
+- Follow-up: strict chime request-order (before first voice) vs audible gap: which is the acceptance criterion?
+- Follow-up: is the silent final reflection intended? Manifest has recordings, spec says voiced.
+- Follow-up: commit the campaign journey driver under `plans/` (currently only in ignored `tmp/`) so Room 5 can be run repeatably?
