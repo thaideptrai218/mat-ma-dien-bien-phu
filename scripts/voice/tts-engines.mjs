@@ -6,11 +6,13 @@ import path from 'node:path';
 
 export const TOOL_ROOT = process.env.VOICE_TOOL_ROOT || 'F:/AI-auto-generate-video';
 const NARRATOR_PROFILE = '131af5c2-8d45-4733-8568-9e10166695ee';
+const MCK_PROFILE = '3d2f2ab7-4c57-4979-b454-7221da30acb7';
+const TLINH_PROFILE = 'bf87890f-734b-4b14-8979-52844e761360';
 
 // Voices chosen with the user on 2026-10-31.
 export const VOICE_CONFIG = Object.freeze({
-  system: {engine: 'capcut', voiceKey: 'capcut:d1c749e2fea5836aed206f5bdfb2ac64', name: 'Cô Gái Hoạt Ngôn', speed: 1.0},
-  quang: {engine: 'capcut', voiceKey: 'capcut:8669555e4b5874c320ccab7085231c13', name: 'Thanh Niên Tự Tin', speed: 1.0},
+  system: {engine: 'omnivoice', profileId: TLINH_PROFILE, name: 'T-Linh (Hệ Thống)', speed: 1.0},
+  quang: {engine: 'omnivoice', profileId: MCK_PROFILE, name: 'mck (Quang)', speed: 1.0},
   narrator: {engine: 'omnivoice', profileId: NARRATOR_PROFILE, name: 'Giọng đọc bài giảng', speed: 1.0},
 });
 

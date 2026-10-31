@@ -420,7 +420,7 @@ test('Room 5 reflection script resolves to recorded manifest lines and is handed
   assert.equal(REFLECTION_SCRIPT.length, 6);
   for (const scriptLine of REFLECTION_SCRIPT) {
     const entry = known.get(lineVoiceId(scriptLine));
-    if (scriptLine.speaker === 'Quang') { assert.equal(entry, undefined, 'Quang is text-only: no recording is listed'); continue; }
+
     assert.ok(entry, `no manifest entry for: ${scriptLine.text.slice(0, 40)}`);
     assert.equal(entry.text, scriptLine.text.normalize('NFC'));
   }

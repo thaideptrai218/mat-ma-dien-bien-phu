@@ -6,6 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {MANIFEST_PATH} from './voice/voice-manifest.mjs';
 import {health, synthesize} from './voice/tts-engines.mjs';
+import {splitSentences, joinWithPauses} from './voice/sentence-join.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const RAW_DIR = path.join(root, '.cache/voice-raw');
@@ -21,7 +22,7 @@ const todo = manifest.lines
 
 const status = await health();
 console.log('services', status);
-const needed = new Set(todo.map(line => (line.voice === 'narrator' ? 'omnivoice' : 'capcut')));
+const needed = new Set(['omnivoice']);
 const offline = [...needed].filter(engine => status[engine] !== 'ready');
 if (offline.length) { console.error(`Not ready: ${offline.join(', ')}. Start the service(s) and rerun.`); process.exit(1); }
 
@@ -31,7 +32,11 @@ const log = fs.existsSync(logFile) ? JSON.parse(fs.readFileSync(logFile, 'utf8')
 let done = 0, failed = 0;
 for (const line of todo) {
   try {
-    const audio = await synthesize(line.voice, line.ttsText, line.id);
+    // Sentences are rendered one by one and joined with real pauses (Hệ Thống keeps one take: robot FX hides the join).
+    const parts = line.voice === 'system' ? [line.ttsText] : splitSentences(line.ttsText);
+    const clips = [];
+    for (const part of parts) clips.push(await synthesize(line.voice, part, line.id));
+    const audio = joinWithPauses(clips);
     fs.writeFileSync(path.join(RAW_DIR, `${line.id}.mp3`), audio);
     log[line.id] = {voice: line.voice, bytes: audio.length, at: new Date().toISOString()};
     done++;
