@@ -5,3 +5,6 @@ tmp/
 .env
 .env.*
 !.env.example
+
+# Raw TTS output (voice-over pipeline)
+.cache/

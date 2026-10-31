@@ -9,6 +9,7 @@ import {createState, rendererState, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
 import {goalFor} from './goals.js';
 import {handleAction, handleIntent} from './actions.js';
+import {attachNarrativeVoice} from './narrative-voice.js';
 
 export class RoomTwoSession {
   constructor(root, options = {}) {
@@ -22,6 +23,7 @@ export class RoomTwoSession {
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
     this.ui = new RoomTwoUI({root, onAction: (action, payload) => handleAction(this, action, payload),
       getState: () => rendererState(this.state), onIntent: intent => handleIntent(this, intent)});
+    attachNarrativeVoice(this.ui.narrative, () => this.audio);
     this.scene = new RoomTwoScene({onInteract: id => this.interact(id),
       onPosition: position => { if (!this.disposed) { this.position = position; this.render(); } },
       onReady: () => this.render(),
@@ -61,28 +63,28 @@ export class RoomTwoSession {
 
   show(view, data = {}) {
     if (this.disposed) return;
-    this.ui.narrative.clear(); this.ui.puzzle.activeId = null; this.scene?.clearKeys();
+    this.audio.voice?.stop(); this.ui.narrative.clear(); this.ui.puzzle.activeId = null; this.scene?.clearKeys();
     this.active = {kind: view, ...data, token: ++this.nonce};
     this.ui.show(view, data); this.render();
   }
 
   showNarrative(beatId, {clueId} = {}) {
     if (this.disposed) return;
-    this.scene?.clearKeys(); this.ui.puzzle.activeId = null;
+    this.audio.voice?.stop(); this.scene?.clearKeys(); this.ui.puzzle.activeId = null;
     this.active = {kind: 'narrative', beatId, clueId, token: ++this.nonce};
     this.ui.narrative.show(beatId, {clueId}); this.render();
   }
 
   showPuzzle(puzzleId) {
     if (this.disposed) return;
-    this.scene?.clearKeys(); this.ui.narrative.clear();
+    this.audio.voice?.stop(); this.scene?.clearKeys(); this.ui.narrative.clear();
     this.active = {kind: 'puzzle', puzzleId, token: ++this.nonce};
     this.ui.puzzle.show(puzzleId); this.render();
   }
 
   close() {
     if (this.disposed) return;
-    this.ui.close(); this.active = null; this.ui.narrative.clear();
+    this.audio.voice?.stop(); this.ui.close(); this.active = null; this.ui.narrative.clear();
     this.scene?.clearKeys(); this.scene?.focus(); this.render();
   }
 

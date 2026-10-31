@@ -1,11 +1,15 @@
 import {CHAPTER, clues, puzzles, beats, evaluatePuzzle} from './content.js';
 import {PUZZLE_GUIDE} from './system-guidance.js';
+import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.js';
 
 // Hệ Thống points to the next station first; the solved board stays one button away.
 function showGuide(session, puzzle) {
-  const lines = [puzzle.successText, ...PUZZLE_GUIDE[puzzle.id].map(line => `${line.speaker} — ${line.text}`)];
-  session.show('dialogue', {title: puzzle.title, speaker: 'Quang', lines, buttonLabel: 'Xem lại kết quả trên bàn',
+  const spoken = [puzzle.successText, ...PUZZLE_GUIDE[puzzle.id]];
+  const lines = spoken.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
+  const voice = createDialogueVoice(session.audio, spoken);
+  session.show('dialogue', {title: puzzle.title, speaker: 'Quang', lines, voice, buttonLabel: 'Xem lại kết quả trên bàn',
     action: 'puzzle-review', payload: {puzzleId: puzzle.id, token: session.nonce + 1}});
+  startDialogueVoice(session, voice);
 }
 
 function failureText(puzzle, result, answer) {

@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import {AudioController} from '../audio/audio-controller.js';
+import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.js';
 import {disposeRoomSession, deferRoomExit, retainSharedAudioPreferences} from '../core/session-lifecycle.js';
 import {RoomOneUI} from '../room-one/ui.js';
 import {RoomFiveScene} from './scene.js';
@@ -56,7 +57,7 @@ export class RoomFiveSession {
   }
   show(view, data = {}) {
     if (this.disposed || this.options.isPaused?.()) return;
-    const token = ++this.nonce; this.scene?.clearKeys();
+    const token = ++this.nonce; this.audio.voice?.stop(); this.scene?.clearKeys();
     // Mark the active context before mounting a panel: opening a dialog may synchronously emit modal-open.
     this.active = {kind: view, ...data, token}; this.ui.show(view, {...data, token}); this.render();
   }
@@ -64,11 +65,13 @@ export class RoomFiveSession {
     if (this.disposed) return;
     const token = this.nonce + 1;
     const messages = lines.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
-    this.show('dialogue', {title, speaker: 'Quang', lines: messages, buttonLabel, action, payload: {...payload, token}});
+    const voice = createDialogueVoice(this.audio, lines);
+    this.show('dialogue', {title, speaker: 'Quang', lines: messages, voice, buttonLabel, action, payload: {...payload, token}});
+    startDialogueVoice(this, voice);
   }
   close() {
     if (this.disposed) return;
-    this.ui.close(); this.active = null; this.scene?.clearKeys(); this.scene?.focus(); this.render();
+    this.audio.voice?.stop(); this.ui.close(); this.active = null; this.scene?.clearKeys(); this.scene?.focus(); this.render();
   }
   error(message) {if (!this.disposed) {this.notice = message; this.audio.playCue('error'); this.render();}}
   interact(id) {

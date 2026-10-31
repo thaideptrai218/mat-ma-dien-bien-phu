@@ -1,7 +1,7 @@
 // Collects every spoken line of the campaign straight from the game content modules.
 // Plain strings are Quang's thoughts; {speaker, text} objects and Room 2 beats name their speaker.
 // Document prose (letters, reports) is read on screen and is not voiced; only Quang's reflections are.
-import {voiceIdFor, voiceOf, VOICES} from '../../src/audio/voice-id.js';
+import {voiceIdFor, voiceOf, framingLine, VOICES} from '../../src/audio/voice-id.js';
 import {OPENING} from '../../src/campaign/framing.js';
 import * as r1 from '../../src/room-one/content.js';
 import {DOCUMENTS as R1_DOCUMENTS} from '../../src/room-one/documents.js';
@@ -16,18 +16,12 @@ import {DOCUMENTS as R4_DOCUMENTS} from '../../src/room-four/documents.js';
 import * as r5 from '../../src/room-five/content.js';
 
 const BEAT_SPEAKERS = {system: 'Hệ Thống', quang: 'Quang'};
-const FRAMING_PREFIX = /^(Hệ Thống|Quang): /u;
 
 // Walks arrays and plain objects in key order, emitting each string or {speaker, text} line.
 function walk(value, group, emit) {
   if (typeof value === 'string' || (value && typeof value.text === 'string')) return emit(value, group);
   if (Array.isArray(value)) return value.forEach(item => walk(item, group, emit));
   if (value && typeof value === 'object') for (const [key, item] of Object.entries(value)) walk(item, `${group}.${key}`, emit);
-}
-
-function framingLine(text) {
-  const match = text.match(FRAMING_PREFIX);
-  return match ? {speaker: match[1], text: text.slice(match[0].length)} : {speaker: 'Lời kể', text};
 }
 
 const reflections = documents => Object.fromEntries(documents.map(doc => [doc.id, doc.reflection || []]));

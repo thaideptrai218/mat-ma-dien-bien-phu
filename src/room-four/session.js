@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import {AudioController} from '../audio/audio-controller.js';
+import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.js';
 import {RoomFourScene} from './scene.js';
 import {RoomFourUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
@@ -48,15 +49,16 @@ export class RoomFourSession {
   }
   show(view,data={}) {
     if(this.disposed)return;
-    this.scene?.clearKeys();this.ui.show(view,data);this.active={kind:view,...data,token:++this.nonce};this.render();
+    this.audio.voice?.stop();this.scene?.clearKeys();this.ui.show(view,data);this.active={kind:view,...data,token:++this.nonce};this.render();
   }
   dialogue(title,lines,buttonLabel='Trở lại bản đồ',action='close',payload={}) {
     if(this.disposed)return;
     const token=++this.nonce;
-    this.show('dialogue',{title,speaker:'Quang',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),buttonLabel,action,payload:{...payload,token}});
-    this.active.token=token;
+    const voice=createDialogueVoice(this.audio,lines);
+    this.show('dialogue',{title,speaker:'Quang',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),voice,buttonLabel,action,payload:{...payload,token}});
+    this.active.token=token;startDialogueVoice(this,voice);
   }
-  close(){if(this.disposed)return;this.ui.close();this.active=null;this.scene?.clearKeys();this.scene?.focus();this.render();}
+  close(){if(this.disposed)return;this.audio.voice?.stop();this.ui.close();this.active=null;this.scene?.clearKeys();this.scene?.focus();this.render();}
   error(message){if(this.disposed)return;this.notice=message;this.audio.playCue('error');this.render();}
   isLocked(id) {
     const s=this.state;

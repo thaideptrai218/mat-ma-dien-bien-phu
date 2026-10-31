@@ -1,4 +1,5 @@
 import {SynthVoices} from './synth-voices.js';
+import {VoiceLinePlayer} from './voice-line-player.js';
 
 export class AudioController{
   constructor({onStatusChange=()=>{}}={}){
@@ -7,6 +8,7 @@ export class AudioController{
     this.preferences={audioEnabled:false,audioVolume:.5};this.mode='inactive';this.unlocked=false;this.destroyed=false;
     this.focused=typeof document==='undefined'||document.hasFocus();this.operation=0;this.stepDistance=0;this.lastStep=-Infinity;
     this.stepCount=0;this.cueCount=0;this.lastCue=null;this.notice=null;this.listeners=[];
+    this.voice=new VoiceLinePlayer(this);
     if(typeof window!=='undefined'){
       const listen=(target,event,handler)=>{target.addEventListener(event,handler);this.listeners.push(()=>target.removeEventListener(event,handler));};
       listen(window,'blur',()=>{this.focused=false;this.stepDistance=0;this.sync();});
@@ -17,6 +19,8 @@ export class AudioController{
   background(){return !this.focused||(typeof document!=='undefined'&&document.hidden);}
   audible(){return !this.destroyed&&this.unlocked&&this.preferences.audioEnabled&&this.preferences.audioVolume>0&&
     this.context?.state==='running'&&this.mode!=='inactive'&&!this.background();}
+  // Voice-over plays only while a dialogue panel is open and sound is audible.
+  voiceAudible(){return this.mode==='dialogue'&&this.audible();}
   initialize(){
     this.context=new this.Engine();this.master=this.context.createGain();this.master.gain.value=0;
     this.analyser=this.context.createAnalyser();this.analyser.fftSize=2048;this.samples=new Float32Array(this.analyser.fftSize);
@@ -27,7 +31,11 @@ export class AudioController{
       this.sync();this.onStatusChange();
     };this.context.addEventListener('statechange',this.onStateChange);
   }
-  async unlockFromGesture(){
+  // lastUnlock lets UI code await an unlock started by a shared action handler (e.g. audio-toggle).
+  unlockFromGesture(){return this.lastUnlock=this.performUnlock();}
+  // Sound the player asked for and the browser allowed (independent of mode, focus and volume).
+  voiceReady(){return this.unlocked&&this.preferences.audioEnabled;}
+  async performUnlock(){
     if(this.destroyed)return {ok:false,notice:'Âm thanh đã được đóng.'};
     if(!this.Engine){this.notice='Trình duyệt không hỗ trợ Web Audio. Bạn vẫn có thể chơi bằng văn bản.';return {ok:false,notice:this.notice};}
     const version=++this.operation;
@@ -57,6 +65,7 @@ export class AudioController{
   sync(){
     if(!this.context||this.destroyed)return;
     const audible=this.audible(),now=this.context.currentTime;
+    if(!this.voiceAudible())this.voice.stop();
     this.master.gain.cancelScheduledValues(now);this.master.gain.setValueAtTime(audible?this.preferences.audioVolume*.45:0,now);
     if(!audible){this.synth.stop();this.stepDistance=0;return;}
     if(this.mode==='exploration')this.synth.ambience();
@@ -85,12 +94,12 @@ export class AudioController{
     return Object.freeze({available:Boolean(this.Engine),unlocked:this.unlocked,running:this.context?.state==='running',
       enabled:this.preferences.audioEnabled,volume:this.preferences.audioVolume,mode:this.mode,audible:this.audible(),
       state:this.context?.state||'uninitialized',stepCount:this.stepCount,cueCount:this.cueCount,lastCue:this.lastCue,
-      activeSources:this.synth?.count()||0,ambientSources:this.synth?.count('ambient')||0,
+      activeSources:this.synth?.count()||0,voice:this.voice.getSnapshot(),ambientSources:this.synth?.count('ambient')||0,
       signal:Object.freeze({rms,peak,contextTime:this.context?.currentTime||0}),notice:this.notice});
   }
   destroy(){
     if(this.destroyed)return;this.destroyed=true;this.operation++;this.listeners.forEach(unlisten=>unlisten());this.listeners=[];
-    this.synth?.stop();this.master?.disconnect();this.analyser?.disconnect();
+    this.voice.destroy();this.synth?.stop();this.master?.disconnect();this.analyser?.disconnect();
     if(this.context){this.context.removeEventListener('statechange',this.onStateChange);this.context.close().catch(()=>{});}
     this.unlocked=false;
   }

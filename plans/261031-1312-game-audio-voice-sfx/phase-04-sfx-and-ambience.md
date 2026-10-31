@@ -49,9 +49,10 @@
 4. Nghe thử từng phòng với giọng nói đặt lên trên.
 
 ## Todo List
-- [ ] Chốt danh sách SFX/nền
-- [ ] Thu thập + credits
-- [ ] Master + kiểm tra dung lượng
+- [x] Chốt danh sách SFX/nền (giữ nguyên bảng trên; không BGM — người dùng đã chốt)
+- [x] Thu thập + credits (Kenney CC0: Interface Sounds, Impact Sounds, RPG Audio, UI Audio; phần còn lại tự tổng hợp bằng FFmpeg → `public/audio/sfx/credits.json`)
+- [x] Master + kiểm tra dung lượng (`npm run audio:sfx` = `scripts/build-sfx.mjs` + `scripts/sfx/`; 33 SFX + 7 nền, tổng 3,81 MB; bảng đo `reports/sfx-qa.md`; chỉ mục `public/audio/sfx/manifest.json`)
+- [ ] Nghe thử từng phòng với giọng nói đặt lên trên (bước 4 — cần tai người, làm cùng phase 06)
 
 ## Success Criteria
 - Mỗi cue trong bảng có file + credit hợp lệ; tổng dung lượng trong ngân sách; người dùng duyệt không khí từng phòng.

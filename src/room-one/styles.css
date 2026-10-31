@@ -22,3 +22,8 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 
 @media(max-width:650px){.r1-dialogue .r1-portrait{display:flex;width:70px;min-height:85px}.r1-dialogue .r1-portrait img{width:70px;max-height:95px}.r1-dialogue .r1-portrait-name{font-size:9px;padding:4px}.r1-dialogue{gap:14px}}
+/* Voice-over: line being read, replay button, settings controls */
+.r1-dialogue-prose p.is-speaking:not(.r1-eyebrow){border-left:3px solid #9b5f37;padding-left:12px;margin-left:-15px;background:linear-gradient(90deg,#e9ddc166,transparent)}
+.r1-voice-replay{margin:7px 10px 0 0;font-size:14px}
+.r1-voice-settings{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin:18px 0 0}
+.r1-voice-volume{display:grid;gap:6px;font-size:13px;min-width:210px}.r1-voice-volume input{width:100%;accent-color:#37513e}

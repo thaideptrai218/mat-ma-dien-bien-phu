@@ -25,6 +25,15 @@ export class CampaignRuntime {
     this.store=new CampaignStore(storage,()=>this.render());
     this.audio=new AudioController({onStatusChange:()=>this.host.active?.render()});
     this.audio.setPreferences(this.store.state.settings);
+    // Museum frames have no sound button of their own: this lets them offer one and voice themselves.
+    this.frameVoice={
+      ready:()=>this.audio.voiceReady(),
+      speak:lines=>this.speakFrame(lines),
+      enable:async()=>{ // called inside the button's click so the browser allows audio
+        this.store.setAudio(true);this.audio.setPreferences({audioEnabled:true});
+        await this.audio.unlockFromGesture();return this.audio.voiceReady();
+      },
+    };
     this.ui=new CampaignUI(root,{
       onArchive:()=>this.ui.showArchive(this.store.state),
       onRestart:()=>this.confirmRestart(),
@@ -38,16 +47,20 @@ export class CampaignRuntime {
     this.onPageHide=()=>this.audio.setMode('inactive');window.addEventListener('pagehide',this.onPageHide);
   }
   render(){this.ui?.render(this.store.state,this.store.notice);}
+  speakFrame(lines){
+    if(!this.audio.voiceReady())return;
+    this.audio.setMode('dialogue');this.audio.voice.playSequence(lines);
+  }
   confirmRestart(){this.ui.confirmRestart(()=>{this.store.reset();this.openCurrent();});}
   async openCurrent() {
     this.ui.close(false);this.audio.setMode('inactive');this.host.active?.scene?.clearKeys();
     try{
       await this.host.replace({prepare:async()=>{
         this.ui.loading();
-        const state=this.store.state,phase=phaseFor(state),room=currentRoom(state);
+        const state=this.store.state,phase=phaseFor(state),room=currentRoom(state),voice=this.frameVoice;
         if(phase!=='room')return()=>{
-          const view=phase==='museum-intro'?introFrame(()=>{this.store.begin();this.openCurrent();}):
-            returnFrame(phase==='complete',()=>{this.store.finish();this.openCurrent();},()=>this.confirmRestart());
+          const view=phase==='museum-intro'?introFrame(()=>{this.store.begin();this.openCurrent();},voice):
+            returnFrame(phase==='complete',()=>{this.store.finish();this.openCurrent();},()=>this.confirmRestart(),voice);
           this.ui.stage.replaceChildren(view);this.render();return null;
         };
         const Session=await LOADERS[room-1]();

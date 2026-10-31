@@ -1,0 +1,212 @@
+{
+  "generatedBy": "scripts/build-sfx.mjs",
+  "cues": {
+    "system-chime": {
+      "file": "audio/sfx/system-chime.mp3",
+      "durationMs": 689,
+      "kind": "sfx"
+    },
+    "system-glitch": {
+      "file": "audio/sfx/system-glitch.mp3",
+      "durationMs": 150,
+      "kind": "sfx"
+    },
+    "ui-advance": {
+      "file": "audio/sfx/ui-advance.mp3",
+      "durationMs": 23,
+      "kind": "sfx"
+    },
+    "ui-open": {
+      "file": "audio/sfx/ui-open.mp3",
+      "durationMs": 254,
+      "kind": "sfx"
+    },
+    "ui-close": {
+      "file": "audio/sfx/ui-close.mp3",
+      "durationMs": 255,
+      "kind": "sfx"
+    },
+    "hint": {
+      "file": "audio/sfx/hint.mp3",
+      "durationMs": 484,
+      "kind": "sfx"
+    },
+    "notebook": {
+      "file": "audio/sfx/notebook.mp3",
+      "durationMs": 302,
+      "kind": "sfx"
+    },
+    "paper": {
+      "file": "audio/sfx/paper.mp3",
+      "durationMs": 375,
+      "kind": "sfx"
+    },
+    "drawer-open": {
+      "file": "audio/sfx/drawer-open.mp3",
+      "durationMs": 511,
+      "kind": "sfx"
+    },
+    "chest-unlock": {
+      "file": "audio/sfx/chest-unlock.mp3",
+      "durationMs": 429,
+      "kind": "sfx"
+    },
+    "chest-open": {
+      "file": "audio/sfx/chest-open.mp3",
+      "durationMs": 750,
+      "kind": "sfx"
+    },
+    "door-open": {
+      "file": "audio/sfx/door-open.mp3",
+      "durationMs": 919,
+      "kind": "sfx"
+    },
+    "card-place": {
+      "file": "audio/sfx/card-place.mp3",
+      "durationMs": 255,
+      "kind": "sfx"
+    },
+    "map-unfold": {
+      "file": "audio/sfx/map-unfold.mp3",
+      "durationMs": 646,
+      "kind": "sfx"
+    },
+    "typewriter": {
+      "file": "audio/sfx/typewriter.mp3",
+      "durationMs": 721,
+      "kind": "sfx"
+    },
+    "morse-beep": {
+      "file": "audio/sfx/morse-beep.mp3",
+      "durationMs": 715,
+      "kind": "sfx"
+    },
+    "radio-static": {
+      "file": "audio/sfx/radio-static.mp3",
+      "durationMs": 1395,
+      "kind": "sfx"
+    },
+    "success": {
+      "file": "audio/sfx/success.mp3",
+      "durationMs": 528,
+      "kind": "sfx"
+    },
+    "error": {
+      "file": "audio/sfx/error.mp3",
+      "durationMs": 228,
+      "kind": "sfx"
+    },
+    "fragment-get": {
+      "file": "audio/sfx/fragment-get.mp3",
+      "durationMs": 1481,
+      "kind": "sfx"
+    },
+    "painting-complete": {
+      "file": "audio/sfx/painting-complete.mp3",
+      "durationMs": 2837,
+      "kind": "sfx"
+    },
+    "door-final-swell": {
+      "file": "audio/sfx/door-final-swell.mp3",
+      "durationMs": 4084,
+      "kind": "sfx"
+    },
+    "time-warp": {
+      "file": "audio/sfx/time-warp.mp3",
+      "durationMs": 1804,
+      "kind": "sfx"
+    },
+    "room-transition": {
+      "file": "audio/sfx/room-transition.mp3",
+      "durationMs": 1050,
+      "kind": "sfx"
+    },
+    "step-earth-1": {
+      "file": "audio/sfx/step-earth-1.mp3",
+      "durationMs": 221,
+      "kind": "footstep"
+    },
+    "step-earth-2": {
+      "file": "audio/sfx/step-earth-2.mp3",
+      "durationMs": 262,
+      "kind": "footstep"
+    },
+    "step-earth-3": {
+      "file": "audio/sfx/step-earth-3.mp3",
+      "durationMs": 224,
+      "kind": "footstep"
+    },
+    "step-wood-1": {
+      "file": "audio/sfx/step-wood-1.mp3",
+      "durationMs": 257,
+      "kind": "footstep"
+    },
+    "step-wood-2": {
+      "file": "audio/sfx/step-wood-2.mp3",
+      "durationMs": 70,
+      "kind": "footstep"
+    },
+    "step-wood-3": {
+      "file": "audio/sfx/step-wood-3.mp3",
+      "durationMs": 71,
+      "kind": "footstep"
+    },
+    "step-stone-1": {
+      "file": "audio/sfx/step-stone-1.mp3",
+      "durationMs": 57,
+      "kind": "footstep"
+    },
+    "step-stone-2": {
+      "file": "audio/sfx/step-stone-2.mp3",
+      "durationMs": 64,
+      "kind": "footstep"
+    },
+    "step-stone-3": {
+      "file": "audio/sfx/step-stone-3.mp3",
+      "durationMs": 64,
+      "kind": "footstep"
+    },
+    "museum": {
+      "file": "audio/ambience/museum.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    },
+    "bunker": {
+      "file": "audio/ambience/bunker.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    },
+    "room-1": {
+      "file": "audio/ambience/room-1.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    },
+    "room-2": {
+      "file": "audio/ambience/room-2.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    },
+    "room-3": {
+      "file": "audio/ambience/room-3.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    },
+    "room-4": {
+      "file": "audio/ambience/room-4.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    },
+    "room-5": {
+      "file": "audio/ambience/room-5.mp3",
+      "durationMs": 44000,
+      "kind": "ambience",
+      "loop": true
+    }
+  }
+}

@@ -19,3 +19,10 @@ export function voiceOf(line) {
   if (typeof line === 'string') return 'quang';
   return VOICES[line?.speaker] ?? null;
 }
+
+// Campaign framing paragraphs name Hệ Thống/Quang with a "Name: " prefix; anything else is the narrator.
+const FRAMING_PREFIX = /^(Hệ Thống|Quang): /u;
+export function framingLine(text) {
+  const match = text.match(FRAMING_PREFIX);
+  return match ? {speaker: match[1], text: text.slice(match[0].length)} : {speaker: 'Lời kể', text};
+}

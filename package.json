@@ -9,7 +9,10 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.js",
-    "voice:script": "node scripts/build-voice-script.mjs"
+    "voice:script": "node scripts/build-voice-script.mjs",
+    "voice:generate": "node scripts/generate-voice-lines.mjs",
+    "voice:master": "node scripts/master-voice-lines.mjs",
+    "audio:sfx": "node scripts/build-sfx.mjs"
   },
   "dependencies": {
     "phaser": "3.90.0"

@@ -2,6 +2,7 @@ import { element, button, heading, audioLabel } from './ui-elements.js';
 import { documentPanel } from './document-reader.js';
 import { puzzlePanel } from './ui-puzzles.js';
 import { createRoomMap } from './ui-map.js';
+import { attachDialogueVoice, voiceSettings } from './ui-voice-controls.js';
 
 const portraitUrl = new URL('../../assets/images/quang-portrait.png', import.meta.url).href;
 
@@ -17,10 +18,12 @@ function dialogue(data, emit) {
   portrait.append(image, element('span', 'r1-portrait-name', data.speaker || 'Quang'));
   const prose = element('div', 'r1-dialogue-prose');
   prose.append(heading(data.title || 'Một lời tự nhủ', data.speaker || 'QUANG · SUY NGHĨ'));
-  for (const line of data.lines || []) prose.append(element('p', '', line));
+  const paragraphs = (data.lines || []).map(line => element('p', '', line));
+  prose.append(...paragraphs);
+  const cleanup = attachDialogueVoice(prose, paragraphs, data.voice, emit);
   prose.append(button(data.buttonLabel || 'Tiếp tục', () => emit(data.action || 'dialogue-finish', data.payload || {}), 'r1-primary'));
   panel.append(portrait, prose);
-  return { node: panel };
+  return { node: panel, cleanup };
 }
 
 function notebook(data, emit) {
@@ -58,6 +61,8 @@ function settings(data, emit) {
   const body = element('section');
   body.append(heading('Tùy chọn'), element('p', 'r1-lead', 'Tiến độ của phòng này được lưu trên trình duyệt hiện tại.'));
   body.append(button(audioLabel(data.audio), () => emit('audio-toggle'), 'r1-settings-audio'));
+  const voice = voiceSettings();
+  body.append(voice.node);
   const reset = element('div', 'r1-reset');
   reset.append(element('h3', '', 'Chơi lại từ đầu'), element('p', '', 'Xóa tiến độ phòng này và trở lại điểm bắt đầu.'));
   const confirm = element('label', 'r1-reset-confirm');
@@ -69,7 +74,7 @@ function settings(data, emit) {
   checkbox.addEventListener('change', () => { resetButton.disabled = !checkbox.checked; });
   reset.append(confirm, resetButton);
   body.append(reset);
-  return { node: body };
+  return { node: body, cleanup: voice.cleanup };
 }
 
 export function createPanel(view, data, emit, snapshot, world) {

@@ -18,6 +18,8 @@ export class CampaignStore {
     this.onChange(this.state);
   }
   begin() { this.update({...this.state,introSeen:true}); }
+  // Sound switch chosen outside a room (museum frames); rooms read it back through their save adapter.
+  setAudio(audioEnabled) { this.update({...this.state,settings:audioSettings({...this.state.settings,audioEnabled})}); }
   finish() { this.update({...this.state,endingSeen:true}); }
   reset() { this.update(createCampaignState()); }
   adapter(room, key) {

@@ -1,0 +1,638 @@
+{
+  "generatedBy": "scripts/build-sfx.mjs",
+  "note": "Every SFX/ambience file with its sources. Kenney packs are CC0 (credit appreciated, not required). Synthesized cues are generated reproducibly by `npm run audio:sfx`.",
+  "files": [
+    {
+      "file": "audio/sfx/system-chime.mp3",
+      "cue": "system-chime",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Two-note digital chime G6→C7 (85 ms apart) with octave overtones, short slap echo. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/system-glitch.mp3",
+      "cue": "system-glitch",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "150 ms digital glitch: square tone hopping pitch every 12.5 ms with dropouts + gated white noise, bit-crushed (6 bit), band-limited 250 Hz–7 kHz. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/ui-advance.mp3",
+      "cue": "ui-advance",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Interface Sounds (1.0)\" pack: Audio/click_001.ogg"
+        }
+      ],
+      "processing": "Kenney click_001 as-is; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/ui-open.mp3",
+      "cue": "ui-open",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Interface Sounds (1.0)\" pack: Audio/maximize_001.ogg"
+        }
+      ],
+      "processing": "Kenney maximize_001; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/ui-close.mp3",
+      "cue": "ui-close",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Interface Sounds (1.0)\" pack: Audio/minimize_001.ogg"
+        }
+      ],
+      "processing": "Kenney minimize_001; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/hint.mp3",
+      "cue": "hint",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Interface Sounds (1.0)\" pack: Audio/question_001.ogg"
+        }
+      ],
+      "processing": "Kenney question_001; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/notebook.mp3",
+      "cue": "notebook",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/bookOpen.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/bookFlip3.ogg"
+        }
+      ],
+      "processing": "Kenney bookOpen + bookFlip3 (-6 dB, +120 ms): open the notebook, then a page settles. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/paper.mp3",
+      "cue": "paper",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/bookFlip2.ogg"
+        }
+      ],
+      "processing": "Kenney bookFlip2; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/drawer-open.mp3",
+      "cue": "drawer-open",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/impactWood_light_000.ogg"
+        },
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Synthesized wooden slide (brown+pink noise, 700 Hz band, rough 37/23 Hz modulation) + Kenney impactWood_light_000 stop at +400 ms (-4 dB). Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/chest-unlock.mp3",
+      "cue": "chest-unlock",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/metalClick.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/metalLatch.ogg"
+        }
+      ],
+      "processing": "Kenney metalClick (key turn) + metalLatch (+220 ms, -2 dB). Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/chest-open.mp3",
+      "cue": "chest-open",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/creak2.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/impactWood_light_001.ogg"
+        }
+      ],
+      "processing": "Kenney creak2 (hinge) + impactWood_light_001 (+620 ms, -8 dB) as the lid comes to rest. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/door-open.mp3",
+      "cue": "door-open",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/doorOpen_1.ogg"
+        }
+      ],
+      "processing": "Kenney doorOpen_1; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/card-place.mp3",
+      "cue": "card-place",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/bookPlace1.ogg"
+        }
+      ],
+      "processing": "Kenney bookPlace1, 280 Hz high-pass to thin it into a light card on a table. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/map-unfold.mp3",
+      "cue": "map-unfold",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/bookFlip1.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/cloth1.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/bookFlip3.ogg"
+        }
+      ],
+      "processing": "Kenney bookFlip1 + cloth1 (-6 dB) + bookFlip3 (-4 dB) layered into one long paper unfold. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/typewriter.mp3",
+      "cue": "typewriter",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/ui-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"UI Audio\" pack: Audio/click3.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/impactPlate_light_000.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/ui-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"UI Audio\" pack: Audio/click4.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/ui-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"UI Audio\" pack: Audio/click1.ogg"
+        }
+      ],
+      "processing": "Six Kenney UI-Audio clicks (click1/3/4) at irregular 110–160 ms spacing, each doubled with Kenney impactPlate_light_000 (900 Hz HP, -15 dB) for the metal type-bar. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/morse-beep.mp3",
+      "cue": "morse-beep",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Morse \"-.-.\" at 65 ms units, 760 Hz sine with 5 ms ramps, 300 Hz–3.5 kHz band (telegraph earpiece). Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/radio-static.mp3",
+      "cue": "radio-static",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "1.4 s radio hiss: band-passed white noise with 13 Hz × 3.1 Hz flutter, sparse crackle impulses, light bit-crush. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/success.mp3",
+      "cue": "success",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Interface Sounds (1.0)\" pack: Audio/confirmation_002.ogg"
+        }
+      ],
+      "processing": "Kenney confirmation_002; trimmed + peak-normalized. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/error.mp3",
+      "cue": "error",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Interface Sounds (1.0)\" pack: Audio/error_006.ogg"
+        }
+      ],
+      "processing": "Kenney error_006 (the softest, lowest error tone in the pack); 5 kHz low-pass to keep it gentle. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/fragment-get.mp3",
+      "cue": "fragment-get",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Sparkling C-major arpeggio C6-E6-G6-C7 (70 ms steps) with octave glints and echo. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/painting-complete.mp3",
+      "cue": "painting-complete",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Warm C-major chord pad (detuned pairs) swelling in over 0.5 s, two soft bell glints, room echo; no melody. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/door-final-swell.mp3",
+      "cue": "door-final-swell",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Low C2–C4 open-fifth pad crescendo over 3 s with rising filtered air noise, then release; no melody. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/time-warp.mp3",
+      "cue": "time-warp",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Whoosh: pink noise through a band-pass swept 220 Hz→5.2 kHz over 1.4 s, rising sine chirp 300→2400 Hz, bright bell glint at 1.25 s (\"brightening\"). Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/room-transition.mp3",
+      "cue": "room-transition",
+      "kind": "sfx",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Soft 1.1 s pass-by whoosh: pink noise band-pass swept 2.4 kHz→350 Hz plus low brown-noise body, sin² envelope. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-earth-1.mp3",
+      "cue": "step-earth-1",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/footstep00.ogg"
+        }
+      ],
+      "processing": "Kenney footstep00.ogg; highpass=f=50,lowpass=f=5000; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-earth-2.mp3",
+      "cue": "step-earth-2",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/footstep01.ogg"
+        }
+      ],
+      "processing": "Kenney footstep01.ogg; highpass=f=50,lowpass=f=5000; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-earth-3.mp3",
+      "cue": "step-earth-3",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"RPG Audio\" pack: Audio/footstep02.ogg"
+        }
+      ],
+      "processing": "Kenney footstep02.ogg; highpass=f=50,lowpass=f=5000; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-wood-1.mp3",
+      "cue": "step-wood-1",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/footstep_wood_000.ogg"
+        }
+      ],
+      "processing": "Kenney footstep_wood_000.ogg; highpass=f=50; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-wood-2.mp3",
+      "cue": "step-wood-2",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/footstep_wood_001.ogg"
+        }
+      ],
+      "processing": "Kenney footstep_wood_001.ogg; highpass=f=50; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-wood-3.mp3",
+      "cue": "step-wood-3",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/footstep_wood_002.ogg"
+        }
+      ],
+      "processing": "Kenney footstep_wood_002.ogg; highpass=f=50; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-stone-1.mp3",
+      "cue": "step-stone-1",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/footstep_concrete_000.ogg"
+        }
+      ],
+      "processing": "Kenney footstep_concrete_000.ogg; highpass=f=50; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-stone-2.mp3",
+      "cue": "step-stone-2",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/footstep_concrete_001.ogg"
+        }
+      ],
+      "processing": "Kenney footstep_concrete_001.ogg; highpass=f=50; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/sfx/step-stone-3.mp3",
+      "cue": "step-stone-3",
+      "kind": "footstep",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/footstep_concrete_002.ogg"
+        }
+      ],
+      "processing": "Kenney footstep_concrete_002.ogg; highpass=f=50; lead/tail silence trimmed; 30 ms tail fade; peak-normalized to -6 dBFS; mono MP3. Mastering: mono 44.1 kHz, leading/trailing silence trimmed, 30 ms tail fade, linear gain to -6 dBFS sample peak, MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/museum.mp3",
+      "cue": "museum",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Quiet gallery room tone: low brown rumble + soft HVAC pink hiss (60 Hz–1.1 kHz), faint 100 Hz air-handler hum. Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: hum -10 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/bunker.mp3",
+      "cue": "bunker",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Opening, de Castries bunker: deep earth rumble (brown < 240 Hz, 11 s swell), 3 far muffled thuds per loop (< 90 Hz, long echo), faint dust trickle after each. Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: distant thuds -2 LU vs bed, dust trickle -14 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/room-1.mp3",
+      "cue": "room-1",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Bunker interior: low room rumble, whistling draught through a gap (700 Hz resonant band, 11 s / 4.4 s gusts), oil-lamp flame hiss + sparse crackles. Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: lamp crackle -9 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/room-2.mp3",
+      "cue": "room-2",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Staff room: quiet room tone, wall clock tick-tock (1 s, alternating pitch, left), faint radio hiss with gentle flutter + rare crackle (right). Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: clock -6 LU vs bed, radio crackle -12 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/room-3.mp3",
+      "cue": "room-3",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/impactMining_000.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/impactMining_001.ogg"
+        },
+        {
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
+          "author": "Kenney (www.kenney.nl)",
+          "originalFilename": "Kenney \"Impact Sounds (1.0)\" pack: Audio/impactMining_002.ogg"
+        },
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Night forest: still air + leaf rustle swells, three crickets (3.9–4.9 kHz chirp trains, panned), far pick/shovel strikes (Kenney impactMining, 1.1 kHz LP + echo) and a distant bicycle freewheel. Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: crickets 0 LU vs bed, distant digging + bicycle -10 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/room-4.mp3",
+      "cue": "room-4",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Hillside in the rain: steady rain wash (pink 500 Hz–7.5 kHz) + droplet ticks, gusting hill wind (22 s swell), two very distant artillery rumbles per loop (< 70 Hz, long echo, low level). Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: very distant artillery -5 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    },
+    {
+      "file": "audio/ambience/room-5.mp3",
+      "cue": "room-5",
+      "kind": "ambience",
+      "sources": [
+        {
+          "source": "synthesized: scripts/build-sfx.mjs",
+          "license": "Original work generated for this project from ffmpeg signal sources (no third-party material)",
+          "author": "Mật mã Điện Biên Phủ project",
+          "originalFilename": "n/a (generated)"
+        }
+      ],
+      "processing": "Stillness: light wind (brown 420 Hz band, 22 s swell), faint air, very low sustained hum on A1/A2/E3/A3 with a slow 22 s swell — no melody, no pulsing. Mastering: 44 s seamless loop (noise bed: 4 s equal-power tail→head crossfade; layers: low hum -8 LU vs bed), linear gain to -30 LUFS integrated, peaks limited to -12 dBFS, stereo MP3 CBR 96 kbps."
+    }
+  ]
+}

@@ -17,6 +17,7 @@ export function disposeRoomSession(session) {
     }
     session.ui?.destroy?.();
     if (session.onPageHide) globalThis.window?.removeEventListener('pagehide', session.onPageHide);
+    session.audio?.voice?.stop();
     if (session.ownsAudio) session.audio?.destroy();
     else session.audio?.setMode('inactive');
     if (game) {

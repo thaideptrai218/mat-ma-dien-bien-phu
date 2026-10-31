@@ -1,5 +1,6 @@
 import {element,button,heading} from '../room-one/ui-elements.js';
 import {PAINTING_URL,MUSEUM_RETURN,CLOSING_LINE} from '../room-five/content.js';
+import {framingLine} from '../audio/voice-id.js';
 
 function painting() {
   const figure=element('figure','campaign-painting');
@@ -28,23 +29,40 @@ export const OPENING = [
     'Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.'
   ],button:'Bước vào phòng 1'}
 ];
-export function introFrame(onBegin) {
+// `voice` is optional ({ready, speak, enable} from the runtime): frames are read aloud once sound is on, and until
+// then offer "Bật lồng tiếng", a real click that unlocks audio and starts reading the current frame.
+function voiceButton(voice,lines) {
+  if(!voice||voice.ready())return null;
+  const node=button('Bật lồng tiếng',async()=>{
+    if(await voice.enable()){node.remove();voice.speak(lines);}
+  },'r1-voice-enable');
+  node.setAttribute('aria-label','Bật lồng tiếng để nghe đoạn này');
+  return node;
+}
+export function introFrame(onBegin,voice) {
   const section=element('section','campaign-story'); let step=0;
   const draw=()=>{
     const current=OPENING[step],copy=element('div','campaign-story-copy');
     copy.append(heading(current.title,current.eyebrow));
     current.paragraphs.forEach(text=>copy.append(element('p','',text)));
-    copy.append(button(current.button,()=>{if(step===2)onBegin();else{step++;draw();section.querySelector('button')?.focus();}},'r1-primary'));
+    const lines=current.paragraphs.map(framingLine);
+    copy.append(button(current.button,()=>{if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}},'r1-primary'));
+    const enable=voiceButton(voice,lines);if(enable)copy.append(enable);
     section.replaceChildren(painting(),copy);
+    voice?.speak(lines);
   };
   draw(); return section;
 }
-export function returnFrame(complete,onFinish,onRestart) {
+export function returnFrame(complete,onFinish,onRestart,voice) {
   const section=element('section','campaign-story'),copy=element('div','campaign-story-copy');
   copy.append(heading(complete?'Câu chuyện còn tiếp':'Trở lại bảo tàng','HÀNH TRÌNH CỦA QUANG'));
   const lines=Array.isArray(MUSEUM_RETURN)?MUSEUM_RETURN:[MUSEUM_RETURN];
   for(const line of lines) copy.append(element('p','',typeof line==='string'?line:line.text));
   copy.append(element('blockquote','campaign-closing',CLOSING_LINE));
   copy.append(button(complete?'Bắt đầu một hành trình mới':'Khép lại hành trình',complete?onRestart:onFinish,'r1-primary'));
-  section.append(painting(),copy); return section;
+  const spoken=[...lines,CLOSING_LINE].map(line=>({speaker:'Lời kể',text:typeof line==='string'?line:line.text}));
+  const enable=voiceButton(voice,spoken);if(enable)copy.append(enable);
+  section.append(painting(),copy);
+  voice?.speak(spoken);
+  return section;
 }
