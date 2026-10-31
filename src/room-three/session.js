@@ -3,7 +3,7 @@ import {AudioController} from '../audio/audio-controller.js';
 import {RoomThreeScene} from './scene.js';
 import {RoomThreeUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
-import {INTRO,CAMPAIGN_INTRO,REACTIONS} from './content.js';
+import {INTRO,CAMPAIGN_INTRO,REACTIONS,LINES} from './content.js';
 import {CHALLENGES} from './puzzle-data.js';
 import {WORLD,OBJECTS} from './world.js';
 import {createState,reduce,nextDocumentId,canSolve,recoveredTokens} from './rules.js';
@@ -71,8 +71,8 @@ export class RoomThreeSession{
     if(ch)return this.show(ch.id,{solved:this.state.completedChallenges.includes(ch.id),reward:ch.reward});
     if(id==='chest'){
       if(!this.state.chestOpened)return this.show('final',{tokens:recoveredTokens(this.state)});
-      if(!this.state.fragmentCollected)return this.dialogue('Hồ sơ tiếp vận đã khôi phục',['Bốn dữ kiện đã trở về đúng chỗ. Mảnh tranh số III nằm cạnh hồ sơ.'],'Nhận mảnh tranh số III','fragment-collect',{id:'chest'});
-      return this.dialogue('Rương đã mở',['Mảnh tranh đã cất rồi. Mình đi tới cửa ra.']);
+      if(!this.state.fragmentCollected)return this.dialogue('Hồ sơ tiếp vận đã khôi phục',LINES.fragmentReady,'Nhận mảnh tranh số III','fragment-collect',{id:'chest'});
+      return this.dialogue('Rương đã mở',LINES.chestEmpty);
     }
     if(id==='door'&&this.commit('exit')){if(!deferRoomExit(this))this.show('completed');}
   }

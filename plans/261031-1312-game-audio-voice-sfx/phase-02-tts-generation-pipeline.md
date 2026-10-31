@@ -51,7 +51,7 @@ Tốc độ đề xuất: Hệ Thống `1.0`, Quang `1.05`, Lời kể `0.95` (c
 
 ## Todo List
 - [ ] Client 2 engine + health check
-- [ ] Bảng phát âm + test
+- [x] Bảng phát âm + test (`scripts/voice/tts-pronunciation.mjs`, làm sớm cùng phase 01)
 - [ ] Sinh thử Phòng 1, duyệt
 - [ ] Sinh toàn bộ ~320 câu
 

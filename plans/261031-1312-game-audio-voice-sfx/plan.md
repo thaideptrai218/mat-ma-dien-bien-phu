@@ -31,13 +31,13 @@ Tool: `F:\AI-auto-generate-video` (CapCut bridge `POST /tts {text, voiceKey, spe
 | Câu inline trong session/actions | ~30 | ~2.000 | chuyển vào content trước (phase 01) |
 | Lời kể | 5 + ~12 đoạn khung | ~4.500 | Phòng 5, bảo tàng mở/kết |
 
-Ước lượng ~320 câu, ~35 phút audio, ~15–17 MB MP3 mono 64 kbps, tải lười theo phòng. Văn bản tư liệu (thư, báo cáo) **không** lồng tiếng.
+Thực tế 332 câu (Quang 255 · Hệ Thống 59 · Lời kể 18, ~30.700 ký tự), ~35 phút audio, ~15–17 MB MP3 mono 64 kbps, tải lười theo phòng. Văn bản tư liệu (thư, báo cáo) **không** lồng tiếng.
 
 ## Phases
 
 | # | Phase | Trạng thái | File |
 | --- | --- | --- | --- |
-| 1 | Kịch bản lồng tiếng + manifest có hash | Chưa làm | [phase-01](phase-01-voice-script-and-manifest.md) |
+| 1 | Kịch bản lồng tiếng + manifest có hash | **Xong** (332 câu) | [phase-01](phase-01-voice-script-and-manifest.md) |
 | 2 | Sinh giọng TTS + chuẩn hóa phát âm | Chưa làm | [phase-02](phase-02-tts-generation-pipeline.md) |
 | 3 | Giọng máy móc Hệ Thống + mastering | Preset mạnh đã chọn | [phase-03](phase-03-system-voice-fx-and-mastering.md) |
 | 4 | SFX + nền môi trường (không BGM) | Chưa làm | [phase-04](phase-04-sfx-and-ambience.md) |

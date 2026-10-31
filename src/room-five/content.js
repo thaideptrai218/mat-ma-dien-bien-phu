@@ -47,3 +47,24 @@ export function getArchiveEntries(state) {
   return [{id: 'final-reflection', title: 'Câu hỏi cuối cùng và lời Quang', code: 'V', kind: 'report',
     source: SOURCE_LABEL, paragraphs: [...REFLECTION_SCRIPT.map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
 }
+
+// Quang's thoughts and narration in Room 5 dialogues (plain strings are Quang; objects name the speaker).
+export const LINES = {
+  lamp: ['Ánh đèn vẫn ấm. Mình đã đi qua rất nhiều trang giấy, nhưng câu chuyện chỉ trọn vẹn khi bốn mảnh được đặt cạnh nhau.'],
+  satchelFull: ['Bốn mảnh I, II, III, IV vẫn ở trong túi. Mỗi mảnh nhắc mình về một chặng đã tự đi qua.'],
+  satchelMissing: ['Túi chưa có đủ bốn mảnh. Mình cần đi qua các phòng của hành trình để tìm chúng.'],
+  assemblyMissing: ['Chưa có đủ bốn mảnh I, II, III, IV. Căn phòng không tạo thêm mảnh tranh; cần hoàn thành các chặng trước trong hành trình.'],
+  reflectionLocked: ['Nơi này vẫn yên lặng. Trước hết, mình cần hoàn thiện bức tranh ở bàn phục dựng.'],
+  doorAssembled: ['Tranh đã khớp, nhưng cửa vẫn đóng. Mình sẽ đến nơi ánh sáng cạnh cửa để nghe câu hỏi cuối.'],
+  doorUnassembled: ['Bức tranh trên cửa còn thiếu. Mình sẽ đến bàn phục dựng để ghép lại bốn mảnh.'],
+  lookAssembly: ['Bốn phần của cùng một bức tranh đang chờ được đặt đúng vị trí.'],
+  lookReflection: ['Từ ánh sáng bên cửa, giọng nói của hệ thống lại vang lên.'],
+  lookDoor: ['Ánh sáng đang chờ bên kia cánh cửa. Mình đã sẵn sàng trở về.'],
+  assembly: [{speaker: 'Lời kể', text: ASSEMBLY_COMPLETED}, {speaker: 'Lời kể', text: 'Mảnh cuối cùng đã khớp vào vị trí, nhưng cánh cửa vẫn bất động. Một luồng sáng dịu hiện lên cạnh cửa.'}],
+  door: [{speaker: 'Lời kể', text: DOOR_MESSAGE}],
+};
+// Interface notices shown only when the room is opened without its fragments; not voiced.
+export const NOTICES = {
+  introMissing: 'Căn phòng cuối cần bốn mảnh tranh kiếm được trong bốn phòng của hành trình. Mở riêng căn phòng không tự cấp các mảnh còn thiếu.',
+  resetMissing: 'Cần đủ bốn mảnh kiếm được trong hành trình để hoàn thiện bức tranh.',
+};

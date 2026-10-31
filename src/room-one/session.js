@@ -3,7 +3,7 @@ import {AudioController} from '../audio/audio-controller.js';
 import {RoomOneScene} from './scene.js';
 import {RoomOneUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
-import {INTRO, REACTIONS} from './content.js';
+import {INTRO, REACTIONS, LINES} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
@@ -110,7 +110,7 @@ export class RoomOneSession {
     if (id === 'comparison') return this.show('comparison', {solved: this.state.comparisonSolved});
     if (id === 'drawer') return this.show(this.state.drawerOpened ? 'identity' : 'drawer');
     if (id === 'chest') {
-      if (this.state.chestOpened) return this.dialogue('Mảnh tranh thứ nhất', ['Rương đã mở. Mình cất mảnh tranh rồi đi đến cánh cửa phía bắc.']);
+      if (this.state.chestOpened) return this.dialogue('Mảnh tranh thứ nhất', LINES.chestOpened);
       return this.show('chest');
     }
     if (id === 'door' && this.commit('exit')) {

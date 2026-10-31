@@ -3,7 +3,7 @@ import {AudioController} from '../audio/audio-controller.js';
 import {RoomFourScene} from './scene.js';
 import {RoomFourUI} from './ui.js';
 import {DOCUMENTS} from './documents.js';
-import {INTRO,CAMPAIGN_INTRO,REACTIONS} from './content.js';
+import {INTRO,CAMPAIGN_INTRO,REACTIONS,LINES} from './content.js';
 import {WORLD,OBJECTS} from './world.js';
 import {createState,goalFor,reduce,nextDocumentId} from './rules.js';
 import {loadSave,persistSave} from './save.js';
@@ -90,8 +90,8 @@ export class RoomFourSession {
     if(id==='board-t'||id==='board-l')return this.show('board',{board:id==='board-t'?'t':'l',solved:id==='board-t'?this.state.boardTSolved:this.state.boardLSolved});
     if(id==='chest') {
       if(!this.state.chestOpened)return this.show('final');
-      if(!this.state.fragmentCollected)return this.dialogue('Mảnh tranh số IV',['Mảnh tranh này thuộc chặng cuối của chiến dịch. Mình sẽ giữ lại để ghép với những mảnh ở các phòng trước.'],'Nhận mảnh tranh số IV','fragment-collect',{id:'chest'});
-      return this.dialogue('Rương đã mở',['Mình đã cất mảnh tranh. Cánh cửa ở phía bắc.']);
+      if(!this.state.fragmentCollected)return this.dialogue('Mảnh tranh số IV',LINES.fragmentReady,'Nhận mảnh tranh số IV','fragment-collect',{id:'chest'});
+      return this.dialogue('Rương đã mở',LINES.chestEmpty);
     }
     if(id==='door'&&this.commit('exit')){if(!deferRoomExit(this))this.show('completed');}
   }

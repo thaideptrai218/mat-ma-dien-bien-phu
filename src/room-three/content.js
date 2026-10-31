@@ -123,3 +123,19 @@ export const REACTIONS = {
     locked: ['Mình bắt đầu ở kho và đi theo những giấy tờ dọc tuyến.'],
   },
 };
+
+// Quang's thoughts in step dialogues; explanations follow each recovered reward.
+export const LINES = {
+  explanations: {
+    preparation: 'Ba việc chuẩn bị có thể diễn ra đan xen. Điều cần giữ là hậu cần phải sẵn trước lúc nổ súng.',
+    cargo: 'Xe thồ, dân công và những con đường đã nối nguồn hàng ở hậu phương với người lính ngoài mặt trận.',
+    strategy: 'Bộ Chỉ huy đánh giá tình hình thực tế, đặt yêu cầu chắc thắng lên trước việc giữ nguyên một dự định.',
+    opening: 'Him Lam, Độc Lập rồi Bản Kéo: những thắng lợi mở đường tiến xuống lòng chảo, tạo điều kiện cho các đợt sau.',
+  },
+  final: [
+    'Ngày mở màn Chiến dịch Điện Biên Phủ đã được khôi phục. Rương vừa mở.',
+    'Mình sẽ cất mảnh tranh số III trước khi đi tiếp.',
+  ],
+  fragmentReady: ['Bốn dữ kiện đã trở về đúng chỗ. Mảnh tranh số III nằm cạnh hồ sơ.'],
+  chestEmpty: ['Mảnh tranh đã cất rồi. Mình đi tới cửa ra.'],
+};

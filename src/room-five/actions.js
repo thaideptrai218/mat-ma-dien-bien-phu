@@ -1,5 +1,5 @@
 import {goalFor, hasAllFragments} from './rules.js';
-import {ASSEMBLY_COMPLETED, DOOR_MESSAGE, GUIDE} from './content.js';
+import {GUIDE, LINES} from './content.js';
 
 export function handleAction(session, action, payload = {}) {
   const s = session;
@@ -41,15 +41,11 @@ export function handleAction(session, action, payload = {}) {
       if (!hasAllFragments(s.fragments)) return s.error('Cần đủ bốn mảnh thật từ hành trình trước khi ghép tranh.');
       if (!s.commit('assembly', {order: payload.order})) return s.error('Các đường nét chưa liền nhau. Chọn hai mảnh để đổi chỗ rồi thử lại.');
       s.audio.playCue('success');
-      return s.dialogue('Tranh đã nguyên vẹn, cửa vẫn đóng', [
-        ASSEMBLY_COMPLETED,
-        'Mảnh cuối cùng đã khớp vào vị trí, nhưng cánh cửa vẫn bất động. Một luồng sáng dịu hiện lên cạnh cửa.',
-        ...GUIDE.assembly,
-      ]);
+      return s.dialogue('Tranh đã nguyên vẹn, cửa vẫn đóng', [...LINES.assembly, ...GUIDE.assembly]);
     case 'reflection-continue':
       if (!matching('reflection') || active.readOnly || !s.commit('reflection')) return;
       s.audio.playCue('reveal');
-      return s.dialogue('Cánh cửa đã mở', [DOOR_MESSAGE, ...GUIDE.door]);
+      return s.dialogue('Cánh cửa đã mở', [...LINES.door, ...GUIDE.door]);
     case 'reflection-reread':
       if (inView('notebook') && s.state.reflectionSeen) s.show('reflection', {readOnly: true});
       return;

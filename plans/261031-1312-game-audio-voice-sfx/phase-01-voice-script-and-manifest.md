@@ -5,12 +5,12 @@
 - Quy ước xưng hô: `docs/codebase-summary.md` mục “Hợp đồng cần giữ”.
 
 ## Overview
-- Priority: P1 (mọi phase sau dùng manifest này). Status: chưa làm.
+- Priority: P1 (mọi phase sau dùng manifest này). Status: **xong 2026-10-31** — 332 câu, `npm run voice:script`.
 - Trích tự động mọi câu cần lồng tiếng từ code thành một manifest duy nhất; không chép tay kịch bản.
 
 ## Key Insights
 - Câu thoại nằm rải trong nhiều module và có biến thể campaign/standalone trùng chữ → khử trùng theo `(speaker, text)`.
-- Text có thể đổi sau này → id phải gắn với nội dung: `voiceId = sha1(speaker + "\u0000" + text.normalize("NFC")).slice(0, 12)`. Đổi chữ = id mới = biết ngay câu nào phải sinh lại.
+- Text có thể đổi sau này → id phải gắn với nội dung: `voiceId = FNV-1a 64-bit(voice + "\u0000" + NFC text)` (16 hex, `src/audio/voice-id.js`). Đổi chữ = id mới = biết ngay câu nào phải sinh lại.
 - Khung bảo tàng (`framing.js`) đang là chuỗi `"Hệ Thống: …"`/`"Quang: …"` → parser tách tiền tố người nói; đoạn không tiền tố = Lời kể.
 
 ## Requirements
@@ -37,11 +37,11 @@ Runtime chỉ cần map `voiceId → file`; hàm `voiceIdFor(speaker, text)` dù
 7. Test: mọi câu thoại trong content có id trong manifest (test “giọng cũ/thiếu” — chạy cả trong `npm test`, cho phép file audio chưa tồn tại nhưng báo danh sách).
 
 ## Todo List
-- [ ] `src/audio/voice-id.js` + test
-- [ ] Chuyển câu inline vào `LINES`
-- [ ] `scripts/build-voice-script.mjs`
-- [ ] Manifest + CSV duyệt
-- [ ] `tests/voice-manifest.test.js`
+- [x] `src/audio/voice-id.js` + test
+- [x] Chuyển câu inline vào `LINES` (Phòng 1/3/4/5; câu thông báo Phòng 5 vào `NOTICES`, không lồng tiếng)
+- [x] `scripts/build-voice-script.mjs` + `scripts/voice/{collect-voice-lines,voice-manifest,tts-pronunciation}.mjs`
+- [x] `public/audio/voice/manifest.json` + `reports/voice-script.csv` (có cột Câu đọc TTS, Đạt?, Ghi chú)
+- [x] `tests/voice-manifest.test.js` (manifest khớp nội dung, TTS không còn số/ký hiệu, không còn chuỗi inline trong `dialogue()`)
 
 ## Success Criteria
 - Manifest liệt kê đủ ~320 câu, không trùng id; sửa một chữ trong content làm test chỉ ra đúng câu đó.

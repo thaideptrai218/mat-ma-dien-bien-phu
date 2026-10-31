@@ -4,7 +4,7 @@ import {disposeRoomSession, deferRoomExit, retainSharedAudioPreferences} from '.
 import {RoomOneUI} from '../room-one/ui.js';
 import {RoomFiveScene} from './scene.js';
 import {createPanel, shuffledPieces} from './panels.js';
-import {INTRO, SOURCE_LABEL} from './content.js';
+import {INTRO, SOURCE_LABEL, LINES, NOTICES} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, hasAllFragments, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
@@ -35,7 +35,7 @@ export class RoomFiveSession {
       scene: this.scene, physics: {default: 'arcade', arcade: {debug: false}}});
     this.audio.setPreferences(this.state); this.render();
     if (!this.state.introSeen) this.dialogue('Bức tranh hòa bình', hasAllFragments(this.fragments) ? [...INTRO, SOURCE_LABEL] : [
-      'Căn phòng cuối cần bốn mảnh tranh kiếm được trong bốn phòng của hành trình. Mở riêng căn phòng không tự cấp các mảnh còn thiếu.', SOURCE_LABEL,
+      NOTICES.introMissing, SOURCE_LABEL,
     ], 'Bước vào căn phòng cuối', 'intro-finish');
     else if (this.state.exitReached && !options.onExit) this.show('completed');
     this.onPageHide = () => this.audio.setMode('inactive'); window.addEventListener('pagehide', this.onPageHide);
@@ -76,12 +76,12 @@ export class RoomFiveSession {
     const object = OBJECTS.find(o => o.id === id), position = this.scene.getPosition();
     if (!object || position.nearbyId !== id || Math.hypot(object.x - position.x, object.y - position.y) > object.radius) return;
     this.notice = ''; this.commit('seen', {id}); this.audio.playCue('paper');
-    if (id === 'lamp') return this.dialogue(object.label, ['Ánh đèn vẫn ấm. Mình đã đi qua rất nhiều trang giấy, nhưng câu chuyện chỉ trọn vẹn khi bốn mảnh được đặt cạnh nhau.']);
-    if (id === 'satchel') return this.dialogue(object.label, [hasAllFragments(this.fragments) ? 'Bốn mảnh I, II, III, IV vẫn ở trong túi. Mỗi mảnh nhắc mình về một chặng đã tự đi qua.' : 'Túi chưa có đủ bốn mảnh. Mình cần đi qua các phòng của hành trình để tìm chúng.']);
-    if (id === 'assembly' && !hasAllFragments(this.fragments)) return this.dialogue(object.label, ['Chưa có đủ bốn mảnh I, II, III, IV. Căn phòng không tạo thêm mảnh tranh; cần hoàn thành các chặng trước trong hành trình.']);
-    if (id === 'reflection' && !this.state.assemblySolved) return this.dialogue(object.label, ['Nơi này vẫn yên lặng. Trước hết, mình cần hoàn thiện bức tranh ở bàn phục dựng.']);
-    if (id === 'door' && !this.state.reflectionSeen) return this.dialogue(object.label, [this.state.assemblySolved ? 'Tranh đã khớp, nhưng cửa vẫn đóng. Mình sẽ đến nơi ánh sáng cạnh cửa để nghe câu hỏi cuối.' : 'Bức tranh trên cửa còn thiếu. Mình sẽ đến bàn phục dựng để ghép lại bốn mảnh.']);
-    this.dialogue(object.label, [id === 'assembly' ? 'Bốn phần của cùng một bức tranh đang chờ được đặt đúng vị trí.' : id === 'reflection' ? 'Từ ánh sáng bên cửa, giọng nói của hệ thống lại vang lên.' : 'Ánh sáng đang chờ bên kia cánh cửa. Mình đã sẵn sàng trở về.'],
+    if (id === 'lamp') return this.dialogue(object.label, LINES.lamp);
+    if (id === 'satchel') return this.dialogue(object.label, hasAllFragments(this.fragments) ? LINES.satchelFull : LINES.satchelMissing);
+    if (id === 'assembly' && !hasAllFragments(this.fragments)) return this.dialogue(object.label, LINES.assemblyMissing);
+    if (id === 'reflection' && !this.state.assemblySolved) return this.dialogue(object.label, LINES.reflectionLocked);
+    if (id === 'door' && !this.state.reflectionSeen) return this.dialogue(object.label, this.state.assemblySolved ? LINES.doorAssembled : LINES.doorUnassembled);
+    this.dialogue(object.label, LINES[id === 'assembly' ? 'lookAssembly' : id === 'reflection' ? 'lookReflection' : 'lookDoor'],
       id === 'door' ? 'Bước qua cửa trở về' : 'Xem kỹ', 'continue-object', {id});
   }
   openObject(id) {
@@ -99,7 +99,7 @@ export class RoomFiveSession {
     this.ui.close(); this.active = null; this.nonce++; this.state = createState(); retainSharedAudioPreferences(this);
     this.assemblyOrder = shuffledPieces(); this.notice = persistSave(this.storage, this.state, this.fragments);
     this.scene.resetPosition?.(); this.audio.setPreferences(this.state); this.render();
-    this.dialogue('Bức tranh hòa bình', hasAllFragments(this.fragments) ? INTRO : ['Cần đủ bốn mảnh kiếm được trong hành trình để hoàn thiện bức tranh.'], 'Bước vào căn phòng cuối', 'intro-finish');
+    this.dialogue('Bức tranh hòa bình', hasAllFragments(this.fragments) ? INTRO : [NOTICES.resetMissing], 'Bước vào căn phòng cuối', 'intro-finish');
   }
   destroy() {return disposeRoomSession(this);}
 }

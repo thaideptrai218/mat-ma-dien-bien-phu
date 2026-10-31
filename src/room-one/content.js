@@ -119,3 +119,29 @@ export const REACTIONS = {
     locked: ['Mình chưa mở được ngăn kéo chứa bản điện.'],
   },
 };
+
+// Quang's thoughts in step dialogues (plain strings are Quang; objects name another speaker).
+export const LINES = {
+  letterArchive: [
+    'Nhãn lưu trữ ghi A-03. Trên bản đồ treo vách cũng có những ô như vậy.',
+  ],
+  a03: [
+    'Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.',
+    'Chúng đều được viết trước tháng 5/1953. Mình sẽ đọc theo thứ tự ngày tháng.',
+  ],
+  comparison: [
+    'Đối chiếu đúng: quân số 252.000 / 445.000; trang bị hạn chế / hiện đại; thế chủ động / lực lượng phân tán; sức ép tiếp tế / chi phí chiến tranh.',
+    'Những con số cho biết quy mô lực lượng; cách bố trí và những khó khăn mới cho thấy tình thế của họ.',
+    'Bốn hàng làm lộ bốn chữ số: 2 · 4 · 1 · 3. Đây là mật mã của trò chơi, không phải một niên đại lịch sử.',
+  ],
+  identity: [
+    'Henri Navarre, thường gọi là Nava, được cử sang Đông Dương làm Tổng chỉ huy tháng 5/1953.',
+    'Có một bản tin viết sau đó hai tháng. Mình sẽ đọc tiếp để biết kế hoạch mới đã được thông qua thế nào.',
+  ],
+  navaContext: [
+    'Trên rương cần họ theo cách gọi tiếng Việt. Mình sẽ dùng NAVA.',
+  ],
+  chestOpened: [
+    'Rương đã mở. Mình cất mảnh tranh rồi đi đến cánh cửa phía bắc.',
+  ],
+};

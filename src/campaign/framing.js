@@ -8,7 +8,7 @@ function painting() {
   figure.append(image,element('figcaption','','Tranh minh họa sáng tác cho trò chơi · Không phải tranh hoặc ảnh tư liệu tại bảo tàng.'));
   return figure;
 }
-const opening = [
+export const OPENING = [
   {eyebrow:'BẢO TÀNG · HIỆN TẠI',title:'Trước một bức tranh',paragraphs:[
     'Quang thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.',
     'Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Quang dừng lại trước bức tranh về chiến thắng sau 56 ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?',
@@ -31,7 +31,7 @@ const opening = [
 export function introFrame(onBegin) {
   const section=element('section','campaign-story'); let step=0;
   const draw=()=>{
-    const current=opening[step],copy=element('div','campaign-story-copy');
+    const current=OPENING[step],copy=element('div','campaign-story-copy');
     copy.append(heading(current.title,current.eyebrow));
     current.paragraphs.forEach(text=>copy.append(element('p','',text)));
     copy.append(button(current.button,()=>{if(step===2)onBegin();else{step++;draw();section.querySelector('button')?.focus();}},'r1-primary'));

@@ -114,3 +114,17 @@ export const REACTIONS = {
     locked: ['Mình sẽ đi lần lượt từ những tờ giấy cuối tháng ba, tháng tư.'],
   },
 };
+
+// Quang's thoughts in step dialogues.
+export const LINES = {
+  column: [
+    'T · I · M · T · V · A · L. Đọc thành “TÌM T VÀ L”.',
+    'Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.',
+  ],
+  final: [
+    '“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.',
+    'Mình sẽ lấy mảnh tranh số IV rồi tới cánh cửa phía bắc.',
+  ],
+  fragmentReady: ['Mảnh tranh này thuộc chặng cuối của chiến dịch. Mình sẽ giữ lại để ghép với những mảnh ở các phòng trước.'],
+  chestEmpty: ['Mình đã cất mảnh tranh. Cánh cửa ở phía bắc.'],
+};

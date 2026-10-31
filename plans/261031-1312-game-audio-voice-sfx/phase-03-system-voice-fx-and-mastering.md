@@ -20,7 +20,7 @@
 - Chuỗi lọc Hệ Thống (preset “mạnh”, đã chọn):
   `asplit → afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75 → amix 0.4/0.6 → flanger delay=2:depth=2:speed=0.3 → acrusher bits=9:mode=log:aa=1:mix=0.3 → highpass 180 → lowpass 6000 → aecho 0.8:0.6:7|14:0.35|0.25 → loudnorm I=-16:TP=-1.5:LRA=7`
 - Quang, Lời kể: `silenceremove` đầu/cuối (ngưỡng -45 dB, giữ 80 ms) → `highpass 70` → `loudnorm I=-16:TP=-1.5`.
-- Xuất: MP3 mono 44,1 kHz 64 kbps (tương thích mọi trình duyệt); tên `public/audio/voice/<room>/<voiceId>.mp3`.
+- Xuất: MP3 mono 44,1 kHz 64 kbps (tương thích mọi trình duyệt); tên `public/audio/voice/<voiceId>.mp3` (thư mục phẳng; phòng nào dùng câu nào nằm trong `rooms` của manifest).
 
 ## Architecture
 `scripts/master-voice-lines.mjs` đọc log phase 02 → chọn chuỗi lọc theo `voice` → `ffmpeg` (spawn, không shell) → ghi thành phẩm + `durationMs` vào manifest (để UI ước thời gian, tô sáng câu đang đọc).
