@@ -1,0 +1,45 @@
+/* Tactile puzzle components: token bins, combination dial, range ruler.
+   Colours fall back to the room palette (--r1-*) and work in every room's modal. */
+.tb,.cd,.rr{--tc-ink:var(--r1-ink,#25392f);--tc-paper:var(--r1-paper,#eee2c8);--tc-line:var(--r1-line,#b9a482);--tc-accent:var(--r1-copper,#965832);--tc-focus:#1d5e8c;color:var(--tc-ink)}
+.tb button:focus-visible,.cd :focus-visible,.rr :focus-visible{outline:3px solid var(--tc-focus);outline-offset:2px}
+.tb-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Token bins */
+.tb{display:grid;gap:14px;position:relative}
+.tb-bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tb-zone{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:64px;padding:8px 10px;border:2px dashed var(--tc-line);border-radius:4px;background:#f6eedc99;transition:background .15s,border-color .15s}
+.tb-zone.is-over{border-color:#2b7a4b;background:#dcebd3}
+.tb-zone.is-bad{border-color:#a3402b;background:#f1d7cd}
+.tb-tray{background:#e9deC6;border-style:solid}
+.tb-label{flex:1 0 100%;font-size:12px;font-weight:700;color:#6c6048}
+.tb-token{min-height:44px;min-width:44px;padding:8px 13px;border:1px solid #a78e67;border-radius:4px;background:#fffaf0;color:var(--tc-ink);font-weight:600;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;box-shadow:1px 2px 0 #c9b88f;transition:transform .12s,box-shadow .12s}
+.tb-token.is-lifted{background:#fbe7b3;border-color:var(--tc-accent);box-shadow:0 0 0 3px #96583255}
+.tb-token.is-dragging{position:relative;z-index:50;cursor:grabbing;transition:none;box-shadow:0 8px 18px #10241d55;opacity:.92}
+.tb-slot{min-height:44px;min-width:44px;margin-left:auto;border:1px dashed var(--tc-line);border-radius:4px;background:transparent;color:#6c6048;font-weight:700}
+.tb-slot:disabled{visibility:hidden}
+.tb-slot:not(:disabled){border-color:#2b7a4b;background:#e3f0d9;animation:tb-pulse 1.1s ease-in-out infinite}
+.tb.is-disabled .tb-token{cursor:default;opacity:.7}
+@keyframes tb-pulse{50%{background:#cfe6c2}}
+
+/* Combination dial */
+.cd{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:relative}
+.cd-column{display:grid;justify-items:center;gap:4px}
+.cd-wheel{width:52px;min-height:62px;display:grid;place-items:center;font:700 28px/1 'DBP Display',Georgia,serif;background:#fffaf0;border:2px solid #7b654c;border-radius:6px;box-shadow:inset 0 6px 8px #0001,inset 0 -6px 8px #0001}
+.cd-wheel.is-ticked{animation:cd-tick .16s ease-out}
+.cd-step{width:52px;min-height:44px;border:1px solid #a78e67;border-radius:4px;background:#f5eedf;color:var(--tc-ink)}
+.cd.is-disabled .cd-wheel{opacity:.6}
+@keyframes cd-tick{from{transform:translateY(-6px);opacity:.55}to{transform:none;opacity:1}}
+
+/* Range ruler */
+.rr{display:grid;gap:6px}
+.rr-label{font-size:13px;font-weight:700;color:#6c6048}
+.rr-input{width:100%;min-height:44px;margin:0;accent-color:var(--tc-accent);cursor:pointer}
+.rr-ticks{display:flex;justify-content:space-between;padding:0 8px;font-size:11px;color:#6c6048;pointer-events:none}
+.rr-tick{min-width:1ch;text-align:center}
+.rr-output{font:700 20px/1.2 'DBP Display',Georgia,serif}
+.rr.is-disabled{opacity:.6}
+
+@media(prefers-reduced-motion:reduce){
+  .tb *,.cd *,.rr *,.tb-zone,.tb-token,.cd-wheel{transition:none!important;animation:none!important}
+}
+@media(max-width:650px){.tb-bins{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}}

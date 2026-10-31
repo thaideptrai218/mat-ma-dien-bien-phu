@@ -9,7 +9,11 @@ function shape(tag, attributes, text) {
   return node;
 }
 
-export function createRoomMap({ position = {}, goal = {}, state = {} } = {}, compact = false, world = WORLD) {
+const snapshotGateRects = snapshot => (Array.isArray(snapshot.lockedGateRects) ? snapshot.lockedGateRects : [])
+  .filter(rect => Array.isArray(rect) && rect.length === 4 && rect.every(Number.isFinite));
+
+export function createRoomMap(snapshot = {}, compact = false, world = WORLD) {
+  const { position = {}, goal = {}, state = {} } = snapshot;
   const wrapper = element('div', compact ? 'r1-map r1-map-compact' : 'r1-map');
   const svg = shape('svg', { viewBox: `0 0 ${world.width} ${world.height}`, role: 'img', 'aria-label': 'Sơ đồ căn phòng: vị trí Quang, vật dụng và mục tiêu hiện tại' });
   svg.append(shape('rect', { x: 0, y: 0, width: world.width, height: world.height, fill: '#d9ccaa' }));
@@ -20,6 +24,10 @@ export function createRoomMap({ position = {}, goal = {}, state = {} } = {}, com
   }
   for (const prop of world.props || []) {
     svg.append(shape('rect', { x: prop.x, y: prop.y, width: prop.w || prop.width, height: prop.h || prop.height, rx: 8, fill: prop.solid ? '#8f7656' : '#c3b592', stroke: '#7b654c', 'stroke-width': 5 }));
+  }
+  // Locked area gates share the collision rects; dashed brown-red marks a barrier that will open.
+  for (const [x, y, width, height] of snapshotGateRects(snapshot)) {
+    svg.append(shape('rect', { x, y, width, height, fill: '#9c572e55', stroke: '#8a3b2a', 'stroke-width': 8, 'stroke-dasharray': '18 10', 'data-gate': 'locked' }));
   }
   const seen = new Set([...(state.seenObjectIds || []), ...(state.collectedNoteIds || [])]);
   for (const object of world.objects || []) {

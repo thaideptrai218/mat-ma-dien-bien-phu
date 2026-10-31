@@ -5,12 +5,14 @@ import {preloadCharacter, releaseCharacterLoader, registerCharacterAnimations, c
 import {WORLD} from './world.js';
 import {createRoomOneArtwork} from './art.js';
 import {bindRoomOneInput, movementVelocity} from './input.js';
+import {validateGates} from '../core/area-gates.js';
+import {SceneGates} from './scene-gates.js';
 
 export class RoomOneScene extends Phaser.Scene {
   constructor(callbacks = {}, {world = WORLD, artFactory = createRoomOneArtwork,
-    sceneKey = 'room-one', textureKey = 'room-one-archive', initialGoal = 'letter'} = {}) {
+    sceneKey = 'room-one', textureKey = 'room-one-archive', initialGoal = 'letter', areaGates = []} = {}) {
     super({key: sceneKey});
-    this.callbacks = callbacks; this.map = world; this.heldKeys = new Set();
+    this.callbacks = callbacks; this.map = world; this.gateLayer = new SceneGates(this, validateGates(areaGates)); this.heldKeys = new Set();
     this.artFactory = artFactory; this.textureKey = textureKey;
     this.facing = 'down'; this.sprinting = false; this.walking = false; this.motion = 'idle';
     this.windowFocused = true; this.nearby = null; this.goalId = initialGoal;
@@ -53,6 +55,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.player.setCollideWorldBounds(true); this.player.body.setMaxVelocity(390, 390);
     this.physics.world.setBounds(0, 0, this.map.width, this.map.height);
     this.collider = this.physics.add.collider(this.player, this.solids);
+    this.gateLayer.build(this.player); // area gates: no-op without areaGates
     this.nameLabel = this.add.text(spawn.x, spawn.y + 23, 'QUANG', {
       fontFamily: '"DBP Text", serif', fontSize: '13px', color: '#f6e7bb',
       backgroundColor: '#21392dd9', padding: {x: 7, y: 3},
@@ -156,6 +159,9 @@ export class RoomOneScene extends Phaser.Scene {
     this.goalMarker.fillStyle(0xf4d28a).fillTriangle(object.x - 10, object.y - 76, object.x + 10, object.y - 76, object.x, object.y - 63);
   }
 
+  // ids of area gates that must be closed right now; safe to call before create() (applied then) and every render.
+  setLockedGates(ids = []) { this.gateLayer.setLocked(ids); }
+
   getPosition() {
     const spawn = this.map.checkpoints[0];
     return Object.freeze({x: this.player?.x ?? spawn.x, y: this.player?.y ?? spawn.y,
@@ -166,7 +172,7 @@ export class RoomOneScene extends Phaser.Scene {
     const camera = this.cameras?.main;
     return { ...this.getPosition(), player: this.getPosition(), world: this.map,
       camera: camera ? {x: camera.scrollX, y: camera.scrollY, width: camera.width, height: camera.height} : null,
-      walking: this.walking, facing: this.facing, goalId: this.goalId,
+      walking: this.walking, facing: this.facing, goalId: this.goalId, lockedGateIds: this.gateLayer.lockedIds(),
       character:characterSnapshot(this), characterError:this.characterError || null};
   }
 
@@ -192,6 +198,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.events?.off(Phaser.Scenes.Events.POST_UPDATE, this.afterPhysics, this);
     this.physics?.world?.off(Phaser.Physics.Arcade.Events.WORLD_STEP, this.markPhysicsStep);
     this.scale?.off(Phaser.Scale.Events.RESIZE, this.resizeCamera);
+    this.gateLayer.destroy();
     if (this.collider?.world) this.collider.destroy();
     this.collider = null;
     if (this.solids?.scene) { this.solids.clear(true, true); this.solids.destroy(); }

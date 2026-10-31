@@ -49,3 +49,7 @@ Be Vietnam Pro/Lora/Patrick Hand và ảnh đều cục bộ, đợi font trư�
 119/119 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [QA toàn campaign](../plans/261031-campaign-link/reports/campaign-qa.md) qua năm exits/bốn mảnh/assembly/blank reflection/physical door/return/ack, archive 25→26, ending/audio reload, reset/epoch/clone và preview isolation. Donor 4180 giữ nguyên. Một concurrent build làm tab cũ mất lazy hash; reload phục hồi bốn exits thật và vào 5, không mất progress. Git theo sau verification, không hosting.
 
 [Kế hoạch tích hợp](../plans/261031-campaign-link/plan.md) · [Cấu trúc mã](codebase-summary.md) · [Quy ước](code-standards.md)
+
+## Cổng khu vực (area gates)
+
+`save state → lockedGateIds(AREA_GATES, state) → scene.setLockedGates(ids)` (zone tĩnh + overlay theo `style`, fade 250 ms, tức thì khi reduced-motion) và `lockedGateRects → ui.render() → createRoomMap` (ô nét đứt). `RoomOneScene` nhận option `areaGates`, gọi `callbacks.onGateBlocked(id)` (throttle 1,5 s) khi Quang đụng cổng khóa và `callbacks.onGateOpened(id)` khi cổng vừa mở; snapshot có `lockedGateIds`. Mặc định `areaGates=[]` không đổi hành vi.

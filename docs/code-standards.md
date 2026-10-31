@@ -35,4 +35,10 @@ Tên file kebab-case/export có tên; cân nhắc split khi có ranh giới th�
 
 Không nhận fixtures/DOM harness là full campaign QA. Chơi thật museum→1→2→3→4→5→return/ack, kiểm tra một canvas/dialog/audio, reload/reset và preview keys không đổi. Git update sau review/QA theo quyền đã có; không force-push, không secret/private sources; hosting là việc riêng chưa thực hiện.
 
+## Linh kiện xúc giác và cổng khu vực
+
+- Linh kiện dùng chung ở `src/ui/tactile/`: model thuần (`token-bins-model`, `dial-model`, `range-model`, bất biến, test bằng node) tách khỏi view DOM mỏng (`token-bins-view`, `combination-dial`, `range-ruler`). Linh kiện chỉ tạo đúng payload cũ cho reducer/evaluator; không lưu draft hay tọa độ.
+- Mọi thao tác kéo-thả phải có đường bấm-bấm và bàn phím (Enter/Space nhấc, Tab/mũi tên chọn đích, Enter thả, Esc hủy, Delete trả khay), vùng chạm ≥44px, thông báo aria-live; animation tôn trọng `prefers-reduced-motion`. Hit-test bằng `elementsFromPoint`, không dùng HTML5 DnD.
+- Cổng khu vực là dữ liệu thuần `src/core/area-gates.js` (`AREA_GATES` riêng mỗi phòng, không nhập vào `WORLD`); trạng thái suy từ cờ save, predicate lỗi coi như đang khóa. Mỗi cổng cần test reachability bằng `worldWithGates`.
+
 [Kế hoạch](../plans/261031-campaign-link/plan.md) · [Lifecycle](../plans/261031-campaign-link/reports/lifecycle.md) · [Bảo toàn Bảo](../plans/261031-campaign-link/reports/room-two.md)

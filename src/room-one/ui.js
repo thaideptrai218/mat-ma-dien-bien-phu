@@ -117,7 +117,8 @@ export class RoomOneUI {
     const settingsAudio = this.dialog.querySelector('.r1-settings-audio');
     if (settingsAudio) settingsAudio.textContent = audioLabel(audio);
     // Only rebuild the small drawing when its world position/status changes, never the open form.
-    const mapKey = `${Math.round(position.x / 6)},${Math.round(position.y / 6)},${fingerprint},${(state.seenObjectIds || []).join(',')}`;
+    const gateKey = JSON.stringify(this.snapshot.lockedGateRects || []);
+    const mapKey = `${Math.round(position.x / 6)},${Math.round(position.y / 6)},${fingerprint},${(state.seenObjectIds || []).join(',')},${gateKey}`;
     if (mapKey !== this.mapKey) {
       this.mapKey = mapKey;
       this.miniMapDrawing.replaceChildren(createRoomMap(this.snapshot, true, this.world));
