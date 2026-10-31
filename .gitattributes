@@ -1,0 +1,2 @@
+# Preserve captured donor bytes for provenance hashes across platforms.
+src/room-two/bao/** -text

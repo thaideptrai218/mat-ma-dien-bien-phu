@@ -1,30 +1,37 @@
 # Tiến độ dự án
 
-## Trạng thái ngày 2026-10-29
+Cập nhật 2026-10-31. Bản chính `/` đã có tuyến bảo tàng→phòng 1–5→bảo tàng, tích hợp Bảo local và common progress/journal. Đây là campaign mới từ canonical rooms, không bật lại app/map legacy. [Kế hoạch tích hợp](../plans/261031-campaign-link/plan.md).
 
-Đã hoàn tất và kiểm chứng cục bộ hành trình bảo tàng → Him Lam → bản đồ chiến dịch → sở chỉ huy → hòa bình → bảo tàng theo phạm vi được duyệt. Mã nguồn chia sẻ công khai trên [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu) theo yêu cầu cộng tác bổ sung; chưa có website hosting.
-
-| Hạng mục | Trạng thái |
+| Hạng mục | Trạng thái hiện tại |
 | --- | --- |
-| Prototype chương I, chọn phong cách và camera lớn | Hoàn tất, giữ riêng để đối chiếu. |
-| Foundation, nội dung, reducer và xác minh save | Đã triển khai. |
-| Phaser, bản đồ, va chạm, camera, idle/walk | Đã triển khai. |
-| VN, sổ tay, tư liệu, bốn thử thách, kết bảo tàng | Đã triển khai. |
-| Web Audio, mute/volume, suspend/retry, tùy chọn | Đã triển khai. |
-| Lưu cục bộ/checkpoint, tiếp tục/reset có xác nhận | Đã triển khai. |
-| Kiểm thử tự động, build và review | 23 test đạt, build đạt; review không còn blocker. |
-| Chơi toàn tuyến và QA cạnh biên trình duyệt | Đạt cục bộ: đủ bốn cửa/kết, 10 manh mối bắt buộc; hòa bình để trống. |
-| Save, input, camera, animation và audio | Kiểm tra reload bốn chương, reset/save lỗi, focus/hidden, bốn hướng, biên camera và tín hiệu PCM. |
-| Bố cục và khả năng chạy độc lập | Ba viewport và Chrome zoom 200%; chơi tới kết với mạng ngoài bị chặn, storage và Web Audio không khả dụng. |
+| Nguồn lịch sử/nội dung 1/3/4 | Giữ nội dung canonical từ PDF bản 4/bản chữ/brief, không nghiên cứu web hoặc đổi niên đại. |
+| Bảo Room 2 | Local adapter giữ world/gate/7 clues/9 beats/4 puzzles/renderers/art/CSS; manifest/body hashes và 13 focused tests; donor 4180 không sửa. Preview thực đã full pass. |
+| Campaign framing | Museum intro→time vortex/fictional bunker→rooms→same painting return→ending acknowledgment đã triển khai. |
+| Global state/save | Envelope campaign, nested room sanitizers, contiguous exits, derived fragments/settings; preview keys không migrate, donor không đọc thành tích. |
+| Sổ hành trình | Full prior earned papers/Bảo beats/N-01/đoạn cuối, readonly và parent-paused. |
+| Chuyển phòng/lifecycle | Một Game/canvas, async idempotent destroy await Phaser, epoch/import guard, shared audio ownership. |
+| Room 5 | ActualI–IV→2×2 assembly→authored reflection/optional private text→physicaldoor→return. Không auto-award, không chấm/lưu lời cá nhân. |
+| Reset/reload | Current room reset giữ trước/cắt phụ thuộc; confirmed global newgame chỉ campaign. Reload current safe spawn, save lỗi vẫn phiên chơi. |
+| Build/tests |119/119 tests, build 5 HTML: index+room-one/two/three/four. |
+| Browser campaign | PASS: earned I–IV/năm exits/assembly/blank reflection/physical door/return/ack; archive 25→26, ending/audio reload, confirmed reset giữ preview và rapid mount/restart. |
+| Reviewer/independent QA | Review GO; độc lập full Room 2 preview, Room 5 component/privacy/mobile; full campaign do controller chơi thật. |
+| Git/hosting | Git update sau verification; chưa tuyên bố push, không hosting deployment. |
 
-## Bàn giao
+## Sau phạm vi này
 
-Dùng [hướng dẫn chạy](deployment-guide.md) và [README](../README.md). Bằng chứng nghiệm thu: [QA game chính](../plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-qa.md), [QA cạnh biên độc lập](../plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-edge-qa.md), [review mã](../plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-code-review.md). Bản production đã kiểm tra dùng entry `index-DE-mEXGN.js`; kế hoạch và trạng thái pha trong [plan](../plans/261029-1757-mat-ma-dien-bien-phu-game/plan.md).
+Campaign implementation/review/actual QA hoàn tất trong phạm vi báo cáo. Update Git theo quyền đã có; hosting, touch walking, narration/TTS, backend/accounts, real-user timing/screen-reader certification và giấy phép phân phối tài sản chưa thuộc bàn giao. Phòng 5/integration đã triển khai.
 
-## Ngoài phạm vi đã duyệt
+Các preview 1–4 vẫn dùng save riêng, route 1 chuyển sang room-one.html. Donor Bảo checkout/preview 4180 bảo toàn; bản campaign không phụ thuộc tab ngoài. Tất cả mảnh đến từ room thực, không fake earlier completion.
 
-Cảm ứng để đi bộ, lồng tiếng/TTS, backend/tài khoản, PWA và hosting. Tuyến năm chặng 1954–1975, mini-map và chạy nhanh đang ở mức đề xuất. Giấy phép phân phối cốt truyện/hình ảnh chưa xác định.
+## Hồ sơ trước đó
 
-## Tham chiếu
+Các báo cáo dưới đây giữ đúng phạm vi từng phiên bản; không thay QA campaign:
 
-[Yêu cầu](project-overview-pdr.md) · [Nhật ký triển khai](journals/2026-10-29-full-game.md) · [Chạy và build](deployment-guide.md)
+- [Phòng 1/nguồn PDF](../plans/261030-pdf-four-rebuild/plan.md), [sửa thư](../plans/261030-room-one-letter-revision/reports/qa.md).
+- [Phòng 3/bổ sung nền 1](../plans/261031-room-three-logistics/plan.md), [QA](../plans/261031-room-three-logistics/reports/qa.md), [độc lập](../plans/261031-room-three-logistics/reports/independent-qa.md).
+- [Trâm Room 4](../plans/261030-tram-room-four/plan.md), [QA](../plans/261030-tram-room-four/reports/qa.md).
+- [App bảo tàng cũ](../plans/261029-1757-mat-ma-dien-bien-phu-game/plan.md), [màn IV thử cũ](../plans/261030-chapter-four-playable-trial/plan.md), [bản thư/niên biểu cũ](../plans/261030-letters-timeline/plan.md): lịch sử phát triển, không phải runtime hiện tại.
+
+[README](../README.md) · [Kiến trúc](system-architecture.md) · [Nhật ký tích hợp](journals/2026-10-31-campaign-integration.md) · [Lifecycle](../plans/261031-campaign-link/reports/lifecycle.md) · [Bảo toàn Bảo](../plans/261031-campaign-link/reports/room-two.md)
+
+[QA toàn campaign](../plans/261031-campaign-link/reports/campaign-qa.md) · [Review GO](../plans/261031-campaign-link/reports/code-review.md)

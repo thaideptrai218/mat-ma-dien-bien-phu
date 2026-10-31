@@ -1,21 +1,24 @@
-# Chạy và build game
+# Chạy, build và lưu tiến độ
 
-## Điều kiện
+**Production:** https://mat-ma-dien-bien-phu.vercel.app/ — triển khai bằng MCP Vercel. Xem [deployment hiện tại/cách cập nhật](deployment.md). Tiến độ trên tên miền này riêng với localhost.
 
-- Node.js **>=22.12.0**, npm và trình duyệt máy tính hỗ trợ Canvas/Web Audio/native dialog.
-- Phaser **3.90.0**, Vite **8.3.5** đã khóa bằng lockfile. Không cần cài toàn cục hoặc backend.
-- Chạy lệnh từ thư mục chứa `package.json`.
-
-## Phát triển
+Cần Node.js >=22.12.0 và npm. Phaser 3.90.0/Vite 8.3.5 khóa trong package-lock.json. Từ thư mục dự án:
 
 ```powershell
 npm ci
 npm run dev
 ```
 
-Mở **http://127.0.0.1:5173**. Cổng 5173 dùng `strictPort`; nếu đã bị chiếm, dừng tiến trình đang dùng cổng rồi chạy lại. Không mở `index.html` trực tiếp bằng `file://`: game chính dùng ES modules và tài nguyên qua Vite/HTTP.
+Mở **http://127.0.0.1:5173/** để chơi chiến dịch: bảo tàng→phòng 1–5→bảo tàng. Không mở HTML bằng file://. Các preview độc lập:
 
-## Kiểm tra bản build
+| Đường dẫn | Bản thử |
+| --- | --- |
+| `/room-one.html` | Phòng 1, chuyển khỏi entry gốc `/`. |
+| `/room-two.html` | Bản local tích hợp từ Bảo, không mở iframe/port 4180. |
+| `/room-three.html` | Phòng 3 hậu phương. |
+| `/room-four.html` | Phòng 4 của Trâm. |
+
+Phòng 5 chỉ mở trong chiến dịch khi có đủ mảnh thật/cửa trước, không có preview cấp mảnh.
 
 ```powershell
 npm test
@@ -23,16 +26,28 @@ npm run build
 npm run preview
 ```
 
-Vite tạo `dist/`, preview tại **http://127.0.0.1:4173**, cũng dùng cổng cố định. Preview chỉ phục vụ kiểm tra cục bộ; dự án chưa có hosting. `base: './'` tạo đường dẫn tài nguyên tương đối. Bản build bao gồm engine và tài nguyên cục bộ; đã kiểm tra chơi tới kết qua HTTP khi mạng ngoài bị chặn nhưng máy chủ localhost vẫn hoạt động. Không coi đường dẫn `file://` là cách chạy được hỗ trợ.
+Preview **http://127.0.0.1:4173/**; dev/preview cố định 5173/4173. Dist có đúng năm HTML: index,room-one,room-two,room-three,room-four, cùng tài nguyên local/lazy chunks. Không phục hồi chapter-four.html hoặc prototype cũ. Sau build lại, reload tab cũ nếu nó còn giữ lazy chunk hash của build trước. Production đã có trên Vercel qua MCP; push mã và triển khai là hai thao tác riêng.
 
-## Tiến độ và khắc phục lỗi
+## Chiến dịch và preview có save riêng
 
-Save nằm trong localStorage của origin hiện tại, không đồng bộ thiết bị/tài khoản; đổi cổng dev sang preview là save khác. Tiếp tục về checkpoint an toàn gần nhất đã đi vào, không về tọa độ tùy ý hoặc câu thoại đang đọc. Khi storage lỗi, game thông báo và vẫn giữ phiên đang chơi; dữ liệu hỏng không tự được coi là tiến độ hợp lệ.
+Global key **`mat-ma-dien-bien-phu:campaign:v1`** giữ nested room snapshots và shared settings. Current room/mảnh/return được suy từ tiến độ hợp lệ; reload về safe spawn phòng hiện tại. Không nhập save preview hoặc donor vào campaign.
 
-Chọn **Bắt đầu lại** rồi xác nhận để xóa save và đặt lại tùy chọn. Nếu trình duyệt chặn xóa, game báo rằng save cũ có thể còn sau tải lại. Nội dung suy nghĩ riêng ở hòa bình không được lưu.
+Bốn preview dùng `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` cùng tiền tố. N-01 vẫn đọc được từ save Phòng 1 đã giải danh tính; phần mở rộng không đổi key/gating preview cũ.
 
-Nếu không di chuyển được, đóng bảng rồi bấm bản đồ/**Đi vào bản đồ** và nhấn lại phím. Nếu không có tiếng, bấm **Bật âm thanh/Bật lại âm thanh**, kiểm tra mute/âm lượng trong tùy chọn và âm lượng trình duyệt. Quyền phát runtime không khôi phục tự động từ save; suspend audio cần thao tác bật lại.
+**Bắt đầu lại phòng** giữ các phòng trước và bỏ phần hiện tại/phụ thuộc sau. **Hành trình mới** cần xác nhận, chỉ reset envelope chiến dịch, không xóa preview/donor keys. Reload không giữ tọa độ/cursor/draft, suy nghĩ cá nhân Room 5 không lưu ở bất kỳ chế độ nào. Đổi origin/cổng tạo vùng lưu khác. Storage hỏng/bị chặn vẫn chơi trong phiên và có thông báo.
 
-## Phạm vi bàn giao
+## Bảo gốc được bảo toàn
 
-Mã nguồn chia sẻ tại [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu). Có thể clone theo README rồi chạy bằng npm. Chưa có cấu hình deploy, domain hoặc tài khoản trong game. Chưa xác định giấy phép phân phối cốt truyện/tài sản. [README](../README.md) là hướng dẫn người chơi; [roadmap](project-roadmap.md) ghi trạng thái QA.
+Checkout `../mat-ma-dien-bien-phu-bao`, preview **http://127.0.0.1:4180/** là donor gốc, không thay đổi bởi build/reset chiến dịch. Bản campaign dùng bản sao local có manifest/hash, original renderers/evaluators/map; không dùng external-tab progress. [Báo cáo fidelity](../plans/261031-campaign-link/reports/room-two.md). Nếu cần chạy preview gốc, dùng lệnh dự án của Bảo trong đúng checkout, không ghi output bản chính vào đó.
+
+## Điều khiển và tài nguyên
+
+Bấm canvas, WASD/mũi tên đi, Shift chạy 260→390, E vật gần, M map, N sổ phòng, Q nhiệm vụ, Esc đóng/tùy chọn. Sổ hành trình trên header giữ giấy đã kiếm ở các phòng; mở sổ pause room/input/audio, không dịch chuyển từ map/journal. Qua cửa thật mới chuyển room.
+
+Be Vietnam Pro/Lora/Patrick Hand, chân dung, sáu SVG hậu cần và victory-painting đều local. Tranh do dự án sáng tác, không ảnh tư liệu. Không CDN/TTS hoặc tải PDF nguồn lên website. Campaign giữ một Web Audio controller/context; bật/resume từ gesture, preference tách runtime permission. Chuyển phòng giữ setting chung, preview vẫn độc lập.
+
+## Kiểm chứng
+
+`npm test` giới hạn trong `tests/*.test.js`, không dò các bản test sao chép trong thư mục tạm. Build tự đóng gói spritePNG/manifest mới; không cần imagegen/API hoặc chạy công cụ PowerShell khi cài/chơi. Công cụ đóng hình là tùy chọn cho người thay asset; hướng dẫn trong [README nhân vật](../assets/characters/quang-reference/README.md).
+
+119/119 tests/build năm entry và [review GO](../plans/261031-campaign-link/reports/code-review.md). [Full campaign PASS](../plans/261031-campaign-link/reports/campaign-qa.md): năm cửa/bốn mảnh thật/ghép/blank reflection/cửa trở về/museum acknowledgment; ending reload, shared audio,26 archive entries, global reset và preview isolation. Giữ preview assets ổn định trong lượt chơi; QA ghi rõ concurrent-build interruption và reload không mất tiến độ. [Kế hoạch](../plans/261031-campaign-link/plan.md) · [Lifecycle](../plans/261031-campaign-link/reports/lifecycle.md) · [README](../README.md).

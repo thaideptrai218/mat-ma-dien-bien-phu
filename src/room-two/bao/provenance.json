@@ -1,0 +1,40 @@
+{
+  "donorHead": "5ff03c241a35bfe4137bc8fd5bebd43079450648",
+  "snapshotDate": "2026-10-31",
+  "files": {
+    "src/ui/puzzle-view.js": {
+      "sha256": "926fe4bbce7fb89266ef16ed8c2d31d31e4f30869678037c1a38f6fb77bf279a",
+      "adaptedPath": "bao/ui/puzzle-view.js",
+      "bodySha256": "2850e5b9568c09a987ce6777202f5b77875640a0b517b3e7fec671be511b2240"
+    },
+    "src/ui/narrative-view.js": {
+      "sha256": "e633fa9d17498f79ce59e8525a76a907e4a523c6ff921285cb545f68f768d052",
+      "adaptedPath": "bao/ui/narrative-view.js",
+      "bodySha256": "51f69e2203507f8a01fce1286dfb992d7e763b4b7d0149e20fe7a68761f9cb95"
+    },
+    "src/game/room-art.js": {
+      "sha256": "f6cdc664b0f53beaa39ae45773f245b9116a05dc5a6499ed0a4865694eb4933a",
+      "adaptedPath": "bao/game/room-art.js",
+      "bodySha256": "dfa59a470ace450b4fc413bc4964378608ffa80099b15c5c4a69b022242748e3"
+    },
+    "src/ui/puzzle-styles.css": {
+      "sha256": "c6bc55a62c62f67fd8ce2fbe35c2952f422fe4a43a58e75d89a47d4b670cad13",
+      "adaptedPath": "bao/ui/puzzle-styles.css",
+      "bodySha256": "c6bc55a62c62f67fd8ce2fbe35c2952f422fe4a43a58e75d89a47d4b670cad13"
+    },
+    "src/ui/narrative-styles.css": {
+      "sha256": "5e4da1d6d4dca5293717da03d5182b7606c142d2a3758f59ab76ced79f08ff18",
+      "adaptedPath": "bao/ui/narrative-styles.css",
+      "bodySha256": "5e4da1d6d4dca5293717da03d5182b7606c142d2a3758f59ab76ced79f08ff18"
+    },
+    "src/content/story-data.js": {
+      "sha256": "a107b4de8aaab85665a2171a0cf754b2d0bcbb388bc76fa539816b6c094e54f7"
+    },
+    "src/content/world-data.js": {
+      "sha256": "4342e220fad3cf86e0f79e5a98d39a9394bdefe29a994be59762e2688261feed"
+    },
+    "src/core/game-rules.js": {
+      "sha256": "e6aab1de8252a92fd2c5d8c67f22f2a6b6d490f3c8034ca5450ba0d3e8bf07d0"
+    }
+  }
+}

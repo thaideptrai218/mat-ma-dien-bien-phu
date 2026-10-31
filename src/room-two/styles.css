@@ -1,0 +1,26 @@
+@import './bao/ui/puzzle-styles.css';
+@import './bao/ui/narrative-styles.css';
+
+.r2-app{--body:'DBP Text',sans-serif;--display:'DBP Display',serif;--gold:#e4ba6b;--olive:#394b30;--text:#eee8d6}
+.r2-modal .quiet-button,.r2-modal .primary-button{min-height:44px;padding:9px 15px;border:1px solid #84906c;background:transparent;color:#3b4e2e;font:inherit;cursor:pointer}
+.r2-modal .primary-button{display:inline-flex;align-items:center;justify-content:center;gap:15px;background:#394b30;color:#f6efdb;border-color:#394b30;font-weight:600}
+.r2-modal .dialog-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 0}
+.r2-modal .form-field{display:grid;gap:7px;margin:16px 0;font-size:16px;font-weight:600}
+.r2-modal select,.r2-modal textarea{width:100%;min-height:46px;padding:9px 12px;border:1px solid #8f9c76;border-radius:0;background:#f5eed8;color:#303e28;font:inherit}
+.r2-modal .choice-row{display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 0;border-bottom:1px solid #b7b193;font-size:16px}
+.r2-modal .feedback{border-left:3px solid #8d5139;background:#d8c5a4;color:#693525;padding:12px 15px;font-size:16px}
+.r2-modal .feedback.success{border-color:#4b6a3d;background:#d2ddba;color:#304727}
+.r2-modal .feedback.hint{border-color:#7d6e36;background:#e1d3ab;color:#4d4a28}
+.r2-modal .form-help{font-size:12px;line-height:1.7;color:#59654b}
+.r2-app .r2-modal.vn-dialog{color:#eee8d6;background:#1c291f}
+.r2-modal.vn-dialog .r1-eyebrow{color:#e4ba6b}
+.r2-modal.vn-dialog .r1-modal-close{color:#eee8d6}
+.r2-modal.vn-dialog .vn-controls .primary-button{margin-left:auto;background:#d9bb78;color:#273323;border-color:#e2c487}
+.r2-modal.vn-dialog .vn-controls .quiet-button{color:#dedfc4;border-color:#75865a}
+/* Hints come only from the Hệ Thống side card: hide the donor "Xem gợi ý" button (second to last action) and the
+   fold preview hint text that spells out what each flag shows (the donor bodies stay untouched). */
+.r2-modal #puzzle-form .dialog-actions>.quiet-button:nth-last-child(2),.r2-modal .fold-preview .feedback.hint{display:none}
+.r2-notebook-entry{display:grid;text-align:left;justify-items:start;gap:7px}
+.r2-notebook-entry .r1-muted{white-space:normal}
+.r2-sr-only,.r2-modal .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:650px){.r2-modal .dialog-actions>*{flex:1}.r2-modal.vn-dialog .vn-controls .primary-button{margin-left:0}}

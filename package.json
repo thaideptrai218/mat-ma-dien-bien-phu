@@ -8,9 +8,20 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node --test"
+    "test": "node --test tests/*.test.js",
+    "voice:script": "node scripts/build-voice-script.mjs",
+    "voice:generate": "node scripts/generate-voice-lines.mjs",
+    "voice:master": "node scripts/master-voice-lines.mjs",
+    "audio:sfx": "node scripts/build-sfx.mjs",
+    "voice:review": "node scripts/build-voice-review-page.mjs"
   },
-  "dependencies": { "phaser": "3.90.0" },
-  "devDependencies": { "vite": "8.3.5" },
-  "engines": { "node": ">=22.12.0" }
+  "dependencies": {
+    "phaser": "3.90.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
 }

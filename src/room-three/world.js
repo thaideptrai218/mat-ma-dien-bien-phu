@@ -1,0 +1,53 @@
+// A rear-supply learning camp, not a reconstruction of battlefield positions.
+// Rectangles describe solid equipment; paper anchors remain within a clear E approach.
+export const WORLD = Object.freeze({
+  id: 'room-three', width: 3200, height: 2000,
+  walls: [
+    [0, 0, 3200, 44], [0, 1956, 3200, 44],
+    [0, 44, 44, 1912], [3156, 44, 44, 1912],
+    [370, 1230, 400, 26], [920, 1230, 170, 26],
+    [1780, 350, 26, 280], [1780, 900, 26, 100],
+    [2490, 1090, 26, 240],
+  ],
+  props: [
+    {x: 430, y: 1514, w: 180, h: 72, kind: 'paper', station: '01'},
+    {x: 1190, y: 1274, w: 180, h: 72, kind: 'paper', station: '02'},
+    {x: 1930, y: 484, w: 180, h: 72, kind: 'paper', station: '03'},
+    {x: 2610, y: 844, w: 180, h: 72, kind: 'paper', station: '04'},
+    {x: 2690, y: 1214, w: 180, h: 72, kind: 'paper', station: '05'},
+    {x: 726, y: 1456, w: 188, h: 88, kind: 'archive'},
+    {x: 1400, y: 984, w: 220, h: 92, kind: 'cargo'},
+    {x: 2170, y: 578, w: 220, h: 84, kind: 'command'},
+    {x: 2590, y: 1470, w: 160, h: 80, kind: 'radio'},
+    {x: 2302, y: 1680, w: 176, h: 120, kind: 'chest'},
+    {x: 2940, y: 1768, w: 140, h: 64, kind: 'door'},
+    {x: 1080, y: 1610, w: 160, h: 80, kind: 'supply'},
+    {x: 1668, y: 798, w: 144, h: 64, kind: 'tools'},
+    {x: 2180, y: 1416, w: 40, h: 48, kind: 'lamp'},
+    {x: 170, y: 1360, w: 96, h: 230, kind: 'supply'},
+    {x: 390, y: 1810, w: 290, h: 80, kind: 'supply'},
+    {x: 820, y: 1760, w: 170, h: 96, kind: 'supply'},
+    {x: 1270, y: 720, w: 200, h: 78, kind: 'cart'},
+    {x: 1920, y: 260, w: 270, h: 70, kind: 'supply'},
+    {x: 2890, y: 1400, w: 100, h: 210, kind: 'supply'},
+  ],
+  exits: [], checkpoints: [{id: 'entry', x: 300, y: 1720}],
+  objects: [
+    {id: 'preparation-record', label: '01 · Hồ sơ chuẩn bị', x: 520, y: 1550, type: 'document'},
+    {id: 'supply-journal', label: '02 · Nhật ký tiếp vận', x: 1280, y: 1310, type: 'document'},
+    {id: 'command-telegrams', label: '03 · Hai bức điện', x: 2020, y: 520, type: 'document'},
+    {id: 'opening-letter', label: '04 · Thư sau trận Độc Lập', x: 2700, y: 880, type: 'document'},
+    {id: 'north-report', label: '05 · Báo cáo phía bắc', x: 2780, y: 1250, type: 'document'},
+    {id: 'archive-cabinet', label: 'Tủ hồ sơ chuẩn bị', x: 820, y: 1500, type: 'station'},
+    {id: 'cargo-yard', label: 'Bãi hàng tiếp vận', x: 1510, y: 1030, type: 'station'},
+    {id: 'command-tent', label: 'Bàn điện trong lều', x: 2280, y: 620, type: 'station'},
+    {id: 'radio-station', label: 'Trạm điện đài', x: 2670, y: 1510, type: 'station'},
+    {id: 'chest', label: 'Rương mảnh tranh thứ ba', x: 2390, y: 1740, type: 'chest'},
+    {id: 'door', label: 'Lối ra trạm tiếp vận', x: 3010, y: 1800, type: 'door'},
+    {id: 'supply-crates', label: 'Những hòm tiếp tế', x: 1160, y: 1650, type: 'prop'},
+    {id: 'road-tools', label: 'Dụng cụ mở đường', x: 1740, y: 830, type: 'prop'},
+    {id: 'field-lamp', label: 'Ngọn đèn dã chiến', x: 2200, y: 1440, type: 'prop'},
+  ].map(object => Object.freeze({...object, radius: 110})),
+});
+
+export const OBJECTS = WORLD.objects;

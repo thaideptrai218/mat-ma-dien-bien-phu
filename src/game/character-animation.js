@@ -1,53 +1,71 @@
-const palette={hair:'#292f24',skin:'#d0ad77',shirt:'#d6c796',light:'#eee0b7',sleeve:'#b7ad81',
-  trousers:'#3e5140',boot:'#26362b',scarf:'#a34b38',bag:'#876842',strap:'#685036'};
-export const CHARACTER_FRAME=Object.freeze({width:64,height:96,originX:.5,originY:2/3,bodyOffsetX:20,bodyOffsetY:56});
-const directions=['down','left','right','up'];
-function drawPose(ctx,x,facing,pose,reduced){
-  const walking=pose>=0,stride=walking?[-3,-1,3,1][pose]:0,lift=walking?[0,2,0,1][pose]:0;
-  const bob=walking&&!reduced?[0,-1,0,0][pose]:0;
-  const rect=(px,py,w,h,c)=>{ctx.fillStyle=palette[c]||c;ctx.fillRect(px,py,w,h);};
-  ctx.save();ctx.translate(x+32,48);ctx.scale(2,2);rect(-10,5,20,4,'#1c2c2466');ctx.translate(0,bob);
-  if(facing==='left'||facing==='right'){
-    ctx.save();if(facing==='left')ctx.scale(-1,1);
-    rect(-4+stride,1,5,8-lift,'trousers');rect(-4+stride,8-lift,7,3,'boot');
-    rect(1-stride,1,5,8,'trousers');rect(1-stride,8,8,3,'boot');
-    rect(-6,-11,11,13,'shirt');rect(-5,-10,9,3,'light');
-    rect(-4+stride,-8,3,7-lift,'sleeve');rect(-4+stride,-2-lift,3,3,'skin');
-    rect(-5,-19,10,9,'skin');rect(-6,-23,10,7,'hair');rect(-6,-19,3,8,'hair');
-    rect(4,-17,3,3,'skin');rect(3,-18,1,2,'hair');rect(2,-11,3,6,'scarf');rect(4,-8,3,2,'scarf');
-    rect(-5,-10,2,12,'strap');rect(-8,-1,7,7,'bag');rect(-7,0,5,1,'#ac8b58');ctx.restore();
-  }else{
-    rect(-5,1,5,8-stride,'trousers');rect(-6,8-stride,6,3,'boot');
-    rect(2,1,5,8+stride,'trousers');rect(2,8+stride,7,3,'boot');
-    rect(-9,-9+stride,3,8,'sleeve');rect(-9,-2+stride,3,3,'skin');
-    rect(8,-9-stride,3,8,'sleeve');rect(8,-2-stride,3,3,'skin');
-    rect(-7,-12,15,14,'shirt');rect(-5,-11,11,3,'light');rect(-5,-23,11,9,'hair');
-    if(facing==='up'){
-      rect(-5,-20,11,9,'hair');rect(-4,-11,9,2,'scarf');rect(2,-11,2,14,'strap');rect(-9,-2,7,7,'bag');
-    }else{
-      rect(-4,-18,9,7,'skin');rect(-5,-20,10,3,'hair');rect(-3,-16,1,2,'hair');rect(3,-16,1,2,'hair');
-      rect(-4,-11,3,7,'scarf');rect(-1,-8,5,2,'scarf');rect(-5,-11,2,13,'strap');rect(-9,-2,7,7,'bag');
-    }
-    rect(-8,-1,5,1,'#ac8b58');
-  }
-  ctx.restore();
+import {CHARACTER_TEXTURE, CHARACTER_FRAME, characterClips, characterAtlasLayout} from './character-atlas.js';
+export {CHARACTER_TEXTURE, CHARACTER_FRAME, characterAnimationKey} from './character-atlas.js';
+const SOURCE_KEY = `${CHARACTER_TEXTURE}-source`, MANIFEST_KEY = `${CHARACTER_TEXTURE}-manifest`;
+const sheetUrl = new URL('../../assets/characters/quang-reference/motion-sheet.png', import.meta.url).href;
+const manifestUrl = new URL('../../assets/characters/quang-reference/manifest.json', import.meta.url).href;
+
+export function preloadCharacter(scene) {
+  if (scene.textures.exists(CHARACTER_TEXTURE)) return;
+  scene.characterLoadFailure = file => {
+    if (!scene.tornDown && [SOURCE_KEY, MANIFEST_KEY].includes(file.key)) scene.characterError = 'Không tải được hình nhân vật Quang.';
+  };
+  scene.load.on('loaderror', scene.characterLoadFailure);
+  if (!scene.textures.exists(SOURCE_KEY)) scene.load.image(SOURCE_KEY, sheetUrl);
+  if (!scene.cache.json.exists(MANIFEST_KEY)) scene.load.json(MANIFEST_KEY, manifestUrl);
 }
-export function characterAnimationKey(facing,walking,reduced=false){return `quang-${reduced?'steady':'normal'}-${facing}-${walking?'walk':'idle'}`;}
-export function registerCharacterAnimations(scene){
-  for(const reduced of [false,true]){
-    const texture=`quang-${reduced?'steady':'normal'}`;
-    if(!scene.textures.exists(texture)){
-      const canvas=document.createElement('canvas');canvas.width=64*20;canvas.height=96;
-      const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
-      directions.forEach((direction,row)=>{for(let pose=-1;pose<4;pose++)drawPose(ctx,(row*5+pose+1)*64,direction,pose,reduced);});
-      scene.textures.addSpriteSheet(texture,canvas,{frameWidth:64,frameHeight:96});
+
+function packCharacter(scene) {
+  if (!scene.textures.exists(SOURCE_KEY)) throw new Error('Character image is missing.');
+  const image = scene.textures.get(SOURCE_KEY).getSourceImage();
+  const manifest = scene.cache.json.get(MANIFEST_KEY);
+  const layout = characterAtlasLayout(manifest, image.width, image.height);
+  const source = document.createElement('canvas'); source.width = image.width; source.height = image.height;
+  const sourceContext = source.getContext('2d', {willReadFrequently:true});
+  if (!sourceContext) throw new Error('Canvas is unavailable.');
+  sourceContext.drawImage(image, 0, 0);
+  const rgba = sourceContext.getImageData(0, 0, image.width, image.height).data;
+  for (let row=0; row<4; row++) for (let column=0; column<8; column++) {
+    let visible = false;
+    for (let y=0; y<layout.tileHeight; y++) for (let x=0; x<layout.tileWidth; x++) {
+      const alpha = rgba[((row*layout.tileHeight+y)*image.width+column*layout.tileWidth+x)*4+3];
+      visible ||= alpha > 0;
+      if (alpha && (x === 0 || y === 0 || x === layout.tileWidth-1 || y === layout.tileHeight-1))
+        throw new Error('Character poses need transparent margins.');
+      const crop = manifest.crop;
+      if (alpha && (x < crop.x || x >= crop.x+crop.width || y < crop.y || y >= crop.y+crop.height))
+        throw new Error('Character crop would clip a pose.');
     }
-    directions.forEach((direction,row)=>{
-      for(const walking of [false,true]){
-        const key=characterAnimationKey(direction,walking,reduced);if(scene.anims.exists(key))continue;
-        scene.anims.create({key,frames:walking?scene.anims.generateFrameNumbers(texture,{start:row*5+1,end:row*5+4}):[{key:texture,frame:row*5}],
-          frameRate:9,repeat:walking?-1:0});
-      }
-    });
+    if (!visible) throw new Error('Character pose is empty.');
   }
+  const canvas = document.createElement('canvas'); canvas.width = layout.width; canvas.height = layout.height;
+  const context = canvas.getContext('2d');
+  if (!context) throw new Error('Canvas is unavailable.');
+  context.imageSmoothingEnabled = true; context.imageSmoothingQuality = 'high';
+  for (const {source:s, target:t} of layout.frames)
+    context.drawImage(image, s.x, s.y, s.width, s.height, t.x, t.y, t.width, t.height);
+  scene.textures.addSpriteSheet(CHARACTER_TEXTURE, canvas, {frameWidth:CHARACTER_FRAME.width, frameHeight:CHARACTER_FRAME.height});
+}
+
+export function registerCharacterAnimations(scene) {
+  if (scene.tornDown) return false;
+  if (scene.characterError) throw new Error(scene.characterError);
+  if (!scene.textures.exists(CHARACTER_TEXTURE)) packCharacter(scene);
+  for (const clip of characterClips()) {
+    if (scene.anims.exists(clip.key)) continue;
+    scene.anims.create({...clip, frames:clip.frames.map(frame => ({key:CHARACTER_TEXTURE, frame}))});
+  }
+  return true;
+}
+
+export function releaseCharacterLoader(scene) {
+  if (scene.characterLoadFailure) scene.load?.off('loaderror', scene.characterLoadFailure);
+  scene.characterLoadFailure = null;
+}
+
+export function characterSnapshot(scene) {
+  const player = scene.player;
+  return player ? {texture:player.texture.key, frame:player.frame.name, motion:scene.motion,
+    animation:player.anims.currentAnim?.key || null, reducedMotion:Boolean(scene.reducedMotion?.matches),
+    scale:{x:player.scaleX,y:player.scaleY}, origin:{x:player.originX,y:player.originY},
+    body:{width:player.body.width,height:player.body.height,x:player.body.x,y:player.body.y}} : null;
 }

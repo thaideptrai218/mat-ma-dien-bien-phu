@@ -1,0 +1,27 @@
+.r5-piece-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;width:min(100%,690px);margin:24px auto 12px;padding:8px;background:#68563c;border:3px solid #b39a60;box-shadow:0 8px 24px #1b32242b}
+.r5-piece.r1-button{position:relative;width:100%;aspect-ratio:1.5;min-height:88px;padding:0;border:2px solid #e2cd91;border-radius:0;background-size:200% 200%;background-repeat:no-repeat;overflow:hidden;transition:filter .15s,border-color .15s}
+.r5-piece.r1-button:hover:not(:disabled){background-size:200% 200%;background-repeat:no-repeat;filter:brightness(1.08)}
+.r5-piece[aria-pressed=true]{outline:4px solid #edd47e;outline-offset:-7px;filter:brightness(1.15)}
+.r5-piece:focus-visible{outline:4px solid #214e73;outline-offset:2px;z-index:1}
+.r5-piece-label{position:absolute;left:8px;bottom:8px;padding:4px 9px;border-radius:3px;background:#203d33ed;color:#fff0c5;font:600 14px 'DBP Text',serif}
+.r5-selection-status{min-height:2.8em;margin:12px 0;font-size:15px;color:#3c5544}
+.r5-complete-painting{display:block;max-width:100%;height:auto;margin:24px auto;border:7px solid #8f784b;box-shadow:0 6px 20px #203b2426}
+.r5-script{margin:25px 0;padding:0 0 0 20px;border-left:3px solid #bbad86;line-height:1.85}
+.r5-script h3{font-size:13px;color:#716b4b;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.r5-script p{margin:0;font-size:17px}
+.r5-speaker-system{border-color:#976343;background:#ad855d12;padding:16px 20px}
+.r5-speaker-quang{border-color:#587661;background:#7e997b14;padding:16px 20px}
+.r5-door-message{margin:26px 0;padding:20px 24px;border:1px solid #b59e66;background:#d6c99530;color:#3d503b;font:500 23px/1.6 'DBP Display',serif}
+.r5-personal-label{display:block;margin:30px 0 10px;font-weight:600;color:#334c3d}
+.r5-personal-response{display:block;box-sizing:border-box;width:100%;max-width:100%;margin-top:12px;min-height:120px;padding:14px;border:1px solid #9c987c;border-radius:4px;background:#fffaf0;color:#263d33;resize:vertical;font:400 17px/1.7 'DBP Text',serif}
+.r5-reflection>.r1-primary{margin-top:16px}
+@media(max-width:650px){.r5-piece-grid{gap:3px;padding:4px}.r5-piece-label{left:4px;bottom:4px;padding:2px 6px;font-size:12px}.r5-script{padding-left:12px}.r5-script p{font-size:16px}.r5-door-message{font-size:20px;padding:15px}.r5-complete-painting{border-width:4px}}
+.r5-script.is-speaking{border-left:3px solid #9b5f37;background:linear-gradient(90deg,#e9ddc166,transparent)}.r5-reflection .r1-voice-replay{margin:4px 0 14px}
+
+/* Drag-to-swap on the painting board and the plaque door puzzle (touch-action lets touch drag instead of scroll). */
+.r5-piece{touch-action:none;cursor:grab}
+.r5-piece.is-dragging{z-index:5;cursor:grabbing;filter:brightness(1.15);box-shadow:0 8px 20px #1b322466;transition:none}
+.r5-piece.is-over{outline:4px dashed #edd47e;outline-offset:-7px}
+.r5-door-plaques{margin:18px 0}
+.r5-door-puzzle>.r1-primary{margin-top:12px}
+@media (prefers-reduced-motion:reduce){.r5-piece{transition:none}}

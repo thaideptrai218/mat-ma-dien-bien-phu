@@ -1,30 +1,21 @@
 # Mật mã Điện Biên Phủ
 
-Visual novel lịch sử kết hợp khám phá và giải đố 2D bằng tiếng Việt. Theo Quang từ bảo tàng qua bốn căn phòng ký ức rồi trở về hiện tại. Game dùng Phaser, JavaScript và tài nguyên cục bộ; dựa trên cốt truyện PDF người dùng cung cấp.
+**Chơi trực tuyến:** [mat-ma-dien-bien-phu.vercel.app](https://mat-ma-dien-bien-phu.vercel.app/). Đã triển khai production bằng MCP Vercel; [cấu hình và kiểm tra](docs/deployment.md).
 
-Đã hoàn tất và kiểm chứng cục bộ toàn hành trình sau phê duyệt “duyệt và làm full” ngày 2026-10-29. Mã nguồn chia sẻ trên [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu); game chưa được triển khai thành website trực tuyến.
+Bản chính hiện tại là **hành trình năm phòng hoàn chỉnh**: bảo tàng → Phòng 1 → **Phòng 2 của Bảo** → Phòng 3 hậu phương → Phòng 4 của Trâm → Phòng 5 ghép tranh/suy ngẫm → trở lại bảo tàng. Quang đọc giấy tờ, giải đố và tự kiếm đủ bốn mảnh tranh. Game dùng Phaser, JavaScript và tài nguyên cục bộ.
 
-Bản hiện tại là hành trình Điện Biên Phủ với bốn thử thách. Tuyến năm chặng 1954–1975, mini-map, bản đồ phím M và chạy nhanh Shift là các ý tưởng mở rộng, chưa có trong mã chạy hiện tại.
+Entry `/` chạy toàn hành trình trong cùng trang/cùng origin; chỉ đổi phòng sau khi tới cửa thật. **Sổ hành trình** giữ toàn văn các giấy đã thu thập ở những phòng trước. Các bản thử riêng vẫn có tại `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html`, dùng save riêng và không được nhập thành thành tích chiến dịch. Checkout gốc và preview [Bảo 4180](http://127.0.0.1:4180/) giữ nguyên, không cần mở tab ấy để hoàn thành bản chính.
 
-23 kiểm thử và build đạt; đã chơi tới kết bảo tàng, kiểm tra lưu/tiếp tục/reset, bàn phím, camera, âm thanh, ba kích thước màn hình và zoom trình duyệt 200%. Lượt chơi độc lập cũng tới kết khi chặn mạng ngoài, không có storage và Web Audio. Xem [QA game chính](plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-qa.md), [QA cạnh biên](plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-edge-qa.md) và [review mã](plans/261029-1757-mat-ma-dien-bien-phu-game/reports/game-code-review.md).
+## Chạy cục bộ
 
-## Chạy game
-
-Cần **Node.js >=22.12.0** và npm. Lấy mã nguồn:
-
-```powershell
-git clone https://github.com/thaideptrai218/mat-ma-dien-bien-phu.git
-cd mat-ma-dien-bien-phu
-```
-
-Trong thư mục dự án:
+Cần **Node.js >=22.12.0** và npm. Trong thư mục dự án:
 
 ```powershell
 npm ci
 npm run dev
 ```
 
-Mở **http://127.0.0.1:5173**. Game chính phải chạy qua HTTP; không mở trực tiếp `index.html` bằng `file://`.
+Mở **[Hành trình đầy đủ](http://127.0.0.1:5173/)**. Bản thử riêng: [Phòng 1](http://127.0.0.1:5173/room-one.html), [Phòng 2](http://127.0.0.1:5173/room-two.html), [Phòng 3](http://127.0.0.1:5173/room-three.html), [Phòng 4](http://127.0.0.1:5173/room-four.html). Chạy qua HTTP, không mở HTML bằng `file://`.
 
 ```powershell
 npm test
@@ -32,47 +23,102 @@ npm run build
 npm run preview
 ```
 
-Bản build nằm trong `dist/`; xem tại **http://127.0.0.1:4173** sau khi build. Hai cổng cố định; dừng tiến trình đang chiếm cổng nếu Vite báo lỗi. Phaser **3.90.0**, Vite **8.3.5** được khóa chính xác trong `package.json` và `package-lock.json`.
+Bản build có năm entry: `index.html` cho chiến dịch và bốn bản thử `room-one.html` tới `room-four.html`. Phòng 5 chỉ mở trong chiến dịch khi có đủ thành tích thật. Preview tại **http://127.0.0.1:4173/** với các đường dẫn trên. Dev/preview cố định 5173/4173; Bảo gốc ở 4180. Phaser **3.90.0**, Vite **8.3.5** được khóa trong package/lockfile. Đã triển khai production trên Vercel; xem docs/deployment.md.
 
 ## Cách chơi
 
-- Bấm bản đồ hoặc **Đi vào bản đồ**, dùng **WASD / phím mũi tên** để di chuyển; camera theo Quang và dừng ở biên. **E** tương tác với dấu vết hoặc cửa gần nhất.
-- **N** mở sổ tay. **Esc** tạm rời bảng đang đọc hoặc mở tùy chọn khi focus ở bản đồ. **Tab** rời bản đồ để dùng các nút HTML; Enter/Space kích hoạt nút, phím mũi tên dùng trong danh sách chọn.
-- Đọc bằng **Tiếp lời** hoặc **Đọc toàn cảnh**. Đến câu cuối, phải bấm **Ghi manh mối** mới nhận dữ kiện; mở rồi đóng bảng không tính. Sổ tay và **Lời đã đọc** cho đọc lại cả lời kể còn dang dở.
-- Mở **Ghép hồ sơ**, dùng nút ↑/↓ và các ô chọn để giải đố; có gợi ý. Giải đúng mở cửa phía đông, nhưng vẫn cần đi tới cửa và tương tác để sang phòng.
-- Mở bảng, rời focus hoặc đổi tab sẽ dừng di chuyển; khi quay lại cần focus bản đồ và nhấn phím mới.
+- Bấm bản đồ để nhận focus. Dùng **WASD / phím mũi tên** di chuyển, giữ **Shift** chạy nhanh: 260 → 390 pixel thế giới/giây; tốc độ đường chéo được chuẩn hóa.
+- Đến gần vật rồi nhấn **E** hoặc nút tương tác. Vật ở xa không thể mở từ danh sách hay bản đồ.
+- **M** mở sơ đồ, **N** mở sổ tay, **Q** thu gọn/mở nhiệm vụ, **Esc** mở tùy chọn khi đang ở bản đồ hoặc đóng bảng đang xem. **Tab** rời canvas để dùng nút HTML.
+- Bảng nhiệm vụ góc trên phải có bốn bước và mục tiêu hiện tại. Mini-map góc dưới phải cùng sơ đồ lớn hiển thị vị trí thật, vật cản và dấu vết; không dịch chuyển bằng cách bấm sơ đồ.
+- Mở bảng, đổi tab hoặc mất focus sẽ dừng di chuyển. Khi quay lại, nhấn phím mới để tiếp tục.
 
-| Thử thách | Việc cần làm |
+Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuyển tiếp; mở rương hoặc nhận mảnh chưa thay thao tác ra cửa. **Sổ hành trình** trên thanh chung đọc lại giấy đã kiếm được mà không cấp thêm tiến độ. **Bắt đầu lại phòng** giữ các phòng trước; **Hành trình mới** cần xác nhận và chỉ xóa save chiến dịch. Không nhập thành tích từ bản thử riêng.
+
+### Nhân vật Quang theo ảnh mẫu
+
+Sprite di chuyển mới giữ tóc nâu gợn, áo khoác nâu đỏ, áo trắng, quần be và túi ô liu theo hình người dùng cung cấp. PNG nền trong suốt có32 tư thế cho bốn hướng; đi bộ8fps và chạy12fps dùng các khung riêng. Đứng lại, đụng tường hoặc mở nội dung sẽ về tư thế đứng. Giảm chuyển động của hệ điều hành giữ hình đứng theo hướng nhưng vẫn cho đi/chạy.
+
+Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 hiển thị80×96, collider vẫn24×16; tốc độ260/390 và save/câu đố không đổi. [Sprite và thông số](assets/characters/quang-reference/README.md), [PNG](assets/characters/quang-reference/motion-sheet.png), [review](plans/261031-quang-reference-character/reports/code-review.md), [QA nhân vật](plans/261031-quang-reference-character/reports/qa.md). Phạm vi lần này là sprite khám phá; chân dung hội thoại là tài nguyên riêng.
+
+### Phòng 1 — Trước bản kế hoạch
+
+| Bước | Việc cần làm |
 | --- | --- |
-| Him Lam | Ghi đủ bốn manh mối, xếp chuẩn bị → pháo binh chiều 13/3/1954 → bộ binh → thắng lợi trận mở màn. |
-| Bàn cờ Đông Dương | Ghi bảy manh mối rồi giải bốn bước nối tiếp, mỗi bước ở một trạm trong phòng: cân 84 tiểu đoàn của Kế hoạch Nava, tách hai bức điện chung một sóng, mở từng ngón nắm đấm thép theo thứ tự nơi tập trung quân 2 → 5, gấp bản đồ tới nơi quyết chiến và mở hòm sắt. Bảng câu đố hiện sẵn các dữ kiện đã ghi cho bước đang làm. |
-| Sở chỉ huy | Ghi ba manh mối, ghép ba mẩu bản tin và chọn ngày sự kiện. |
-| Cánh cửa hòa bình | Có thể đọc thêm, chọn việc làm hoặc viết suy nghĩ; được để trống và bước tiếp, không chấm quan điểm đúng/sai. |
+| 1 | Mở lá thư anh Lâm gửi em Tín, đọc hết rồi cùng Quang nhận ra ký hiệu lưu trữ A-03. Không còn câu đố xếp mảnh thư. |
+| 2 | Đọc hết V-01, V-02, P-01, P-02; cùng Quang suy luận rồi xác nhận từng hồ sơ. Đối chiếu đủ bốn mặt của tương quan lực lượng. |
+| 3 | Dùng mã từ bàn đối chiếu để mở ngăn kéo; đọc bảng thay số bằng chữ cái và giải tên người trong điện mật. |
+| 4 | Dùng tên theo cách gọi tiếng Việt để mở rương, nhận mảnh tranh đầu tiên rồi đi tới cửa phía bắc để hoàn thành phòng. |
 
-Sau cửa cuối, Quang trở lại bảo tàng và có lời kết. Hai manh mối hòa bình là tùy chọn; suy nghĩ riêng chỉ ở bảng đang mở, không gửi hoặc lưu.
+Nền lịch sử được mở rộng **1950–7/1953**: Biên giới Thu–Đông 1950, Trung Du, Hòa Bình, Tây Bắc, quân đội trưởng thành và hậu phương vững hơn. Thư đầu năm 1953 chỉ nhìn lại những việc đã qua; không biết trước bổ nhiệm tháng năm hay kế hoạch tháng bảy. Sau khi giải danh tính, có bản tin N-01 nguyên văn về việc bổ nhiệm tháng 5 và thông qua kế hoạch tháng 7/1953. Đây là phần đọc thêm, không thêm điều kiện mở rương hoặc đổi save cũ; người đã giải danh tính có thể mở N-01 trong sổ tay. Thư và bốn giấy cũ có 341–370 từ, N-01 có 331 từ; mỗi tờ năm đoạn.
+
+### Phòng 2 của Bảo — Bàn cờ Đông Dương
+
+Bản tích hợp giữ bản đồ, bảy manh mối/toàn văn, intro/outro và bốn câu đố gốc của Bảo: cân lực lượng, dò băng tần, chuỗi nắm đấm và gấp phong bì. Mã, lời dẫn, phản hồi sai/đúng và renderer gốc được đối chiếu bằng dữ liệu/hash; không thay bằng cơ chế Room 2 khác trong PDF. Hoàn tất nếp gấp cuối nhận **mảnh II**, rồi đi tới cửa phía đông để sang Phòng 3; không thêm rương hay bước nhận lại mảnh. [Bảo toàn bản gốc](plans/261031-campaign-link/reports/room-two.md).
+
+### Phòng 3 — Mật mã hậu phương: Giải cứu tuyến tiếp vận
+
+Trại tiếp vận 3200×2000 đi từ kho hàng qua đường vận chuyển, lều chỉ huy tới trạm tin chiến trường. Năm giấy tờ đầy đủ, 321–340 từ/tờ, xen giữa bốn thử thách:
+
+| Thử thách | Việc cần làm và dữ kiện nhận được |
+| --- | --- |
+| Hồ sơ bị thất lạc | Phân loại hai mốc 6/12 và 13/3, ba việc chuẩn bị song song; chọn vật tư và lý do sẵn sàng hậu cần → THÁNG 3. |
+| Những chuyến hàng | Ghép sáu tranh minh họa với vai trò tiếp vận, hiểu xe thồ và đóng góp của dân công/thanh niên xung phong → NĂM 1954. |
+| Hai phương châm | Ghép hai mật lệnh, giải thích đánh giá thực tế, thận trọng và chắc thắng → ĐÁNH CHẮC, TIẾN CHẮC. |
+| Bản tin mở màn | Xếp Him Lam, Độc Lập, Bản Kéo đúng ngày 13/15/17 tháng ba, hiểu mở màn/đầu hàng và ý nghĩa → NGÀY 13. |
+
+Đủ cả bốn thử thách mới nhập ngày **13/03/1954** để mở rương; dữ kiện phương châm được giữ riêng, không ép thành ngày. Đến rương nhận riêng **mảnh III**, rồi tới cửa mới hoàn thành. Sáu hình xe thồ, dân công, kéo pháo, gạo, đạn và công binh là **tranh SVG sáng tác có nhãn minh họa**, không phải ảnh tư liệu.
+
+### Phòng 4 của Trâm — Những ngày quyết định
+
+Phòng 2800×1800 có rương ở giữa, hai bàn mật mã phía sau và bảy giấy tờ quanh tường. Đọc theo dòng thời gian: vòng vây 30/3–30/4 → đợt ba từ 1/5 → A1 đêm 6/5 → sở chỉ huy chiều 7/5 → kết quả → miền Bắc sau Genève 1954 → ý nghĩa độc lập dân tộc. Bảy văn bản có 301–330 từ, mỗi tờ năm đoạn, với giọng thư, nhật ký và báo cáo riêng.
+
+| Bước | Việc cần làm |
+| --- | --- |
+| 1 | Đọc hết rồi xác nhận lần lượt bảy giấy tờ; sổ tay giữ toàn văn. |
+| 2 | Trả lời bảy câu hỏi lịch sử, điền ô chữ và chọn cột dọc tạo thành lời chỉ dẫn. |
+| 3 | Tìm hình T và L trên hai bảng chữ, ghép câu mở khóa. Rương tự mở và đổi hình ngay khi đúng. |
+| 4 | Đến gần rương, nhấn E và nhận riêng mảnh IV; đi tới cửa phía bắc mới hoàn thành phòng. |
+
+Giấy đọc dùng văn bản chọn/copy được. Ngày viết, nguồn và nhãn hư cấu nằm ngoài lời văn; thư có lời chào, chữ ký và phong bì. Đọc hết mới tới suy nghĩ của Quang; đóng sớm không nhận dữ kiện. Ô chữ giữ đủ 17 cột trong vùng cuộn ngang trên màn hẹp; các ô chọn hình có kích thước tối thiểu 44 px.
+
+### Phòng 5 — Bức tranh và cánh cửa trở về
+
+Đủ bốn mảnh thật và đã ra cửa bốn phòng trước mới tới bàn phục dựng. Chọn hai mảnh để đổi chỗ, ghép đúng bốn phần tư của bức tranh. Cửa vẫn chờ cuộc trò chuyện cuối giữa Quang và hệ thống; có ô viết suy nghĩ **tự chọn, không chấm đúng/sai, không lưu hoặc gửi đi**. Có thể để trống, tiếp tục rồi đi tới cửa thật. Trở lại cùng bức tranh trong bảo tàng và bấm **Khép lại hành trình** mới ghi hoàn tất. Tranh SVG dùng ở mở đầu, mảnh ghép và đoạn trở về là minh họa do dự án sáng tác, không phải bản sao tranh bảo tàng.
+
+## Nguồn và cách kể
+
+Chỉ dùng PDF bản 4, `lich su.txt` tại máy và [nội dung người dùng bổ sung ngày 31/10](plans/261031-room-three-logistics/source-brief.md); không nghiên cứu lịch sử trên web. Quang, người viết thư, chuyện riêng, điện mật và căn phòng là sáng tác, không phải thư thật, lời chứng hay trích dẫn lịch sử. Sơ đồ là bố cục học tập, không phục dựng di tích/tuyến tác chiến.
+
+Quân số **252.000 phía Việt Nam / 445.000 phía Pháp** trong Phòng 1 dùng theo tài liệu cung cấp, có nhãn **“Số liệu theo tài liệu cung cấp”**. Không coi các số ấy là thống kê được kiểm chứng độc lập. Các đoạn hỏng của bản chữ không dùng làm đáp án bắt buộc. Phòng 1 giới thiệu Henri Navarre/Nava ở cuối chuỗi; nội dung hai bước của kế hoạch Nava dành cho Phòng 2.
+
+Phòng 4 theo phần Trâm ở tr. 6, 18–22 của PDF bản 4. **16.200** là tổng quân địch **bị tiêu diệt và bắt sống**; miền Bắc được giải phóng trong bước chuyển sau Genève, không gộp vào ngày 7/5. Ô chữ giữ nguyên đáp án lịch sử, bổ sung một ô cuối còn thiếu ở hàng “Sở chỉ huy trung tâm” để đủ 16 chữ. Chi tiết đối chiếu nguồn và hai bảng mật mã có trong [báo cáo nội dung](plans/261030-tram-room-four/reports/content.md).
+
+Phòng 3 giữ ngày Him Lam 13/3, Độc Lập 15/3, Bản Kéo đầu hàng 17/3; **trên 2.000** bị tiêu diệt/bắt sống là kết quả đợt đầu, không phải đáp án số lượng bắt buộc. Không coi 17/3 là kết thúc chiến dịch, không gán ngày đổi phương châm chưa được cung cấp. [Đối chiếu nội dung mới](plans/261031-room-three-logistics/reports/content.md) ghi rõ phạm vi nguồn và các ngày thư hư cấu.
+
+Nguồn PDF cá nhân không được tải lên hoặc đưa vào gói website. Xem [audit PDF](plans/261030-pdf-four-rebuild/reports/pdf-requirements.md) và [audit chất lượng bản chữ](plans/261030-pdf-four-rebuild/reports/history-text-quality.md).
 
 ## Tiến độ và âm thanh
 
-Tiến độ tự lưu bằng `localStorage` trong trình duyệt hiện tại: chương, manh mối đã thấy/đã ghi, lời kể hoàn tất, gợi ý, tùy chọn và **checkpoint an toàn gần nhất đã đi vào**. Tiếp tục trở về checkpoint, không khôi phục chính xác vị trí hay câu thoại đang đọc. Lời mở đầu chưa hoàn tất sẽ được mở lại. Save gắn với địa chỉ/cổng trình duyệt; bản dev và preview có tiến độ riêng.
+Chiến dịch dùng **`mat-ma-dien-bien-phu:campaign:v1`**: state đã kiểm tra của từng phòng, tiến trình cửa liên tục và tùy chọn âm thanh chung. Mảnh tranh được tính từ kết quả thật của các phòng, không tin danh sách mảnh hoặc số phòng tùy ý trong save. Reload về điểm vào an toàn của phòng hiện tại. Sổ hành trình đọc lại toàn văn; không lưu tọa độ, draft hay lời suy ngẫm cá nhân.
 
-**Bắt đầu lại** yêu cầu xác nhận rồi xóa tiến độ và đặt lại tùy chọn. Save hỏng hoặc bị chặn sẽ có thông báo, vẫn chơi được trong phiên; nếu trình duyệt chặn xóa, tiến độ cũ có thể còn sau tải lại.
+Bốn bản thử giữ khóa riêng `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` với cùng tiền tố. Không tự chuyển/import các khóa này hoặc save gốc của Bảo sang chiến dịch. Reset phòng hiện tại giữ thành tích trước, loại tiến độ phụ thuộc phía sau; xác nhận hành trình mới chỉ xóa envelope chiến dịch. Dev/preview có vùng lưu riêng theo origin/cổng.
 
-Bấm **Bật âm thanh** để mở Web Audio sau thao tác chủ động. Có âm nền, bước chân theo chuyển động và hiệu ứng giấy/đúng/sai; có **Tắt âm thanh** và âm lượng trong tùy chọn. Rời tab/focus sẽ ngừng tiếng. Sau tải lại hoặc khi trình duyệt suspend audio, bấm **Bật lại âm thanh**; tùy chọn đã lưu không tự cấp quyền phát. Lời kể luôn là văn bản; chưa có lồng tiếng hoặc TTS.
+Storage hỏng/bị chặn có thông báo và vẫn chơi trong phiên. **Bật âm thanh** cần thao tác chủ động để mở Web Audio. Chiến dịch giữ một audio controller/context xuyên các phòng; dừng input/âm thanh khi mở sổ chung hoặc mất focus. Có lồng tiếng toàn bộ 332 câu thoại (Quang, Hệ Thống giọng máy, Lời kể), hiệu ứng âm thanh và nền môi trường theo phòng; nút **Bật lồng tiếng** ở khung bảo tàng và bảng thoại, tùy chọn Lồng tiếng/âm lượng trong cài đặt. Tắt tiếng hoặc thiếu file vẫn chơi trọn bằng chữ. Chưa có backend/tài khoản hay điều khiển đi bộ cảm ứng.
 
-## Nội dung và phạm vi
+Làm lại giọng sau khi sửa lời thoại (cần CapCut bridge `:8124` và OmniVoice `:8123` của `F:\AI-auto-generate-video`): `npm run voice:script` → `npm run voice:generate` → `npm run voice:master` → `npm run voice:review` (trang nghe duyệt cục bộ `.cache/voice-review.html`). SFX/nền: `npm run audio:sfx`; nguồn và giấy phép ở `public/audio/sfx/credits.json`.
 
-Quang, lời tự sự, mẩu điện và kiến trúc hầm là hư cấu học tập; sơ đồ giải đố không theo tỷ lệ, không phải phục dựng di tích hoặc một tuyến tiến công. Mốc lịch sử có nguồn trong **Tư liệu & cách kể** và sổ tay. Him Lam là trận mở màn, khác chiến thắng toàn chiến dịch 7/5/1954. Biểu trưng/chân dung là minh họa mới; xem [nguồn hình ảnh](docs/image-prompts.md).
+## Tài liệu và trạng thái kiểm chứng
 
-Ưu tiên bàn phím máy tính; chưa có điều khiển đi bộ bằng cảm ứng, tài khoản, backend hoặc hosting. Chưa xác định giấy phép phân phối cốt truyện và tài sản.
+Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-campaign-link/reports/code-review.md). [Lượt chơi chiến dịch thật](plans/261031-campaign-link/reports/campaign-qa.md) đã qua bảo tàng, đủ năm phòng/bốn mảnh thật, ghép tranh, tiếp tục suy ngẫm để trống, cửa thật, trở về và acknowledgment cuối. Reload ending/audio, sổ hành trình 26 giấy, diagnostics clone, reset giữ preview và màn 390 px được kiểm tra đúng phạm vi báo cáo. [Room 2 độc lập](plans/261031-campaign-link/reports/room-two-qa.md) và [Room 5 component](plans/261031-campaign-link/reports/final-room.md) có bằng chứng riêng. Mã đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), chờ review vào main; đã có bản production Vercel ở đường dẫn đầu trang.
 
-## Tài liệu phát triển
-
-- [Cốt truyện bổ sung (PDF, bản 2)](docs/game-story-v2.pdf).
-- [Cốt truyện (Word)](docs/game-story.docx).
-- [Thiết kế GĐ2 – Phòng 2: Bàn cờ Đông Dương](docs/gd2-room-2-design.md) và [plan màn chơi (Thái)](docs/gd2-room-2-level-plan.md).
-- [Tổng quan và yêu cầu](docs/project-overview-pdr.md), [cấu trúc mã](docs/codebase-summary.md), [kiến trúc](docs/system-architecture.md).
-- [Quy ước mã](docs/code-standards.md), [chạy và build](docs/deployment-guide.md), [tiến độ](docs/project-roadmap.md).
-- [Phạm vi truyện và nguồn lịch sử](docs/game-proposal.md), [công nghệ](docs/tech-stack.md), [thiết kế](docs/design-guidelines.md).
-- [Kế hoạch triển khai](plans/261029-1757-mat-ma-dien-bien-phu-game/plan.md), [nhật ký quyết định](docs/journals/2026-10-29-full-game.md).
-
-Bản mẫu chương I trong [docs/wireframe/index.html](docs/wireframe/index.html) là bản Canvas độc lập giữ để đối chiếu thiết kế, không có lưu tiến độ hoặc các chương sau. Hướng dẫn HTTP phía trên dành cho game chính.
+- [Kế hoạch Phòng 1](plans/261030-pdf-four-rebuild/phase-room-one-playable.md), [nhật ký thay mới](docs/journals/2026-10-30-room-one-rebuild.md).
+- [Kế hoạch nối toàn hành trình](plans/261031-campaign-link/plan.md), [lifecycle](plans/261031-campaign-link/reports/lifecycle.md), [bảo toàn Bảo](plans/261031-campaign-link/reports/room-two.md), [nhật ký tích hợp](docs/journals/2026-10-31-campaign-integration.md).
+- [Kế hoạch Phòng 3 và bổ sung Phòng 1](plans/261031-room-three-logistics/plan.md), [nguồn/nội dung](plans/261031-room-three-logistics/reports/content.md), [UI](plans/261031-room-three-logistics/reports/ui.md), [thế giới](plans/261031-room-three-logistics/reports/world.md), [nhật ký](docs/journals/2026-10-31-room-three-logistics.md).
+- [Kế hoạch Phòng 4](plans/261030-tram-room-four/plan.md), [nội dung và mật mã](plans/261030-tram-room-four/reports/content.md), [UI](plans/261030-tram-room-four/reports/ui-implementation.md), [nhật ký Phòng 4](docs/journals/2026-10-30-tram-room-four.md).
+- [Tổng quan](docs/project-overview-pdr.md), [cấu trúc mã](docs/codebase-summary.md), [kiến trúc](docs/system-architecture.md).
+- [Quy ước mã](docs/code-standards.md), [thiết kế](docs/design-guidelines.md), [chạy và build](docs/deployment-guide.md), [tiến độ](docs/project-roadmap.md).
+- Cốt truyện mới nhất (Word, 5 phòng + thiết kế từng giai đoạn): [docs/game-story-v4.docx](docs/game-story-v4.docx); link chỉnh sửa Canva nội bộ đã được gỡ khỏi bản trong repo.
+- [Kế hoạch âm thanh: lồng tiếng Quang/Hệ Thống/Lời kể, SFX, môi trường](plans/261031-1312-game-audio-voice-sfx/plan.md).
+- Nguồn truyện các phiên bản trước: [PDF bản 2](docs/game-story-v2.pdf), [Word](docs/game-story.docx). Các tệp giữ provenance, không thay phạm vi PDF bản 4 đã chấp thuận.
+- Mã nguồn: [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu). Nhánh `feat/complete-five-room-campaign` đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), giữ lịch sử đóng góp của Bảo; main chưa merge, đã có bản production Vercel ở đường dẫn đầu trang. Giấy phép phân phối cốt truyện và tài sản chưa xác định.

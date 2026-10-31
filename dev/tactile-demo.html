@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dev demo · tactile components + area gates (not part of the build)</title>
+  <style>body{margin:0;padding:16px;font-family:Georgia,serif;background:#f4ecda;color:#25392f;display:grid;gap:22px}
+  h2{margin:0 0 8px}#game{width:640px;height:360px;background:#171d18}pre{margin:0;white-space:pre-wrap}</style>
+</head>
+<body>
+  <section><h2>Token bins (weights)</h2><div id="bins"></div><pre id="bins-out"></pre></section>
+  <section><h2>Combination dial</h2><div id="dial"></div><pre id="dial-out"></pre></section>
+  <section><h2>Range ruler</h2><div id="ruler"></div><pre id="ruler-out"></pre></section>
+  <section><h2>Area gate (Room 1 scene)</h2><p><button id="toggle-gate" type="button">Open / close gate</button> <span id="gate-out"></span></p><div id="game"></div></section>
+  <script type="module" src="./tactile-demo.js"></script>
+</body>
+</html>
