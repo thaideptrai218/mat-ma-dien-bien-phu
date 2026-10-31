@@ -31,6 +31,8 @@ const digitByDigit = text => [...text].map(d => DIGITS[Number(d)]).join(' ');
 const dayWords = day => (Number(day) <= 10 ? `mùng ${numberToWords(day)}` : numberToWords(day));
 const monthWords = month => (Number(month) === 4 ? 'tư' : numberToWords(month));
 const ROMAN = {I: 'một', II: 'hai', III: 'ba', IV: 'bốn'};
+const LETTER_NAMES = {A: 'a', B: 'bê', C: 'xê', D: 'đê', E: 'e', F: 'ép', G: 'giê', H: 'hát', I: 'i', J: 'gi', K: 'ca', L: 'e-lờ', M: 'em-mờ',
+  N: 'en-nờ', O: 'o', P: 'pê', Q: 'quy', R: 'e-rờ', S: 'ét', T: 'tê', U: 'u', V: 'vê', W: 'vê kép', X: 'ích', Y: 'i dài', Z: 'dét'};
 
 // Ordered rules: specific phrases first, then codes, dates, numbers, casing and punctuation.
 const RULES = [
@@ -60,6 +62,8 @@ const RULES = [
   [/\p{Lu}{2,}(?:\s+\p{Lu}{2,})*/gu, caps => caps.toLowerCase()],
   [/ \/ /gu, ' so với '],
   [/\s*—\s*/gu, ', '], [/\s+–\s+/gu, ' '], [/ · /gu, ', '], [/[“”"]/gu, ''],
+  // Lone capital letters (codes, keys, hills, spelled clues): CapCut misreads them ("A"→"anh", "V"→"năm"), so use Vietnamese letter names.
+  [/(^|[^\p{L}])([A-Z])(?=$|[^\p{L}])/gu, (_, lead, letter) => `${lead}${LETTER_NAMES[letter]}`],
   [/\s{2,}/gu, ' '],
 ];
 

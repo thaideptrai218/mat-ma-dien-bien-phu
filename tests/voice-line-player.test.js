@@ -385,3 +385,28 @@ test('voice manifest failure is retried after the delay', async () => {
   assert.deepEqual(await player.playSequence(['một']), { played: 1, skipped: 0 });
   assert.equal(calls.length, 1);
 });
+
+test('the first Hệ Thống line waits for the chime to finish decoding, and gives up after the bound', async () => {
+  const lines = [line('Hệ Thống', 'Chào Ký Chủ.')];
+  const { player, controller } = setup({ lines });
+  const events = [];
+  let decoded = false;
+  controller.cues = {
+    ready: async () => { await new Promise(resolve => setTimeout(resolve, 20)); decoded = true; events.push('ready'); return true; },
+    play: name => { events.push(decoded ? name : 'chime-before-decode'); return decoded; },
+  };
+  player.chimeGapMs = 1;
+  await player.playSequence(lines, { onLine: index => { if (index >= 0) events.push('line'); } });
+  assert.deepEqual(events, ['ready', 'system-chime', 'line'], 'chime plays after decode, before the voice');
+
+  // stopped while waiting: neither chime nor voice
+  const second = setup({ lines });
+  const seen = [];
+  second.controller.cues = { ready: () => new Promise(resolve => setTimeout(() => resolve(true), 30)), play: name => { seen.push(name); return true; } };
+  const run = second.player.playSequence(lines, { onLine: index => { if (index >= 0) seen.push('line'); } });
+  await new Promise(resolve => setTimeout(resolve, 5));
+  second.player.stop();
+  await run;
+  assert.deepEqual(seen, []);
+});
+

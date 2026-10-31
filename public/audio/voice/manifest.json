@@ -147,9 +147,9 @@
         "museum.OPENING"
       ],
       "text": "Phòng 1 cất giữ chặng đường xây dựng lực lượng từ năm 1950 đến giữa năm 1953. Khi cần, Ký Chủ nhấn Q để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.",
-      "ttsText": "Phòng một cất giữ chặng đường xây dựng lực lượng từ năm một nghìn chín trăm năm mươi đến giữa năm một nghìn chín trăm năm mươi ba. Khi cần, Ký Chủ nhấn phím Q để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.",
+      "ttsText": "Phòng một cất giữ chặng đường xây dựng lực lượng từ năm một nghìn chín trăm năm mươi đến giữa năm một nghìn chín trăm năm mươi ba. Khi cần, Ký Chủ nhấn phím quy để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.",
       "file": "audio/voice/d3d8229d4de364e9.mp3",
-      "durationMs": 10128
+      "durationMs": 10147
     },
     {
       "id": "982ae441d6128de1",
@@ -162,9 +162,9 @@
         "museum.OPENING"
       ],
       "text": "Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn E. M mở bản đồ, N mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.",
-      "ttsText": "Dùng W, A, S, D hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn phím E. phím M mở bản đồ, phím N mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.",
+      "ttsText": "Dùng vê kép, a, ét, đê hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn phím e. phím em-mờ mở bản đồ, phím en-nờ mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.",
       "file": "audio/voice/982ae441d6128de1.mp3",
-      "durationMs": 12286
+      "durationMs": 13360
     },
     {
       "id": "264b22c08ea090fe",
@@ -237,9 +237,9 @@
         "r1.INTRO"
       ],
       "text": "Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn E để xem. N mở sổ tay, M mở bản đồ, Q xem nhiệm vụ.",
-      "ttsText": "Dùng W, A, S, D hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn phím E để xem. phím N mở sổ tay, phím M mở bản đồ, phím Q xem nhiệm vụ.",
+      "ttsText": "Dùng vê kép, a, ét, đê hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn phím e để xem. phím en-nờ mở sổ tay, phím em-mờ mở bản đồ, phím quy xem nhiệm vụ.",
       "file": "audio/voice/613b171342fbf980.mp3",
-      "durationMs": 10562
+      "durationMs": 10457
     },
     {
       "id": "04f99273e28be3ed",
@@ -267,7 +267,7 @@
         "r1.GUIDE.letter"
       ],
       "text": "Ký Chủ hãy ghi nhớ ký hiệu A-03. Nhiệm vụ tiếp theo: tìm ô A-03 trên bản đồ treo ở bức tường phía bắc.",
-      "ttsText": "Ký Chủ hãy ghi nhớ ký hiệu A không ba. Nhiệm vụ tiếp theo: tìm ô A không ba trên bản đồ treo ở bức tường phía bắc.",
+      "ttsText": "Ký Chủ hãy ghi nhớ ký hiệu a không ba. Nhiệm vụ tiếp theo: tìm ô a không ba trên bản đồ treo ở bức tường phía bắc.",
       "file": "audio/voice/961f6ebb30f14299.mp3",
       "durationMs": 5881
     },
@@ -282,7 +282,7 @@
         "r1.GUIDE.letter"
       ],
       "text": "Hàng A, cột 03. Tao đi xem ngay.",
-      "ttsText": "Hàng A, cột không ba. Tao đi xem ngay.",
+      "ttsText": "Hàng a, cột không ba. Tao đi xem ngay.",
       "file": "audio/voice/2ef3f680e40afad2.mp3",
       "durationMs": 2509
     },
@@ -297,9 +297,9 @@
         "r1.GUIDE.a03"
       ],
       "text": "Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.",
-      "ttsText": "Bốn hồ sơ đã lộ vị trí: V không một, V không hai của phía Việt Nam; P không một, P không hai của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.",
+      "ttsText": "Bốn hồ sơ đã lộ vị trí: vê không một, vê không hai của phía Việt Nam; pê không một, pê không hai của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.",
       "file": "audio/voice/60b9b8dbd53e4e10.mp3",
-      "durationMs": 9063
+      "durationMs": 9080
     },
     {
       "id": "7e1ab5fdea36b06a",
@@ -357,9 +357,9 @@
         "r1.GUIDE.dossiers"
       ],
       "text": "Hệ Thống không trả lời thay Ký Chủ. Sổ tay N vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.",
-      "ttsText": "Hệ Thống không trả lời thay Ký Chủ. Sổ tay N vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.",
+      "ttsText": "Hệ Thống không trả lời thay Ký Chủ. Sổ tay en-nờ vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.",
       "file": "audio/voice/cbb19cbb2f26246c.mp3",
-      "durationMs": 4776
+      "durationMs": 5146
     },
     {
       "id": "aca3711426666dc9",
@@ -447,7 +447,7 @@
         "r1.LINES.letterArchive"
       ],
       "text": "Nhãn lưu trữ ghi A-03. Trên bản đồ treo vách cũng có những ô như vậy.",
-      "ttsText": "Nhãn lưu trữ ghi A không ba. Trên bản đồ treo vách cũng có những ô như vậy.",
+      "ttsText": "Nhãn lưu trữ ghi a không ba. Trên bản đồ treo vách cũng có những ô như vậy.",
       "file": "audio/voice/d342d10949159f09.mp3",
       "durationMs": 3853
     },
@@ -612,7 +612,7 @@
         "r1.REACTIONS.letter.repeat"
       ],
       "text": "Ký hiệu lưu trữ A-03 nằm ngoài lời thư. Mình tìm ô ấy trên bản đồ.",
-      "ttsText": "Ký hiệu lưu trữ A không ba nằm ngoài lời thư. Mình tìm ô ấy trên bản đồ.",
+      "ttsText": "Ký hiệu lưu trữ a không ba nằm ngoài lời thư. Mình tìm ô ấy trên bản đồ.",
       "file": "audio/voice/7f810ca96dc6af6c.mp3",
       "durationMs": 3873
     },
@@ -642,7 +642,7 @@
         "r1.REACTIONS.map-a03.first"
       ],
       "text": "Có ô A-03, đúng ký hiệu trên tờ thư.",
-      "ttsText": "Có ô A không ba, đúng ký hiệu trên tờ thư.",
+      "ttsText": "Có ô a không ba, đúng ký hiệu trên tờ thư.",
       "file": "audio/voice/4c520726b07ace5f.mp3",
       "durationMs": 2506
     },
@@ -657,7 +657,7 @@
         "r1.REACTIONS.map-a03.repeat"
       ],
       "text": "Từ ô A-03, mình đã tìm được vị trí bốn hồ sơ.",
-      "ttsText": "Từ ô A không ba, mình đã tìm được vị trí bốn hồ sơ.",
+      "ttsText": "Từ ô a không ba, mình đã tìm được vị trí bốn hồ sơ.",
       "file": "audio/voice/2ff01f398bbf200d.mp3",
       "durationMs": 3124
     },
@@ -717,7 +717,7 @@
         "r1.REACTIONS.v1.locked"
       ],
       "text": "Mình còn chưa tìm ô A-03 trên bản đồ.",
-      "ttsText": "Mình còn chưa tìm ô A không ba trên bản đồ.",
+      "ttsText": "Mình còn chưa tìm ô a không ba trên bản đồ.",
       "file": "audio/voice/f56545f0abc32528.mp3",
       "durationMs": 2238
     },
@@ -762,9 +762,9 @@
         "r1.REACTIONS.v2.locked"
       ],
       "text": "Mình sẽ tìm vị trí hồ sơ từ ô A-03 trước.",
-      "ttsText": "Mình sẽ tìm vị trí hồ sơ từ ô A không ba trước.",
+      "ttsText": "Mình sẽ tìm vị trí hồ sơ từ ô a không ba trước.",
       "file": "audio/voice/6bc60203bf225825.mp3",
-      "durationMs": 2602
+      "durationMs": 2603
     },
     {
       "id": "e6894cee506f1ddb",
@@ -807,7 +807,7 @@
         "r1.REACTIONS.p1.locked"
       ],
       "text": "Ô A-03 sẽ chỉ vị trí của bộ hồ sơ này.",
-      "ttsText": "Ô A không ba sẽ chỉ vị trí của bộ hồ sơ này.",
+      "ttsText": "Ô a không ba sẽ chỉ vị trí của bộ hồ sơ này.",
       "file": "audio/voice/08e65485fb35ad3c.mp3",
       "durationMs": 2460
     },
@@ -852,7 +852,7 @@
         "r1.REACTIONS.p2.locked"
       ],
       "text": "Mình cần tìm ô A-03 trước khi đọc bộ hồ sơ.",
-      "ttsText": "Mình cần tìm ô A không ba trước khi đọc bộ hồ sơ.",
+      "ttsText": "Mình cần tìm ô a không ba trước khi đọc bộ hồ sơ.",
       "file": "audio/voice/13d276f3faffb775.mp3",
       "durationMs": 2663
     },
@@ -1107,9 +1107,9 @@
         "r1.REACTIONS.crate.repeat"
       ],
       "text": "Chuyện lương ăn và vũ khí nằm trong V-02.",
-      "ttsText": "Chuyện lương ăn và vũ khí nằm trong V không hai.",
+      "ttsText": "Chuyện lương ăn và vũ khí nằm trong vê không hai.",
       "file": "audio/voice/3c0f58523cc8b9f2.mp3",
-      "durationMs": 2385
+      "durationMs": 2358
     },
     {
       "id": "9b78a231455afa65",
@@ -1531,9 +1531,9 @@
         "r2.beats.navarre-plan-intro"
       ],
       "text": "Bàn làm việc của Nava ở gian tây bắc. Nhấn Q bất cứ lúc nào để xem trạm kế tiếp.",
-      "ttsText": "Bàn làm việc của Nava ở gian tây bắc. Nhấn Q bất cứ lúc nào để xem trạm kế tiếp.",
+      "ttsText": "Bàn làm việc của Nava ở gian tây bắc. Nhấn quy bất cứ lúc nào để xem trạm kế tiếp.",
       "file": "audio/voice/5351b6fca93eac7a.mp3",
-      "durationMs": 4063
+      "durationMs": 4068
     },
     {
       "id": "a7c2bb728fe07269",
@@ -2076,9 +2076,9 @@
         "r3.INTRO"
       ],
       "text": "WASD hoặc mũi tên để đi, Shift để chạy, E để xem vật gần. M mở sơ đồ, N mở sổ tay, Q thu/mở nhiệm vụ. Các phòng giữ tiến độ riêng.",
-      "ttsText": "W, A, S, D hoặc mũi tên để đi, Shift để chạy, phím E để xem vật gần. phím M mở sơ đồ, phím N mở sổ tay, phím Q thu hoặc mở nhiệm vụ. Các phòng giữ tiến độ riêng.",
+      "ttsText": "vê kép, a, ét, đê hoặc mũi tên để đi, Shift để chạy, phím e để xem vật gần. phím em-mờ mở sơ đồ, phím en-nờ mở sổ tay, phím quy thu hoặc mở nhiệm vụ. Các phòng giữ tiến độ riêng.",
       "file": "audio/voice/704cde6dfa5c4879.mp3",
-      "durationMs": 11142
+      "durationMs": 11125
     },
     {
       "id": "9165a9a50e904ba8",
@@ -2106,9 +2106,9 @@
         "r3.CAMPAIGN_INTRO"
       ],
       "text": "WASD hoặc mũi tên để đi, Shift để chạy, E để xem vật gần. M mở sơ đồ, N mở sổ tay, Q thu/mở nhiệm vụ. Tiến độ được giữ chung trong hành trình.",
-      "ttsText": "W, A, S, D hoặc mũi tên để đi, Shift để chạy, phím E để xem vật gần. phím M mở sơ đồ, phím N mở sổ tay, phím Q thu hoặc mở nhiệm vụ. Tiến độ được giữ chung trong hành trình.",
+      "ttsText": "vê kép, a, ét, đê hoặc mũi tên để đi, Shift để chạy, phím e để xem vật gần. phím em-mờ mở sơ đồ, phím en-nờ mở sổ tay, phím quy thu hoặc mở nhiệm vụ. Tiến độ được giữ chung trong hành trình.",
       "file": "audio/voice/19ae26a9e57a2fea.mp3",
-      "durationMs": 11482
+      "durationMs": 11472
     },
     {
       "id": "5d97522201692d18",
@@ -2241,7 +2241,7 @@
         "r3.GUIDE.final"
       ],
       "text": "Hồ sơ tiếp vận đã được khôi phục. Ký Chủ đến gần rương và nhấn E để nhận mảnh tranh số III.",
-      "ttsText": "Hồ sơ tiếp vận đã được khôi phục. Ký Chủ đến gần rương và nhấn phím E để nhận mảnh tranh số ba.",
+      "ttsText": "Hồ sơ tiếp vận đã được khôi phục. Ký Chủ đến gần rương và nhấn phím e để nhận mảnh tranh số ba.",
       "file": "audio/voice/d9ff2e36ef300f73.mp3",
       "durationMs": 4782
     },
@@ -3387,9 +3387,9 @@
         "r4.CAMPAIGN_INTRO"
       ],
       "text": "Đi bằng WASD hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn E. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. N mở sổ tay, M mở sơ đồ, Q xem nhiệm vụ.",
-      "ttsText": "Đi bằng W, A, S, D hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn phím E. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. phím N mở sổ tay, phím M mở sơ đồ, phím Q xem nhiệm vụ.",
+      "ttsText": "Đi bằng vê kép, a, ét, đê hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn phím e. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. phím en-nờ mở sổ tay, phím em-mờ mở sơ đồ, phím quy xem nhiệm vụ.",
       "file": "audio/voice/6ea8f0851dfb6ef6.mp3",
-      "durationMs": 12348
+      "durationMs": 12267
     },
     {
       "id": "0ea328fe6f210248",
@@ -3432,9 +3432,9 @@
         "r4.GUIDE.documents"
       ],
       "text": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tao không sợ.",
-      "ttsText": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tao không sợ.",
+      "ttsText": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay en-nờ bên cạnh, tao không sợ.",
       "file": "audio/voice/26544ee243e529ee.mp3",
-      "durationMs": 3867
+      "durationMs": 4316
     },
     {
       "id": "64428ab896018ec0",
@@ -3447,9 +3447,9 @@
         "r4.GUIDE.column"
       ],
       "text": "Lời chỉ dẫn đã hiện. Bàn mật mã T ở bên trái, bàn mật mã L ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.",
-      "ttsText": "Lời chỉ dẫn đã hiện. Bàn mật mã T ở bên trái, bàn mật mã L ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.",
+      "ttsText": "Lời chỉ dẫn đã hiện. Bàn mật mã tê ở bên trái, bàn mật mã e-lờ ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.",
       "file": "audio/voice/64428ab896018ec0.mp3",
-      "durationMs": 8197
+      "durationMs": 8508
     },
     {
       "id": "bc2d83d5f9cac467",
@@ -3462,9 +3462,9 @@
         "r4.GUIDE.column"
       ],
       "text": "Hình T trước, hình L sau. Hệ Thống cứ xem tao làm.",
-      "ttsText": "Hình T trước, hình L sau. Hệ Thống cứ xem tao làm.",
+      "ttsText": "Hình tê trước, hình e-lờ sau. Hệ Thống cứ xem tao làm.",
       "file": "audio/voice/bc2d83d5f9cac467.mp3",
-      "durationMs": 3147
+      "durationMs": 3558
     },
     {
       "id": "de4ccaedec49baaa",
@@ -3477,7 +3477,7 @@
         "r4.GUIDE.final"
       ],
       "text": "Khẩu hiệu đã được xác nhận. Ký Chủ đến gần rương và nhấn E để nhận mảnh tranh số IV.",
-      "ttsText": "Khẩu hiệu đã được xác nhận. Ký Chủ đến gần rương và nhấn phím E để nhận mảnh tranh số bốn.",
+      "ttsText": "Khẩu hiệu đã được xác nhận. Ký Chủ đến gần rương và nhấn phím e để nhận mảnh tranh số bốn.",
       "file": "audio/voice/de4ccaedec49baaa.mp3",
       "durationMs": 4400
     },
@@ -3492,9 +3492,9 @@
         "r4.LINES.column"
       ],
       "text": "T · I · M · T · V · A · L. Đọc thành “TÌM T VÀ L”.",
-      "ttsText": "T, I, M, T, V, A, L. Đọc thành tìm T và L.",
+      "ttsText": "tê, i, em-mờ, tê, vê, a, e-lờ. Đọc thành tìm tê và e-lờ.",
       "file": "audio/voice/2138405f08ec9349.mp3",
-      "durationMs": 4434
+      "durationMs": 5510
     },
     {
       "id": "e6a5e59c8d206a5f",
@@ -3507,9 +3507,9 @@
         "r4.LINES.column"
       ],
       "text": "Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.",
-      "ttsText": "Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.",
+      "ttsText": "Phía sau rương có hai bảng chữ. Mình sẽ tìm hình tê trên bảng bên trái và hình e-lờ trên bảng bên phải.",
       "file": "audio/voice/e6a5e59c8d206a5f.mp3",
-      "durationMs": 4990
+      "durationMs": 5316
     },
     {
       "id": "e3a8849b76b5daa1",
@@ -3597,9 +3597,9 @@
         "r4.REACTIONS.east-offensive.repeat"
       ],
       "text": "C1, A1 và những đường hào khiến vòng vây ngày càng chặt.",
-      "ttsText": "C một, A một và những đường hào khiến vòng vây ngày càng chặt.",
+      "ttsText": "xê một, a một và những đường hào khiến vòng vây ngày càng chặt.",
       "file": "audio/voice/f306f64834c482d4.mp3",
-      "durationMs": 2938
+      "durationMs": 2919
     },
     {
       "id": "d420aedecdce9e0d",
@@ -3672,7 +3672,7 @@
         "r4.REACTIONS.a1.first"
       ],
       "text": "Người công binh vừa trải qua đêm ở A1.",
-      "ttsText": "Người công binh vừa trải qua đêm ở A một.",
+      "ttsText": "Người công binh vừa trải qua đêm ở a một.",
       "file": "audio/voice/48a341c02c3f68c2.mp3",
       "durationMs": 2008
     },
@@ -3702,7 +3702,7 @@
         "r4.REACTIONS.a1.locked"
       ],
       "text": "Bản tổng hợp đầu tháng năm sẽ nối đến đêm A1.",
-      "ttsText": "Bản tổng hợp đầu tháng năm sẽ nối đến đêm A một.",
+      "ttsText": "Bản tổng hợp đầu tháng năm sẽ nối đến đêm a một.",
       "file": "audio/voice/5b5f1abd47ff885c.mp3",
       "durationMs": 2390
     },
@@ -3747,7 +3747,7 @@
         "r4.REACTIONS.headquarters.locked"
       ],
       "text": "Mình còn trang sổ về đêm A1 trước buổi chiều này.",
-      "ttsText": "Mình còn trang sổ về đêm A một trước buổi chiều này.",
+      "ttsText": "Mình còn trang sổ về đêm a một trước buổi chiều này.",
       "file": "audio/voice/2e105c07d2e7c03e.mp3",
       "durationMs": 2520
     },
@@ -3942,9 +3942,9 @@
         "r4.REACTIONS.board-t.first"
       ],
       "text": "Một bảng sáu hàng, năm cột. Manh mối bảo tìm chữ T.",
-      "ttsText": "Một bảng sáu hàng, năm cột. Manh mối bảo tìm chữ T.",
+      "ttsText": "Một bảng sáu hàng, năm cột. Manh mối bảo tìm chữ tê.",
       "file": "audio/voice/beb4b8ed7d4fa212.mp3",
-      "durationMs": 3236
+      "durationMs": 3250
     },
     {
       "id": "b4e15a7ee26939db",
@@ -3957,9 +3957,9 @@
         "r4.REACTIONS.board-t.repeat"
       ],
       "text": "Theo nét ngang rồi nét dọc của T, các chữ nối thành QUYẾT CHIẾN.",
-      "ttsText": "Theo nét ngang rồi nét dọc của T, các chữ nối thành quyết chiến.",
+      "ttsText": "Theo nét ngang rồi nét dọc của tê, các chữ nối thành quyết chiến.",
       "file": "audio/voice/b4e15a7ee26939db.mp3",
-      "durationMs": 3226
+      "durationMs": 3224
     },
     {
       "id": "b24710df5d1a5e69",
@@ -3987,9 +3987,9 @@
         "r4.REACTIONS.board-l.first"
       ],
       "text": "Bảng còn lại có cùng số ô. Mình thử tìm chữ L.",
-      "ttsText": "Bảng còn lại có cùng số ô. Mình thử tìm chữ L.",
+      "ttsText": "Bảng còn lại có cùng số ô. Mình thử tìm chữ e-lờ.",
       "file": "audio/voice/bfd952b4b07086a6.mp3",
-      "durationMs": 2876
+      "durationMs": 3232
     },
     {
       "id": "d5127cdc026f3da9",
@@ -4002,9 +4002,9 @@
         "r4.REACTIONS.board-l.repeat"
       ],
       "text": "Đi xuống rồi sang phải theo chữ L: QUYẾT THẮNG.",
-      "ttsText": "Đi xuống rồi sang phải theo chữ L: quyết thắng.",
+      "ttsText": "Đi xuống rồi sang phải theo chữ e-lờ: quyết thắng.",
       "file": "audio/voice/d5127cdc026f3da9.mp3",
-      "durationMs": 2577
+      "durationMs": 2880
     },
     {
       "id": "fc954617aee5dec8",
@@ -4032,9 +4032,9 @@
         "r4.REACTIONS.chest.first"
       ],
       "text": "Khóa rương còn đóng. Mình sẽ ghép hai phần lời đã tìm được ở bảng T và bảng L.",
-      "ttsText": "Khóa rương còn đóng. Mình sẽ ghép hai phần lời đã tìm được ở bảng T và bảng L.",
+      "ttsText": "Khóa rương còn đóng. Mình sẽ ghép hai phần lời đã tìm được ở bảng tê và bảng e-lờ.",
       "file": "audio/voice/72bbf0a22c773789.mp3",
-      "durationMs": 4095
+      "durationMs": 4413
     },
     {
       "id": "3f8a907246feb7dd",
@@ -4272,7 +4272,7 @@
         "r4.reflection.a1"
       ],
       "text": "Quang: Khoảng một tấn thuốc nổ ở A1 nối với công sức đào hầm từ trước.",
-      "ttsText": "Khoảng một tấn thuốc nổ ở A một nối với công sức đào hầm từ trước.",
+      "ttsText": "Khoảng một tấn thuốc nổ ở a một nối với công sức đào hầm từ trước.",
       "file": "audio/voice/7f47dc110a58d2c6.mp3",
       "durationMs": 2929
     },

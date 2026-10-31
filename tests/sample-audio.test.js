@@ -219,3 +219,11 @@ test('a failed manifest load is retried after the delay instead of being cached 
   online = true; library.retryAfter = 0;
   assert.equal((await library.load()).size, 1, 'later call retries and succeeds');
 });
+
+test('sample bank ready() resolves false when the cue is not decoded within the bound', async () => {
+  const slow = { buffers: new Map(), buffer: () => new Promise(resolve => setTimeout(() => resolve({}), 200)) };
+  const bank = new SampleCueBank({ context: new Context(), master: new Node() }, slow, { preferences: new VoicePreferences(null, MIX_PREFERENCES_KEY, { sfxVolume: 1, ambienceVolume: 1 }) });
+  assert.equal(await bank.ready('system-chime', 10), false);
+  slow.buffers.set('system-chime', {});
+  assert.equal(await bank.ready('system-chime', 10), true);
+});

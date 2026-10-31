@@ -27,7 +27,8 @@ export function attachDialogueVoice(prose, paragraphs, voice, emit) {
   };
   prose.append(replay);
   refresh();
-  return () => { alive = false; voice.onLine = () => {}; };
+  // Clear the highlight first: a closing dialog (Esc) detaches us before the voice's own end-of-reading callback.
+  return () => { alive = false; paragraphs.forEach(paragraph => paragraph.classList.remove('is-speaking')); voice.onLine = () => {}; };
 }
 
 // A 0-100% slider bound to one numeric field of a preferences store; returns {label, render(values)}.

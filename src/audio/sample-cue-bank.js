@@ -29,6 +29,13 @@ export class SampleCueBank {
     }
     return this.bus;
   }
+  // Resolves true once the cue is decoded, false if it is unknown, failed, or not ready within timeoutMs.
+  async ready(name, timeoutMs = 400) {
+    if (this.library.buffers.has(name)) return true;
+    let timer;
+    const timeout = new Promise(resolve => { timer = setTimeout(() => resolve(null), timeoutMs); });
+    try { return Boolean(await Promise.race([this.library.buffer(name), timeout])); } finally { clearTimeout(timer); }
+  }
   preload() { return this.library.preload().catch(() => {}); }
   play(name, {gain = 1} = {}) {
     const buffer = this.library.buffers.get(name), context = this.controller.context;

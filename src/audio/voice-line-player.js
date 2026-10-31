@@ -11,6 +11,7 @@ const MANIFEST_PATH = 'audio/voice/manifest.json';
 const FILE_PATTERN = /^audio\/voice\/[0-9a-f]{16}\.mp3$/; // same-origin recordings only
 const VOICE_MAKEUP = MASTER_MAKEUP; // master gain tops out at 0.45; recordings are mastered to -16 LUFS
 const MANIFEST_RETRY_MS = 5000;
+const CHIME_WAIT_MS = 400;
 const noop = () => {};
 
 export function lineVoiceId(line) {
@@ -140,9 +141,14 @@ export class VoiceLinePlayer {
         if (!this.isCurrent(session) || !this.canPlay()) break;
         if (!buffer) { result.skipped++; continue; }
         // Hệ Thống's lines are announced by its chime, which gets a moment to sound before the voice.
-        if (voiceOf(lines[i]) === 'system' && this.controller.cues?.play('system-chime') && this.chimeGapMs > 0) {
-          await new Promise(resolve => setTimeout(resolve, this.chimeGapMs));
-          if (!this.isCurrent(session)) break;
+        if (voiceOf(lines[i]) === 'system' && this.controller.cues) {
+          // The chime may still be decoding right after unlock: wait for it briefly, then go on without it.
+          await this.controller.cues.ready?.('system-chime', CHIME_WAIT_MS);
+          if (!this.isCurrent(session) || !this.canPlay()) break;
+          if (this.controller.cues.play('system-chime') && this.chimeGapMs > 0) {
+            await new Promise(resolve => setTimeout(resolve, this.chimeGapMs));
+            if (!this.isCurrent(session)) break;
+          }
         }
         await this.playBuffer(buffer, () => session.onLine(i));
         if (!this.isCurrent(session)) break;

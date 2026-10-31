@@ -1,4 +1,4 @@
-// npm run voice:generate -- [--voice=system|quang|narrator] [--room=r1] [--limit=N] [--force]
+// npm run voice:generate -- [--voice=system|quang|narrator] [--room=r1] [--ids=a,b] [--limit=N] [--force]
 // Sends each manifest line's ttsText to its TTS engine and caches the raw MP3 as .cache/voice-raw/<id>.mp3.
 // Existing files are skipped unless --force, so the run can be resumed after a failure.
 import fs from 'node:fs';
@@ -15,6 +15,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, MANIFEST_PATH), 'utf
 const todo = manifest.lines
   .filter(line => !args.voice || line.voice === args.voice)
   .filter(line => !args.room || line.rooms.includes(args.room))
+  .filter(line => !args.ids || String(args.ids).split(',').includes(line.id))
   .filter(line => args.force || !fs.existsSync(path.join(RAW_DIR, `${line.id}.mp3`)))
   .slice(0, args.limit ? Number(args.limit) : undefined);
 

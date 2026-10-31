@@ -40,7 +40,7 @@ test('Vietnamese numbers, dates and codes read naturally', () => {
   assert.equal(numberToWords(15), 'mười lăm');
   assert.equal(toTtsText('ngày 7/5/1954'), 'ngày mùng bảy tháng năm năm một nghìn chín trăm năm mươi tư');
   assert.equal(toTtsText('tháng 4/1954'), 'tháng tư năm một nghìn chín trăm năm mươi tư');
-  assert.equal(toTtsText('Mã 2413 và ô A-03, đồi A1'), 'Mã hai bốn một ba và ô A không ba, đồi A một');
+  assert.equal(toTtsText('Mã 2413 và ô A-03, đồi A1'), 'Mã hai bốn một ba và ô a không ba, đồi a một');
   assert.equal(toTtsText('nhận mảnh tranh số III'), 'nhận mảnh tranh số ba');
   assert.equal(toTtsText('TẬP TRUNG và PHÂN TÁN'), 'tập trung và phân tán');
 });
