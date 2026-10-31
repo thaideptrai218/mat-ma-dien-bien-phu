@@ -6,7 +6,7 @@
 
 ## Overview
 - Priority: P2. Status: chưa làm. Làm song song phase 01–03.
-- Giữ cue tổng hợp làm phương án dự phòng; thêm mẫu âm thanh thật cho các khoảnh khắc chính và nền riêng từng phòng.
+- Giữ cue tổng hợp làm phương án dự phòng; thêm mẫu âm thanh thật cho các khoảnh khắc chính và nền riêng từng phòng. **Không làm nhạc nền (BGM)** — người dùng đã chốt.
 
 ## Key Insights
 - Đề tài chiến tranh, đối tượng học sinh/sinh viên → âm chiến trường phải xa, nén, tiết chế; không tiếng kêu đau, không bạo lực chi tiết.
@@ -32,7 +32,7 @@
 | Phòng 2 | phòng tham mưu, đồng hồ tích tắc, điện đài rè nhẹ |
 | Phòng 3 | rừng đêm, côn trùng, bánh xe đạp thồ/cuốc xẻng xa |
 | Phòng 4 | mưa, pháo rất xa và thưa (tiết chế), gió đồi |
-| Phòng 5 | tĩnh, pad ấm nhẹ |
+| Phòng 5 | tĩnh, gió nhẹ, tiếng “ngân” rất thấp (không giai điệu) |
 
 ## Requirements
 - OGG/MP3 mono (nền: stereo 96 kbps), mỗi SFX ≤ 50 KB, mỗi nền ≤ 600 KB; tổng SFX + nền ≤ 6 MB.

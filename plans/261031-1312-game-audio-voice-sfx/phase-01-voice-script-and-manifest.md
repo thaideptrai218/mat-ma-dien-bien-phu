@@ -14,7 +14,8 @@
 - Khung bảo tàng (`framing.js`) đang là chuỗi `"Hệ Thống: …"`/`"Quang: …"` → parser tách tiền tố người nói; đoạn không tiền tố = Lời kể.
 
 ## Requirements
-- Functional: manifest JSON gồm `{id, room, group, speaker, voice, text, ttsText, file}`; nhóm `REACTIONS` đánh dấu `wave: 2`.
+- Functional: manifest JSON gồm `{id, room, group, speaker, voice, text, ttsText, file}`; mọi nhóm thuộc một đợt duy nhất (gồm `REACTIONS`, `reflection` của tư liệu và câu inline).
+- Chuyển các câu Quang đang viết thẳng trong `session.js`/`actions.js` (vd. “Rương đã mở…”, “Bốn giấy tờ được xếp chung…”, câu đèn/túi ở Phòng 5) vào `content.js` của phòng (`LINES`), để extractor thấy và chữ chỉ có một nơi.
 - Non-functional: chạy bằng `node`, không cần mạng; deterministic (cùng code → cùng manifest).
 
 ## Architecture
@@ -23,28 +24,31 @@ Runtime chỉ cần map `voiceId → file`; hàm `voiceIdFor(speaker, text)` dù
 
 ## Related Code Files
 - Tạo: `scripts/build-voice-script.mjs`, `src/audio/voice-id.js`, `tests/voice-manifest.test.js`.
-- Đọc: các file nội dung ở trên. Không sửa nội dung.
+- Sửa: `src/room-*/content.js` (thêm `LINES`) và `session.js`/`actions.js` tương ứng — chỉ chuyển chỗ câu inline, không đổi chữ.
+- Đọc: các file nội dung ở trên.
 
 ## Implementation Steps
 1. Viết `voice-id.js` (FNV-1a 64-bit hex, NFC) + test cố định vài giá trị.
-2. Viết script trích câu: duyệt export dạng mảng `{speaker,text}`, `GUIDE`, beats Phòng 2 (`speakerId` → tên), REACTIONS (speaker `Quang`, `wave: 2`), framing (tách tiền tố).
-3. Gán `voice`: `system` / `quang` / `narrator` theo speaker (`Lời kể` → narrator).
-4. Sinh `ttsText` qua bảng phát âm (phase 02) — ở phase này để `ttsText = text`.
-5. Xuất manifest + CSV; thêm `npm run voice:script`.
-6. Test: mọi câu thoại trong content có id trong manifest (test “giọng cũ/thiếu” — chạy cả trong `npm test`, cho phép file audio chưa tồn tại nhưng báo danh sách).
+2. Chuyển câu inline của Quang vào `LINES` trong content từng phòng (không đổi chữ; test hiện có phải xanh).
+3. Viết script trích câu: duyệt export dạng mảng `{speaker,text}`, `GUIDE`, `LINES`, beats Phòng 2 (`speakerId` → tên), `REACTIONS`, `reflection` trong `documents.js`/`letter-document.js`/`nava-context.js`, framing (tách tiền tố).
+4. Gán `voice`: `system` / `quang` / `narrator` theo speaker (`Lời kể` → narrator).
+5. Sinh `ttsText` qua bảng phát âm (phase 02) — ở phase này để `ttsText = text`.
+6. Xuất manifest + CSV; thêm `npm run voice:script`.
+7. Test: mọi câu thoại trong content có id trong manifest (test “giọng cũ/thiếu” — chạy cả trong `npm test`, cho phép file audio chưa tồn tại nhưng báo danh sách).
 
 ## Todo List
 - [ ] `src/audio/voice-id.js` + test
+- [ ] Chuyển câu inline vào `LINES`
 - [ ] `scripts/build-voice-script.mjs`
 - [ ] Manifest + CSV duyệt
 - [ ] `tests/voice-manifest.test.js`
 
 ## Success Criteria
-- Manifest liệt kê đủ ~119 câu đợt 1 + 123 câu đợt 2, không trùng id; sửa một chữ trong content làm test chỉ ra đúng câu đó.
+- Manifest liệt kê đủ ~320 câu, không trùng id; sửa một chữ trong content làm test chỉ ra đúng câu đó.
 
 ## Risk Assessment
 - Bỏ sót câu ghép động (vd. `successText` của donor Phòng 2 được nối vào dialogue) → quyết định: `successText` là lời kể giao diện, không lồng tiếng; chỉ lồng `PUZZLE_GUIDE`.
-- Chuỗi trong session (vd. câu khi bấm đèn/túi ở Phòng 5) không nằm trong content → gom vào REACTIONS-like nhóm `inline` đợt 2 hoặc chuyển vào content.js trước.
+- Chuỗi inline sót lại trong session → test so khớp: mọi chuỗi truyền vào `dialogue()` phải có id trong manifest (trừ thông báo lỗi giao diện).
 
 ## Security Considerations
 - Không có dữ liệu cá nhân; ô suy nghĩ riêng Phòng 5 không bao giờ vào manifest.

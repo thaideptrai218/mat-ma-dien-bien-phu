@@ -36,14 +36,13 @@
 - [ ] Commit/push/PR
 
 ## Success Criteria
-- 100 % câu đợt 1 được người dùng đánh dấu Đạt; không lỗi console; hành trình đầy đủ có tiếng; docs cập nhật.
+- 100 % câu trong manifest được người dùng đánh dấu Đạt; không lỗi console; hành trình đầy đủ có tiếng; docs cập nhật.
 
 ## Risk Assessment
-- Quyền giọng CapCut chưa rõ → chặn phát hành công khai cho tới khi xác nhận (câu hỏi mở #1 trong plan.md).
 - Repo nặng lên ~15–20 MB → chấp nhận; nếu vượt, cân nhắc Git LFS cho `public/audio/`.
 
 ## Security Considerations
 - Không commit `.cache/voice-raw/`, `.studio/`, mẫu giọng tham chiếu; kiểm tra `git status` trước commit.
 
 ## Next Steps
-- Đợt 2: lồng tiếng 123 câu độc thoại REACTIONS + câu inline trong session.
+- Duy trì: mỗi lần sửa lời thoại, chạy `npm run voice:script` + sinh lại câu báo “giọng cũ” trước khi merge.

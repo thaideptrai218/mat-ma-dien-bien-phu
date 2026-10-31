@@ -53,13 +53,13 @@ Tốc độ đề xuất: Hệ Thống `1.0`, Quang `1.05`, Lời kể `0.95` (c
 - [ ] Client 2 engine + health check
 - [ ] Bảng phát âm + test
 - [ ] Sinh thử Phòng 1, duyệt
-- [ ] Sinh toàn bộ đợt 1
+- [ ] Sinh toàn bộ ~320 câu
 
 ## Success Criteria
-- 100% câu đợt 1 có file thô, log không lỗi; mẫu Phòng 1 được người dùng duyệt giọng/tốc độ.
+- 100% câu trong manifest có file thô, log không lỗi; mẫu Phòng 1 được người dùng duyệt giọng/tốc độ.
 
 ## Risk Assessment
-- CapCut chặn/đổi API → bridge báo lỗi, giữ lựa chọn; phương án dự phòng: OmniVoice clone từ preview (cần đồng ý về quyền giọng).
+- CapCut chặn/đổi API → bridge báo lỗi, giữ lựa chọn; phương án dự phòng: OmniVoice clone từ preview. Quyền dùng giọng CapCut công khai: người dùng đã xác nhận (2026-10-31).
 - OmniVoice thiếu VRAM → `OMNIVOICE_DEVICE=cpu` (chậm, chạy qua đêm).
 - Câu dài > giới hạn engine → tách theo câu/dấu chấm rồi nối bằng FFmpeg `concat` với 120 ms im lặng.
 

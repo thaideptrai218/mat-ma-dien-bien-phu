@@ -116,5 +116,7 @@ Hiện **119/119 kiểm thử**, build năm entry và [review GO](plans/261031-c
 - [Kế hoạch Phòng 4](plans/261030-tram-room-four/plan.md), [nội dung và mật mã](plans/261030-tram-room-four/reports/content.md), [UI](plans/261030-tram-room-four/reports/ui-implementation.md), [nhật ký Phòng 4](docs/journals/2026-10-30-tram-room-four.md).
 - [Tổng quan](docs/project-overview-pdr.md), [cấu trúc mã](docs/codebase-summary.md), [kiến trúc](docs/system-architecture.md).
 - [Quy ước mã](docs/code-standards.md), [thiết kế](docs/design-guidelines.md), [chạy và build](docs/deployment-guide.md), [tiến độ](docs/project-roadmap.md).
+- Cốt truyện mới nhất (Word, 5 phòng + thiết kế từng giai đoạn): [docs/game-story-v4.docx](docs/game-story-v4.docx); link chỉnh sửa Canva nội bộ đã được gỡ khỏi bản trong repo.
+- [Kế hoạch âm thanh: lồng tiếng Quang/Hệ Thống/Lời kể, SFX, môi trường](plans/261031-1312-game-audio-voice-sfx/plan.md).
 - Nguồn truyện các phiên bản trước: [PDF bản 2](docs/game-story-v2.pdf), [Word](docs/game-story.docx). Các tệp giữ provenance, không thay phạm vi PDF bản 4 đã chấp thuận.
 - Mã nguồn: [GitHub](https://github.com/thaideptrai218/mat-ma-dien-bien-phu). Nhánh `feat/complete-five-room-campaign` đã push qua [PR #3](https://github.com/thaideptrai218/mat-ma-dien-bien-phu/pull/3), giữ lịch sử đóng góp của Bảo; main chưa merge, đã có bản production Vercel ở đường dẫn đầu trang. Giấy phép phân phối cốt truyện và tài sản chưa xác định.
