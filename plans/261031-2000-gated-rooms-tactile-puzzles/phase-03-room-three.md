@@ -65,3 +65,23 @@ Không đổi save; text qua textContent.
 
 ## Next steps
 Phụ thuộc phase 6. Cập nhật mục Room 3 trong `docs/code-standards.md` (graph giữ nguyên + cổng).
+
+## Implementation status (2026-10-31) — DONE (pending voice:script)
+Thiết kế cuối (thay cho 1 barie duy nhất): 5 cổng, mỗi cổng đúng 1 cách mở, cố định trong `src/room-three/area-gates.js` (không vào WORLD.walls). Tiến trình: kho đầu → sân sổ → bãi hàng → trại chỉ huy → trại đông → trạm điện đài.
+
+| # | id | Vị trí / kiểu | Chặn | Cách mở | Điều kiện / câu đố (thành phần dùng chung) |
+|---|---|---|---|---|---|
+| 1 | depot-rope | dây kho dọc x1090 (rope) | sổ tiếp vận + toàn bộ phần sau | auto | xong Hồ sơ chuẩn bị (tủ hồ sơ) |
+| 2 | cargo-pen | rào vây bãi hàng 300x300 (bars), cửa phía nam | bãi hàng tiếp vận | puzzle | kéo thẻ "Công binh làm đường" vào ổ khóa (token-bins), dựa Sổ người đi cùng chuyến hàng |
+| 3 | road-barrier | barie đường x1780 (barrier) | lều chỉ huy, hai bức điện, toàn bộ phía đông | auto | xong Bãi hàng (cargo) |
+| 4 | east-yard-curtain | tấm bạt dọc x2540 (curtain) | thư 04, báo cáo 05, trạm điện đài, cửa ra | auto | xong Hai bức điện ở lều chỉ huy (strategy) |
+| 5 | radio-pen | dây vây trạm điện đài 300x300 (rope), cửa phía bắc | trạm điện đài | puzzle | thước trượt tới ngày Độc Lập bị tiêu diệt (range-ruler), dựa Thư 04 |
+
+- Rương và cửa ra nằm ngoài các rào; vẫn khóa bằng cốt truyện như cũ (4 thử thách, mảnh tranh).
+- Cổng puzzle không bao giờ tự mở; `legacy` chỉ là lưới an toàn cho save cũ (tiến độ chỉ có thể có sau cổng ⇒ cổng mở).
+- Lưu: `state.doorsSolved` (save v1, tương thích ngược: thiếu ⇒ [], id lạ bị loại). `goals.js` chỉ chuyển mục tiêu sang cửa khi trạm nằm sau cổng puzzle còn khóa.
+- Thông báo chạm cổng: auto "Hệ Thống: Ký Chủ hãy …", puzzle "Nhấn E để mở khóa".
+- Xúc giác (payload `answers.js` giữ nguyên): Chuẩn bị = kéo 5 thẻ vào 3 mốc + kéo vật tư vào kho (có 2 thẻ nhiễu) + radio; Bãi hàng = kéo 6 chú thích lên 6 tranh (khay dính khi cuộn); Lều chỉ huy = kéo từ vào 2×4 khe; Điện đài = kéo 3 tin vào dòng thời gian + kéo 3 ngày lên tin + select/checkbox; Rương = kéo thẻ thưởng đã nhận vào khe Ngày/Tháng/Năm ⇒ `13/03/1954`. Thiếu thẻ ⇒ nhắc trung tính, không tính lần sai. `orderedCards`/select bị gỡ.
+- SYSTEM_HINTS: cập nhật `open` của preparation/cargo/strategy/opening/final, thêm `door-cargo-pen`, `door-radio-pen` (không chữ số, "Ký Chủ"). Còn lại: lead chạy `npm run voice:script` rồi sinh audio.
+- Test: `tests/room-three-gates.test.js` (1 cách/cổng, có cả 2 loại, reachability từng cổng + không có điểm E nào tới được khi khóa, mục tiêu tới được suốt cốt truyện, save cũ), `tests/room-three-tactile.test.js`. `tests/system-address-dialogue.test.js`: thêm 2 khóa door vào danh sách Phòng 3.
+- Mã: `area-gates.js`, `tactile-model.js` (thuần), `tactile-board.js`, `door-panel.js`; sửa scene/session/actions/ui/panels/puzzles/panel 4 trạm/rules/save/goals/content/styles.

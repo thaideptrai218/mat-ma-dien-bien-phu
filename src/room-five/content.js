@@ -76,4 +76,9 @@ export const SYSTEM_HINTS = {
     open: 'Ký Chủ, bốn mảnh cần khớp thành một bức tranh liền nét.',
     hints: ['Ký Chủ thử nhìn các đường nét ở mép từng mảnh. Chỗ nào còn bị đứt?', 'Ký Chủ thử xếp từng hàng một. Hàng trên nối với hàng dưới ở những nét nào?'],
   },
+  // Door puzzle (key = door- plus the gate id in area-gates.js): no digits, never names the answer outright.
+  'door-reconstruction-hall': {
+    open: 'Ký Chủ, mỗi mảnh tranh nhớ về một phòng đã đi qua. Các tấm biển đang đứng lệch thứ tự.',
+    hints: ['Ký Chủ thử nhớ lại: mảnh đầu tiên Ký Chủ nhặt được nằm ở phòng nào?', 'Số La Mã của mảnh đi theo thứ tự các phòng Ký Chủ đã đi qua. Ký Chủ chỉ cần đọc kỹ tên từng tấm biển.'],
+  },
 };

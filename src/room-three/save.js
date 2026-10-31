@@ -1,5 +1,6 @@
 import {CHALLENGES} from './puzzle-data.js';
 import {createState,OBJECT_IDS} from './rules.js';
+import {DOOR_IDS} from './area-gates.js';
 export const SAVE_KEY='mat-ma-dien-bien-phu:room-three:v1';
 export function sanitizeSave(raw){
   const s=createState();if(!raw||raw.version!==1)return s;
@@ -17,6 +18,8 @@ export function sanitizeSave(raw){
   }
   s.introSeen=raw.introSeen===true;
   s.seenObjectIds=Array.isArray(raw.seenObjectIds)?[...new Set(raw.seenObjectIds.filter(id=>OBJECT_IDS.includes(id)))]:[];
+  // Absent in saves written before door puzzles existed -> []; unknown or repeated ids are dropped.
+  s.doorsSolved=Array.isArray(raw.doorsSolved)?DOOR_IDS.filter(id=>raw.doorsSolved.includes(id)):[];
   s.chestOpened=s.completedChallenges.length===4&&raw.chestOpened===true;
   s.fragmentCollected=s.chestOpened&&raw.fragmentCollected===true;s.exitReached=s.fragmentCollected&&raw.exitReached===true;
   s.audioEnabled=raw.audioEnabled===true;s.audioVolume=typeof raw.audioVolume==='number'&&Number.isFinite(raw.audioVolume)?Math.max(0,Math.min(1,raw.audioVolume)):.5;

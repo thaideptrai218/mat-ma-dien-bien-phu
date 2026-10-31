@@ -21,8 +21,19 @@
 .r4-letter-cell{border:1px solid var(--r4-rule);background:var(--r4-grid-paper);box-shadow:0 1px 0 #a48a6340}
 .r4-grid-gap{border:1px solid transparent;background:transparent}
 .r4-crossword-columns{min-width:870px}
-.r4-column-choice{min-width:44px;min-height:44px;width:100%;padding:6px 0;border-color:#ae8e67;background:#e6d8ba;font-size:14px}
-.r4-column-choice:hover:not(:disabled){color:#fff3dc;background:var(--r1-forest)}
+.r4-crossword th.is-picked{background:#c9a35b;color:#2d2412;border-radius:3px}
+.r4-crossword td.is-picked.r4-letter-cell{background:#f6df9e;border-color:#965832;box-shadow:inset 0 0 0 1px #965832}
+.r4-crossword td.is-picked.r4-grid-gap{background:#c9a35b26}
+.r4-puzzle .rr{max-width:560px;margin:4px 0 18px}
+.r4-puzzle>.r1-primary{margin-top:2px}
+.r4-shape-grid{touch-action:none;user-select:none;-webkit-user-select:none}
+.r4-strips .tb-token{font:600 17px/1.2 'DBP Display',serif;letter-spacing:.06em;min-height:52px}
+.r4-strips .tb-bins{grid-template-columns:repeat(2,minmax(150px,1fr))}
+.r4-puzzle>.r4-strips{margin:20px 0}
+.r4-door-control{display:grid;gap:18px;justify-items:start;margin-top:20px}
+.r4-door-control .cd{justify-content:flex-start}
+.r4-door .tb{margin-top:20px}
+.r4-puzzle .r1-primary:disabled{opacity:.55;cursor:not-allowed}
 .r4-crossword-form{display:grid;gap:22px;margin-top:28px;border-top:1px solid var(--r4-rule);padding-top:26px}
 .r4-crossword-question{gap:7px;font-size:15px;line-height:1.7}
 .r4-crossword-question input{font-size:17px;text-transform:uppercase;letter-spacing:.07em}

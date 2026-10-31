@@ -92,6 +92,10 @@ export function handleAction(s, action, p = {}) {
       if (inView('document') && !active.readOnly && s.state.identitySolved && active.document.id === 'nava-context' && p.id === active.document.id)
         return s.dialogue('Quang · Sau bản tin tháng bảy',[...NAVA_CONTEXT_DOCUMENT.reflection,...LINES.navaContext, ...GUIDE.chest]);
       return;
+    case 'door-submit':
+      if (!inView(`door-${p.id}`)) return;
+      if (!s.commit('door', p)) return s.error('Chưa khớp.');
+      s.audio.playCue('success'); s.close(); s.notice = 'Khóa đã mở. Lối đi phía sau đã thông.'; s.render(); return;
     case 'chest-submit':
       if (!inView('chest')) return;
       if (!s.commit('chest', p)) return s.error('Chưa đúng.');

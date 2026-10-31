@@ -144,23 +144,32 @@ export const LINES = {
 // try) and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
 export const SYSTEM_HINTS = {
   preparation: {
-    open: 'Ký Chủ, hồ sơ chuẩn bị cần được phân loại cho đúng.',
+    open: 'Ký Chủ, kéo từng thẻ về đúng mốc, rồi chọn vật tư cho kho.',
     hints: ['Ký Chủ thử tách việc nào gắn với một ngày cụ thể, việc nào diễn ra song song trong thời gian chuẩn bị.', 'Ký Chủ đọc lại hồ sơ chuẩn bị trong sổ tay. Chiến đấu lâu dài cần những gì được bảo đảm trước?'],
   },
   cargo: {
-    open: 'Ký Chủ, mỗi bức tranh cần một chú thích đúng với vai trò của nó.',
+    open: 'Ký Chủ, kéo mỗi chú thích lên bức tranh đúng với vai trò của nó.',
     hints: ['Ký Chủ thử đọc lại nhật ký tiếp vận. Mỗi phương tiện hay lực lượng được nhắc để làm việc gì?', 'Ký Chủ để ý sự khác nhau giữa người chuyên chở, người mở đường và thứ được chuyên chở.'],
   },
   strategy: {
-    open: 'Ký Chủ, hai bức điện mang hai phương châm khác nhau.',
+    open: 'Ký Chủ, kéo từng từ vào khe để dựng lại hai bức điện.',
     hints: ['Ký Chủ thử so hai bức điện trong sổ tay. Từ nào đã thay đổi giữa bức trước và bức sau?', 'Ký Chủ thử nghĩ vì sao người chỉ huy đổi cách nói, và điều đó cho thấy họ coi trọng điều gì.'],
   },
   opening: {
-    open: 'Ký Chủ, ba trận mở màn cần được xếp đúng ngày.',
+    open: 'Ký Chủ, xếp ba tin theo thứ tự, rồi kéo mỗi ngày lên tin của nó.',
     hints: ['Ký Chủ thử đọc lại thư và báo cáo phía bắc. Mỗi cứ điểm được nhắc cùng một mốc thời gian.', 'Ký Chủ thử tìm trận nào mở màn chiến dịch, trận nào đến sau, và nơi nào kết thúc bằng sự đầu hàng.'],
   },
   final: {
-    open: 'Ký Chủ, khóa rương cần ngày mở màn của chiến dịch.',
-    hints: ['Ký Chủ thử xem lại các dữ kiện đã khôi phục. Dữ kiện nào nhắc đến một mốc thời gian?', 'Không phải dữ kiện nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.'],
+    open: 'Ký Chủ, ổ khóa rương có ba khe; các thẻ đã khôi phục sẽ vừa vào đó.',
+    hints: ['Ký Chủ thử xem lại các dữ kiện đã khôi phục. Dữ kiện nào nhắc đến một mốc thời gian?', 'Không phải thẻ nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.'],
+  },
+  // Door puzzles (keys are door- plus the gate id in area-gates.js): quick, answered from papers just read.
+  'door-cargo-pen': {
+    open: 'Ký Chủ, ổ khóa đòi thẻ của lực lượng chuyên mở và sửa đường.',
+    hints: ['Ký Chủ thử đọc lại sổ người đi cùng chuyến hàng: ai được nhắc khi đường tiếp tục thông?', 'Ký Chủ để ý người cầm cuốc xẻng sửa những đoạn khó, không phải người gánh hay người kéo pháo.'],
+  },
+  'door-radio-pen': {
+    open: 'Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trong lá thư.',
+    hints: ['Ký Chủ thử mở sổ tay đọc lại lá thư sau những trận mở đầu: cứ điểm nào bị tiêu diệt?', 'Lá thư nhắc hai trận, mỗi trận một ngày. Ký Chủ chọn ngày của trận sau, nơi cứ điểm bị tiêu diệt.'],
   },
 };

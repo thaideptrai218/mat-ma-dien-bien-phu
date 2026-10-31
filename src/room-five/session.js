@@ -4,12 +4,15 @@ import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.j
 import {disposeRoomSession, deferRoomExit, retainSharedAudioPreferences} from '../core/session-lifecycle.js';
 import {RoomOneUI} from '../room-one/ui.js';
 import {RoomFiveScene} from './scene.js';
-import {createPanel, shuffledPieces} from './panels.js';
+import {createPanel} from './panels.js';
+import {shuffledPieces} from './assembly-pieces.js';
 import {INTRO, SOURCE_LABEL, LINES, NOTICES, REFLECTION_SCRIPT, SYSTEM_HINTS} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, hasAllFragments, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
 import {handleAction} from './actions.js';
+import {AREA_GATES, doorObjects, doorViewKey, goalDoorFor, DOOR_GATES} from './area-gates.js';
+import {lockedGateIds, lockedGateRects, gateById} from '../core/area-gates.js';
 import './room-five.css';
 
 export class RoomFiveSession {
@@ -28,7 +31,8 @@ export class RoomFiveSession {
       world: WORLD, panelFactory: createPanel,
     });
     this.scene = new RoomFiveScene({
-      onInteract: id => this.interact(id), onPosition: position => {if (!this.disposed) {this.position = position; this.render();}},
+      onInteract: id => this.interact(id), onGateBlocked: id => {const gate = gateById(AREA_GATES, id); if (gate && !this.disposed) {this.notice = gate.notice; this.render();}},
+      onPosition: position => {if (!this.disposed) {this.position = position; this.render();}},
       onShortcut: key => handleAction(this, ({M: 'map', N: 'notebook', Q: 'quests-toggle', Escape: 'settings'})[key]),
       isPaused: () => this.disposed || Boolean(this.options.isPaused?.()) || this.ui.isOpen, audio: this.audio,
     });
@@ -44,9 +48,14 @@ export class RoomFiveSession {
   }
   render() {
     if (this.disposed || !this.ui) return;
-    const goal = goalFor(this.state, this.fragments), nearby = OBJECTS.find(o => o.id === this.position.nearbyId) || null;
-    this.ui.render({state: this.state, position: this.position, nearby, goal, notice: this.notice, audio: this.audio.getSnapshot()});
-    this.scene?.setGoal(goal.id); this.scene?.setDoorOpen(this.state.reflectionSeen);
+    const locked = lockedGateIds(AREA_GATES, this.state), doors = doorObjects(locked);
+    const base = goalFor(this.state, this.fragments), doorGoal = goalDoorFor(this.state, base.id);
+    // While the way to the goal is roped off, the goal is the rope itself.
+    const goal = doorGoal ? {...base, id: doorGoal, label: 'Mở khóa lối vào gian phục dựng', detail: 'Một sợi dây chắn ngang gian phục dựng. Đến sợi dây rồi nhấn E để mở khóa.'} : base;
+    const nearby = [...OBJECTS, ...doors].find(o => o.id === this.position.nearbyId) || null;
+    this.ui.render({state: this.state, position: this.position, nearby, goal, notice: this.notice, audio: this.audio.getSnapshot(),
+      lockedGateRects: lockedGateRects(AREA_GATES, this.state)});
+    this.scene?.setLockedGates(locked); this.scene?.setGoal(goal.id); this.scene?.setDoorOpen(this.state.reflectionSeen);
     const mode = this.options.isPaused?.() ? 'inactive' : this.ui.isOpen ? 'dialogue' : 'exploration';
     if (this.audio.mode !== mode) this.audio.setMode(mode);
   }
@@ -80,9 +89,11 @@ export class RoomFiveSession {
   error(message) {if (!this.disposed) {this.notice = message; this.audio.playCue('error'); this.ui.noteMistake(); this.render();}}
   interact(id) {
     if (this.disposed || this.options.isPaused?.() || this.ui.isOpen || this.state.exitReached) return;
-    const object = OBJECTS.find(o => o.id === id), position = this.scene.getPosition();
+    const object = OBJECTS.find(o => o.id === id) || doorObjects(lockedGateIds(AREA_GATES, this.state)).find(o => o.id === id), position = this.scene.getPosition();
     if (!object || position.nearbyId !== id || Math.hypot(object.x - position.x, object.y - position.y) > object.radius) return;
-    this.notice = ''; this.commit('seen', {id}); this.audio.playCue('paper');
+    this.notice = '';
+    if (object.type === 'gate-door') return this.showDoor(object.gateId);
+    this.commit('seen', {id}); this.audio.playCue('paper');
     if (id === 'lamp') return this.dialogue(object.label, LINES.lamp);
     if (id === 'satchel') return this.dialogue(object.label, hasAllFragments(this.fragments) ? LINES.satchelFull : LINES.satchelMissing);
     if (id === 'assembly' && !hasAllFragments(this.fragments)) return this.dialogue(object.label, LINES.assemblyMissing);
@@ -90,6 +101,10 @@ export class RoomFiveSession {
     if (id === 'door' && !this.state.reflectionSeen) return this.dialogue(object.label, this.state.assemblySolved ? LINES.doorAssembled : LINES.doorUnassembled);
     this.dialogue(object.label, LINES[id === 'assembly' ? 'lookAssembly' : id === 'reflection' ? 'lookReflection' : 'lookDoor'],
       id === 'door' ? 'Bước qua cửa trở về' : 'Xem kỹ', 'continue-object', {id});
+  }
+  showDoor(gateId) {
+    if (this.disposed || !DOOR_GATES.some(gate => gate.id === gateId)) return;
+    this.audio.playCue('paper'); this.show(doorViewKey(gateId), {gateId});
   }
   openObject(id) {
     if (this.disposed || this.options.isPaused?.()) return;

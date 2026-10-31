@@ -1,15 +1,10 @@
 import {element, button, heading} from '../room-one/ui-elements.js';
 import {createPanel as sharedPanel} from '../room-one/ui-panels.js';
 import {visualNovelDialogue} from '../ui/visual-novel-dialogue.js';
+import {swapPieces, enableDragSwap} from './assembly-pieces.js';
+import {doorPanel} from './door-puzzle-panel.js';
+import {gateIdOfDoorView} from './area-gates.js';
 import {PAINTING_URL, PAINTING_ALT, SOURCE_LABEL, REFLECTION_SCRIPT, DOOR_MESSAGE, CLOSING_LINE} from './content.js';
-
-export function shuffledPieces(random = Math.random) {
-  const order = [0, 1, 2, 3];
-  for (let i = order.length - 1; i > 0; i--) {
-    const j = Math.floor(random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]];
-  }
-  return order.every((id, index) => id === index) ? [2, 0, 3, 1] : order;
-}
 
 function painting() {
   const image = element('img', 'r5-complete-painting'); image.src = PAINTING_URL; image.alt = PAINTING_ALT;
@@ -19,7 +14,7 @@ function painting() {
 function assembly(data, emit) {
   const node = element('section', 'r5-assembly');
   node.append(heading('Ghép bức tranh chiến thắng', 'PHÒNG 5 · BÀN PHỤC DỰNG'),
-    element('p', 'r1-lead', 'Chọn một mảnh rồi chọn mảnh khác để đổi chỗ. Dùng Tab và Enter hoặc phím cách trên các nút. Khi tranh liền mạch, xác nhận bên dưới.'));
+    element('p', 'r1-lead', 'Kéo một mảnh thả lên mảnh khác, hoặc chọn một mảnh rồi chọn mảnh khác để đổi chỗ. Dùng Tab và Enter hoặc phím cách trên các nút. Khi tranh liền mạch, xác nhận bên dưới.'));
   node.append(element('p', 'r1-muted', 'Minh họa SVG nguyên bản của dự án; không phải ảnh tư liệu hay bản sao tranh bảo tàng.'));
   if (data.solved) {node.append(painting(), element('p', 'r1-lead', 'Bốn mảnh đã khớp. Câu hỏi cuối đang chờ ở nơi ánh sáng cạnh cửa.')); return {node};}
   const order = [...data.order], board = element('div', 'r5-piece-grid');
@@ -27,19 +22,19 @@ function assembly(data, emit) {
   const status = element('p', 'r5-selection-status', 'Chưa chọn mảnh nào.'); status.setAttribute('aria-live', 'polite');
   let selected = null;
   const names = ['I', 'II', 'III', 'IV'];
-  const slots = order.map((_, index) => {
-    const slot = button('', () => {
-      if (selected === null) {selected = index; status.textContent = `Đã chọn vị trí ${index + 1}. Chọn một vị trí khác để đổi chỗ.`;}
-      else if (selected === index) {selected = null; status.textContent = 'Đã bỏ chọn mảnh.';}
-      else {
-        [order[selected], order[index]] = [order[index], order[selected]];
-        selected = null; status.textContent = 'Đã đổi chỗ hai mảnh. Có thể tiếp tục sắp xếp.';
-        emit('assembly-draft', {order: [...order], token: data.token});
-      }
-      paintSlots();
-    }, 'r5-piece');
-    return slot;
-  });
+  // One swap path for click-click and drag-and-drop; the draft payload is the same either way.
+  const swapSlots = (a, b) => {
+    const next = swapPieces(order, a, b); if (next === order) return;
+    order.splice(0, order.length, ...next); selected = null;
+    status.textContent = 'Đã đổi chỗ hai mảnh. Có thể tiếp tục sắp xếp.';
+    emit('assembly-draft', {order: [...order], token: data.token}); paintSlots();
+  };
+  const slots = order.map((_, index) => button('', () => {
+    if (selected === null) {selected = index; status.textContent = `Đã chọn vị trí ${index + 1}. Chọn một vị trí khác để đổi chỗ.`;}
+    else if (selected === index) {selected = null; status.textContent = 'Đã bỏ chọn mảnh.';}
+    else return swapSlots(selected, index);
+    paintSlots();
+  }, 'r5-piece'));
   function paintSlots() {
     slots.forEach((slot, index) => {
       const id = order[index];
@@ -50,7 +45,7 @@ function assembly(data, emit) {
       slot.replaceChildren(element('span', 'r5-piece-label', `${index + 1} · ${names[id]}`));
     });
   }
-  paintSlots(); board.append(...slots);
+  paintSlots(); board.append(...slots); enableDragSwap(slots, swapSlots);
   node.append(board, status, button('Xác nhận bức tranh', () => emit('assembly-submit', {order: [...order], token: data.token}), 'r1-primary'));
   return {node};
 }
@@ -79,6 +74,8 @@ function reflection(data, emit) {
 }
 
 export function createPanel(view, data, emit, snapshot, world) {
+  const doorId = gateIdOfDoorView(view);
+  if (doorId) return doorPanel(doorId, data, emit);
   if (view === 'assembly') return assembly(data, emit);
   if (view === 'reflection') return reflection(data, emit);
   if (view === 'notebook') {

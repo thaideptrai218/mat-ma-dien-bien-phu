@@ -49,16 +49,29 @@ export const PUZZLE_GUIDE = {
 // and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
 export const SYSTEM_HINTS = {
   'nava-balance': {
-    open: 'Ký Chủ, Sổ kế hoạch của Nava là nơi cần đọc kỹ cho bàn cân này.',
+    open: 'Ký Chủ, đặt các quả cân lên hai đĩa theo lề Sổ kế hoạch của Nava.',
     hints: ['Ký Chủ thử đọc lại Sổ kế hoạch: mỗi việc thuộc bước nào, vào lúc nào?', 'Ký Chủ để ý lề của Sổ kế hoạch. Lề sổ ghi gì về các chiến trường ngoài Bắc Bộ?'],
   },
   'nava-radio': {
-    open: 'Ký Chủ, hai bức điện đang phát chen nhau trên một sóng.',
+    open: 'Ký Chủ, xoay núm chọn tai nghe rồi nhặt chữ từ cuộn băng điện báo.',
     hints: ['Ký Chủ thử đọc cuộn băng theo một cách khác, không đọc liền một mạch.', 'Ký Chủ nhớ lại ghi chú ở điện đài: bên nào muốn dồn quân, bên nào muốn chia nhỏ lực lượng đối phương?'],
   },
   'nava-fist': {
-    open: 'Ký Chủ, bốn mẩu tin trong sổ tay cho biết các nước đi.',
+    open: 'Ký Chủ, kéo từng thẻ mũi tên vào đúng vùng theo bốn mẩu tin.',
     hints: ['Ký Chủ thử đọc lại từng mẩu tin: mỗi mẩu nhắc một nơi, và nơi ấy thuộc vùng nào?', 'Ký Chủ để ý ngày tháng trên mỗi mẩu tin, rồi nghĩ nơi nào xảy ra trước, nơi nào sau.'],
+  },
+  // Door puzzles (keys are door- plus the gate id in area-gates.js): quick, answered from clues just read.
+  'door-south-west': {
+    open: 'Ký Chủ, ổ khóa đòi huy hiệu của bên đang dồn quân về một chỗ.',
+    hints: ['Ký Chủ thử đọc lại ghi chú trên điện đài: tai nghe nào ghi bên dồn quân?', 'Ký Chủ nhớ lại cuốn sổ của Nava: bên nào muốn nắm chặt lực lượng thành một nắm đấm?'],
+  },
+  'door-south-east': {
+    open: 'Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trên trang báo cũ.',
+    hints: ['Ký Chủ thử mở sổ tay đọc lại trang báo cũ: tít lớn nói về nơi nào được giải phóng?', 'Ký Chủ để ý bài báo kể từ ngày nào liên quân tiến công hướng Trung Lào.'],
+  },
+  'door-north-room': {
+    open: 'Ký Chủ, hai bánh số này chỉ một tháng ghi trên bức điện liên quân.',
+    hints: ['Ký Chủ thử đọc lại bức điện liên quân Việt – Lào, chỗ đề thời gian ở đầu bức điện.', 'Bức điện đề cuối tháng đầu tiên của năm. Ký Chủ nhớ bánh số hiển thị hai chữ số.'],
   },
   'nava-fold': {
     open: 'Ký Chủ, hồ sơ trên nắp hòm sắt chỉ ra nơi cần gấp tới.',

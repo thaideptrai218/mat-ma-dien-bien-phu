@@ -1,11 +1,12 @@
 import {RoomOneScene} from '../room-one/scene.js';
 import {WORLD} from './world.js';
 import {createRoomThreeArtwork} from './art.js';
+import {AREA_GATES, doorObjects} from './area-gates.js';
 
 export class RoomThreeScene extends RoomOneScene {
   constructor(callbacks = {}) {
     super(callbacks, {world: WORLD, artFactory: createRoomThreeArtwork, sceneKey: 'room-three',
-      textureKey: 'room-three-camp', initialGoal: 'preparation-record'});
+      textureKey: 'room-three-camp', initialGoal: 'preparation-record', areaGates: AREA_GATES});
     this.chestOpen = false; this.fragmentCollected = false;
   }
 
@@ -50,6 +51,16 @@ export class RoomThreeScene extends RoomOneScene {
     art.fillStyle(0xf1ddb0).fillCircle(x + 88, y + 32, 10);
     art.fillStyle(0x202e29).fillCircle(x + 55, y + 60, 9);
     art.lineStyle(2, 0xa77b45).strokeRect(x + 62, y + 39, 52, 42);
+  }
+
+  // Locked puzzle doors become interactable (E opens the door panel); WORLD itself stays untouched.
+  setLockedGates(ids = []) {
+    super.setLockedGates(ids);
+    const key = doorObjects(ids).map(object => object.id).join();
+    if (key === this.doorKey) return;
+    this.doorKey = key;
+    this.map = {...WORLD, objects: [...WORLD.objects, ...doorObjects(ids)]};
+    this.updateNearby?.();
   }
 
   getSnapshot() {

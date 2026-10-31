@@ -64,3 +64,23 @@ Như phase khác.
 
 ## Next steps
 Phụ thuộc phase 6.
+
+## Implementation status (2026-10-31) — DONE (pending voice:script)
+Thiết kế cuối (thay cho 1 dây chắn duy nhất): 7 cổng cắt đại sảnh thành chuỗi khu, mở theo đúng thứ tự đọc 7 tư liệu; mỗi cổng đúng 1 cách mở, cố định trong `src/room-four/area-gates.js` (không vào WORLD). Puzzle gate không bao giờ tự mở; `legacy` chỉ là lưới an toàn cho save cũ (đã đọc/ghi tư liệu sau cổng).
+
+| # | id | Khu mở ra | Rect(s) | Cách mở | Điều kiện / câu đố |
+|---|---|---|---|---|---|
+| 1 | final-assault | 02 (tây) | [48,1030,782,32] | auto | đã ghi tư liệu 01 |
+| 2 | a1-night | 03 + gian ô chữ + cửa (tây bắc/bắc) | [48,430,782,32] | puzzle | kéo thẻ "Tổng công kích" vào ổ khóa (token-bins) |
+| 3 | headquarters | 04 (đông bắc) | [1800,48,32,366] | auto | đã ghi tư liệu 03 (A1) |
+| 4 | results | 05 (đông) | [1970,520,782,32] | puzzle | xoay 4 bánh số thành giờ chiếm sở chỉ huy (combination-dial) |
+| 5 | north | 06 + máy điện đài (đông nam) | [1970,1000,782,32] | puzzle | thước trượt tới số ngày đêm chiến dịch (range-ruler) |
+| 6 | independence | 07 (nam) | [1580,1150,32,602] + [1990,1032,32,720] | auto | đã ghi tư liệu 06 |
+| 7 | cipher-cordon | bàn T, bàn L, rương | hộp [1160,414,480,30] [830,444,30,706] [1940,444,30,706] [830,1120,1140,30] | auto | `columnSolved` |
+
+- 4 auto + 3 puzzle (trộn, không xen kẽ cứng). Khu đầu (lối vào + tư liệu 01 + đèn) luôn mở. Gian ô chữ + cửa cùng khu với A1 (ô chữ vẫn khóa theo logic 7 tư liệu).
+- Chạm cổng khóa: auto -> "Hệ Thống: Ký Chủ hãy … trước"; puzzle -> "Nhấn E để mở khóa" (E tại ổ khóa `door:<id>`; mục tiêu hiện tại tự chỉ vào ổ khóa nếu bị chắn).
+- Lưu: `state.doorsSolved` (save cũ thiếu field -> []), sanitize theo DOOR_IDS. Reducer action `door`; UI emit `door-submit`.
+- Xúc giác: giữ ô chữ gõ; cột chọn bằng thước trượt 1–17 + tô sáng cột (`column-submit {column:value-1}`); bàn T/L có bút dò quét (`shape-sweep-model.js`, pointer + Bresenham, bàn phím vẫn bấm từng ô); rương: kéo 2 dải QUYẾT CHIẾN / QUYẾT THẮNG vào 2 khe (`final-strips-*.js`), phrase ghép theo thứ tự khe.
+- Hint (Hệ Thống, tự lên khi sai): cập nhật column / board-t / board-l / final; thêm door-a1-night, door-results, door-north. Cần `npm run voice:script` + sinh audio (voice-manifest đỏ do đổi SYSTEM_HINTS).
+- Test: `tests/room-four-gates.test.js` (1 cách/cổng, có cả 2 loại, reachability từng cổng theo khu, goal tới được suốt cốt truyện, save cũ), `tests/room-four-tactile.test.js`; thêm 3 khóa door-* vào dòng Room 4 của `tests/system-address-dialogue.test.js`. QA headless Chrome (room-four.html): bump + notice, 3 loại khóa, thước cột, bút dò, 2 dải rương đều qua.

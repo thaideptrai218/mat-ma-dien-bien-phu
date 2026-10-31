@@ -7,6 +7,9 @@ import {DOCUMENTS} from './documents.js';
 import {INTRO, REACTIONS, LINES, SYSTEM_HINTS} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, reduce} from './rules.js';
+import {AREA_GATES, gateAnchors, gateIdOfAnchor, gateIsOpen} from './area-gates.js';
+import {doorAvailable} from './door-puzzles.js';
+import {lockedGateIds, lockedGateRects, gateById} from '../core/area-gates.js';
 import {loadSave, persistSave} from './save.js';
 import {handleAction} from './actions.js';
 import {LETTER_DOCUMENT} from './letter-document.js';
@@ -22,14 +25,16 @@ export class RoomOneSession {
     this.active = null; this.nonce = 0; this.position = {...WORLD.checkpoints[0]};
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
     this.audio.setScene('room-1');
+    this.anchorKey = gateAnchors(this.state).map(a => a.id).join();
     this.ui = new RoomOneUI({root, onAction: (action, payload) => handleAction(this, action, payload), audio: this.audio, hints: SYSTEM_HINTS});
     this.scene = new RoomOneScene({
       onInteract: id => this.interact(id),
       onPosition: position => { if (this.disposed) return; this.position = position; this.render(); },
       onShortcut: key => handleAction(this, ({M:'map', N:'notebook', Q:'quests-toggle', Escape:'settings'})[key]),
       isPaused: () => this.disposed || Boolean(this.options.isPaused?.()) || this.ui.isOpen,
+      onGateBlocked: id => this.gateBlocked(id),
       audio: this.audio,
-    });
+    }, {areaGates: AREA_GATES, world: this.sceneWorld()});
     this.game = new Phaser.Game({type: Phaser.AUTO, parent: 'game-canvas', backgroundColor: '#171d18',
       scale: {mode: Phaser.Scale.RESIZE, width: '100%', height: '100%'},
       render: {antialias: true, roundPixels: true}, scene: this.scene,
@@ -43,12 +48,33 @@ export class RoomOneSession {
   render() {
     if (this.disposed || !this.ui) return;
     const goal = goalFor(this.state);
-    const nearby = OBJECTS.find(o => o.id === this.position.nearbyId) || null;
+    const nearby = [...OBJECTS, ...gateAnchors(this.state)].find(o => o.id === this.position.nearbyId) || null;
+    const anchorKey = gateAnchors(this.state).map(a => a.id).join();
+    if (this.scene && anchorKey !== this.anchorKey) { this.anchorKey = anchorKey; this.scene.map = this.sceneWorld(); }
     this.ui.render({state: this.state, position: this.position, nearby, goal,
-      notice: this.notice, audio: this.audio.getSnapshot()});
+      lockedGateRects: lockedGateRects(AREA_GATES, this.state), notice: this.notice, audio: this.audio.getSnapshot()});
     this.scene?.setGoal?.(goal.id);
+    this.scene?.setLockedGates?.(lockedGateIds(AREA_GATES, this.state));
     const mode = this.options.isPaused?.() ? 'inactive' : this.ui.isOpen ? 'dialogue' : 'exploration';
     if (this.audio.mode !== mode) this.audio.setMode(mode);
+  }
+  // Scene world = fixed WORLD plus E-anchors of puzzle gates that are still locked (WORLD itself stays untouched).
+  sceneWorld() { return {...WORLD, objects: [...WORLD.objects, ...gateAnchors(this.state)]}; }
+  // E at a locked puzzle gate opens its door panel.
+  interactGate(id, gateId) {
+    const anchor = gateAnchors(this.state).find(a => a.id === id), p = this.scene.getPosition();
+    if (!anchor || p.nearbyId !== id || Math.hypot(anchor.x - p.x, anchor.y - p.y) > anchor.radius) return;
+    this.notice = '';
+    if (!doorAvailable(gateId, this.state)) { this.notice = 'Khóa này cần một manh mối Quang chưa có. Hãy đọc kỹ hồ sơ trước.'; this.render(); return; }
+    this.audio.playCue('paper'); this.show(`door-${gateId}`, {gate: gateId});
+  }
+  // Quang bumped a barred gate: neutral notice (no voice, no answer), cleared after a few seconds.
+  gateBlocked(id) {
+    const notice = gateById(AREA_GATES, id)?.notice;
+    if (this.disposed || !notice) return;
+    this.notice = notice; this.render();
+    clearTimeout(this.gateNoticeTimer);
+    this.gateNoticeTimer = setTimeout(() => { if (!this.disposed && this.notice === notice) { this.notice = ''; this.render(); } }, 5000);
   }
   commit(action, payload) {
     if (this.disposed) return false;
@@ -75,6 +101,8 @@ export class RoomOneSession {
   error(message) { if (this.disposed) return; this.notice = message; this.audio.playCue('error'); this.ui.noteMistake(); this.render(); }
   interact(id) {
     if (this.disposed || this.options.isPaused?.() || this.ui.isOpen || this.state.exitReached) return;
+    const gateId = gateIdOfAnchor(id);
+    if (gateId) return this.interactGate(id, gateId);
     const object = OBJECTS.find(o => o.id === id);
     const p = this.scene.getPosition();
     if (!object || p.nearbyId !== id || Math.hypot(object.x-p.x, object.y-p.y) > object.radius) return;
@@ -98,7 +126,7 @@ export class RoomOneSession {
     if (id === 'comparison') return s.collectedNoteIds.length !== 4;
     if (id === 'drawer') return !s.comparisonSolved;
     if (id === 'chest') return !s.identitySolved;
-    if (id === 'door') return !s.chestOpened;
+    if (id === 'door') return !s.chestOpened || !gateIsOpen('exit-hall', s);
     return false;
   }
   openObject(id) {

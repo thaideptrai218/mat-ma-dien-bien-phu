@@ -1,6 +1,7 @@
 import { createPanel as sharedPanel } from '../room-one/ui-panels.js';
 import { element, button, heading } from '../room-one/ui-elements.js';
 import { puzzlePanel, tokenCards } from './puzzles.js';
+import { doorPanel } from './door-panel.js';
 
 function notebook(data, emit) {
   const body = element('section', 'r3-notebook');
@@ -35,6 +36,7 @@ function completed(data) {
 export function createPanel(view, data, emit, snapshot, world) {
   if (view === 'notebook') return notebook(data, emit);
   if (view === 'completed') return completed(data);
+  if (view === 'door') return { node: doorPanel(data, emit) };
   const node = puzzlePanel(view, data, emit);
   if (node) return { node };
   const panel = sharedPanel(view, data, emit, snapshot, world);

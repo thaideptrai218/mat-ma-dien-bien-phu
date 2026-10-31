@@ -1,8 +1,9 @@
 import {CHAPTER, CLUE_IDS, PUZZLE_IDS, clues, beats, puzzles, evaluatePuzzle} from './content.js';
+import {DOOR_IDS, checkDoorAnswer} from './area-gates.js';
 
 export function createState() {
   return {version: 1, introSeen: false, discoveredClueIds: [], collectedClueIds: [],
-    completedPuzzleIds: [], completedBeatIds: [], hintLevels: {}, fragmentCollected: false,
+    completedPuzzleIds: [], completedBeatIds: [], doorsSolved: [], hintLevels: {}, fragmentCollected: false,
     exitReached: false, audioEnabled: false, audioVolume: .5};
 }
 
@@ -34,6 +35,11 @@ export function reduce(state, action, payload = {}) {
         !evaluatePuzzle(expected, payload.answer, state.collectedClueIds).ok) return state;
       const completedPuzzleIds = [...state.completedPuzzleIds, expected];
       return {...state, completedPuzzleIds, fragmentCollected: completedPuzzleIds.length === PUZZLE_IDS.length};
+    }
+    case 'solve-door': {
+      const id = payload.doorId;
+      return DOOR_IDS.includes(id) && !state.doorsSolved.includes(id) && !state.exitReached && checkDoorAnswer(id, payload.answer)
+        ? {...state, doorsSolved: [...state.doorsSolved, id]} : state;
     }
     case 'use-hint': {
       if (!PUZZLE_IDS.includes(payload.puzzleId)) return state;

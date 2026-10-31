@@ -1,4 +1,7 @@
 import { element, button, heading, formField, submitButton } from './ui-elements.js';
+import { DIGITS, LETTERS } from '../ui/tactile/dial-model.js';
+import { DOOR_PUZZLES } from './door-puzzles.js';
+import { comparisonBoard } from './ui-comparison-board.js';
 
 function wallMap(emit) {
   const body = element('section');
@@ -24,85 +27,75 @@ function comparison(data, emit) {
     body.append(element('p', 'r1-success', 'Đã hoàn tất đối chiếu.'), element('p', 'r1-code-label', 'MẬT MÃ NGĂN KÉO'), element('output', 'r1-revealed-code', '2413'));
     return body;
   }
-  const form = element('form', 'r1-comparison');
-  const table = element('table');
-  const head = element('thead');
-  const header = element('tr');
-  for (const title of ['Dữ kiện', 'Phía Việt Nam', 'Phía Pháp']) header.append(element('th', '', title));
-  head.append(header);
-  table.append(head);
-  const rows = [
-    ['Quân số', 'troop', null],
-    ['Trang bị', 'equipment', [['limited', 'Còn hạn chế'], ['modern', 'Hiện đại']]],
-    ['Thế chiến lược', 'position', [['initiative', 'Giữ thế chủ động'], ['dispersed', 'Lực lượng phân tán']]],
-    ['Sức ép', 'pressure', [['supply', 'Tiếp tế, hậu cần'], ['costs', 'Tài chính, chi phí chiến tranh']]],
-  ];
-  const tbody = element('tbody');
-  for (const [title, name, options] of rows) {
-    const row = element('tr');
-    row.append(element('th', '', title));
-    for (const side of ['VN', 'France']) {
-      const cell = element('td');
-      const field = formField(`${title} — ${side === 'VN' ? 'Việt Nam' : 'Pháp'}`, name + side, options);
-      field.label.classList.add('r1-table-field');
-      if (!options) {
-        field.input.type = 'number';
-        field.input.min = '0';
-        field.input.step = '1';
-        field.input.inputMode = 'numeric';
-      }
-      cell.append(field.label);
-      row.append(cell);
-    }
-    tbody.append(row);
-  }
-  table.append(tbody);
-  form.append(table, submitButton('Đối chiếu bốn hồ sơ'));
+  body.append(comparisonBoard(emit));
+  return body;
+}
+
+// Drawer (4 digit wheels) and chest (4 letter wheels): the dial emits the same string the old text input held.
+function dialForm(emit, {title, label, name, action, submit, alphabet, wheelWord, wheels = 4, value = '', lead = 'Bấm mũi tên trên và dưới mỗi bánh, hoặc chọn bánh rồi dùng phím mũi tên lên xuống.', extra = {}}) {
+  const body = element('section');
+  body.append(heading(title));
+  const form = element('form', 'r1-answer-form r1-dial-form');
+  const holder = element('div', 'r1-dial-holder');
+  let dial = null;
+  const submitControl = submitButton(submit);
+  submitControl.disabled = true;
+  form.append(element('p', 'r1-muted', lead), holder, submitControl);
+  // Loaded on demand: the dial module imports CSS, which node tests that reach this file cannot load.
+  import('../ui/tactile/combination-dial.js').then(({createCombinationDial}) => {
+    dial = createCombinationDial({wheels, alphabet, value, label, wheelLabel: (i, total) => `${wheelWord} ${i + 1} trên ${total}`});
+    holder.replaceChildren(dial.element); submitControl.disabled = false;
+  }).catch(() => holder.replaceChildren(element('p', 'r1-notice-inline', 'Không tải được khóa. Hãy tải lại trang.')));
   form.addEventListener('submit', event => {
     event.preventDefault();
-    const values = Object.fromEntries(new FormData(form));
-    values.troopVN = Number(values.troopVN);
-    values.troopFrance = Number(values.troopFrance);
-    emit('comparison-submit', values);
+    if (dial) emit(action, {...extra, [name]: dial.getValue()});
   });
   body.append(form);
   return body;
 }
 
-function answerForm(view, emit) {
-  const config = {
-    drawer: ['Ngăn kéo khóa số', 'Mã bốn chữ số', 'code', 'drawer-submit', 'Mở ngăn kéo'],
-    identity: ['Danh tính trong mật điện', 'Họ tên được giải mã', 'name', 'identity-submit', 'Xác nhận danh tính'],
-    chest: ['Chiếc rương ký ức', 'Từ khóa mở rương', 'keyword', 'chest-submit', 'Mở rương'],
-  }[view];
-  const [title, label, name, action, submit] = config;
+// Cipher form: the typed answer stays, a letter keypad (same A-Z table as the key) inserts letters for touch users.
+function identityForm(emit) {
   const body = element('section');
-  body.append(heading(title));
-  if (view === 'identity') {
-    body.append(element('p', 'r1-lead', 'Mỗi số thay cho vị trí của một chữ trong bảng chữ cái Latin: A = 01, B = 02… Ghép các chữ để tìm một họ tên.'));
-    const alphabet = element('div', 'r1-alphabet');
-    for (let i = 0; i < 26; i++) alphabet.append(element('span', '', `${String.fromCharCode(65 + i)} · ${String(i + 1).padStart(2, '0')}`));
-    body.append(alphabet, element('p', 'r1-cipher', '08 05 14 18 09 / 14 01 22 01 18 18 05'));
-  }
+  body.append(heading('Danh tính trong mật điện'));
+  body.append(element('p', 'r1-lead', 'Mỗi số thay cho vị trí của một chữ trong bảng chữ cái Latin: A = 01, B = 02… Ghép các chữ để tìm một họ tên.'));
   const form = element('form', 'r1-answer-form');
-  const field = formField(label, name);
-  if (view === 'drawer') {
-    field.input.inputMode = 'numeric';
-    field.input.pattern = '[0-9]{4}';
-    field.input.maxLength = 4;
+  const field = formField('Họ tên được giải mã', 'name');
+  const insert = text => { field.input.value += text; field.input.focus(); };
+  const alphabet = element('div', 'r1-alphabet');
+  alphabet.setAttribute('role', 'group');
+  alphabet.setAttribute('aria-label', 'Bảng chữ cái');
+  for (let i = 0; i < 26; i++) {
+    const letter = String.fromCharCode(65 + i);
+    alphabet.append(button(`${letter} · ${String(i + 1).padStart(2, '0')}`, () => insert(letter), 'r1-key'));
   }
-  form.append(field.label, submitButton(submit));
+  const tools = element('div', 'r1-keypad-tools');
+  tools.append(button('Dấu cách', () => insert(' '), 'r1-key'),
+    button('Xóa một chữ', () => { field.input.value = field.input.value.slice(0, -1); field.input.focus(); }, 'r1-key'));
+  body.append(alphabet, tools, element('p', 'r1-cipher', '08 05 14 18 09 / 14 01 22 01 18 18 05'));
+  form.append(field.label, submitButton('Xác nhận danh tính'));
   form.addEventListener('submit', event => {
     event.preventDefault();
-    emit(action, { [name]: field.input.value });
+    emit('identity-submit', {name: field.input.value});
   });
   body.append(form);
   return body;
+}
+
+// Door puzzles (view 'door-<gateId>'): one short tactile dial built from DOOR_PUZZLES data.
+function doorPanel(gateId, emit) {
+  const puzzle = DOOR_PUZZLES[gateId];
+  if (!puzzle) return null;
+  return dialForm(emit, {title: puzzle.title, label: puzzle.title, name: 'code', action: 'door-submit', submit: puzzle.submit,
+    alphabet: puzzle.alphabets, wheels: puzzle.alphabets.length, value: puzzle.initial, wheelWord: 'Bánh', lead: puzzle.lead, extra: {id: gateId}});
 }
 
 export function puzzlePanel(view, data, emit) {
+  if (view.startsWith('door-')) return doorPanel(view.slice(5), emit);
   if (view === 'a03') return wallMap(emit);
   if (view === 'comparison') return comparison(data, emit);
-  if (['drawer', 'identity', 'chest'].includes(view)) return answerForm(view, emit);
+  if (view === 'drawer') return dialForm(emit, {title: 'Ngăn kéo khóa số', label: 'Khóa số bốn bánh', name: 'code', action: 'drawer-submit', submit: 'Mở ngăn kéo', alphabet: DIGITS, wheelWord: 'Bánh số'});
+  if (view === 'chest') return dialForm(emit, {title: 'Chiếc rương ký ức', label: 'Khóa chữ bốn bánh', name: 'keyword', action: 'chest-submit', submit: 'Mở rương', alphabet: LETTERS, wheelWord: 'Bánh chữ'});
+  if (view === 'identity') return identityForm(emit);
   return null;
 }

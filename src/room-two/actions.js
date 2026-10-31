@@ -1,6 +1,7 @@
 import {CHAPTER, clues, puzzles, beats, evaluatePuzzle} from './content.js';
 import {PUZZLE_GUIDE} from './system-guidance.js';
 import {NEUTRAL_WRONG} from '../ui/neutral-notice.js';
+import {DOOR_OPENED_NOTICE} from './area-gates.js';
 import {createDialogueVoice, startDialogueVoice} from '../audio/dialogue-voice.js';
 
 // Hệ Thống points to the next station first; the solved board stays one button away.
@@ -19,6 +20,13 @@ export function handleIntent(session, intent) {
   if (intent.type === 'play-cue') {
     if (active?.kind === 'puzzle' && ['weight', 'static', 'chain', 'fold', 'unlock', 'error'].includes(intent.kind))
       session.audio.playCue(intent.kind);
+    return;
+  }
+  if (intent.type === 'solve-door') {
+    if (active?.kind !== 'door' || active.gateId !== intent.doorId) return;
+    if (session.commit('solve-door', {doorId: intent.doorId, answer: intent.answer})) {
+      session.audio.playCue('unlock'); session.close(); session.notice = DOOR_OPENED_NOTICE; session.render();
+    } else { session.audio.playCue('error'); session.ui.door.showFeedback(NEUTRAL_WRONG); session.ui.noteMistake(); }
     return;
   }
   // Hints now come from Hệ Thống after a wrong try (see ui.js); the donor hint button is hidden and unreachable.

@@ -1,4 +1,6 @@
-import { element, heading, formField, submitButton } from '../room-one/ui-elements.js';
+import { element, heading, submitButton } from '../room-one/ui-elements.js';
+import { finalLockBoard, composeDate, FINAL_SLOTS } from './tactile-model.js';
+import { tokenBoard } from './tactile-board.js';
 import { preparationPanel } from './preparation-panel.js';
 import { cargoPanel } from './cargo-panel.js';
 import { strategyPanel } from './strategy-panel.js';
@@ -21,22 +23,27 @@ export function tokenCards(tokens = []) {
 
 function finalPanel(data, emit) {
   const body = element('section', 'r3-puzzle');
-  body.append(heading('Dấu niêm phong của tuyến tiếp vận', 'PHÒNG 3 · KHÓA RƯƠNG'), element('p', 'r1-lead', 'Đối chiếu ba mảnh ngày, tháng, năm đã tìm được để khôi phục ngày mở màn chiến dịch. Phương châm được giữ riêng như một ghi nhớ về cách chỉ huy.'));
-  body.append(tokenCards(data.tokens || []));
+  body.append(heading('Dấu niêm phong của tuyến tiếp vận', 'PHÒNG 3 · KHÓA RƯƠNG'), element('p', 'r1-lead', 'Ổ khóa rương có ba khe: Ngày, Tháng, Năm. Kéo các thẻ đã khôi phục vào khe để ghép ngày mở màn chiến dịch. Phương châm được giữ riêng như một ghi nhớ về cách chỉ huy.'));
   if (data.solved) {
-    body.append(element('p', 'r1-success', 'Dấu niêm phong đã mở. Đến gần rương và nhận mảnh tranh III.'));
+    body.append(tokenCards(data.tokens || []), element('p', 'r1-success', 'Dấu niêm phong đã mở. Đến gần rương và nhận mảnh tranh III.'));
     return body;
   }
   const draft = data.draft || {};
   const form = element('form', 'r1-answer-form r3-final-form');
-  const field = formField('Ngày mở màn · ngày/tháng/năm', 'date');
-  field.input.placeholder = 'dd/mm/yyyy';
-  field.input.inputMode = 'numeric';
-  field.input.maxLength = 10;
-  field.input.value = draft.date || '';
-  field.input.addEventListener('input', () => { draft.date = field.input.value; });
-  form.append(field.label, submitButton('Mở dấu niêm phong'));
-  form.addEventListener('submit', event => { event.preventDefault(); emit('final-submit', { date: field.input.value }); });
+  const board = tokenBoard({ draft, key: 'lock', make: finalLockBoard(data.tokens || []), trayLabel: 'Thẻ đã khôi phục', className: 'r3-lock-board',
+    labels: Object.fromEntries(FINAL_SLOTS.map(([id, label]) => [id, `Khe ${label}`])) });
+  form.append(board.root, submitButton('Mở dấu niêm phong'));
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const date = composeDate(board.getState());
+    // An empty or unfinished lock is not a wrong try: Hệ Thống only reacts to a complete, wrong date.
+    if (!date) { status.textContent = 'Hãy đặt thẻ vào đủ ba khe.'; return; }
+    emit('final-submit', { date });
+  });
+  const status = element('p', 'r3-form-status');
+  status.setAttribute('role', 'status');
+  form.append(status);
+  for (const type of ['click', 'pointerup']) form.addEventListener(type, () => { status.textContent = ''; });
   body.append(form);
   return body;
 }

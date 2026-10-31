@@ -1,9 +1,11 @@
+import {DOOR_IDS, checkDoorAnswer} from './area-gates.js';
+
 export const OBJECT_IDS = ['assembly', 'reflection', 'door', 'lamp', 'satchel'];
 export const CORRECT_ORDER = Object.freeze([0, 1, 2, 3]);
 
 export function createState() {
   return {version: 1, introSeen: false, seenObjectIds: [], assemblySolved: false,
-    reflectionSeen: false, exitReached: false, audioEnabled: false, audioVolume: .5};
+    reflectionSeen: false, exitReached: false, doorsSolved: [], audioEnabled: false, audioVolume: .5};
 }
 
 export function hasAllFragments(fragments) {
@@ -26,6 +28,10 @@ export function reduce(state, action, payload = {}, fragments = []) {
   }
   if (action === 'exit' && hasAllFragments(fragments) && state.assemblySolved && state.reflectionSeen && !state.exitReached) {
     return {...state, exitReached: true};
+  }
+  if (action === 'solve-door' && DOOR_IDS.includes(payload.doorId) && !state.doorsSolved.includes(payload.doorId) &&
+    !state.exitReached && checkDoorAnswer(payload.doorId, payload.answer)) {
+    return {...state, doorsSolved: [...state.doorsSolved, payload.doorId]};
   }
   if (action === 'audio') return {...state, audioEnabled: !state.audioEnabled};
   return state;

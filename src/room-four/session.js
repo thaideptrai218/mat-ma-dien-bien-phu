@@ -10,6 +10,8 @@ import {createState,goalFor,reduce,nextDocumentId} from './rules.js';
 import {loadSave,persistSave} from './save.js';
 import {handleAction} from './actions.js';
 import {disposeRoomSession,deferRoomExit,retainSharedAudioPreferences} from '../core/session-lifecycle.js';
+import {AREA_GATES,doorObjects} from './area-gates.js';
+import {lockedGateIds,lockedGateRects,gateById} from '../core/area-gates.js';
 
 const introFor=options=>options.onExit?CAMPAIGN_INTRO:INTRO;
 
@@ -25,6 +27,7 @@ export class RoomFourSession {
     this.ui=new RoomFourUI({root,onAction:(action,payload)=>handleAction(this,action,payload),audio:this.audio,hints:SYSTEM_HINTS});
     this.scene=new RoomFourScene({
       onInteract:id=>this.interact(id),onPosition:p=>{if(this.disposed)return;this.position=p;this.render();},
+      onGateBlocked:id=>{const gate=gateById(AREA_GATES,id);if(gate&&!this.disposed){this.notice=gate.notice;this.render();}},
       onShortcut:key=>handleAction(this,({M:'map',N:'notebook',Q:'quests-toggle',Escape:'settings'})[key]),
       isPaused:()=>this.disposed||Boolean(this.options.isPaused?.())||this.ui.isOpen,audio:this.audio,
     });
@@ -38,9 +41,10 @@ export class RoomFourSession {
   }
   render() {
     if (this.disposed||!this.ui) return;
-    const goal=goalFor(this.state),nearby=OBJECTS.find(o=>o.id===this.position.nearbyId)||null;
-    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot()});
-    this.scene?.setGoal(goal.id);this.scene?.setChestOpen(this.state.chestOpened);this.scene?.setFragmentCollected?.(this.state.fragmentCollected);
+    const locked=lockedGateIds(AREA_GATES,this.state);
+    const goal=goalFor(this.state),nearby=[...OBJECTS,...doorObjects(locked)].find(o=>o.id===this.position.nearbyId)||null;
+    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),lockedGateRects:lockedGateRects(AREA_GATES,this.state)});
+    this.scene?.setLockedGates(locked);this.scene?.setGoal(goal.id);this.scene?.setChestOpen(this.state.chestOpened);this.scene?.setFragmentCollected?.(this.state.fragmentCollected);
     const mode=this.options.isPaused?.()?'inactive':this.ui.isOpen?'dialogue':'exploration';if(this.audio.mode!==mode)this.audio.setMode(mode);
   }
   commit(action,payload) {
@@ -72,9 +76,10 @@ export class RoomFourSession {
   }
   interact(id) {
     if(this.disposed||this.options.isPaused?.()||this.ui.isOpen||this.state.exitReached)return;
-    const object=OBJECTS.find(o=>o.id===id),p=this.scene.getPosition();
+    const object=OBJECTS.find(o=>o.id===id)||doorObjects(lockedGateIds(AREA_GATES,this.state)).find(o=>o.id===id),p=this.scene.getPosition();
     if(!object||p.nearbyId!==id||Math.hypot(object.x-p.x,object.y-p.y)>object.radius)return;
-    this.notice='';const s=this.state,locked=this.isLocked(id);
+    this.notice='';
+    if(object.type==='lock'){this.audio.playCue('paper');this.show('door',{gateId:object.gateId});return;}const s=this.state,locked=this.isLocked(id);
     const finished={crossword:s.crosswordSolved,'board-t':s.boardTSolved,'board-l':s.boardLSolved,chest:s.fragmentCollected,door:s.exitReached}[id]??
       (DOCUMENTS.some(d=>d.id===id)?s.collectedNoteIds.includes(id):s.seenObjectIds.includes(id));
     let lines=REACTIONS[id]?.[locked?'locked':finished?'repeat':'first']||['Mình sẽ xem kỹ chỗ này.'];

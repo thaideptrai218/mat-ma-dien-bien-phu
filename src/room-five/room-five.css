@@ -17,3 +17,11 @@
 .r5-reflection>.r1-primary{margin-top:16px}
 @media(max-width:650px){.r5-piece-grid{gap:3px;padding:4px}.r5-piece-label{left:4px;bottom:4px;padding:2px 6px;font-size:12px}.r5-script{padding-left:12px}.r5-script p{font-size:16px}.r5-door-message{font-size:20px;padding:15px}.r5-complete-painting{border-width:4px}}
 .r5-script.is-speaking{border-left:3px solid #9b5f37;background:linear-gradient(90deg,#e9ddc166,transparent)}.r5-reflection .r1-voice-replay{margin:4px 0 14px}
+
+/* Drag-to-swap on the painting board and the plaque door puzzle (touch-action lets touch drag instead of scroll). */
+.r5-piece{touch-action:none;cursor:grab}
+.r5-piece.is-dragging{z-index:5;cursor:grabbing;filter:brightness(1.15);box-shadow:0 8px 20px #1b322466;transition:none}
+.r5-piece.is-over{outline:4px dashed #edd47e;outline-offset:-7px}
+.r5-door-plaques{margin:18px 0}
+.r5-door-puzzle>.r1-primary{margin-top:12px}
+@media (prefers-reduced-motion:reduce){.r5-piece{transition:none}}

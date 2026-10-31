@@ -1,9 +1,12 @@
 import { element } from '../room-one/ui-elements.js';
-import { TELEGRAMS } from './puzzle-data.js';
-import { activity, choiceGroup, finishForm, orderedCards, checked, selected } from './puzzle-controls.js';
+import { choiceGroup, activity, finishForm, checked, selected } from './puzzle-controls.js';
+import { TELEGRAM_KEYS, telegramBoard, telegramPayload, allPlaced } from './tactile-model.js';
+import { tokenBoard, boardSection } from './tactile-board.js';
+
+const TELEGRAM_TITLES = { initial: 'Mật lệnh ban đầu', final: 'Phương châm sau điều chỉnh' };
 
 export function strategyPanel(data, emit) {
-  const body = activity('strategy', 'Hai bức điện, một quyết tâm', 'Dùng nút lên và xuống để khôi phục từng mật lệnh. Hai thẻ mang cùng một từ có thể đổi chỗ cho nhau.', data);
+  const body = activity('strategy', 'Hai bức điện, một quyết tâm', 'Kéo từng từ vào khe để khôi phục hai mật lệnh, đọc từ trái sang phải. Hai thẻ mang cùng một từ có thể đổi chỗ cho nhau.', data);
   if (data.solved) {
     const change = element('div', 'r3-doctrine-change');
     change.append(element('p', '', 'ĐÁNH NHANH, GIẢI QUYẾT NHANH'), element('span', '', '↓'), element('strong', '', 'ĐÁNH CHẮC, TIẾN CHẮC'));
@@ -13,13 +16,11 @@ export function strategyPanel(data, emit) {
   const draft = data.draft || {};
   const form = element('form', 'r3-activity-form');
   const pair = element('div', 'r3-telegram-pair');
-  const sequences = {};
-  for (const [key, label] of [['initial', 'Mật lệnh ban đầu'], ['final', 'Phương châm sau điều chỉnh']]) {
-    const telegram = element('section', 'r3-telegram');
-    telegram.append(element('h3', '', label), element('p', 'r3-order-hint', 'Đọc từ trên xuống. Dùng ↑ ↓ để đổi vị trí.'));
-    sequences[key] = orderedCards(TELEGRAMS[key], draft, key, label);
-    telegram.append(sequences[key].list, sequences[key].status);
-    pair.append(telegram);
+  const boards = {};
+  for (const key of TELEGRAM_KEYS) {
+    boards[key] = tokenBoard({ draft, key, make: telegramBoard(key), trayLabel: 'Các từ trong bức điện', className: 'r3-word-board',
+      labels: Object.fromEntries([1, 2, 3, 4].map(n => [`slot-${n}`, `Từ thứ ${n}`])) });
+    pair.append(boardSection(TELEGRAM_TITLES[key], 'Đọc từ trái sang phải.', boards[key]));
   }
   form.append(pair);
   choiceGroup(form, draft, 'reason', 'Vì sao phải điều chỉnh phương châm?', [
@@ -32,6 +33,8 @@ export function strategyPanel(data, emit) {
     ['assess-reality', 'Đánh giá tình hình thực tế.'], ['careful-command', 'Chỉ huy thận trọng, cân nhắc điều kiện chiến đấu.'],
     ['victory-first', 'Đặt yêu cầu chắc thắng lên hàng đầu.'], ['rigid', 'Giữ nguyên mọi dự kiến dù điều kiện thay đổi.'], ['cancel', 'Từ bỏ mục tiêu của chiến dịch.'],
   ], true);
-  finishForm(form, body, 'Khôi phục hai mật lệnh', 'strategy-submit', emit, () => ({ initial: sequences.initial.value(), final: sequences.final.value(), reason: selected(form, 'reason'), insights: checked(form, 'insights') }));
+  finishForm(form, body, 'Khôi phục hai mật lệnh', 'strategy-submit', emit,
+    () => ({ initial: telegramPayload(boards.initial.getState()), final: telegramPayload(boards.final.getState()), reason: selected(form, 'reason'), insights: checked(form, 'insights') }),
+    () => (TELEGRAM_KEYS.every(key => allPlaced(boards[key].getState())) ? '' : 'Hãy điền đủ cả hai bức điện.'));
   return body;
 }

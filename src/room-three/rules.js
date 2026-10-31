@@ -1,8 +1,9 @@
 import {CHALLENGES} from './puzzle-data.js';
 import {EVALUATORS,finalCorrect} from './answers.js';
+import {DOOR_IDS,checkDoorAnswer} from './area-gates.js';
 export const DOCUMENT_ORDER=Object.freeze(['preparation-record','supply-journal','command-telegrams','opening-letter','north-report']);
 export const OBJECT_IDS=Object.freeze([...DOCUMENT_ORDER,'archive-cabinet','cargo-yard','command-tent','radio-station','chest','door','supply-crates','road-tools','field-lamp']);
-export function createState(){return{version:1,introSeen:false,readNoteIds:[],collectedNoteIds:[],seenObjectIds:[],completedChallenges:[],chestOpened:false,fragmentCollected:false,exitReached:false,audioEnabled:false,audioVolume:.5};}
+export function createState(){return{version:1,introSeen:false,readNoteIds:[],collectedNoteIds:[],seenObjectIds:[],completedChallenges:[],doorsSolved:[],chestOpened:false,fragmentCollected:false,exitReached:false,audioEnabled:false,audioVolume:.5};}
 export const currentChallenge=s=>CHALLENGES[s.completedChallenges.length]||null;
 export function nextDocumentId(s){const next=DOCUMENT_ORDER[s.collectedNoteIds.length];return currentChallenge(s)?.documentIds.includes(next)?next:null;}
 export const canSolve=(s,id)=>{const ch=currentChallenge(s);return Boolean(ch&&ch.id===id&&ch.documentIds.every(doc=>s.collectedNoteIds.includes(doc)));};
@@ -17,6 +18,7 @@ export function reduce(s,action,p={}){
     case'final':return s.completedChallenges.length===4&&finalCorrect(p.date)?{...s,chestOpened:true}:s;
     case'fragment':return s.chestOpened?{...s,fragmentCollected:true}:s;
     case'exit':return s.fragmentCollected?{...s,exitReached:true}:s;
+    case'solve-door':return DOOR_IDS.includes(p.doorId)&&!s.doorsSolved.includes(p.doorId)&&!s.exitReached&&checkDoorAnswer(p.doorId,p.answer)?{...s,doorsSolved:[...s.doorsSolved,p.doorId]}:s;
     case'audio':return{...s,audioEnabled:!s.audioEnabled};
     default:return s;
   }

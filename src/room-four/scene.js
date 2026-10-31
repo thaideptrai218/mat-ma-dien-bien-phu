@@ -1,11 +1,12 @@
 import {RoomOneScene} from '../room-one/scene.js';
 import {WORLD} from './world.js';
 import {createRoomFourArtwork} from './art.js';
+import {AREA_GATES, doorObjects} from './area-gates.js';
 
 export class RoomFourScene extends RoomOneScene {
   constructor(callbacks = {}) {
     super(callbacks, {world: WORLD, artFactory: createRoomFourArtwork, sceneKey: 'room-four',
-      textureKey: 'room-four-archive', initialGoal: 'east-offensive'});
+      textureKey: 'room-four-archive', initialGoal: 'east-offensive', areaGates: AREA_GATES});
     this.chestOpen = false; this.fragmentCollected = false;
   }
 
@@ -15,6 +16,16 @@ export class RoomFourScene extends RoomOneScene {
     if (this.tornDown || !this.player) return;
     this.chestOverlay = this.add.graphics().setDepth(-10);
     this.drawChest();
+  }
+
+  // Locked puzzle gates become interactable (E opens the lock panel); WORLD itself keeps its fourteen objects.
+  setLockedGates(ids = []) {
+    super.setLockedGates(ids);
+    const key = doorObjects(ids).map(object => object.id).join();
+    if (key === this.doorKey) return;
+    this.doorKey = key;
+    this.map = {...WORLD, objects: [...WORLD.objects, ...doorObjects(ids)]};
+    this.updateNearby?.();
   }
 
   setChestOpen(open) {

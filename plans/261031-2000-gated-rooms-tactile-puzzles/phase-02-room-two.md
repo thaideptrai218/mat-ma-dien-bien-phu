@@ -79,3 +79,21 @@ Không thêm innerHTML; không đổi save key/schema.
 
 ## Next steps
 Phụ thuộc phase 6. Cập nhật `docs/gd2-room-2-level-plan.md` + `plans/261031-campaign-link/reports/room-two.md` (wrapper là ranh giới bảo toàn mới).
+
+## Implementation status (2026-10-31) — DONE (pending voice:script)
+Thiết kế cuối (thay cho 1 cổng duy nhất): 5 cổng, mỗi cổng đúng 1 cách mở, cố định trong `src/room-two/area-gates.js` (không vào WORLD/donor). Cổng theo thứ tự tiến trình:
+
+| # | id | Vị trí | Cách mở | Điều kiện / câu đố (thành phần dùng chung) |
+|---|---|---|---|---|
+| 1 | radio-hut | [1960,500,180,32] | auto | xong Cán cân 84 |
+| 2 | south-west | [260,828,180,32] | puzzle | kéo huy hiệu bên dồn quân (Bộ chỉ huy Pháp) vào ổ khóa (token-bins) |
+| 3 | south-mid | [1080,828,180,32] | auto | đã ghi Nhật ký chiến sĩ |
+| 4 | south-east | [1880,828,180,32] | puzzle | thước trượt tới ngày giải phóng Thà Khẹt (range-ruler) |
+| 5 | north-room | [1180,500,180,32] | puzzle | 2 bánh số = tháng trên điện liên quân (combination-dial) |
+
+- Không có cổng cho hành lang giữa (sa bàn/hòm sắt/hồ sơ): mọi đường sang cánh đông đều đi trong tầm tương tác của các trạm đó nên không rào được; thứ tự trạm donor giữ nguyên.
+- Cổng puzzle không bao giờ tự mở; `legacy` chỉ là lưới an toàn cho save cũ (đã có manh mối/puzzle chỉ có thể có sau khi qua cổng).
+- Lưu: `state.doorsSolved` (adapter save, tương thích ngược). Mục tiêu (`goals.js`) chỉ vào cửa khi nó chắn mục tiêu hiện tại.
+- Wrapper donor: `src/room-two/tactile-stations.js` bọc `PuzzleView.show` trên instance (cân/điện đài/sa bàn/hòm sắt); `bao/**` không đổi.
+- Test: `tests/room-two-gates.test.js` (1 cách/cổng, có cả 2 loại, reachability từng cổng, mục tiêu tới được suốt cốt truyện, save cũ), `tests/room-two-tactile.test.js`.
+- Còn lại: lead chạy `npm run voice:script` (SYSTEM_HINTS đổi) rồi sinh audio.

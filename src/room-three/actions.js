@@ -3,6 +3,7 @@ import {ENDING,CAMPAIGN_ENDING,GUIDE,LINES} from './content.js';
 import {CHALLENGES} from './puzzle-data.js';
 import {recoveredTokens} from './rules.js';
 import {goalFor} from './goals.js';
+import {DOOR_OPENED_NOTICE} from './area-gates.js';
 
 const activities={'preparation-submit':'preparation','cargo-submit':'cargo','strategy-submit':'strategy','opening-submit':'opening'};
 const neutral='Có chỗ chưa khớp.';
@@ -18,6 +19,12 @@ export function handleAction(s,action,p={}){
     const ch=CHALLENGES.find(c=>c.id===activity);s.audio.playCue('success');return s.dialogue('Dữ kiện vừa khôi phục',[ch.reward,LINES.explanations[activity],...GUIDE[activity]]);
   }
   switch(action){
+    case'door-submit':{
+      // A short door puzzle: the reducer checks the answer; wrong tries only reach the Hệ Thống card.
+      if(!inView('door')||active.gateId!==p.doorId)return;
+      if(!s.commit('solve-door',{doorId:p.doorId,answer:p.answer}))return s.error(neutral);
+      s.audio.playCue('unlock');s.close();s.notice=DOOR_OPENED_NOTICE;s.render();return;
+    }
     case'modal-open':s.scene?.clearKeys();return;
     case'modal-close':s.active=null;s.scene?.clearKeys();s.scene?.focus();s.render();return;
     case'close':return s.close();

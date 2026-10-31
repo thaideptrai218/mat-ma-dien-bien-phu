@@ -1,4 +1,5 @@
 import {CROSSWORD_ROWS, BOARDS} from './puzzle-data.js';
+import {DOOR_IDS,checkDoorAnswer,goalDoorFor} from './area-gates.js';
 
 export const DOCUMENT_ORDER = Object.freeze(['east-offensive','final-assault','a1','headquarters','results','north','independence']);
 export const OBJECT_IDS = Object.freeze([...DOCUMENT_ORDER,'crossword','board-t','board-l','chest','door','lamp','radio']);
@@ -6,7 +7,7 @@ export const normalizeAnswer = value => String(value ?? '').replace(/[đĐ]/g,'D
 export function createState() {
   return {version:1,introSeen:false,readNoteIds:[],collectedNoteIds:[],seenObjectIds:[],
     crosswordSolved:false,columnSolved:false,boardTSolved:false,boardLSolved:false,
-    chestOpened:false,fragmentCollected:false,exitReached:false,audioEnabled:false,audioVolume:.5};
+    chestOpened:false,fragmentCollected:false,exitReached:false,doorsSolved:[],audioEnabled:false,audioVolume:.5};
 }
 export const nextDocumentId = state => DOCUMENT_ORDER[state.collectedNoteIds.length] || null;
 export function crosswordCorrect(answers = {}) {
@@ -35,6 +36,7 @@ export function reduce(s, action, p = {}) {
     case 'final': return s.boardTSolved && s.boardLSolved && normalizeAnswer(p.phrase) === 'QUYETCHIENQUYETTHANG' ? {...s,chestOpened:true} : s;
     case 'fragment': return s.chestOpened ? {...s,fragmentCollected:true} : s;
     case 'exit': return s.fragmentCollected ? {...s,exitReached:true} : s;
+    case 'door': return DOOR_IDS.includes(p.doorId) && !s.doorsSolved.includes(p.doorId) && !s.exitReached && checkDoorAnswer(p.doorId,p.answer) ? {...s,doorsSolved:[...s.doorsSolved,p.doorId]} : s;
     case 'audio': return {...s,audioEnabled:!s.audioEnabled};
     default: return s;
   }
@@ -55,5 +57,7 @@ export function goalFor(s) {
   if (s.chestOpened) {step=3;id='chest';label='Lấy mảnh tranh số IV';detail='Rương đã tự mở. Đến gần và nhấn E để nhận mảnh tranh.';}
   if (s.fragmentCollected) {id='door';label='Đi tới cửa phía bắc';detail='Bạn đã giữ mảnh tranh của phòng 4.';}
   if (s.exitReached) {label='Đã hoàn thành phòng 4';detail='Bản thử này chưa nối sang phòng ghép tranh cuối hành trình.';}
+  const lock=goalDoorFor(s,id);
+  if (lock&&!s.exitReached) {id=lock;detail='Lối phía trước có khóa. Nhấn E ở khóa để mở bằng một câu đố nhỏ.';}
   return {id,label,detail,step,steps,count:`${s.collectedNoteIds.length} / 7 tư liệu · Mảnh IV: ${s.fragmentCollected?'1':'0'} / 1`};
 }

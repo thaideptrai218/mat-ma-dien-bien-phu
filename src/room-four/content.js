@@ -137,19 +137,32 @@ export const SYSTEM_HINTS = {
     hints: ['Ký Chủ thử đọc câu hỏi, rồi tìm lại giấy tờ nói về ý đó trong sổ tay.', 'Ký Chủ để ý cách viết đáp án: viết liền, không dấu, và con số nếu có thì viết bằng chữ.'],
   },
   column: {
-    open: 'Ký Chủ, có một cột dọc của ô chữ tạo thành lời chỉ dẫn.',
-    hints: ['Ký Chủ thử đọc các ô trong cùng một cột, từ hàng đầu xuống hàng cuối.', 'Lời chỉ dẫn phải là một câu có nghĩa. Ký Chủ thử cột nào đọc lên thành lời.'],
+    open: 'Ký Chủ, trượt thước đọc dọc theo ô chữ, cột nào thành lời?',
+    hints: ['Ký Chủ thử trượt thước tới từng cột, đọc các ô từ hàng đầu xuống hàng cuối.', 'Lời chỉ dẫn phải là một câu có nghĩa. Ký Chủ thử cột nào đọc lên thành lời.'],
   },
   'board-t': {
-    open: 'Ký Chủ, hãy dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
+    open: 'Ký Chủ, hãy quét bút dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
     hints: ['Ký Chủ nhớ lại lời chỉ dẫn vừa tìm được để biết cần dò theo hình nào.', 'Hình này gồm một nét ngang và một nét dọc. Các chữ được chọn sẽ đọc thành một nửa khẩu hiệu.'],
   },
   'board-l': {
-    open: 'Ký Chủ, hãy dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
+    open: 'Ký Chủ, hãy quét bút dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
     hints: ['Ký Chủ nhớ lại lời chỉ dẫn vừa tìm được để biết cần dò theo hình nào.', 'Hình này gồm một nét dọc và một nét ngang. Các chữ được chọn sẽ đọc thành nửa còn lại của khẩu hiệu.'],
   },
   final: {
-    open: 'Ký Chủ, hai nửa khẩu hiệu cần được ghép lại với nhau.',
-    hints: ['Ký Chủ nhớ lại hai phần đọc được từ hai bảng chữ.', 'Ký Chủ thử đọc hai phần cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.'],
+    open: 'Ký Chủ, đặt hai dải chữ vào khóa rương theo đúng thứ tự.',
+    hints: ['Ký Chủ nhớ lại hai nửa khẩu hiệu đọc được từ hai bảng chữ.', 'Ký Chủ thử đọc hai dải cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.'],
+  },
+  // Door puzzles at the locked gates. Each leans on the paper the player has just read.
+  'door-a1-night': {
+    open: 'Ký Chủ, bản tổng hợp đầu tháng năm nhắc tới một bước quyết định.',
+    hints: ['Ký Chủ thử đọc lại đoạn cuối bản tổng hợp, nơi người viết để riêng một mục.', 'Ký Chủ chọn thẻ nói về đợt đánh lớn cuối cùng, không phải chuyện xảy ra sau chiến dịch.'],
+  },
+  'door-results': {
+    open: 'Ký Chủ, lá thư tối mồng bảy có ghi giờ chiếm sở chỉ huy.',
+    hints: ['Ký Chủ thử mở sổ tay, đọc lại đoạn thứ ba của lá thư chị Hạnh.', 'Ký Chủ nhớ giờ đứng trước, phút đứng sau; mỗi bánh số giữ một chữ số.'],
+  },
+  'door-north': {
+    open: 'Ký Chủ, bản ghi kết quả có nói chiến dịch kéo dài bao nhiêu ngày đêm.',
+    hints: ['Ký Chủ thử đọc lại đoạn đầu bản ghi kết quả trong sổ tay.', 'Con số nằm ngay trước cụm từ ngày đêm chiến đấu. Ký Chủ trượt thước tới đúng chỗ ấy.'],
   },
 };

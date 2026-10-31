@@ -9,6 +9,8 @@ import {CHALLENGES} from './puzzle-data.js';
 import {WORLD,OBJECTS} from './world.js';
 import {createState,reduce,nextDocumentId,canSolve,recoveredTokens} from './rules.js';
 import {goalFor} from './goals.js';
+import {AREA_GATES,DOOR_GATES,doorObjects} from './area-gates.js';
+import {lockedGateIds,lockedGateRects,gateById} from '../core/area-gates.js';
 import {loadSave,persistSave} from './save.js';
 import {handleAction} from './actions.js';
 import {disposeRoomSession,deferRoomExit,retainSharedAudioPreferences} from '../core/session-lifecycle.js';
@@ -25,6 +27,7 @@ export class RoomThreeSession{
     this.audio.setScene('room-3');
     this.ui=new RoomThreeUI({root,onAction:(action,payload)=>handleAction(this,action,payload),audio:this.audio,hints:SYSTEM_HINTS});
     this.scene=new RoomThreeScene({onInteract:id=>this.interact(id),onPosition:p=>{if(this.disposed)return;this.position=p;this.render();},
+      onGateBlocked:id=>{const gate=gateById(AREA_GATES,id);if(gate&&!this.disposed){this.notice=gate.notice;this.render();}},
       onShortcut:key=>handleAction(this,({M:'map',N:'notebook',Q:'quests-toggle',Escape:'settings'})[key]),isPaused:()=>this.disposed||Boolean(this.options.isPaused?.())||this.ui.isOpen,audio:this.audio});
     this.game=new Phaser.Game({type:Phaser.AUTO,parent:'game-canvas',backgroundColor:'#26362a',scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%'},
       render:{antialias:true,roundPixels:true},scene:this.scene,physics:{default:'arcade',arcade:{debug:false}}});
@@ -35,7 +38,8 @@ export class RoomThreeSession{
   }
   render(){
     if(this.disposed||!this.ui)return;const goal=goalFor(this.state),nearby=OBJECTS.find(o=>o.id===this.position.nearbyId)||null;
-    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),tokens:recoveredTokens(this.state)});
+    this.ui.render({state:this.state,position:this.position,nearby,goal,notice:this.notice,audio:this.audio.getSnapshot(),tokens:recoveredTokens(this.state),lockedGateRects:lockedGateRects(AREA_GATES,this.state)});
+    this.scene?.setLockedGates(lockedGateIds(AREA_GATES,this.state));
     this.scene?.setGoal(goal.id);this.scene?.setChestOpen(this.state.chestOpened);this.scene?.setFragmentCollected(this.state.fragmentCollected);
     const mode=this.options.isPaused?.()?'inactive':this.ui.isOpen?'dialogue':'exploration';if(this.audio.mode!==mode)this.audio.setMode(mode);
   }
@@ -57,14 +61,20 @@ export class RoomThreeSession{
     return false;
   }
   interact(id){
-    if(this.disposed||this.options.isPaused?.()||this.ui.isOpen||this.state.exitReached)return;const object=OBJECTS.find(o=>o.id===id),p=this.scene.getPosition();
+    if(this.disposed||this.options.isPaused?.()||this.ui.isOpen||this.state.exitReached)return;const object=OBJECTS.find(o=>o.id===id)||doorObjects(lockedGateIds(AREA_GATES,this.state)).find(o=>o.id===id),p=this.scene.getPosition();
     if(!object||p.nearbyId!==id||Math.hypot(object.x-p.x,object.y-p.y)>object.radius)return;
+    if(object.type==='door'&&object.gateId)return this.showDoor(object.gateId);
     this.notice='';const locked=this.isLocked(id),challenge=CHALLENGES.find(ch=>ch.stationId===id),s=this.state;
     const done=challenge?s.completedChallenges.includes(challenge.id):DOCUMENTS.some(d=>d.id===id)?s.collectedNoteIds.includes(id):id==='chest'?s.fragmentCollected:id==='door'?s.exitReached:s.seenObjectIds.includes(id);
     let lines=REACTIONS[id]?.[locked?'locked':done?'repeat':'first']||['Mình sẽ xem kỹ chỗ này.'];
     if(id==='chest'&&s.chestOpened&&!s.fragmentCollected)lines=['Khóa đã mở. Mảnh tranh số III nằm trong rương.'];
     this.commit('seen',{id});this.audio.playCue('paper');const prop=['supply-crates','road-tools','field-lamp'].includes(id);
     this.dialogue(object.label,lines,locked||prop?'Trở lại bản đồ':DOCUMENTS.some(d=>d.id===id)?'Đọc giấy tờ':'Xem kỹ đồ vật',locked||prop?'close':'continue-object',{id});
+  }
+  showDoor(gateId){
+    const gate=DOOR_GATES.find(g=>g.id===gateId);
+    if(this.disposed||!gate||gate.unlockedBy(this.state))return;
+    this.notice='';this.audio.playCue('paper');this.show('door',{gateId,gate});
   }
   openObject(id){
     if(this.disposed||this.options.isPaused?.())return;

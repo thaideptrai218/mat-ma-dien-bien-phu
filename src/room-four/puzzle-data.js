@@ -16,10 +16,12 @@ export const BOARDS = {
     rows: ['QUYET', 'UNCAH', 'AMHTA', 'CTICN', 'AAELG', 'MTNAT'],
     cells: [0, 1, 2, 3, 4, 7, 12, 17, 22, 27],
     phrase: 'QUYETCHIEN',
+    strip: 'QUYẾT CHIẾN',
   },
   l: {
     rows: ['QNAVE', 'ULTAV', 'YNLNI', 'EBCLO', 'TQMAL', 'THANG'],
     cells: [0, 5, 10, 15, 20, 25, 26, 27, 28, 29],
     phrase: 'QUYETTHANG',
+    strip: 'QUYẾT THẮNG',
   },
 };

@@ -1,6 +1,7 @@
 import { RoomOneUI } from '../room-one/ui.js';
 import { WORLD } from './world.js';
 import { createPanel } from './panels.js';
+import { doorHintKey } from './area-gates.js';
 
 /** Shared controls and complete paper reader, configured for the rear supply camp. */
 export class RoomThreeUI extends RoomOneUI {
@@ -21,6 +22,9 @@ export class RoomThreeUI extends RoomOneUI {
     this.drafts = drafts;
     this.root.classList.add('r3-app');
   }
+
+  // Door puzzles key their Hệ Thống hints on the gate id (see SYSTEM_HINTS).
+  hintKeyFor(view, data) { return view === 'door' ? doorHintKey(data.gateId) : super.hintKeyFor(view, data); }
 
   emit(action, payload = {}) {
     if (action === 'reset-confirmed') this.drafts.clear();

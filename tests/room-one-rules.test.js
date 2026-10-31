@@ -30,7 +30,9 @@ test('entire room has strict ordered completion and exactly first fragment', () 
   s=reduce(s,'comparison',correct); s=reduce(s,'drawer',{code:'2413'});
   assert.equal(reduce(s,'chest',{keyword:'NAVA'}),s);
   s=reduce(s,'identity',{name:'Henri Navarre'}); s=reduce(s,'chest',{keyword:'Nava'});
-  assert.equal(s.exitReached,false); assert.equal(goalFor(s).id,'door');
+  assert.equal(s.exitReached,false); assert.equal(goalFor(s).id,'gate:exit-hall:0');
+  assert.equal(reduce(s,'exit'),s,'exit gate must be unlocked first');
+  assert.equal(reduce(s,'door',{id:'exit-hall',code:'12'}),s); s=reduce(s,'door',{id:'exit-hall',code:'07'}); assert.equal(goalFor(s).id,'door');
   s=reduce(s,'exit'); assert.equal(s.exitReached,true); assert.equal(goalFor(s).steps.every(step=>step.done),true);
 });
 test('save repairs impossible stage prefixes and sanitizes ids and preferences', () => {

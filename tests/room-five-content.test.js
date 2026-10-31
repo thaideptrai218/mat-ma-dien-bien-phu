@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {PAINTING_URL, REFLECTION_SCRIPT, SYSTEM_QUESTION, QUANG_ANSWER, DOOR_MESSAGE, MUSEUM_RETURN, CLOSING_LINE, SOURCE_LABEL} from '../src/room-five/content.js';
 import {getArchiveEntries} from '../src/room-five/archive.js';
-import {shuffledPieces} from '../src/room-five/panels.js';
+import {shuffledPieces} from '../src/room-five/assembly-pieces.js';
 
 test('the shared original painting is a local full 2x2 image and is explicitly disclosed as illustration', async () => {
   assert.ok(PAINTING_URL.endsWith('/assets/images/victory-painting.svg'));

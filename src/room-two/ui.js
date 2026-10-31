@@ -2,6 +2,8 @@ import {RoomOneUI} from '../room-one/ui.js';
 import {PuzzleView} from './bao/ui/puzzle-view.js';
 import {NarrativeView} from './bao/ui/narrative-view.js';
 import {createPanel} from './panels.js';
+import {installTactileStations} from './tactile-stations.js';
+import {DoorPuzzleView} from './door-puzzle-view.js';
 import {WORLD} from './world.js';
 import {SYSTEM_HINTS} from './system-guidance.js';
 
@@ -33,6 +35,8 @@ export class RoomTwoUI extends RoomOneUI {
       if (tone !== 'error') { showFeedback(text, tone); return; }
       showFeedback(NEUTRAL_WRONG, tone); this.noteMistake();
     };
+    installTactileStations(this.puzzle); // drag/dial controls over the donor forms (donor files untouched)
+    this.door = new DoorPuzzleView({dialog, onAttempt: (doorId, answer) => onIntent({type: 'solve-door', doorId, answer})});
     this.narrative = new NarrativeView({dialog, getState, onIntent});
     this.openNotebook = () => { if (!this.destroyed) this.emit('notebook'); };
     document.addEventListener('game-open-notebook', this.openNotebook);

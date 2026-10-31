@@ -1,3 +1,4 @@
+import {DOOR_IDS} from './area-gates.js';
 import {createState, hasAllFragments, OBJECT_IDS} from './rules.js';
 
 export const SAVE_KEY = 'mat-ma-dien-bien-phu:room-five:v1';
@@ -12,6 +13,7 @@ export function sanitizeSave(raw, fragments) {
   state.assemblySolved = owned && raw.assemblySolved === true;
   state.reflectionSeen = state.assemblySolved && raw.reflectionSeen === true;
   state.exitReached = state.reflectionSeen && raw.exitReached === true;
+  state.doorsSolved = Array.isArray(raw.doorsSolved) ? [...new Set(raw.doorsSolved.filter(id => DOOR_IDS.includes(id)))] : []; // absent in older saves
   state.audioEnabled = raw.audioEnabled === true;
   state.audioVolume = Number.isFinite(raw.audioVolume) ? Math.max(0, Math.min(1, raw.audioVolume)) : .5;
   return state;

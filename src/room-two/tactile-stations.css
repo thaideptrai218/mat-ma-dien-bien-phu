@@ -1,0 +1,26 @@
+/* Room 2 tactile stations (scale beam, radio knob, door panels). Colours follow the donor puzzle palette. */
+.r2-balance{grid-column:1/-1;display:grid;gap:12px}
+.r2-beam{position:relative;height:56px;margin:0 auto;width:min(100%,320px)}
+.r2-beam-bar{position:absolute;left:6%;right:6%;top:18px;height:8px;border-radius:4px;background:#6b4a2b;transform-origin:50% 50%;transition:transform .5s ease}
+.r2-beam-post{position:absolute;left:calc(50% - 5px);top:18px;width:10px;height:36px;background:#4c3a24;border-radius:3px}
+.r2-balance-readout{margin:0;font-weight:700;text-align:center}
+.r2-steps-box{margin:0}
+.r2-weights .tb-bins{order:1}
+.r2-weights .tb-tray{order:2}
+.r2-weights .tb-bin{min-height:84px}
+.r2-weights .tb-tray .tb-token{min-width:52px;padding:6px 10px}
+.r2-knob{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin:10px 0}
+.r2-knob-stop{min-height:44px;padding:8px 14px;border:2px solid #84906c;border-radius:22px;background:#f5eed8;color:#303e28;font:inherit;font-weight:600;cursor:pointer}
+.r2-knob-stop[aria-checked=true]{background:#394b30;color:#f6efdb;border-color:#394b30}
+.r2-knob-stop:focus-visible{outline:3px solid #1d5e8c;outline-offset:2px}
+.r2-knob-dial{position:relative;width:46px;height:46px;border-radius:50%;background:#e9dec6;border:3px solid #6b4a2b}
+.r2-knob-pointer{position:absolute;left:calc(50% - 2px);top:3px;width:4px;height:18px;background:#8d5139;border-radius:2px;transform-origin:50% 20px;transition:transform .25s ease}
+.r2-tape .tb-bin.is-armed{border-color:#394b30;border-style:solid;background:#e5ecd2}
+.r2-tape.r2-highlight-odd .tb-token.r2-odd{background:#fbe7b3;border-color:#965832}
+.r2-tape .tb-token{min-width:52px;font-family:monospace}
+.r2-fist-board{margin:14px 0}
+.r2-fold-dial{display:grid;gap:8px;margin:16px 0}
+.r2-door{display:grid;gap:14px}
+.r2-door-control{display:grid;gap:14px;justify-items:center}
+.r2-door-feedback:empty{display:none}
+@media(prefers-reduced-motion:reduce){.r2-beam-bar,.r2-knob-pointer{transition:none}}

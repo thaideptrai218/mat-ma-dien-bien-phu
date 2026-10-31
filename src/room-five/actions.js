@@ -1,5 +1,7 @@
 import {goalFor, hasAllFragments} from './rules.js';
 import {GUIDE, LINES} from './content.js';
+import {AREA_GATES, DOOR_GATES, DOOR_OPENED_NOTICE, doorViewKey} from './area-gates.js';
+import {lockedGateIds} from '../core/area-gates.js';
 
 export function handleAction(session, action, payload = {}) {
   const s = session;
@@ -42,6 +44,15 @@ export function handleAction(session, action, payload = {}) {
       if (!s.commit('assembly', {order: payload.order})) return s.error('Chưa đúng.');
       s.audio.playCue('painting-complete');
       return s.dialogue('Tranh đã nguyên vẹn, cửa vẫn đóng', [...LINES.assembly, ...GUIDE.assembly]);
+    case 'solve-door': {
+      const gate = DOOR_GATES.find(item => item.id === payload.doorId);
+      if (!gate || !matching(doorViewKey(gate.id))) return;
+      s.notice = '';
+      if (!lockedGateIds(AREA_GATES, s.state).includes(gate.id)) return s.close();
+      if (!s.commit('solve-door', {doorId: gate.id, answer: payload.answer})) return s.error('Chưa khớp. Hãy xem lại tên từng tấm biển và thứ tự các phòng đã đi qua.');
+      s.audio.playCue('unlock'); s.close(); s.notice = DOOR_OPENED_NOTICE; s.render();
+      return;
+    }
     case 'reflection-continue':
       if (!matching('reflection') || active.readOnly || !s.commit('reflection')) return;
       s.audio.playCue('door-final-swell');

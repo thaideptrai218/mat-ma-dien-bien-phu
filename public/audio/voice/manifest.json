@@ -385,7 +385,8 @@
         "r1"
       ],
       "groups": [
-        "r1.SYSTEM_HINTS.a03"
+        "r1.SYSTEM_HINTS.a03",
+        "r1.SYSTEM_HINTS.door-west-archive"
       ],
       "text": "Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.",
       "ttsText": "Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.",
@@ -408,7 +409,7 @@
       "durationMs": 4964
     },
     {
-      "id": "125998f568273085",
+      "id": "84fd4998a13f9040",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -417,13 +418,13 @@
       "groups": [
         "r1.SYSTEM_HINTS.comparison"
       ],
-      "text": "Ký Chủ, bốn hồ sơ trong sổ tay là căn cứ cho bảng này.",
-      "ttsText": "Ký Chủ, bốn hồ sơ trong sổ tay là căn cứ cho bảng này.",
-      "file": "audio/voice/125998f568273085.mp3",
-      "durationMs": 3274
+      "text": "Ký Chủ, kéo từng thẻ dữ kiện vào ô của hai phía theo bốn hồ sơ.",
+      "ttsText": "Ký Chủ, kéo từng thẻ dữ kiện vào ô của hai phía theo bốn hồ sơ.",
+      "file": "audio/voice/84fd4998a13f9040.mp3",
+      "durationMs": 3504
     },
     {
-      "id": "db059ea17f542403",
+      "id": "32af9b16e411bf3a",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -432,10 +433,10 @@
       "groups": [
         "r1.SYSTEM_HINTS.comparison"
       ],
-      "text": "Mỗi hàng của bảng đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng hàng một.",
-      "ttsText": "Mỗi hàng của bảng đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng hàng một.",
-      "file": "audio/voice/db059ea17f542403.mp3",
-      "durationMs": 4163
+      "text": "Mỗi cặp ô đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng cặp một.",
+      "ttsText": "Mỗi cặp ô đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng cặp một.",
+      "file": "audio/voice/32af9b16e411bf3a.mp3",
+      "durationMs": 4006
     },
     {
       "id": "4988d1b1df980be2",
@@ -453,7 +454,7 @@
       "durationMs": 4808
     },
     {
-      "id": "c8d03537585d89af",
+      "id": "b55b7971ce619ab7",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -462,10 +463,10 @@
       "groups": [
         "r1.SYSTEM_HINTS.drawer"
       ],
-      "text": "Ký Chủ, ngăn kéo này cần một mã gồm bốn chữ số.",
-      "ttsText": "Ký Chủ, ngăn kéo này cần một mã gồm bốn chữ số.",
-      "file": "audio/voice/c8d03537585d89af.mp3",
-      "durationMs": 2910
+      "text": "Ký Chủ, hãy xoay bốn bánh khóa của ngăn kéo này cho đúng mã.",
+      "ttsText": "Ký Chủ, hãy xoay bốn bánh khóa của ngăn kéo này cho đúng mã.",
+      "file": "audio/voice/b55b7971ce619ab7.mp3",
+      "durationMs": 2987
     },
     {
       "id": "6162ffbd3961a1bb",
@@ -498,7 +499,7 @@
       "durationMs": 4766
     },
     {
-      "id": "beca8286a07b08f2",
+      "id": "dd0c73cf7d602947",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -507,10 +508,10 @@
       "groups": [
         "r1.SYSTEM_HINTS.identity"
       ],
-      "text": "Ký Chủ, dãy số trong điện mật là tên của một người.",
-      "ttsText": "Ký Chủ, dãy số trong điện mật là tên của một người.",
-      "file": "audio/voice/beca8286a07b08f2.mp3",
-      "durationMs": 2726
+      "text": "Ký Chủ, dãy số trong điện mật là tên người, hãy bấm chữ để ghép lại.",
+      "ttsText": "Ký Chủ, dãy số trong điện mật là tên người, hãy bấm chữ để ghép lại.",
+      "file": "audio/voice/dd0c73cf7d602947.mp3",
+      "durationMs": 3726
     },
     {
       "id": "fca2f47f16b8cc56",
@@ -543,7 +544,7 @@
       "durationMs": 4802
     },
     {
-      "id": "5e1d62e3785293ec",
+      "id": "e205d4a94cfd9915",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -552,10 +553,10 @@
       "groups": [
         "r1.SYSTEM_HINTS.chest"
       ],
-      "text": "Ký Chủ, chiếc rương cần một từ khóa lấy từ danh tính vừa giải.",
-      "ttsText": "Ký Chủ, chiếc rương cần một từ khóa lấy từ danh tính vừa giải.",
-      "file": "audio/voice/5e1d62e3785293ec.mp3",
-      "durationMs": 3181
+      "text": "Ký Chủ, xoay các bánh chữ của rương thành từ khóa lấy từ danh tính vừa giải.",
+      "ttsText": "Ký Chủ, xoay các bánh chữ của rương thành từ khóa lấy từ danh tính vừa giải.",
+      "file": "audio/voice/e205d4a94cfd9915.mp3",
+      "durationMs": 3523
     },
     {
       "id": "e0f793116d8602da",
@@ -586,6 +587,126 @@
       "ttsText": "Các tài liệu tiếng Việt thường gọi nhân vật này bằng họ chứ không đọc đủ tên. Ký Chủ để ý cách gọi trong sổ tay.",
       "file": "audio/voice/d3904bc2d1ca2e6c.mp3",
       "durationMs": 5427
+    },
+    {
+      "id": "7d385b1b5ec24667",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-west-archive"
+      ],
+      "text": "Ký Chủ, ký hiệu lưu trữ cuối lá thư là chìa cho chiếc then này.",
+      "ttsText": "Ký Chủ, ký hiệu lưu trữ cuối lá thư là chìa cho chiếc then này.",
+      "file": "audio/voice/7d385b1b5ec24667.mp3",
+      "durationMs": 3374
+    },
+    {
+      "id": "7036316da05198a9",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-west-archive"
+      ],
+      "text": "Bánh đầu là một chữ cái, hai bánh sau là số. Cả ba cùng nằm trong ký hiệu ấy.",
+      "ttsText": "Bánh đầu là một chữ cái, hai bánh sau là số. Cả ba cùng nằm trong ký hiệu ấy.",
+      "file": "audio/voice/7036316da05198a9.mp3",
+      "durationMs": 4539
+    },
+    {
+      "id": "161ca7285869e554",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-drawer-alcove"
+      ],
+      "text": "Ký Chủ, con số của phía Việt Nam nằm trong sổ quân nhu.",
+      "ttsText": "Ký Chủ, con số của phía Việt Nam nằm trong sổ quân nhu.",
+      "file": "audio/voice/161ca7285869e554.mp3",
+      "durationMs": 3056
+    },
+    {
+      "id": "d657cffa4a1dc22a",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-drawer-alcove"
+      ],
+      "text": "Ký Chủ thử mở lại sổ tay, tìm hồ sơ của người phụ trách quân nhu.",
+      "ttsText": "Ký Chủ thử mở lại sổ tay, tìm hồ sơ của người phụ trách quân nhu.",
+      "file": "audio/voice/d657cffa4a1dc22a.mp3",
+      "durationMs": 3539
+    },
+    {
+      "id": "d3f3996c2cafcaab",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-drawer-alcove"
+      ],
+      "text": "Đề bài hỏi quân số phía Việt Nam, đếm theo nghìn người nên chỉ cần ba chữ số đầu.",
+      "ttsText": "Đề bài hỏi quân số phía Việt Nam, đếm theo nghìn người nên chỉ cần ba chữ số đầu.",
+      "file": "audio/voice/d3f3996c2cafcaab.mp3",
+      "durationMs": 4142
+    },
+    {
+      "id": "9b46d4271c6e7a52",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-exit-hall"
+      ],
+      "text": "Ký Chủ, bản tin tháng bảy cho biết kế hoạch được thông qua lúc nào.",
+      "ttsText": "Ký Chủ, bản tin tháng bảy cho biết kế hoạch được thông qua lúc nào.",
+      "file": "audio/voice/9b46d4271c6e7a52.mp3",
+      "durationMs": 3319
+    },
+    {
+      "id": "cf6ff582135be624",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-exit-hall"
+      ],
+      "text": "Ký Chủ thử đọc lại bản tin sau khi kế hoạch mới được thông qua, trong sổ tay.",
+      "ttsText": "Ký Chủ thử đọc lại bản tin sau khi kế hoạch mới được thông qua, trong sổ tay.",
+      "file": "audio/voice/cf6ff582135be624.mp3",
+      "durationMs": 3868
+    },
+    {
+      "id": "c8e7c44ca5755ef0",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-exit-hall"
+      ],
+      "text": "Bổ nhiệm và thông qua là hai mốc khác nhau. Khóa hỏi tháng của mốc thứ hai.",
+      "ttsText": "Bổ nhiệm và thông qua là hai mốc khác nhau. Khóa hỏi tháng của mốc thứ hai.",
+      "file": "audio/voice/c8e7c44ca5755ef0.mp3",
+      "durationMs": 3885
     },
     {
       "id": "eaf40a0f39f59f0e",
@@ -708,7 +829,7 @@
       "durationMs": 7411
     },
     {
-      "id": "5de4545ec19b3981",
+      "id": "369c7181bf2bd375",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -717,10 +838,10 @@
       "groups": [
         "r2.SYSTEM_HINTS.nava-balance"
       ],
-      "text": "Ký Chủ, Sổ kế hoạch của Nava là nơi cần đọc kỹ cho bàn cân này.",
-      "ttsText": "Ký Chủ, Sổ kế hoạch của Nava là nơi cần đọc kỹ cho bàn cân này.",
-      "file": "audio/voice/5de4545ec19b3981.mp3",
-      "durationMs": 3515
+      "text": "Ký Chủ, đặt các quả cân lên hai đĩa theo lề Sổ kế hoạch của Nava.",
+      "ttsText": "Ký Chủ, đặt các quả cân lên hai đĩa theo lề Sổ kế hoạch của Nava.",
+      "file": "audio/voice/369c7181bf2bd375.mp3",
+      "durationMs": 3565
     },
     {
       "id": "e09a4fde50243b3d",
@@ -753,7 +874,7 @@
       "durationMs": 4081
     },
     {
-      "id": "d44f3f5d7281f166",
+      "id": "21e99a238480b576",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -762,10 +883,10 @@
       "groups": [
         "r2.SYSTEM_HINTS.nava-radio"
       ],
-      "text": "Ký Chủ, hai bức điện đang phát chen nhau trên một sóng.",
-      "ttsText": "Ký Chủ, hai bức điện đang phát chen nhau trên một sóng.",
-      "file": "audio/voice/d44f3f5d7281f166.mp3",
-      "durationMs": 2831
+      "text": "Ký Chủ, xoay núm chọn tai nghe rồi nhặt chữ từ cuộn băng điện báo.",
+      "ttsText": "Ký Chủ, xoay núm chọn tai nghe rồi nhặt chữ từ cuộn băng điện báo.",
+      "file": "audio/voice/21e99a238480b576.mp3",
+      "durationMs": 3224
     },
     {
       "id": "bf2bd86c8221bb62",
@@ -798,7 +919,7 @@
       "durationMs": 5202
     },
     {
-      "id": "c320935c07871278",
+      "id": "a015350cbcc73f62",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -807,10 +928,10 @@
       "groups": [
         "r2.SYSTEM_HINTS.nava-fist"
       ],
-      "text": "Ký Chủ, bốn mẩu tin trong sổ tay cho biết các nước đi.",
-      "ttsText": "Ký Chủ, bốn mẩu tin trong sổ tay cho biết các nước đi.",
-      "file": "audio/voice/c320935c07871278.mp3",
-      "durationMs": 2990
+      "text": "Ký Chủ, kéo từng thẻ mũi tên vào đúng vùng theo bốn mẩu tin.",
+      "ttsText": "Ký Chủ, kéo từng thẻ mũi tên vào đúng vùng theo bốn mẩu tin.",
+      "file": "audio/voice/a015350cbcc73f62.mp3",
+      "durationMs": 3272
     },
     {
       "id": "e0e7908148198d1a",
@@ -841,6 +962,141 @@
       "ttsText": "Ký Chủ để ý ngày tháng trên mỗi mẩu tin, rồi nghĩ nơi nào xảy ra trước, nơi nào sau.",
       "file": "audio/voice/f8729b5e051a6063.mp3",
       "durationMs": 4619
+    },
+    {
+      "id": "f6ec3790dc2b5d4e",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-south-west"
+      ],
+      "text": "Ký Chủ, ổ khóa đòi huy hiệu của bên đang dồn quân về một chỗ.",
+      "ttsText": "Ký Chủ, ổ khóa đòi huy hiệu của bên đang dồn quân về một chỗ.",
+      "file": "audio/voice/f6ec3790dc2b5d4e.mp3",
+      "durationMs": 2989
+    },
+    {
+      "id": "00a079e0d79f567f",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-south-west"
+      ],
+      "text": "Ký Chủ thử đọc lại ghi chú trên điện đài: tai nghe nào ghi bên dồn quân?",
+      "ttsText": "Ký Chủ thử đọc lại ghi chú trên điện đài: tai nghe nào ghi bên dồn quân?",
+      "file": "audio/voice/00a079e0d79f567f.mp3",
+      "durationMs": 3607
+    },
+    {
+      "id": "4c9fd98697657684",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-south-west"
+      ],
+      "text": "Ký Chủ nhớ lại cuốn sổ của Nava: bên nào muốn nắm chặt lực lượng thành một nắm đấm?",
+      "ttsText": "Ký Chủ nhớ lại cuốn sổ của Nava: bên nào muốn nắm chặt lực lượng thành một nắm đấm?",
+      "file": "audio/voice/4c9fd98697657684.mp3",
+      "durationMs": 4160
+    },
+    {
+      "id": "381f15291e5615f5",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-south-east"
+      ],
+      "text": "Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trên trang báo cũ.",
+      "ttsText": "Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trên trang báo cũ.",
+      "file": "audio/voice/381f15291e5615f5.mp3",
+      "durationMs": 3472
+    },
+    {
+      "id": "670311862a70c07b",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-south-east"
+      ],
+      "text": "Ký Chủ thử mở sổ tay đọc lại trang báo cũ: tít lớn nói về nơi nào được giải phóng?",
+      "ttsText": "Ký Chủ thử mở sổ tay đọc lại trang báo cũ: tít lớn nói về nơi nào được giải phóng?",
+      "file": "audio/voice/670311862a70c07b.mp3",
+      "durationMs": 4292
+    },
+    {
+      "id": "8fa228aadad81f1d",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-south-east"
+      ],
+      "text": "Ký Chủ để ý bài báo kể từ ngày nào liên quân tiến công hướng Trung Lào.",
+      "ttsText": "Ký Chủ để ý bài báo kể từ ngày nào liên quân tiến công hướng Trung Lào.",
+      "file": "audio/voice/8fa228aadad81f1d.mp3",
+      "durationMs": 3384
+    },
+    {
+      "id": "85f670898e6f6ddf",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-north-room"
+      ],
+      "text": "Ký Chủ, hai bánh số này chỉ một tháng ghi trên bức điện liên quân.",
+      "ttsText": "Ký Chủ, hai bánh số này chỉ một tháng ghi trên bức điện liên quân.",
+      "file": "audio/voice/85f670898e6f6ddf.mp3",
+      "durationMs": 3363
+    },
+    {
+      "id": "b6d1468ca242339c",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-north-room"
+      ],
+      "text": "Ký Chủ thử đọc lại bức điện liên quân Việt – Lào, chỗ đề thời gian ở đầu bức điện.",
+      "ttsText": "Ký Chủ thử đọc lại bức điện liên quân Việt Lào, chỗ đề thời gian ở đầu bức điện.",
+      "file": "audio/voice/b6d1468ca242339c.mp3",
+      "durationMs": 3801
+    },
+    {
+      "id": "be12ccbeb0446336",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r2"
+      ],
+      "groups": [
+        "r2.SYSTEM_HINTS.door-north-room"
+      ],
+      "text": "Bức điện đề cuối tháng đầu tiên của năm. Ký Chủ nhớ bánh số hiển thị hai chữ số.",
+      "ttsText": "Bức điện đề cuối tháng đầu tiên của năm. Ký Chủ nhớ bánh số hiển thị hai chữ số.",
+      "file": "audio/voice/be12ccbeb0446336.mp3",
+      "durationMs": 4256
     },
     {
       "id": "91dea7306f50f3a5",
@@ -1131,7 +1387,7 @@
       "durationMs": 5279
     },
     {
-      "id": "93e9b468d8e1fe95",
+      "id": "8eecc58aa8ca5c00",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1140,10 +1396,10 @@
       "groups": [
         "r3.SYSTEM_HINTS.preparation"
       ],
-      "text": "Ký Chủ, hồ sơ chuẩn bị cần được phân loại cho đúng.",
-      "ttsText": "Ký Chủ, hồ sơ chuẩn bị cần được phân loại cho đúng.",
-      "file": "audio/voice/93e9b468d8e1fe95.mp3",
-      "durationMs": 2647
+      "text": "Ký Chủ, kéo từng thẻ về đúng mốc, rồi chọn vật tư cho kho.",
+      "ttsText": "Ký Chủ, kéo từng thẻ về đúng mốc, rồi chọn vật tư cho kho.",
+      "file": "audio/voice/8eecc58aa8ca5c00.mp3",
+      "durationMs": 3427
     },
     {
       "id": "3dde18db85fdbd4d",
@@ -1176,7 +1432,7 @@
       "durationMs": 4626
     },
     {
-      "id": "7f29df62096ef114",
+      "id": "8df6b6a109ae0e6a",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1185,10 +1441,10 @@
       "groups": [
         "r3.SYSTEM_HINTS.cargo"
       ],
-      "text": "Ký Chủ, mỗi bức tranh cần một chú thích đúng với vai trò của nó.",
-      "ttsText": "Ký Chủ, mỗi bức tranh cần một chú thích đúng với vai trò của nó.",
-      "file": "audio/voice/7f29df62096ef114.mp3",
-      "durationMs": 3118
+      "text": "Ký Chủ, kéo mỗi chú thích lên bức tranh đúng với vai trò của nó.",
+      "ttsText": "Ký Chủ, kéo mỗi chú thích lên bức tranh đúng với vai trò của nó.",
+      "file": "audio/voice/8df6b6a109ae0e6a.mp3",
+      "durationMs": 3224
     },
     {
       "id": "49c1bb376ae4c901",
@@ -1221,7 +1477,7 @@
       "durationMs": 4040
     },
     {
-      "id": "98bc0add468c2d56",
+      "id": "57a90647f23bfdb8",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1230,10 +1486,10 @@
       "groups": [
         "r3.SYSTEM_HINTS.strategy"
       ],
-      "text": "Ký Chủ, hai bức điện mang hai phương châm khác nhau.",
-      "ttsText": "Ký Chủ, hai bức điện mang hai phương châm khác nhau.",
-      "file": "audio/voice/98bc0add468c2d56.mp3",
-      "durationMs": 2708
+      "text": "Ký Chủ, kéo từng từ vào khe để dựng lại hai bức điện.",
+      "ttsText": "Ký Chủ, kéo từng từ vào khe để dựng lại hai bức điện.",
+      "file": "audio/voice/57a90647f23bfdb8.mp3",
+      "durationMs": 2902
     },
     {
       "id": "e98e97627053aad5",
@@ -1266,7 +1522,7 @@
       "durationMs": 4421
     },
     {
-      "id": "992383bf8589656e",
+      "id": "82e874ad57f89936",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1275,10 +1531,10 @@
       "groups": [
         "r3.SYSTEM_HINTS.opening"
       ],
-      "text": "Ký Chủ, ba trận mở màn cần được xếp đúng ngày.",
-      "ttsText": "Ký Chủ, ba trận mở màn cần được xếp đúng ngày.",
-      "file": "audio/voice/992383bf8589656e.mp3",
-      "durationMs": 2546
+      "text": "Ký Chủ, xếp ba tin theo thứ tự, rồi kéo mỗi ngày lên tin của nó.",
+      "ttsText": "Ký Chủ, xếp ba tin theo thứ tự, rồi kéo mỗi ngày lên tin của nó.",
+      "file": "audio/voice/82e874ad57f89936.mp3",
+      "durationMs": 3675
     },
     {
       "id": "43affd8ce9b4e345",
@@ -1311,7 +1567,7 @@
       "durationMs": 4970
     },
     {
-      "id": "2c521692738e45ba",
+      "id": "9a31a6009cc8097d",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1320,10 +1576,10 @@
       "groups": [
         "r3.SYSTEM_HINTS.final"
       ],
-      "text": "Ký Chủ, khóa rương cần ngày mở màn của chiến dịch.",
-      "ttsText": "Ký Chủ, khóa rương cần ngày mở màn của chiến dịch.",
-      "file": "audio/voice/2c521692738e45ba.mp3",
-      "durationMs": 2596
+      "text": "Ký Chủ, ổ khóa rương có ba khe; các thẻ đã khôi phục sẽ vừa vào đó.",
+      "ttsText": "Ký Chủ, ổ khóa rương có ba khe; các thẻ đã khôi phục sẽ vừa vào đó.",
+      "file": "audio/voice/9a31a6009cc8097d.mp3",
+      "durationMs": 3888
     },
     {
       "id": "c07c4f0e214e0838",
@@ -1341,7 +1597,7 @@
       "durationMs": 4320
     },
     {
-      "id": "2ea4bf9d518b58f0",
+      "id": "dde76108f9969f12",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1350,10 +1606,100 @@
       "groups": [
         "r3.SYSTEM_HINTS.final"
       ],
-      "text": "Không phải dữ kiện nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.",
-      "ttsText": "Không phải dữ kiện nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.",
-      "file": "audio/voice/2ea4bf9d518b58f0.mp3",
-      "durationMs": 4083
+      "text": "Không phải thẻ nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.",
+      "ttsText": "Không phải thẻ nào cũng thuộc về ngày. Ký Chủ thử đọc lại phần thưởng của từng thử thách.",
+      "file": "audio/voice/dde76108f9969f12.mp3",
+      "durationMs": 3876
+    },
+    {
+      "id": "6efc103c33b347b3",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.SYSTEM_HINTS.door-cargo-pen"
+      ],
+      "text": "Ký Chủ, ổ khóa đòi thẻ của lực lượng chuyên mở và sửa đường.",
+      "ttsText": "Ký Chủ, ổ khóa đòi thẻ của lực lượng chuyên mở và sửa đường.",
+      "file": "audio/voice/6efc103c33b347b3.mp3",
+      "durationMs": 2955
+    },
+    {
+      "id": "e179a95e9f4c7231",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.SYSTEM_HINTS.door-cargo-pen"
+      ],
+      "text": "Ký Chủ thử đọc lại sổ người đi cùng chuyến hàng: ai được nhắc khi đường tiếp tục thông?",
+      "ttsText": "Ký Chủ thử đọc lại sổ người đi cùng chuyến hàng: ai được nhắc khi đường tiếp tục thông?",
+      "file": "audio/voice/e179a95e9f4c7231.mp3",
+      "durationMs": 4048
+    },
+    {
+      "id": "8300275ce9b9b49b",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.SYSTEM_HINTS.door-cargo-pen"
+      ],
+      "text": "Ký Chủ để ý người cầm cuốc xẻng sửa những đoạn khó, không phải người gánh hay người kéo pháo.",
+      "ttsText": "Ký Chủ để ý người cầm cuốc xẻng sửa những đoạn khó, không phải người gánh hay người kéo pháo.",
+      "file": "audio/voice/8300275ce9b9b49b.mp3",
+      "durationMs": 4293
+    },
+    {
+      "id": "b7d3a4e3c8667faa",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.SYSTEM_HINTS.door-radio-pen"
+      ],
+      "text": "Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trong lá thư.",
+      "ttsText": "Ký Chủ, thước này đo ngày trong tháng. Ngày ấy nằm trong lá thư.",
+      "file": "audio/voice/b7d3a4e3c8667faa.mp3",
+      "durationMs": 3332
+    },
+    {
+      "id": "ff1e4d4268e5da06",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.SYSTEM_HINTS.door-radio-pen"
+      ],
+      "text": "Ký Chủ thử mở sổ tay đọc lại lá thư sau những trận mở đầu: cứ điểm nào bị tiêu diệt?",
+      "ttsText": "Ký Chủ thử mở sổ tay đọc lại lá thư sau những trận mở đầu: cứ điểm nào bị tiêu diệt?",
+      "file": "audio/voice/ff1e4d4268e5da06.mp3",
+      "durationMs": 4273
+    },
+    {
+      "id": "56bbd55e48d9d677",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.SYSTEM_HINTS.door-radio-pen"
+      ],
+      "text": "Lá thư nhắc hai trận, mỗi trận một ngày. Ký Chủ chọn ngày của trận sau, nơi cứ điểm bị tiêu diệt.",
+      "ttsText": "Lá thư nhắc hai trận, mỗi trận một ngày. Ký Chủ chọn ngày của trận sau, nơi cứ điểm bị tiêu diệt.",
+      "file": "audio/voice/56bbd55e48d9d677.mp3",
+      "durationMs": 5254
     },
     {
       "id": "3dc20011255a10fe",
@@ -1599,7 +1945,7 @@
       "durationMs": 4832
     },
     {
-      "id": "79153aa6641ad4ce",
+      "id": "39b390b9545c675c",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1608,13 +1954,13 @@
       "groups": [
         "r4.SYSTEM_HINTS.column"
       ],
-      "text": "Ký Chủ, có một cột dọc của ô chữ tạo thành lời chỉ dẫn.",
-      "ttsText": "Ký Chủ, có một cột dọc của ô chữ tạo thành lời chỉ dẫn.",
-      "file": "audio/voice/79153aa6641ad4ce.mp3",
-      "durationMs": 2990
+      "text": "Ký Chủ, trượt thước đọc dọc theo ô chữ, cột nào thành lời?",
+      "ttsText": "Ký Chủ, trượt thước đọc dọc theo ô chữ, cột nào thành lời?",
+      "file": "audio/voice/39b390b9545c675c.mp3",
+      "durationMs": 3209
     },
     {
-      "id": "c232ffe350a70232",
+      "id": "789ac9ea29ec20fb",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1623,10 +1969,10 @@
       "groups": [
         "r4.SYSTEM_HINTS.column"
       ],
-      "text": "Ký Chủ thử đọc các ô trong cùng một cột, từ hàng đầu xuống hàng cuối.",
-      "ttsText": "Ký Chủ thử đọc các ô trong cùng một cột, từ hàng đầu xuống hàng cuối.",
-      "file": "audio/voice/c232ffe350a70232.mp3",
-      "durationMs": 3331
+      "text": "Ký Chủ thử trượt thước tới từng cột, đọc các ô từ hàng đầu xuống hàng cuối.",
+      "ttsText": "Ký Chủ thử trượt thước tới từng cột, đọc các ô từ hàng đầu xuống hàng cuối.",
+      "file": "audio/voice/789ac9ea29ec20fb.mp3",
+      "durationMs": 3632
     },
     {
       "id": "186c502ff140c5e0",
@@ -1644,7 +1990,7 @@
       "durationMs": 3775
     },
     {
-      "id": "9dae41c89da90725",
+      "id": "410dcf0f78d6a6b2",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1654,10 +2000,10 @@
         "r4.SYSTEM_HINTS.board-t",
         "r4.SYSTEM_HINTS.board-l"
       ],
-      "text": "Ký Chủ, hãy dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.",
-      "ttsText": "Ký Chủ, hãy dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.",
-      "file": "audio/voice/9dae41c89da90725.mp3",
-      "durationMs": 3306
+      "text": "Ký Chủ, hãy quét bút dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.",
+      "ttsText": "Ký Chủ, hãy quét bút dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.",
+      "file": "audio/voice/410dcf0f78d6a6b2.mp3",
+      "durationMs": 3664
     },
     {
       "id": "39af8e3f906bac76",
@@ -1706,7 +2052,7 @@
       "durationMs": 4646
     },
     {
-      "id": "a8aeb76b5a53c0b6",
+      "id": "daa5a6114a2e5818",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1715,13 +2061,13 @@
       "groups": [
         "r4.SYSTEM_HINTS.final"
       ],
-      "text": "Ký Chủ, hai nửa khẩu hiệu cần được ghép lại với nhau.",
-      "ttsText": "Ký Chủ, hai nửa khẩu hiệu cần được ghép lại với nhau.",
-      "file": "audio/voice/a8aeb76b5a53c0b6.mp3",
-      "durationMs": 2902
+      "text": "Ký Chủ, đặt hai dải chữ vào khóa rương theo đúng thứ tự.",
+      "ttsText": "Ký Chủ, đặt hai dải chữ vào khóa rương theo đúng thứ tự.",
+      "file": "audio/voice/daa5a6114a2e5818.mp3",
+      "durationMs": 2993
     },
     {
-      "id": "b00f9f69a3d32fbb",
+      "id": "91d64f56b405639c",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1730,13 +2076,13 @@
       "groups": [
         "r4.SYSTEM_HINTS.final"
       ],
-      "text": "Ký Chủ nhớ lại hai phần đọc được từ hai bảng chữ.",
-      "ttsText": "Ký Chủ nhớ lại hai phần đọc được từ hai bảng chữ.",
-      "file": "audio/voice/b00f9f69a3d32fbb.mp3",
-      "durationMs": 2499
+      "text": "Ký Chủ nhớ lại hai nửa khẩu hiệu đọc được từ hai bảng chữ.",
+      "ttsText": "Ký Chủ nhớ lại hai nửa khẩu hiệu đọc được từ hai bảng chữ.",
+      "file": "audio/voice/91d64f56b405639c.mp3",
+      "durationMs": 2909
     },
     {
-      "id": "027c1fa16223fa8b",
+      "id": "76e2485769190b48",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1745,10 +2091,145 @@
       "groups": [
         "r4.SYSTEM_HINTS.final"
       ],
-      "text": "Ký Chủ thử đọc hai phần cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.",
-      "ttsText": "Ký Chủ thử đọc hai phần cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.",
-      "file": "audio/voice/027c1fa16223fa8b.mp3",
-      "durationMs": 3563
+      "text": "Ký Chủ thử đọc hai dải cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.",
+      "ttsText": "Ký Chủ thử đọc hai dải cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.",
+      "file": "audio/voice/76e2485769190b48.mp3",
+      "durationMs": 3590
+    },
+    {
+      "id": "d250e619111dda87",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-a1-night"
+      ],
+      "text": "Ký Chủ, bản tổng hợp đầu tháng năm nhắc tới một bước quyết định.",
+      "ttsText": "Ký Chủ, bản tổng hợp đầu tháng năm nhắc tới một bước quyết định.",
+      "file": "audio/voice/d250e619111dda87.mp3",
+      "durationMs": 3029
+    },
+    {
+      "id": "b7bfe5144d058acb",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-a1-night"
+      ],
+      "text": "Ký Chủ thử đọc lại đoạn cuối bản tổng hợp, nơi người viết để riêng một mục.",
+      "ttsText": "Ký Chủ thử đọc lại đoạn cuối bản tổng hợp, nơi người viết để riêng một mục.",
+      "file": "audio/voice/b7bfe5144d058acb.mp3",
+      "durationMs": 3494
+    },
+    {
+      "id": "aead4190df345d9a",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-a1-night"
+      ],
+      "text": "Ký Chủ chọn thẻ nói về đợt đánh lớn cuối cùng, không phải chuyện xảy ra sau chiến dịch.",
+      "ttsText": "Ký Chủ chọn thẻ nói về đợt đánh lớn cuối cùng, không phải chuyện xảy ra sau chiến dịch.",
+      "file": "audio/voice/aead4190df345d9a.mp3",
+      "durationMs": 3909
+    },
+    {
+      "id": "bed7be2a4bf2c80e",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-results"
+      ],
+      "text": "Ký Chủ, lá thư tối mồng bảy có ghi giờ chiếm sở chỉ huy.",
+      "ttsText": "Ký Chủ, lá thư tối mồng bảy có ghi giờ chiếm sở chỉ huy.",
+      "file": "audio/voice/bed7be2a4bf2c80e.mp3",
+      "durationMs": 3270
+    },
+    {
+      "id": "dca10f972bb58941",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-results"
+      ],
+      "text": "Ký Chủ thử mở sổ tay, đọc lại đoạn thứ ba của lá thư chị Hạnh.",
+      "ttsText": "Ký Chủ thử mở sổ tay, đọc lại đoạn thứ ba của lá thư chị Hạnh.",
+      "file": "audio/voice/dca10f972bb58941.mp3",
+      "durationMs": 3409
+    },
+    {
+      "id": "df66d5bcd24f4f60",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-results"
+      ],
+      "text": "Ký Chủ nhớ giờ đứng trước, phút đứng sau; mỗi bánh số giữ một chữ số.",
+      "ttsText": "Ký Chủ nhớ giờ đứng trước, phút đứng sau; mỗi bánh số giữ một chữ số.",
+      "file": "audio/voice/df66d5bcd24f4f60.mp3",
+      "durationMs": 4052
+    },
+    {
+      "id": "98cf44c6ccb86359",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-north"
+      ],
+      "text": "Ký Chủ, bản ghi kết quả có nói chiến dịch kéo dài bao nhiêu ngày đêm.",
+      "ttsText": "Ký Chủ, bản ghi kết quả có nói chiến dịch kéo dài bao nhiêu ngày đêm.",
+      "file": "audio/voice/98cf44c6ccb86359.mp3",
+      "durationMs": 3689
+    },
+    {
+      "id": "7ff604aa92c42ae9",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-north"
+      ],
+      "text": "Ký Chủ thử đọc lại đoạn đầu bản ghi kết quả trong sổ tay.",
+      "ttsText": "Ký Chủ thử đọc lại đoạn đầu bản ghi kết quả trong sổ tay.",
+      "file": "audio/voice/7ff604aa92c42ae9.mp3",
+      "durationMs": 2805
+    },
+    {
+      "id": "dd681e56841e37e8",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.SYSTEM_HINTS.door-north"
+      ],
+      "text": "Con số nằm ngay trước cụm từ ngày đêm chiến đấu. Ký Chủ trượt thước tới đúng chỗ ấy.",
+      "ttsText": "Con số nằm ngay trước cụm từ ngày đêm chiến đấu. Ký Chủ trượt thước tới đúng chỗ ấy.",
+      "file": "audio/voice/dd681e56841e37e8.mp3",
+      "durationMs": 4012
     },
     {
       "id": "b3a12daf3c313bb9",
@@ -1974,6 +2455,51 @@
       "ttsText": "Ký Chủ thử xếp từng hàng một. Hàng trên nối với hàng dưới ở những nét nào?",
       "file": "audio/voice/3e3a78a8484e05db.mp3",
       "durationMs": 3654
+    },
+    {
+      "id": "658b38702b08d671",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r5"
+      ],
+      "groups": [
+        "r5.SYSTEM_HINTS.door-reconstruction-hall"
+      ],
+      "text": "Ký Chủ, mỗi mảnh tranh nhớ về một phòng đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
+      "ttsText": "Ký Chủ, mỗi mảnh tranh nhớ về một phòng đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
+      "file": "audio/voice/658b38702b08d671.mp3",
+      "durationMs": 4414
+    },
+    {
+      "id": "2e4fec097fd5497e",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r5"
+      ],
+      "groups": [
+        "r5.SYSTEM_HINTS.door-reconstruction-hall"
+      ],
+      "text": "Ký Chủ thử nhớ lại: mảnh đầu tiên Ký Chủ nhặt được nằm ở phòng nào?",
+      "ttsText": "Ký Chủ thử nhớ lại: mảnh đầu tiên Ký Chủ nhặt được nằm ở phòng nào?",
+      "file": "audio/voice/2e4fec097fd5497e.mp3",
+      "durationMs": 3551
+    },
+    {
+      "id": "eff70090b856277c",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r5"
+      ],
+      "groups": [
+        "r5.SYSTEM_HINTS.door-reconstruction-hall"
+      ],
+      "text": "Số La Mã của mảnh đi theo thứ tự các phòng Ký Chủ đã đi qua. Ký Chủ chỉ cần đọc kỹ tên từng tấm biển.",
+      "ttsText": "Số La Mã của mảnh đi theo thứ tự các phòng Ký Chủ đã đi qua. Ký Chủ chỉ cần đọc kỹ tên từng tấm biển.",
+      "file": "audio/voice/eff70090b856277c.mp3",
+      "durationMs": 5317
     },
     {
       "id": "eaef44a07a7e39de",

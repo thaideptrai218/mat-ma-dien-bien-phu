@@ -154,19 +154,31 @@ export const SYSTEM_HINTS = {
     hints: ['Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.', 'Ký hiệu có một chữ cái và một con số. Một cái ứng với cột, cái còn lại ứng với hàng của bản đồ.'],
   },
   comparison: {
-    open: 'Ký Chủ, bốn hồ sơ trong sổ tay là căn cứ cho bảng này.',
-    hints: ['Mỗi hàng của bảng đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng hàng một.', 'Ký Chủ để ý hồ sơ nào nói về số liệu, hồ sơ nào nói về thế trận và sức ép của hai phía.'],
+    open: 'Ký Chủ, kéo từng thẻ dữ kiện vào ô của hai phía theo bốn hồ sơ.',
+    hints: ['Mỗi cặp ô đều có hồ sơ làm chứng. Ký Chủ thử đọc lại sổ tay từng cặp một.', 'Ký Chủ để ý hồ sơ nào nói về số liệu, hồ sơ nào nói về thế trận và sức ép của hai phía.'],
   },
   drawer: {
-    open: 'Ký Chủ, ngăn kéo này cần một mã gồm bốn chữ số.',
+    open: 'Ký Chủ, hãy xoay bốn bánh khóa của ngăn kéo này cho đúng mã.',
     hints: ['Mã ấy không nằm ở ngăn kéo. Ký Chủ nhớ lại việc vừa làm ở bàn đối chiếu.', 'Khi đối chiếu xong, bàn đối chiếu đã cho Ký Chủ một dãy số. Ký Chủ thử xem lại ở đó.'],
   },
   identity: {
-    open: 'Ký Chủ, dãy số trong điện mật là tên của một người.',
+    open: 'Ký Chủ, dãy số trong điện mật là tên người, hãy bấm chữ để ghép lại.',
     hints: ['Ký Chủ thử đối chiếu từng số với bảng chữ cái ở phía trên.', 'Giải từng cặp số một rồi ghép thành hai từ. Ký Chủ thử nhớ lại người đã được nhắc ở các hồ sơ trước.'],
   },
   chest: {
-    open: 'Ký Chủ, chiếc rương cần một từ khóa lấy từ danh tính vừa giải.',
+    open: 'Ký Chủ, xoay các bánh chữ của rương thành từ khóa lấy từ danh tính vừa giải.',
     hints: ['Ký Chủ thử nghĩ xem tiếng Việt thường gọi người ấy bằng phần nào của tên.', 'Các tài liệu tiếng Việt thường gọi nhân vật này bằng họ chứ không đọc đủ tên. Ký Chủ để ý cách gọi trong sổ tay.'],
+  },
+  'door-west-archive': {
+    open: 'Ký Chủ, ký hiệu lưu trữ cuối lá thư là chìa cho chiếc then này.',
+    hints: ['Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.', 'Bánh đầu là một chữ cái, hai bánh sau là số. Cả ba cùng nằm trong ký hiệu ấy.'],
+  },
+  'door-drawer-alcove': {
+    open: 'Ký Chủ, con số của phía Việt Nam nằm trong sổ quân nhu.',
+    hints: ['Ký Chủ thử mở lại sổ tay, tìm hồ sơ của người phụ trách quân nhu.', 'Đề bài hỏi quân số phía Việt Nam, đếm theo nghìn người nên chỉ cần ba chữ số đầu.'],
+  },
+  'door-exit-hall': {
+    open: 'Ký Chủ, bản tin tháng bảy cho biết kế hoạch được thông qua lúc nào.',
+    hints: ['Ký Chủ thử đọc lại bản tin sau khi kế hoạch mới được thông qua, trong sổ tay.', 'Bổ nhiệm và thông qua là hai mốc khác nhau. Khóa hỏi tháng của mốc thứ hai.'],
   },
 };

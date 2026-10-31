@@ -1,5 +1,6 @@
 import {CHALLENGES} from './puzzle-data.js';
 import {currentChallenge,nextDocumentId} from './rules.js';
+import {goalDoorFor} from './area-gates.js';
 
 export function goalFor(s){
   const steps=CHALLENGES.map((ch,i)=>({title:i===3?'Mật điện, rương và cửa ra':ch.title,done:i===3?s.exitReached:s.completedChallenges.includes(ch.id)}));
@@ -10,5 +11,7 @@ export function goalFor(s){
   if(s.chestOpened){id='chest';label='Nhận mảnh tranh số III';detail='Hồ sơ tiếp vận đã được khôi phục. Rương đang mở, đến gần và nhấn E.';}
   if(s.fragmentCollected){id='door';label='Đi tới cửa ra';detail='Bạn đã có mảnh tranh của phòng 3.';}
   if(s.exitReached){label='Đã hoàn thành phòng 3';detail='Phòng 4 của Trâm có thể mở bằng liên kết riêng.';}
+  // The next station may sit behind a fenced door puzzle: point at the door until it is open.
+  const door=goalDoorFor(s,id);if(door){id=door;detail='Rào phía trước có khóa. Đến chỗ rào, nhấn E để mở khóa bằng một câu đố nhỏ.';}
   return{id,label,detail,step,steps,count:`${s.completedChallenges.length} / 4 thử thách · ${s.collectedNoteIds.length} / 5 giấy tờ`};
 }

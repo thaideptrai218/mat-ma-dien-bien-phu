@@ -48,11 +48,11 @@ test('Room 2 overlay only re-voices the intro and outro; recorded clue narrative
 
 test('SYSTEM_HINTS: every puzzle has a short reminder and two gentle levels, addressed to Ký Chủ', () => {
   const expected = [
-    [roomOne.SYSTEM_HINTS, ['a03', 'comparison', 'drawer', 'identity', 'chest']],
-    [roomTwoHints, ['nava-balance', 'nava-radio', 'nava-fist', 'nava-fold']],
-    [roomThree.SYSTEM_HINTS, ['preparation', 'cargo', 'strategy', 'opening', 'final']],
-    [roomFour.SYSTEM_HINTS, ['crossword', 'column', 'board-t', 'board-l', 'final']],
-    [roomFive.SYSTEM_HINTS, ['assembly']],
+    [roomOne.SYSTEM_HINTS, ['a03', 'comparison', 'drawer', 'identity', 'chest', 'door-west-archive', 'door-drawer-alcove', 'door-exit-hall']],
+    [roomTwoHints, ['nava-balance', 'nava-radio', 'nava-fist', 'nava-fold', 'door-south-west', 'door-south-east', 'door-north-room']],
+    [roomThree.SYSTEM_HINTS, ['preparation', 'cargo', 'strategy', 'opening', 'final', 'door-cargo-pen', 'door-radio-pen']],
+    [roomFour.SYSTEM_HINTS, ['crossword', 'column', 'board-t', 'board-l', 'final', 'door-a1-night', 'door-results', 'door-north']],
+    [roomFive.SYSTEM_HINTS, ['assembly', 'door-reconstruction-hall']],
   ];
   let count = 0;
   for (const [hints, ids] of expected) {
@@ -64,7 +64,7 @@ test('SYSTEM_HINTS: every puzzle has a short reminder and two gentle levels, add
       count += 1 + levels.length;
     }
   }
-  assert.equal(count, 60, '20 puzzles x (reminder + 2 levels)');
+  assert.equal(count, expected.reduce((total, [, ids]) => total + ids.length, 0) * 3, 'every entry x (reminder + 2 levels)');
 });
 
 test('hints stay light: no codes, numbers, dates or revealed answers in any hint', () => {

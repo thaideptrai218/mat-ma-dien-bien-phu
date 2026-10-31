@@ -1,4 +1,5 @@
 import {createState} from './rules.js';
+import {DOOR_IDS} from './area-gates.js';
 import {CHAPTER, CLUE_IDS, PUZZLE_IDS, clues, puzzles} from './content.js';
 
 export const SAVE_KEY = 'mat-ma-dien-bien-phu:room-two:v1';
@@ -27,6 +28,7 @@ export function sanitizeSave(raw) {
     const level = raw.hintLevels?.[id];
     if (Number.isInteger(level) && level > 0) state.hintLevels[id] = Math.min(level, puzzles[id].hints.length);
   }
+  state.doorsSolved = ids(raw.doorsSolved, DOOR_IDS); // absent in older saves -> []
   state.audioEnabled = raw.audioEnabled === true;
   state.audioVolume = typeof raw.audioVolume === 'number' && Number.isFinite(raw.audioVolume)
     ? Math.max(0, Math.min(1, raw.audioVolume)) : .5;

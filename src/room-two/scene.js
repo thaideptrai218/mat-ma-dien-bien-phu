@@ -1,11 +1,12 @@
 import {RoomOneScene} from '../room-one/scene.js';
 import {createRoomTexture} from './bao/game/room-art.js';
 import {WORLD, EXIT} from './world.js';
+import {AREA_GATES, doorObjects} from './area-gates.js';
 
 export class RoomTwoScene extends RoomOneScene {
   constructor(callbacks = {}) {
     super(callbacks, {world: WORLD, artFactory: (scene, world) => createRoomTexture(scene, world),
-      sceneKey: 'room-two', textureKey: 'room-navarre-plan', initialGoal: 'nava-planner'});
+      sceneKey: 'room-two', textureKey: 'room-navarre-plan', initialGoal: 'nava-planner', areaGates: AREA_GATES});
     this.roomComplete = false;
   }
 
@@ -28,6 +29,16 @@ export class RoomTwoScene extends RoomOneScene {
     this.roomComplete = Boolean(value);
     if (this.exitGate?.body) this.exitGate.body.enable = !this.roomComplete;
     this.gateArt?.setVisible(!this.roomComplete);
+  }
+
+  // Locked puzzle doors become interactable (E opens the door panel); WORLD itself stays the donor map.
+  setLockedGates(ids = []) {
+    super.setLockedGates(ids);
+    const key = doorObjects(ids).map(object => object.id).join();
+    if (key === this.doorKey) return;
+    this.doorKey = key;
+    this.map = {...WORLD, objects: [...WORLD.objects, ...doorObjects(ids)]};
+    this.updateNearby?.();
   }
 
   getSnapshot() { return {...super.getSnapshot(), gateLocked: !this.roomComplete}; }

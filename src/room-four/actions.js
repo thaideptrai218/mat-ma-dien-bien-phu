@@ -1,6 +1,7 @@
 import {DOCUMENTS} from './documents.js';
 import {goalFor} from './rules.js';
 import {ENDING,CAMPAIGN_ENDING,GUIDE,LINES} from './content.js';
+import {DOOR_OPENED_NOTICE} from './area-gates.js';
 
 const endingFor=s=>s.options?.onExit?CAMPAIGN_ENDING:ENDING;
 
@@ -57,6 +58,10 @@ export function handleAction(s,action,p={}) {
       if(!s.commit('shape',p))return s.error('Chưa đúng.');
       s.audio.playCue('success');return s.show('board',{board:p.board,solved:true});
     }
+    case 'door-submit':
+      if(!inView('door')||p.doorId!==active.gateId)return;
+      if(!s.commit('door',p))return s.error('Chưa đúng.');
+      s.audio.playCue('unlock');s.close();s.notice=DOOR_OPENED_NOTICE;s.render();return;
     case 'final-submit':
       if(!inView('final'))return;
       if(!s.commit('final',p))return s.error('Chưa đúng.');

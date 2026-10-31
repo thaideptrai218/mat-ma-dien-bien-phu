@@ -1,4 +1,5 @@
 import {createState,DOCUMENT_ORDER,OBJECT_IDS} from './rules.js';
+import {DOOR_IDS} from './area-gates.js';
 export const SAVE_KEY='mat-ma-dien-bien-phu:room-four:v1';
 export function sanitizeSave(raw) {
   const s=createState(); if (!raw || raw.version!==1) return s;
@@ -19,6 +20,8 @@ export function sanitizeSave(raw) {
   s.chestOpened=s.boardTSolved && s.boardLSolved && raw.chestOpened===true;
   s.fragmentCollected=s.chestOpened && raw.fragmentCollected===true;
   s.exitReached=s.fragmentCollected && raw.exitReached===true;
+  // Absent in saves written before gates existed -> []. Unknown ids are dropped.
+  s.doorsSolved=Array.isArray(raw.doorsSolved)?[...new Set(raw.doorsSolved.filter(id=>DOOR_IDS.includes(id)))]:[];
   s.audioEnabled=raw.audioEnabled===true;
   s.audioVolume=typeof raw.audioVolume==='number' && Number.isFinite(raw.audioVolume)?Math.max(0,Math.min(1,raw.audioVolume)):.5;
   return s;

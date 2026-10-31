@@ -1,4 +1,5 @@
 import {createState, NOTE_IDS} from './rules.js';
+import {DOOR_PUZZLES} from './door-puzzles.js';
 export const SAVE_KEY = 'mat-ma-dien-bien-phu:room-one:v1';
 const OBJECT_IDS = ['letter','map-a03',...NOTE_IDS,'comparison','drawer','chest','door','lamp','crate','radio'];
 const uniqueIds = (value, allowed) => Array.isArray(value) ? [...new Set(value.filter(id => allowed.includes(id)))] : [];
@@ -13,6 +14,7 @@ export function sanitizeSave(raw) {
   s.seenObjectIds = uniqueIds(raw.seenObjectIds, OBJECT_IDS);
   s.comparisonSolved = s.collectedNoteIds.length === 4 && raw.comparisonSolved === true;
   for (const [flag, previous] of [['drawerOpened','comparisonSolved'],['identitySolved','drawerOpened'],['chestOpened','identitySolved'],['exitReached','chestOpened']]) s[flag] = s[previous] && raw[flag] === true;
+  s.doorsSolved = Array.isArray(raw.doorsSolved) ? [...new Set(raw.doorsSolved.filter(id => Object.hasOwn(DOOR_PUZZLES, id)))] : [];
   s.audioEnabled = raw.audioEnabled === true;
   s.audioVolume = typeof raw.audioVolume === 'number' && Number.isFinite(raw.audioVolume) ? Math.max(0, Math.min(1, raw.audioVolume)) : .5;
   return s;

@@ -1,17 +1,32 @@
 import {RoomOneScene} from '../room-one/scene.js';
 import {WORLD} from './world.js';
 import {createRoomFiveArtwork} from './art.js';
+import {AREA_GATES, doorObjects} from './area-gates.js';
 
 export class RoomFiveScene extends RoomOneScene {
   constructor(callbacks = {}) {
     super(callbacks, {world: WORLD, artFactory: createRoomFiveArtwork, sceneKey: 'room-five',
-      textureKey: 'room-five-reconstruction', initialGoal: 'assembly'});
+      textureKey: 'room-five-reconstruction', initialGoal: 'assembly', areaGates: AREA_GATES});
     this.doorOpen = false;
   }
   create() {
     super.create();
     if (this.disposed || this.tornDown || !this.player) return;
     this.doorOverlay = this.add.graphics().setDepth(-10); this.drawDoor();
+    this.applyDoorObjects();
+  }
+  // Locked puzzle gates become interactable (E opens the door panel). Added after create() so the baked art
+  // keeps only the room's own labels; WORLD itself is never changed.
+  setLockedGates(ids = []) {
+    super.setLockedGates(ids);
+    this.lockedIds = [...ids]; this.applyDoorObjects();
+  }
+  applyDoorObjects() {
+    if (!this.player || !this.lockedIds) return;
+    const doors = doorObjects(this.lockedIds), key = doors.map(object => object.id).join();
+    if (key === this.doorKey) return;
+    this.doorKey = key; this.map = {...WORLD, objects: [...WORLD.objects, ...doors]};
+    this.updateNearby?.(); this.paintedGoalId = null; this.setGoal(this.goalId);
   }
   setDoorOpen(open) {
     this.doorOpen = Boolean(open); this.drawDoor();

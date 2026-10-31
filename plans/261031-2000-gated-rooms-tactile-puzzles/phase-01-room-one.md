@@ -67,3 +67,18 @@ Không đổi save; text qua textContent.
 
 ## Next steps
 Phụ thuộc phase 6. Cập nhật `docs/codebase-summary.md` mục Phòng 1.
+
+## Implementation record (supersedes the single-gate design above)
+Status: implemented. Decisions: no distractor cards; drawer and chest are dials; comparison is drag-to-slot; answers unchanged.
+Six gates, ordered along the progression, each with exactly ONE unlock method fixed in data (`src/room-one/area-gates.js`):
+
+| # | id | type | opens when | seals |
+|---|---|---|---|---|
+| 1 | lobby-hall | auto | `letterSolved` | lobby (entry, letter) from gallery (A-03 map, comparison) |
+| 2 | west-archive | puzzle | dial `A03` (letter's archive mark) | V wing (V-01, V-02) |
+| 3 | east-archive | auto | V-01 and V-02 collected | P wing (P-01, P-02) |
+| 4 | drawer-alcove | puzzle | dial `252` (V-02 troop figure, thousands) | NE alcove (drawer) |
+| 5 | chest-alcove | auto | `identitySolved` | NW alcove (chest) |
+| 6 | exit-hall | puzzle | dial `07` (month the plan was adopted, N-01) | door hall incl. top divider openings |
+
+Puzzle gates: E at an anchor -> view `door-<gateId>` -> `door-submit` -> `reduce('door')`; progress in `doorsSolved` (save, sanitized; old saves read as open when later progress implies it, else solvable). Hints `door-*` in SYSTEM_HINTS. Exit also requires gate 6 open. Tests: `tests/room-one-gates.test.js` (per-gate reachability, no top-opening bypass, goal reachable each step, one-method-per-gate + both types, legacy saves).
