@@ -1,9 +1,10 @@
 import {DOCUMENTS} from './documents.js';
 import {goalFor} from './rules.js';
 import {ENDING,CAMPAIGN_ENDING,GUIDE,LINES} from './content.js';
+import {withHeroReaction} from '../heroes/hero-copy.js';
 import {DOOR_OPENED_NOTICE} from './area-gates.js';
 
-const endingFor=s=>s.options?.onExit?CAMPAIGN_ENDING:ENDING;
+const endingFor=s=>s.options?.onExit?withHeroReaction(CAMPAIGN_ENDING,4):ENDING;
 
 export function handleAction(s,action,p={}) {
   if(s.disposed||s.options?.isPaused?.())return;

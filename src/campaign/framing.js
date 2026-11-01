@@ -1,5 +1,7 @@
 import {element,button,heading} from '../room-one/ui-elements.js';
-import {VICTORY_PHOTO_URL,MUSEUM_RETURN,CLOSING_LINE} from '../room-five/content.js';
+import {VICTORY_PHOTO_URL,museumReturn,CLOSING_LINE} from '../room-five/content.js';
+import {activeHero} from '../heroes/hero-profiles.js';
+import {heroCopy} from '../heroes/hero-copy.js';
 import {framingLine} from '../audio/voice-id.js';
 
 function painting() {
@@ -9,12 +11,9 @@ function painting() {
   figure.append(image,element('figcaption','','Ảnh tư liệu do người dùng cung cấp.'));
   return figure;
 }
-export const OPENING = [
-  {eyebrow:'BẢO TÀNG · HIỆN TẠI',title:'Trước một bức ảnh',paragraphs:[
-    'Long thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.',
-    'Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?',
-    'Long đặt tay lên mặt kính trước bức ảnh. Một quầng sáng bỗng tràn qua đầu ngón tay.'
-  ],button:'Chạm vào mặt kính'},
+// The first frame (who the hero is) belongs to the chosen hero; the rest is shared and localized by name.
+export const openingFrames = (hero = activeHero()) => [
+  {eyebrow:'BẢO TÀNG · HIỆN TẠI',title:'Trước một bức ảnh',paragraphs:heroCopy(hero).intro,button:'Chạm vào mặt kính'},
   {eyebrow:'KHÔNG GIAN HƯ CẤU · 7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
     'Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.',
     'Hệ Thống: Ký Chủ đã bước vào dòng chảy lịch sử. Đây là không gian tái hiện hầm chỉ huy của tướng Đờ Cát, ngày 7 tháng 5 năm 1954. Muốn trở về thời đại của mình, Ký Chủ phải giải mã những dấu mốc đã làm nên chiến thắng Điện Biên Phủ.',
@@ -47,7 +46,7 @@ function voiceButton(voice,lines,isCurrent) {
   refresh();return node;
 }
 export function introFrame(onBegin,voice) {
-  const section=element('section','campaign-story'); let step=0,drawn=0;
+  const section=element('section','campaign-story'),OPENING=openingFrames(); let step=0,drawn=0;
   const draw=()=>{
     const current=OPENING[step],copy=element('div','campaign-story-copy');
     copy.append(heading(current.title,current.eyebrow));
@@ -64,7 +63,7 @@ export function introFrame(onBegin,voice) {
 export function returnFrame(complete,onFinish,onRestart,voice) {
   const section=element('section','campaign-story'),copy=element('div','campaign-story-copy');
   copy.append(heading(complete?'Câu chuyện còn tiếp':'Trở lại bảo tàng','HÀNH TRÌNH CỦA LONG'));
-  const lines=Array.isArray(MUSEUM_RETURN)?MUSEUM_RETURN:[MUSEUM_RETURN];
+  const lines=museumReturn();
   for(const line of lines) copy.append(element('p','',typeof line==='string'?line:line.text));
   copy.append(element('blockquote','campaign-closing',CLOSING_LINE));
   copy.append(button(complete?'Bắt đầu một hành trình mới':'Khép lại hành trình',complete?onRestart:onFinish,'r1-primary'));

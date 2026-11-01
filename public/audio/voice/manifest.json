@@ -2,7 +2,7 @@
   "version": 1,
   "lines": [
     {
-      "id": "9d47ff32e0ca1034",
+      "id": "e18770be6eeaed3f",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -11,13 +11,12 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Long thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
-      "ttsText": "Long thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
-      "file": "audio/voice/9d47ff32e0ca1034.mp3",
-      "durationMs": 7677
+      "text": "Long là một cậu học sinh nổi tiếng hay trốn tiết, ngại làm bài và luôn có sẵn một lý do cho mọi lần chưa học. Cậu thích game, thích lướt điện thoại; còn với Long, lịch sử chỉ là những mốc thời gian khô khan mà thầy cô bắt phải học thuộc.",
+      "ttsText": "Long là một cậu học sinh nổi tiếng hay trốn tiết, ngại làm bài và luôn có sẵn một lý do cho mọi lần chưa học. Cậu thích game, thích lướt điện thoại; còn với Long, lịch sử chỉ là những mốc thời gian khô khan mà thầy cô bắt phải học thuộc.",
+      "file": "audio/voice/e18770be6eeaed3f.mp3"
     },
     {
-      "id": "a1d605ce36466ffa",
+      "id": "09954332292aa184",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -26,9 +25,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
-      "ttsText": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
-      "file": "audio/voice/a1d605ce36466ffa.mp3"
+      "text": "Hôm nay lớp được đi tham quan Bảo tàng Chiến thắng Điện Biên Phủ. Long đi theo cho đủ mặt, đứng cuối hàng và mắt vẫn dán vào màn hình. Cho đến khi cậu dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm, và chợt tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
+      "ttsText": "Hôm nay lớp được đi tham quan Bảo tàng Chiến thắng Điện Biên Phủ. Long đi theo cho đủ mặt, đứng cuối hàng và mắt vẫn dán vào màn hình. Cho đến khi cậu dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm, và chợt tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
+      "file": "audio/voice/09954332292aa184.mp3"
     },
     {
       "id": "bed56df5c72b0f44",
@@ -1428,6 +1427,34 @@
       "text": "Phía sau cánh cửa là Phòng 2, nơi kế hoạch của Nava được bày lên bàn cờ Đông Dương.",
       "ttsText": "Phía sau cánh cửa là Phòng hai, nơi kế hoạch của Nava được bày lên bàn cờ Đông Dương.",
       "file": "audio/voice/5ff83a616d21120d.mp3"
+    },
+    {
+      "id": "eb88fac516973bfe",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.CAMPAIGN_ENDING"
+      ],
+      "text": "Tôi vừa đọc xong một lá thư mà không hề buồn ngủ. Lạ thật.",
+      "ttsText": "Tôi vừa đọc xong một lá thư mà không hề buồn ngủ. Lạ thật.",
+      "file": "audio/voice/eb88fac516973bfe.mp3"
+    },
+    {
+      "id": "c8011cf6ccd0ca9f",
+      "voice": "system-v2",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.CAMPAIGN_ENDING"
+      ],
+      "text": "Ký Chủ đã đọc đến hết từng tài liệu. Đó là một khởi đầu tốt.",
+      "ttsText": "Ký Chủ đã đọc đến hết từng tài liệu. Đó là một khởi đầu tốt.",
+      "file": "audio/voice/c8011cf6ccd0ca9f.mp3"
     },
     {
       "id": "83dabce32aa72026",
@@ -3865,6 +3892,34 @@
       "file": "audio/voice/c642a5b839a99334.mp3"
     },
     {
+      "id": "6b50996f20e737c7",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.CAMPAIGN_ENDING"
+      ],
+      "text": "Họ gùi gạo, đẩy xe đạp đi cả tháng trời, vậy mà tôi còn than đi học xa.",
+      "ttsText": "Họ gùi gạo, đẩy xe đạp đi cả tháng trời, vậy mà tôi còn than đi học xa.",
+      "file": "audio/voice/6b50996f20e737c7.mp3"
+    },
+    {
+      "id": "ac674a2630e8b66e",
+      "voice": "system-v2",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r3"
+      ],
+      "groups": [
+        "r3.CAMPAIGN_ENDING"
+      ],
+      "text": "Ký Chủ vừa tự đặt câu hỏi cho chính mình. Hãy giữ lấy thói quen ấy.",
+      "ttsText": "Ký Chủ vừa tự đặt câu hỏi cho chính mình. Hãy giữ lấy thói quen ấy.",
+      "file": "audio/voice/ac674a2630e8b66e.mp3"
+    },
+    {
       "id": "ee8bd6e12c36c507",
       "voice": "system-v2",
       "speaker": "Hệ Thống",
@@ -5332,6 +5387,34 @@
       "file": "audio/voice/6586a58050e97b70.mp3"
     },
     {
+      "id": "f62601e36ede1a86",
+      "voice": "quang",
+      "speaker": "Long",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.CAMPAIGN_ENDING"
+      ],
+      "text": "Mỗi ngày tháng đều là một quyết định của con người. Học thuộc thôi thì chưa phải là hiểu.",
+      "ttsText": "Mỗi ngày tháng đều là một quyết định của con người. Học thuộc thôi thì chưa phải là hiểu.",
+      "file": "audio/voice/f62601e36ede1a86.mp3"
+    },
+    {
+      "id": "89c0e9cfcded014c",
+      "voice": "system-v2",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r4"
+      ],
+      "groups": [
+        "r4.CAMPAIGN_ENDING"
+      ],
+      "text": "Ký Chủ đã bắt đầu hiểu, không chỉ còn ghi nhớ.",
+      "ttsText": "Ký Chủ đã bắt đầu hiểu, không chỉ còn ghi nhớ.",
+      "file": "audio/voice/89c0e9cfcded014c.mp3"
+    },
+    {
       "id": "b987a246f3d3f144",
       "voice": "system-v2",
       "speaker": "Hệ Thống",
@@ -5989,6 +6072,20 @@
       "durationMs": 41763
     },
     {
+      "id": "b26746b686b4259a",
+      "voice": "narrator",
+      "speaker": "Lời kể",
+      "rooms": [
+        "r5"
+      ],
+      "groups": [
+        "r5.REFLECTION_SCRIPT"
+      ],
+      "text": "Long nhớ lại những tiết học cậu bỏ dở, những bài sử cậu chép vội của bạn rồi quên ngay. Giờ cậu mới hiểu: những ngày tháng ấy là tên người, là máu xương, là cái giá của những buổi sáng yên bình mà cậu vẫn thản nhiên bước qua. Cố gắng học không chỉ để qua một bài kiểm tra, mà để xứng đáng với những người đã không có cơ hội được ngồi trong lớp.",
+      "ttsText": "Long nhớ lại những tiết học cậu bỏ dở, những bài sử cậu chép vội của bạn rồi quên ngay. Giờ cậu mới hiểu: những ngày tháng ấy là tên người, là máu xương, là cái giá của những buổi sáng yên bình mà cậu vẫn thản nhiên bước qua. Cố gắng học không chỉ để qua một bài kiểm tra, mà để xứng đáng với những người đã không có cơ hội được ngồi trong lớp.",
+      "file": "audio/voice/b26746b686b4259a.mp3"
+    },
+    {
       "id": "981ad9a65831bb29",
       "voice": "narrator",
       "speaker": "Lời kể",
@@ -6161,6 +6258,20 @@
       "durationMs": 29002
     },
     {
+      "id": "30f2d4d6f195edce",
+      "voice": "narrator",
+      "speaker": "Lời kể",
+      "rooms": [
+        "museum"
+      ],
+      "groups": [
+        "museum.MUSEUM_RETURN"
+      ],
+      "text": "Tối hôm đó về nhà, lần đầu tiên Long mở sách sử ra trước khi mở máy. Cậu không còn học để đối phó với thầy cô nữa; cậu học để hiểu, để nhớ, và để không phụ những điều đã được đánh đổi. Bức ảnh lá cờ trên nóc hầm vẫn ở trong tâm trí cậu, như lời nhắc rằng mỗi cố gắng hôm nay chính là một cách biết ơn quá khứ.",
+      "ttsText": "Tối hôm đó về nhà, lần đầu tiên Long mở sách sử ra trước khi mở máy. Cậu không còn học để đối phó với thầy cô nữa; cậu học để hiểu, để nhớ, và để không phụ những điều đã được đánh đổi. Bức ảnh lá cờ trên nóc hầm vẫn ở trong tâm trí cậu, như lời nhắc rằng mỗi cố gắng hôm nay chính là một cách biết ơn quá khứ.",
+      "file": "audio/voice/30f2d4d6f195edce.mp3"
+    },
+    {
       "id": "f1f606a2116977e0",
       "voice": "narrator",
       "speaker": "Lời kể",
@@ -6176,7 +6287,7 @@
       "durationMs": 5011
     },
     {
-      "id": "867c912188708031",
+      "id": "1aac0d12818bf2ec",
       "voice": "narrator-lecture",
       "speaker": "Lời kể",
       "rooms": [
@@ -6185,9 +6296,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Quang thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
-      "ttsText": "Quang thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.",
-      "file": "audio/voice/867c912188708031.mp3"
+      "text": "Quang là một sinh viên trẻ năng động, ham học hỏi và yêu thích khám phá những điều mới lạ. Cậu có niềm đam mê với công nghệ, những trò chơi giải đố và các câu chuyện bí ẩn. Tuy nhiên, đối với Quang, lịch sử đôi khi vẫn chỉ là những trang sách với các mốc thời gian và sự kiện cần ghi nhớ, chưa thực sự trở thành những câu chuyện mà cậu có thể cảm nhận bằng chính mình.",
+      "ttsText": "Quang là một sinh viên trẻ năng động, ham học hỏi và yêu thích khám phá những điều mới lạ. Cậu có niềm đam mê với công nghệ, những trò chơi giải đố và các câu chuyện bí ẩn. Tuy nhiên, đối với Quang, lịch sử đôi khi vẫn chỉ là những trang sách với các mốc thời gian và sự kiện cần ghi nhớ, chưa thực sự trở thành những câu chuyện mà cậu có thể cảm nhận bằng chính mình.",
+      "file": "audio/voice/1aac0d12818bf2ec.mp3"
     },
     {
       "id": "75a8b92a19bcc80d",

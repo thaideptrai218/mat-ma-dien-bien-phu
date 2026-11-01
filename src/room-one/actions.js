@@ -1,5 +1,6 @@
 import {DOCUMENTS} from './documents.js';
 import {ENDING, CAMPAIGN_ENDING, GUIDE, LINES} from './content.js';
+import {withHeroReaction} from '../heroes/hero-copy.js';
 import {goalFor} from './rules.js';
 import {LETTER_DOCUMENT} from './letter-document.js';
 import {NAVA_CONTEXT_DOCUMENT} from './nava-context.js';
@@ -99,6 +100,6 @@ export function handleAction(s, action, p = {}) {
     case 'chest-submit':
       if (!inView('chest')) return;
       if (!s.commit('chest', p)) return s.error('Chưa đúng.');
-      s.audio.playCue('chest-unlock'); setTimeout(() => { if (!s.disposed) s.audio.playCue('chest-open'); }, 350); return s.dialogue('Mảnh ký ức đầu tiên', s.options?.onExit ? CAMPAIGN_ENDING : ENDING, 'Cất mảnh tranh và tìm cửa', 'close');
+      s.audio.playCue('chest-unlock'); setTimeout(() => { if (!s.disposed) s.audio.playCue('chest-open'); }, 350); return s.dialogue('Mảnh ký ức đầu tiên', s.options?.onExit ? withHeroReaction(CAMPAIGN_ENDING, 1) : ENDING, 'Cất mảnh tranh và tìm cửa', 'close');
   }
 }

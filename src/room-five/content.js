@@ -1,3 +1,5 @@
+import {heroCopy} from '../heroes/hero-copy.js';
+
 export const VICTORY_PHOTO_URL = new URL('../../assets/images/dien-bien-phu-victory-photo.png', import.meta.url).href;
 export const VICTORY_PHOTO_ALT = 'Ảnh tư liệu: lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
 export const SOURCE_LABEL = 'Cốt truyện theo PDF bản 4 do người dùng cung cấp, tr. 3–5. Ảnh tư liệu do người dùng cung cấp. Long, hệ thống và hành trình xuyên thời gian là hư cấu học tập.';
@@ -42,10 +44,17 @@ export const MUSEUM_RETURN = [
 ];
 export const CLOSING_LINE = 'Mật mã cuối cùng đã được giải, nhưng câu chuyện hòa bình vẫn đang chờ thế hệ hôm nay viết tiếp.';
 
+// The reflection and the museum return, with the hero's own story beat (Long's change of heart about studying).
+export function reflectionScript(hero) {
+  const extra = heroCopy(hero).reflection;
+  return extra.length ? [...REFLECTION_SCRIPT.slice(0, 3), ...extra, ...REFLECTION_SCRIPT.slice(3)] : REFLECTION_SCRIPT;
+}
+export const museumReturn = hero => [...MUSEUM_RETURN, ...heroCopy(hero).museumReturn];
+
 export function getArchiveEntries(state) {
   if (!state.reflectionSeen) return [];
   return [{id: 'final-reflection', title: 'Câu hỏi cuối cùng và lời Long', code: 'V', kind: 'report',
-    source: SOURCE_LABEL, paragraphs: [...REFLECTION_SCRIPT.map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
+    source: SOURCE_LABEL, paragraphs: [...reflectionScript().map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
 }
 
 // Long's thoughts and narration in Room 5 dialogues (plain strings are Long; objects name the speaker).

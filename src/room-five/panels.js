@@ -4,7 +4,7 @@ import {visualNovelDialogue} from '../ui/visual-novel-dialogue.js';
 import {swapPieces, enableDragSwap} from './assembly-pieces.js';
 import {doorPanel} from './door-puzzle-panel.js';
 import {gateIdOfDoorView} from './area-gates.js';
-import {VICTORY_PHOTO_URL, VICTORY_PHOTO_ALT, SOURCE_LABEL, REFLECTION_SCRIPT, DOOR_MESSAGE, CLOSING_LINE} from './content.js';
+import {VICTORY_PHOTO_URL, VICTORY_PHOTO_ALT, SOURCE_LABEL, reflectionScript, DOOR_MESSAGE, CLOSING_LINE} from './content.js';
 
 function painting() {
   const image = element('img', 'r5-complete-painting'); image.src = VICTORY_PHOTO_URL; image.alt = VICTORY_PHOTO_ALT;
@@ -68,7 +68,7 @@ function reflection(data, emit) {
   // Do not read the textarea in callbacks: the narrative acknowledgment is the sole intent.
   const finish = data.readOnly ? {label: 'Đóng cuộc trò chuyện', onClick: () => emit('close')}
     : {label: 'Tiếp tục cùng Long · Có thể để trống', onClick: () => emit('reflection-continue', {token: data.token})};
-  const panel = visualNovelDialogue({title: 'Câu hỏi không nằm trong mật mã', eyebrow: 'PHÒNG 5 · LỜI KỂ HƯ CẤU', script: REFLECTION_SCRIPT,
+  const panel = visualNovelDialogue({title: 'Câu hỏi không nằm trong mật mã', eyebrow: 'PHÒNG 5 · LỜI KỂ HƯ CẤU', script: reflectionScript(),
     voice: data.voice, finish, lastExtra: extra, note: SOURCE_LABEL}, emit);
   return {...panel, cleanup: () => {if (textarea) textarea.value = ''; panel.cleanup();}};
 }
