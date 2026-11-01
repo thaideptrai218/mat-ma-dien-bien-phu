@@ -5,5 +5,4 @@
 .hero-card-face{width:min(200px,60%);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:8px;border:2px solid #674f32}
 .hero-card strong{font-family:'DBP Display',serif;font-size:24px;font-weight:500;color:#e3c68a}
 .hero-card span{font-size:13px;line-height:1.6;color:#d9cfb6}
-.hero-credit{font-size:11px;color:#bdbaa7;margin-top:18px}
 @media(max-width:600px){.hero-cards{grid-template-columns:1fr}}

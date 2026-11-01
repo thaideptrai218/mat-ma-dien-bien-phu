@@ -10,9 +10,8 @@ const STRONG_ROBOT = `[0:a]${TRIM_BOTH},asplit=2[dry][wet];[wet]${ROBOT}[robot];
   `aecho=0.8:0.6:7|14:0.35|0.25,${LOUDNESS}[out]`;
 const PLAIN = `[0:a]${TRIM_BOTH},highpass=f=70,${LOUDNESS}[out]`;
 
-// system = original CapCut voice (Quang's route); system-v2 = he-thong-v2 clone (Long's route), same robot treatment.
 export const VOICE_FILTERS = Object.freeze({
-  system: STRONG_ROBOT, 'system-v2': STRONG_ROBOT,
+  system: STRONG_ROBOT,
   quang: PLAIN, narrator: PLAIN, 'narrator-lecture': PLAIN,
 });
 

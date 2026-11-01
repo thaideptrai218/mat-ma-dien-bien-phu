@@ -1,7 +1,5 @@
 import {activeHero} from '../heroes/hero-profiles.js';
 
-const SYSTEM_ALT = 'Giọng nói của căn phòng ký ức'; // alt text the donor view gives Hệ Thống's portrait
-
 // Bảo's donor narrative view (src/room-two/bao/**, byte-locked by hash) hard-codes the original name "Quang",
 // so Room 2 renames it to the hero chosen for this run (Long or Quang) in what that view renders.
 export const renameHero = text => {
@@ -29,7 +27,6 @@ export function installHeroName(narrative) {
     if (!portrait) return;
     // The donor view always shows its built-in hero portrait for the hero's lines; show the chosen hero's face instead.
     if (/^Quang, /.test(portrait.alt)) portrait.src = activeHero().portrait;
-    else if (portrait.alt === SYSTEM_ALT) portrait.src = activeHero().systemPortrait; // Hệ Thống's avatar follows the route too
     portrait.alt = renameHero(portrait.alt);
   };
 }

@@ -32,13 +32,6 @@ test("Quang's route shows Quang's name and face in the donor view, with Hệ Th�
     const system = {copy: null, portrait: {alt: 'Giọng nói của căn phòng ký ức', src: 'emblem.png'}, renderLine() {}};
     installHeroName(system);
     system.renderLine(false);
-    assert.match(system.portrait.src, /game-emblem\.png$/);
+    assert.equal(system.portrait.src, 'emblem.png', "Hệ Thống's emblem is left as the donor shows it");
   } finally { selectHero('long', {persist: false}); }
-});
-
-test("on Long's route Hệ Thống wears the TL-36 avatar in the donor view too", () => {
-  const system = {copy: null, portrait: {alt: 'Giọng nói của căn phòng ký ức', src: 'emblem.png'}, renderLine() {}};
-  installHeroName(system);
-  system.renderLine(false);
-  assert.match(system.portrait.src, /system-avatar-tl36\.png$/);
 });

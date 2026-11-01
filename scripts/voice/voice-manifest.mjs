@@ -7,7 +7,7 @@ export const REVIEW_CSV_PATH = 'plans/261031-1312-game-audio-voice-sfx/reports/v
 
 // Fields owned by the build; later phases may add per-line fields (e.g. durationMs) that are carried over.
 // Hệ Thống, Long (mck clone, user decision 2026-11-01) and the narrator are voiced.
-export const VOICED = new Set(['system', 'system-v2', 'quang', 'narrator', 'narrator-lecture']);
+export const VOICED = new Set(['system', 'quang', 'narrator', 'narrator-lecture']);
 export function buildManifestLines() {
   return collectVoiceLines().filter(line => VOICED.has(line.voice)).map(line => ({
     id: line.id, voice: line.voice, speaker: line.speaker, rooms: line.rooms, groups: line.groups,

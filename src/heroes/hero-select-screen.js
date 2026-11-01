@@ -1,8 +1,6 @@
 import {element, button, heading} from '../room-one/ui-elements.js';
 import {HERO_IDS, HERO_PROFILES} from './hero-profiles.js';
 
-export const AVATAR_CREDIT = 'Hình đại diện Hệ Thống (TL-36): Wrxdie.';
-
 /** First frame of a new journey: pick who walks into the museum. The choice is saved and locked for the run. */
 export function heroSelectFrame(onChoose) {
   const section = element('section', 'campaign-story hero-select');
@@ -19,7 +17,7 @@ export function heroSelectFrame(onChoose) {
     card.setAttribute('aria-label', `Chọn ${hero.name}. ${hero.tagline}`);
     cards.append(card);
   }
-  copy.append(cards, element('p', 'hero-credit', AVATAR_CREDIT));
+  copy.append(cards);
   section.append(copy);
   return section;
 }

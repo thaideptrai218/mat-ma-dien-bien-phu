@@ -12,14 +12,12 @@ export const HERO_PROFILES = Object.freeze({
   long: Object.freeze({
     id: 'long', name: 'Long', upper: 'LONG', sprite: 'long',
     portrait: asset('long-portrait.png'), alt: 'Long, nhân vật hư cấu',
-    systemPortrait: asset('system-avatar-tl36.png'), systemAlt: 'Hệ Thống, hình đại diện TL-36',
-    voices: Object.freeze({system: 'system-v2', quang: 'quang', narrator: 'narrator'}),
+    voices: Object.freeze({system: 'system', quang: 'quang', narrator: 'narrator'}),
     tagline: 'Cậu học sinh lười học, thích chơi game và chẳng mặn mà với sử.',
   }),
   quang: Object.freeze({
     id: 'quang', name: 'Quang', upper: 'QUANG', sprite: 'quang',
     portrait: asset('quang-portrait.png'), alt: 'Quang, nhân vật hư cấu',
-    systemPortrait: asset('game-emblem.png'), systemAlt: 'Biểu tượng Hệ Thống',
     voices: Object.freeze({system: 'system', quang: 'quang', narrator: 'narrator-lecture'}),
     tagline: 'Sinh viên trẻ ham học hỏi, mê công nghệ, giải đố và những chuyện bí ẩn.',
   }),

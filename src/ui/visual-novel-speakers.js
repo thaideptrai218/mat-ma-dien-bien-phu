@@ -1,11 +1,13 @@
 // Speaker table for the visual-novel dialogue: label, portrait asset and accessible description.
 // Plain strings in a script are the hero's thoughts; {speaker, text} objects name the speaker.
-// Content keys the hero as "Long"; name, face and the system's avatar follow the hero chosen for this run.
+// Content keys the hero as "Long"; the name and face follow the hero chosen for this run.
 import {activeHero} from '../heroes/hero-profiles.js';
+
+const asset = name => new URL(`../../assets/images/${name}`, import.meta.url).href;
 
 export const SPEAKERS = {
   Long: {get name() { return activeHero().upper; }, get portrait() { return activeHero().portrait; }, get alt() { return activeHero().alt; }},
-  'Hệ Thống': {name: 'HỆ THỐNG', get portrait() { return activeHero().systemPortrait; }, get alt() { return activeHero().systemAlt; }},
+  'Hệ Thống': {name: 'HỆ THỐNG', portrait: asset('game-emblem.png'), alt: 'Biểu tượng Hệ Thống'},
   // The narrator has no face: the portrait box shows a neutral card instead of an image.
   'Lời kể': {name: 'LỜI KỂ', portrait: null, alt: ''},
 };

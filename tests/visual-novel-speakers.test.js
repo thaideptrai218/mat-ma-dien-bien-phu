@@ -9,11 +9,11 @@ test('plain strings are Long; named speakers keep their portrait, the narrator h
   assert.deepEqual(normalizeLine({speaker: 'Hệ Thống', text: 'Ký Chủ.'}), {speaker: 'Hệ Thống', text: 'Ký Chủ.'});
   assert.equal(normalizeLine({speaker: 'Lạ', text: 'x'}).speaker, 'Lời kể', 'unknown speakers fall back to the narrator card');
   assert.match(SPEAKERS.Long.portrait, /long-portrait\.png$/);
-  assert.match(SPEAKERS['Hệ Thống'].portrait, /system-avatar-tl36\.png$/);
+  assert.match(SPEAKERS['Hệ Thống'].portrait, /game-emblem\.png$/);
   assert.equal(SPEAKERS['Lời kể'].portrait, null);
 });
 
-test("the chosen hero decides the hero's name and face and the system's avatar", () => {
+test("the chosen hero decides the hero's name and face; Hệ Thống keeps its emblem", () => {
   try {
     selectHero('quang', {persist: false});
     assert.equal(SPEAKERS.Long.name, 'QUANG');

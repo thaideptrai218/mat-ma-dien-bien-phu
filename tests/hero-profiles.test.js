@@ -12,11 +12,11 @@ test('two heroes, Long by default, with their own faces, sprites and voice keys'
   assert.equal(activeHero().id, 'long');
   assert.ok(isHeroId('quang') && !isHeroId('minh') && !isHeroId(undefined));
   for (const hero of Object.values(HERO_PROFILES)) {
-    assert.ok(hero.name && hero.portrait && hero.systemPortrait && hero.tagline, hero.id);
+    assert.ok(hero.name && hero.portrait && hero.tagline, hero.id);
     assert.deepEqual(Object.keys(hero.voices).sort(), ['narrator', 'quang', 'system']);
   }
-  assert.equal(heroVoiceKey('system', HERO_PROFILES.long), 'system-v2');
-  assert.equal(heroVoiceKey('system', HERO_PROFILES.quang), 'system');
+  assert.equal(heroVoiceKey('system', HERO_PROFILES.long), 'system');
+  assert.equal(heroVoiceKey('system', HERO_PROFILES.quang), 'system', 'both heroes hear the original Hệ Thống');
   assert.equal(heroVoiceKey('narrator', HERO_PROFILES.long), 'narrator');
   assert.equal(heroVoiceKey('narrator', HERO_PROFILES.quang), 'narrator-lecture');
   assert.equal(heroVoiceKey('quang', HERO_PROFILES.long), heroVoiceKey('quang', HERO_PROFILES.quang), 'both heroes speak with the mck voice');
@@ -28,13 +28,12 @@ test('heroText renames whole words only, and only for Quang', () => {
   assert.equal(heroText(undefined, HERO_PROFILES.quang), undefined);
 });
 
-test('a route resolves its own recording: Hệ Thống differs, name-free narration of one voice key is shared', () => {
+test('a route resolves its own recording: Hệ Thống is shared, the two narrators differ, names need their own clip', () => {
   const system = {speaker: 'Hệ Thống', text: 'Ký Chủ, hãy bình tĩnh.'};
   const thought = 'Mình cần xem kỹ.';
   const longSystem = heroLineId(system, HERO_PROFILES.long), quangSystem = heroLineId(system, HERO_PROFILES.quang);
-  assert.equal(longSystem, voiceIdFor('system-v2', system.text));
-  assert.equal(quangSystem, voiceIdFor('system', system.text));
-  assert.notEqual(longSystem, quangSystem);
+  assert.equal(longSystem, voiceIdFor('system', system.text));
+  assert.equal(longSystem, quangSystem, 'Hệ Thống sounds the same on both routes: one shared clip');
   assert.equal(heroLineId(thought, HERO_PROFILES.long), heroLineId(thought, HERO_PROFILES.quang), 'same text + same voice key → one clip');
   const named = 'Long nhìn quanh.';
   assert.notEqual(heroLineId(named, HERO_PROFILES.long), heroLineId(named, HERO_PROFILES.quang), 'the name is spoken, so it needs its own clip');
