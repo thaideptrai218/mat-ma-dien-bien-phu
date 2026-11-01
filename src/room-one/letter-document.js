@@ -1,4 +1,3 @@
-// Authored fiction based on the supplied local historical text; not a historical letter.
 export const LETTER_DOCUMENT = Object.freeze({
   "id": "restored-letter",
   "code": "LÁ THƯ",
@@ -7,8 +6,6 @@ export const LETTER_DOCUMENT = Object.freeze({
   "date": "Đầu năm 1953",
   "author": "Nguyễn Văn Lâm",
   "recipient": "Nguyễn Văn Tín",
-  "fictionDisclosure": "Người gửi và người nhận là nhân vật hư cấu. Thư được sáng tác dựa trên bối cảnh lịch sử trong tài liệu cung cấp.",
-  "source": "Bối cảnh theo bản chữ, PDF bản 4 và nội dung người dùng bổ sung: từ Biên giới Thu–Đông 1950 đến đầu năm 1953.",
   "salutation": "Tín, em của anh,",
   "paragraphs": [
     "Anh nhận được thư em rồi. Mẹ vẫn đau lưng mà còn ra vườn, em phải đỡ mẹ việc nặng. Anh đọc đi đọc lại mấy dòng em viết về nhà. Đầu năm mới, điều anh muốn báo trước nhất là anh còn khỏe. Có thư, em nhớ đọc cho mẹ nghe ngay nhé.",

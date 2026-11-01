@@ -4,7 +4,7 @@ Cập nhật 2026-11-01. Campaign năm phòng có museum intro/return, common jo
 
 ## Nhân vật theo ảnh mẫu
 
-Long trong bản đồ: tóc đen dựng, khẩu trang đen kéo xuống cằm, sơ mi trắng, quần đen, giày trắng. Asset RGBA 64 tư thế (8 đi + 8 chạy mỗi hướng), bốn hướng; atlas160×192 ởscale .5, vùng va chạm24×16 đặt đúng tâm vật lý. Giữ chung tỷ lệ và mặt đất giữa các tư thế; khung chạy trên không giữ độ nâng chân. Đi bộ và chạy mỗi loại 8 khung riêng. Giảm chuyển động giữ idle theo hướng, vẫn điều khiển được. [Thông số](../assets/characters/long/README.md), [QA hình mới](../plans/261031-quang-reference-character/reports/qa.md).
+Long trong bản đồ: tóc đen dựng, khẩu trang đen kéo xuống cằm, sơ mi trắng, quần đen, giày trắng. Asset RGBA 64 tư thế (8 đi + 8 chạy mỗi hướng), bốn hướng; atlas160×192 hiển thị120×144 ởscale .75, vùng va chạm24×16 đặt đúng tâm vật lý. Giữ chung tỷ lệ và mặt đất giữa các tư thế; khung chạy trên không giữ độ nâng chân. Đi bộ và chạy mỗi loại 8 khung riêng. Giảm chuyển động giữ idle theo hướng, vẫn điều khiển được. [Thông số](../assets/characters/long/README.md), [QA hình mới](../plans/261031-quang-reference-character/reports/qa.md).
 
 ## Không gian, mục tiêu và di chuyển
 

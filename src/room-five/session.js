@@ -6,7 +6,7 @@ import {RoomOneUI} from '../room-one/ui.js';
 import {RoomFiveScene} from './scene.js';
 import {createPanel} from './panels.js';
 import {shuffledPieces} from './assembly-pieces.js';
-import {INTRO, SOURCE_LABEL, LINES, NOTICES, REFLECTION_SCRIPT, SYSTEM_HINTS} from './content.js';
+import {INTRO, LINES, NOTICES, REFLECTION_SCRIPT, SYSTEM_HINTS} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, hasAllFragments, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
@@ -47,9 +47,9 @@ export class RoomFiveSession {
         {speaker: 'Hệ Thống', text: 'Đây là bản chơi riêng của Phòng 5. Bốn mảnh minh họa đã có sẵn để Ký Chủ thử ghép ảnh và khám phá phần kết.'},
         {speaker: 'Hệ Thống', text: 'Tiến độ của bản này được lưu riêng; hoàn tất tại đây không thay đổi hành trình chính.'},
       ] : []),
-      ...INTRO, SOURCE_LABEL,
+      ...INTRO,
     ] : [
-      NOTICES.introMissing, SOURCE_LABEL,
+      NOTICES.introMissing,
     ], options.standalonePreview ? 'Bắt đầu bản chơi riêng' : 'Bước vào căn phòng cuối', 'intro-finish');
     else if (this.state.exitReached && !options.onExit) this.show('completed', {standalonePreview: Boolean(options.standalonePreview)});
     this.onPageHide = () => this.audio.setMode('inactive'); window.addEventListener('pagehide', this.onPageHide);

@@ -1,4 +1,4 @@
-import { chapters, clues, puzzles, sources } from '../content/story-data.js';
+import { chapters, clues, puzzles } from '../content/story-data.js';
 import { checkFistMove, currentPuzzleId } from '../core/game-rules.js';
 import { element, button, paragraph, field, actions } from '../../../ui/dom-elements.js';
 
@@ -42,8 +42,7 @@ function answerFor(puzzle, draft) {
 function telegramCard(telegram, revealed) {
   const words = telegram.words.map((word, index) => index < revealed ? element('b', {}, word.toLowerCase()) : element('span', { className: 'blurred', role: 'img', 'aria-label': 'chữ bị nhòe' }, '▒▒▒'));
   return element('figure', { className: 'telegram-card' }, element('figcaption', {}, 'Bức điện Việt Bắc'),
-    element('p', {}, telegram.text, ' ', words.map((word, index) => [index ? ' – ' : '', word]), '.'),
-    paragraph('Văn bản biên soạn cho trò chơi, dựa trên chủ trương Đông – Xuân 1953–1954.', 'form-help'));
+    element('p', {}, telegram.text, ' ', words.map((word, index) => [index ? ' – ' : '', word]), '.'));
 }
 
 function balanceScale(total) {
@@ -169,7 +168,6 @@ export class PuzzleView {
     this.feedback = element('div', { id: 'puzzle-feedback', role: 'status', 'aria-live': 'polite' });
     const submit = puzzle.type === 'fist' ? null : element('button', { type: 'submit', className: 'primary-button', id: 'puzzle-submit', disabled: locked }, puzzle.type === 'fold' ? 'Mở hòm sắt →' : 'Đối chiếu hồ sơ →');
     form.append(this.feedback, actions(submit, button('Xem gợi ý', () => { this.onIntent({ type: 'use-hint', puzzleId }); this.hintUsed?.(); }), button('Đọc sổ tay', () => document.dispatchEvent(new CustomEvent('game-open-notebook')))));
-    if (solved && puzzle.sourceIds?.length) form.append(element('p', { className: 'puzzle-sources' }, 'Đối chiếu tư liệu: ', puzzle.sourceIds.map((id, index) => [index ? ' · ' : '', element('a', { href: sources[id].url, target: '_blank', rel: 'noopener noreferrer' }, sources[id].title, ' ↗')])));
     content.append(form);
     this.dialog.show({ title: puzzle.title, kicker: steps.length > 1 ? `BƯỚC ${steps.indexOf(puzzle.id) + 1}/${steps.length} · HỒ SƠ KÝ ỨC` : 'HỒ SƠ KÝ ỨC', content, focus: focus ? content.querySelector(focus) : null });
   }

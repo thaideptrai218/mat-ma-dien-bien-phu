@@ -164,7 +164,7 @@
       "durationMs": 14429
     },
     {
-      "id": "264b22c08ea090fe",
+      "id": "d74bc39a9a0260de",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -173,10 +173,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.",
-      "ttsText": "Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.",
-      "file": "audio/voice/264b22c08ea090fe.mp3",
-      "durationMs": 8427
+      "text": "Tiến độ hành trình được lưu trên trình duyệt này.",
+      "ttsText": "Tiến độ hành trình được lưu trên trình duyệt này.",
+      "file": "audio/voice/d74bc39a9a0260de.mp3"
     },
     {
       "id": "5a333d6c553a085a",
@@ -239,7 +238,7 @@
       "durationMs": 12170
     },
     {
-      "id": "04f99273e28be3ed",
+      "id": "4baf2c3d90653f97",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -248,13 +247,12 @@
       "groups": [
         "r1.INTRO"
       ],
-      "text": "Thư, ghi chép và nhân vật là hư cấu dựa trên tài liệu được cung cấp. Thông tin nguồn nằm bên ngoài lời văn. Ký Chủ đọc hết giấy rồi cùng suy nghĩ để ghi nhận hồ sơ.",
-      "ttsText": "Thư, ghi chép và nhân vật là hư cấu dựa trên tài liệu được cung cấp. Thông tin nguồn nằm bên ngoài lời văn. Ký Chủ đọc hết giấy rồi cùng suy nghĩ để ghi nhận hồ sơ.",
-      "file": "audio/voice/04f99273e28be3ed.mp3",
-      "durationMs": 12245
+      "text": "Hãy đọc trọn từng giấy, rồi cùng Long suy luận để ghi nhận hồ sơ.",
+      "ttsText": "Hãy đọc trọn từng giấy, rồi cùng Long suy luận để ghi nhận hồ sơ.",
+      "file": "audio/voice/4baf2c3d90653f97.mp3"
     },
     {
-      "id": "a17f7c235ff9ccf4",
+      "id": "4a2d21ac5eab9f73",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -263,12 +261,12 @@
       "groups": [
         "r1.GUIDE.letter"
       ],
-      "text": "Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.",
-      "ttsText": "Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.",
-      "file": "audio/voice/a17f7c235ff9ccf4.mp3"
+      "text": "Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.",
+      "ttsText": "Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.",
+      "file": "audio/voice/4a2d21ac5eab9f73.mp3"
     },
     {
-      "id": "f04f37edd10dd7ff",
+      "id": "906efcb84c0cb737",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -277,9 +275,9 @@
       "groups": [
         "r1.GUIDE.letter"
       ],
-      "text": "Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.",
-      "ttsText": "Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.",
-      "file": "audio/voice/f04f37edd10dd7ff.mp3"
+      "text": "Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.",
+      "ttsText": "Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.",
+      "file": "audio/voice/906efcb84c0cb737.mp3"
     },
     {
       "id": "60b9b8dbd53e4e10",
@@ -2702,22 +2700,6 @@
       "durationMs": 3407
     },
     {
-      "id": "202fd74cd62d889d",
-      "voice": "system",
-      "speaker": "Hệ Thống",
-      "rooms": [
-        "r3"
-      ],
-      "groups": [
-        "r3.INTRO",
-        "r3.CAMPAIGN_INTRO"
-      ],
-      "text": "Thư, người viết và chuyện riêng là hư cấu; sáu tranh vận chuyển là minh họa sáng tác, không phải ảnh tư liệu. Nguồn lịch sử ghi bên ngoài lời văn.",
-      "ttsText": "Thư, người viết và chuyện riêng là hư cấu; sáu tranh vận chuyển là minh họa sáng tác, không phải ảnh tư liệu. Nguồn lịch sử ghi bên ngoài lời văn.",
-      "file": "audio/voice/202fd74cd62d889d.mp3",
-      "durationMs": 10888
-    },
-    {
       "id": "704cde6dfa5c4879",
       "voice": "system",
       "speaker": "Hệ Thống",
@@ -4327,7 +4309,7 @@
       "durationMs": 11617
     },
     {
-      "id": "761e0e631c02e7b7",
+      "id": "3cba6154d5ee0be7",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -4336,9 +4318,9 @@
       "groups": [
         "r4.INTRO"
       ],
-      "text": "Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "ttsText": "Đây là bản chơi độc lập. Chỉ mảnh tranh bốn có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "file": "audio/voice/761e0e631c02e7b7.mp3"
+      "text": "Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này.",
+      "ttsText": "Đây là bản chơi độc lập. Chỉ mảnh tranh bốn có trong phòng này.",
+      "file": "audio/voice/3cba6154d5ee0be7.mp3"
     },
     {
       "id": "6ea8f0851dfb6ef6",
@@ -4357,7 +4339,7 @@
       "durationMs": 14605
     },
     {
-      "id": "8fcf312cbc0556f3",
+      "id": "4b1c481510b48903",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -4366,9 +4348,9 @@
       "groups": [
         "r4.CAMPAIGN_INTRO"
       ],
-      "text": "Chặng này giữ mảnh tranh IV của hành trình. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "ttsText": "Chặng này giữ mảnh tranh bốn của hành trình. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "file": "audio/voice/8fcf312cbc0556f3.mp3"
+      "text": "Chặng này giữ mảnh tranh IV của hành trình.",
+      "ttsText": "Chặng này giữ mảnh tranh bốn của hành trình.",
+      "file": "audio/voice/4b1c481510b48903.mp3"
     },
     {
       "id": "23b30204c37ccd34",

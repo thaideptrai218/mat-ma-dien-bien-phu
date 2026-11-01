@@ -41,12 +41,6 @@ export function submitButton(label) {
   return node;
 }
 
-export function sourceText(source) {
-  if (typeof source === 'string') return source;
-  if (Array.isArray(source)) return source.map(sourceText).join(' · ');
-  return source?.label || source?.title || source?.text || '';
-}
-
 export function audioLabel(audio = {}) {
   if (!audio.enabled) return 'Bật âm thanh';
   return audio.unlocked && audio.running ? 'Tắt âm thanh' : 'Bật lại âm thanh';

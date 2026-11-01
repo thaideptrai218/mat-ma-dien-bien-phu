@@ -1,6 +1,5 @@
 export const VICTORY_PHOTO_URL = new URL('../../assets/images/dien-bien-phu-victory-photo.png', import.meta.url).href;
-export const VICTORY_PHOTO_ALT = 'Ảnh tư liệu: lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
-export const SOURCE_LABEL = 'Cốt truyện theo PDF bản 4 do người dùng cung cấp, tr. 3–5. Ảnh tư liệu do người dùng cung cấp. Long, hệ thống và hành trình xuyên thời gian là hư cấu học tập.';
+export const VICTORY_PHOTO_ALT = 'Lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
 
 // Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tao" to it.
 export const INTRO = [
@@ -45,7 +44,7 @@ export const CLOSING_LINE = 'Mật mã cuối cùng đã được giải, nhưng
 export function getArchiveEntries(state) {
   if (!state.reflectionSeen) return [];
   return [{id: 'final-reflection', title: 'Câu hỏi cuối cùng và lời Long', code: 'V', kind: 'report',
-    source: SOURCE_LABEL, paragraphs: [...REFLECTION_SCRIPT.map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
+    paragraphs: [...REFLECTION_SCRIPT.map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
 }
 
 // Long's thoughts and narration in Room 5 dialogues (plain strings are Long; objects name the speaker).

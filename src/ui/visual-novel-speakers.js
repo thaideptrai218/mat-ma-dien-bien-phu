@@ -3,7 +3,7 @@
 const asset = name => new URL(`../../assets/images/${name}`, import.meta.url).href;
 
 export const SPEAKERS = {
-  Long: {name: 'LONG', portrait: asset('long-portrait.png'), alt: 'Long, nhân vật hư cấu'},
+  Long: {name: 'LONG', portrait: asset('long-portrait.png'), alt: 'Chân dung Long'},
   'Hệ Thống': {name: 'HỆ THỐNG', portrait: asset('game-emblem.png'), alt: 'Biểu tượng Hệ Thống'},
   // The narrator has no face: the portrait box shows a neutral card instead of an image.
   'Lời kể': {name: 'LỜI KỂ', portrait: null, alt: ''},

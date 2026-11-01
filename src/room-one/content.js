@@ -5,14 +5,14 @@ export const INTRO = [
   { speaker: 'Long', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tao đọc nó trước được chứ?' },
   { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ đầu tiên: đọc trọn lá thư trên bàn gần cửa vào. Ký Chủ hãy để ý những ký hiệu nằm ngoài lời thư.' },
   { speaker: 'Hệ Thống', text: 'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn E để xem. N mở sổ tay, M mở bản đồ, Q xem nhiệm vụ.' },
-  { speaker: 'Hệ Thống', text: 'Thư, ghi chép và nhân vật là hư cấu dựa trên tài liệu được cung cấp. Thông tin nguồn nằm bên ngoài lời văn. Ký Chủ đọc hết giấy rồi cùng suy nghĩ để ghi nhận hồ sơ.' },
+  { speaker: 'Hệ Thống', text: 'Hãy đọc trọn từng giấy, rồi cùng Long suy luận để ghi nhận hồ sơ.' },
 ];
 
 // Step-by-step guidance appended to the success dialogue of each Room 1 step.
 export const GUIDE = {
   letter: [
-    { speaker: 'Hệ Thống', text: 'Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.' },
-    { speaker: 'Long', text: 'Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.' },
+    { speaker: 'Hệ Thống', text: 'Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.' },
+    { speaker: 'Long', text: 'Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.' },
   ],
   a03: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },

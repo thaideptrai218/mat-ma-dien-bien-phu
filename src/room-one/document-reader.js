@@ -1,4 +1,4 @@
-import { element, button, heading, sourceText } from './ui-elements.js';
+import { element, button, heading } from './ui-elements.js';
 
 const artifactKinds = new Set(['letter', 'journal', 'report']);
 const kindLabels = { letter: 'LÁ THƯ', journal: 'TRANG NHẬT KÝ', report: 'BẢN GHI CHÉP' };
@@ -52,15 +52,6 @@ export function documentPanel(data, emit) {
     if (metadata) header.append(element('p', 'r1-document-meta', metadata));
   }
   body.append(header);
-  const source = sourceText(doc.source);
-  if (isArtifact || doc.fictionDisclosure) {
-    const context = element('aside', 'r1-document-context');
-    context.setAttribute('aria-label', 'Thông tin về văn bản');
-    context.append(element('p', 'r1-fiction-disclosure', doc.fictionDisclosure || 'Văn bản sáng tác cho trò chơi, không phải hiện vật lịch sử.'));
-    if (source) context.append(element('p', 'r1-document-source', source));
-    body.append(context);
-  } else if (source) body.append(element('p', 'r1-source-badge', source));
-
   const scroll = element('div', `r1-paper-scroll${isArtifact ? ' r1-artifact-scroll' : ''}`);
   scroll.tabIndex = 0;
   scroll.setAttribute('aria-label', 'Toàn văn tư liệu — cuộn xuống để đọc tiếp');

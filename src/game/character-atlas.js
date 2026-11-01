@@ -2,8 +2,8 @@ export const CHARACTER_TEXTURE = 'long-hero';
 // The 17th column stores a full standing pose for each direction.
 export const CHARACTER_COLUMNS = 17;
 export const CHARACTER_DIRECTIONS = Object.freeze(['down', 'left', 'right', 'up']);
-export const CHARACTER_FRAME = Object.freeze({width:160, height:192, scale:.5,
-  originX:.5, originY:176/192, bodyWidth:48, bodyHeight:32, bodyOffsetX:56, bodyOffsetY:160});
+export const CHARACTER_FRAME = Object.freeze({width:160, height:192, scale:.75,
+  originX:.5, originY:176/192, bodyWidth:32, bodyHeight:64/3, bodyOffsetX:64, bodyOffsetY:176-8/.75});
 const poses = Object.freeze({idle:[16], walk:[0,1,2,3,4,5,6], run:[8,9,10,11,12,13,14]});
 
 export function characterAnimationKey(facing, motion = 'idle', reduced = false) {

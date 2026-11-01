@@ -27,7 +27,7 @@ function pictureCard(item, index, tail) {
 
 export function cargoPanel(data, emit) {
   const body = activity('cargo', 'Nối lại tuyến tiếp vận', 'Kéo từng chú thích lên bức tranh đúng với nó, rồi xem điều gì giúp hàng hóa vượt qua địa hình khó khăn. Cũng có thể bấm một chú thích rồi bấm khung dưới tranh.', data);
-  body.append(element('p', 'r3-illustration-note', 'Sáu tranh minh họa tái hiện, không phải ảnh tư liệu.'));
+  body.append(element('p', 'r3-illustration-note', 'Sáu bức tranh kể về những chuyến hàng nối hậu phương với chiến trường.'));
   if (data.solved) {
     const gallery = element('div', 'r3-cargo-gallery');
     CARGO_ITEMS.forEach((item, index) => gallery.append(pictureCard(item, index, [element('strong', '', item.label), element('p', '', item.description)])));

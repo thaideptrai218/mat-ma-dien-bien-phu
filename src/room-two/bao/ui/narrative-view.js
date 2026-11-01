@@ -5,7 +5,7 @@ import { beats } from '../../system-guidance.js';
 import { element, button, paragraph } from '../../../ui/dom-elements.js';
 
 const speakers = {
-  quang: { name: 'QUANG', portrait: portraitUrl, alt: 'Quang, nhân vật hư cấu' },
+  quang: { name: 'QUANG', portrait: portraitUrl, alt: 'Chân dung Quang' },
   system: { name: 'HỆ THỐNG', portrait: emblemUrl, alt: 'Giọng nói của căn phòng ký ức' },
 };
 
@@ -55,7 +55,7 @@ export class NarrativeView {
       const intent = this.active.clueId ? { type: 'collect-clue', clueId: this.active.clueId } : { type: 'complete-beat', beatId: this.active.beatId };
       this.onIntent(intent);
     }, 'primary-button', { id: 'narrative-next' });
-    this.copy.replaceChildren(speaker, text, paragraph(line.fictional ? 'Lời Quang và hiện vật kể chuyện được biên soạn hư cấu; dữ kiện lịch sử có nguồn trong sổ tay.' : 'Đối chiếu tư liệu lịch sử trong sổ tay.', 'vn-fiction'), element('div', { className: 'vn-controls' }, previous, all, next), paragraph('Đọc theo nhịp của bạn · Esc tạm rời lời kể · Chỉ nút ghi mới nhận manh mối', 'vn-help'));
+    this.copy.replaceChildren(speaker, text, element('div', { className: 'vn-controls' }, previous, all, next), paragraph('Đọc theo nhịp của bạn · Esc tạm rời lời kể · Chỉ nút ghi mới nhận manh mối', 'vn-help'));
     if (focusNext) next.focus({ preventScroll: true });
   }
 

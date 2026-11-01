@@ -2,11 +2,14 @@ import {element,button,heading} from '../room-one/ui-elements.js';
 import {VICTORY_PHOTO_URL,MUSEUM_RETURN,CLOSING_LINE} from '../room-five/content.js';
 import {framingLine} from '../audio/voice-id.js';
 
-function painting() {
+function painting(onSelect) {
   const figure=element('figure','campaign-painting');
   const image=element('img'); image.src=VICTORY_PHOTO_URL;
-  image.alt='Ảnh tư liệu Điện Biên Phủ: lá cờ đỏ sao vàng tung bay trên nóc hầm.';
-  figure.append(image,element('figcaption','','Ảnh tư liệu do người dùng cung cấp.'));
+  image.alt='Lá cờ đỏ sao vàng tung bay trên nóc hầm Điện Biên Phủ.';
+  if(onSelect){
+    const trigger=button('',onSelect,'campaign-painting-trigger');
+    trigger.setAttribute('aria-label','Chạm vào bức ảnh để tiếp tục'); trigger.append(image); figure.append(trigger);
+  }else figure.append(image);
   return figure;
 }
 export const OPENING = [
@@ -15,7 +18,7 @@ export const OPENING = [
     'Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?',
     'Long đặt tay lên mặt kính trước bức ảnh. Một quầng sáng bỗng tràn qua đầu ngón tay.'
   ],button:'Chạm vào mặt kính'},
-  {eyebrow:'KHÔNG GIAN HƯ CẤU · 7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
+  {eyebrow:'7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
     'Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.',
     'Hệ Thống: Ký Chủ đã bước vào dòng chảy lịch sử. Đây là không gian tái hiện hầm chỉ huy của tướng Đờ Cát, ngày 7 tháng 5 năm 1954. Muốn trở về thời đại của mình, Ký Chủ phải giải mã những dấu mốc đã làm nên chiến thắng Điện Biên Phủ.',
     'Long: Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tao vừa còn đứng trong bảo tàng mà.',
@@ -26,7 +29,7 @@ export const OPENING = [
     'Long: Bốn mảnh ghép, năm căn phòng. Được, tao chơi. Nhưng Hệ Thống phải nói rõ tao bắt đầu từ đâu.',
     'Hệ Thống: Phòng 1 cất giữ chặng đường xây dựng lực lượng từ năm 1950 đến giữa năm 1953. Khi cần, Ký Chủ nhấn Q để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.',
     'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn E. M mở bản đồ, N mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.',
-    'Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.'
+    'Tiến độ hành trình được lưu trên trình duyệt này.'
   ],button:'Bước vào phòng 1'}
 ];
 // `voice` is optional ({ready, speak, enable, scene, cue} from the runtime): frames are read aloud once sound is on, and until
@@ -50,13 +53,14 @@ export function introFrame(onBegin,voice) {
   const section=element('section','campaign-story'); let step=0,drawn=0;
   const draw=()=>{
     const current=OPENING[step],copy=element('div','campaign-story-copy');
+    const advance=()=>{if(step===0)voice?.cue('time-warp');if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}};
     copy.append(heading(current.title,current.eyebrow));
     current.paragraphs.forEach(text=>copy.append(element('p','',text)));
     const lines=current.paragraphs.map(framingLine),token=++drawn;
     voice?.scene(step===0?'museum':'bunker'); // bed: museum, then the Đờ Cát bunker once the light has taken Long
-    copy.append(button(current.button,()=>{if(step===0)voice?.cue('time-warp');if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}},'r1-primary'));
+    copy.append(button(current.button,advance,'r1-primary'));
     const enable=voiceButton(voice,lines,node=>node.isConnected&&token===drawn);if(enable)copy.append(enable);
-    section.replaceChildren(painting(),copy);
+    section.replaceChildren(painting(step===0?advance:null),copy);
     voice?.speak(lines);
   };
   draw(); return section;

@@ -3,3 +3,4 @@
 @media(max-width:500px){.campaign-header{gap:10px}.campaign-inventory{margin-left:auto}.campaign-tools{width:100%}.campaign-tools .r1-button{flex:1;padding:8px 6px}.campaign-story{padding:28px 20px}.campaign-story-copy>p{font-size:14px}.campaign-progress li{width:23px;height:23px}.campaign-brand{width:100%}.campaign-modal{max-width:calc(100vw - 16px)}}
 .campaign-story-copy .r1-voice-enable{margin:14px 0 0 12px;font-size:14px}
 .campaign-brand{display:flex;align-items:center;flex:0 1 220px;min-width:150px}.campaign-brand-logo{display:block;width:100%;max-height:62px;object-fit:contain;object-position:left center}.campaign-brand:focus-visible{outline:2px solid #e3c68a;outline-offset:4px}
+.campaign-painting-trigger{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer}.campaign-painting-trigger:focus-visible{outline:3px solid #e3c68a;outline-offset:5px;border-radius:2px}
