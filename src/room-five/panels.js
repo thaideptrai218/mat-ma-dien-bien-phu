@@ -4,7 +4,7 @@ import {visualNovelDialogue} from '../ui/visual-novel-dialogue.js';
 import {swapPieces, enableDragSwap} from './assembly-pieces.js';
 import {doorPanel} from './door-puzzle-panel.js';
 import {gateIdOfDoorView} from './area-gates.js';
-import {VICTORY_PHOTO_URL, VICTORY_PHOTO_ALT, SOURCE_LABEL, reflectionScript, DOOR_MESSAGE, CLOSING_LINE} from './content.js';
+import {VICTORY_PHOTO_URL, VICTORY_PHOTO_ALT, reflectionScript, DOOR_MESSAGE, CLOSING_LINE} from './content.js';
 
 function painting() {
   const image = element('img', 'r5-complete-painting'); image.src = VICTORY_PHOTO_URL; image.alt = VICTORY_PHOTO_ALT;
@@ -15,7 +15,6 @@ function assembly(data, emit) {
   const node = element('section', 'r5-assembly');
   node.append(heading('Ghép ảnh chiến thắng', 'PHÒNG 5 · BÀN GHÉP ẢNH'),
     element('p', 'r1-lead', 'Kéo một mảnh thả lên mảnh khác, hoặc chọn một mảnh rồi chọn mảnh khác để đổi chỗ. Dùng Tab và Enter hoặc phím cách trên các nút. Khi tranh liền mạch, xác nhận bên dưới.'));
-  node.append(element('p', 'r1-muted', 'Ảnh tư liệu do người dùng cung cấp; bốn mảnh ghép tái hiện ảnh này.'));
   if (data.solved) {node.append(painting(), element('p', 'r1-lead', 'Bốn mảnh đã khớp. Câu hỏi cuối đang chờ ở nơi ánh sáng cạnh cửa.')); return {node};}
   const order = [...data.order], board = element('div', 'r5-piece-grid');
   board.setAttribute('role', 'group'); board.setAttribute('aria-label', 'Bốn vị trí ghép tranh: hàng trên rồi hàng dưới');
@@ -68,8 +67,8 @@ function reflection(data, emit) {
   // Do not read the textarea in callbacks: the narrative acknowledgment is the sole intent.
   const finish = data.readOnly ? {label: 'Đóng cuộc trò chuyện', onClick: () => emit('close')}
     : {label: 'Tiếp tục cùng Long · Có thể để trống', onClick: () => emit('reflection-continue', {token: data.token})};
-  const panel = visualNovelDialogue({title: 'Câu hỏi không nằm trong mật mã', eyebrow: 'PHÒNG 5 · LỜI KỂ HƯ CẤU', script: reflectionScript(),
-    voice: data.voice, finish, lastExtra: extra, note: SOURCE_LABEL}, emit);
+  const panel = visualNovelDialogue({title: 'Câu hỏi không nằm trong mật mã', eyebrow: 'PHÒNG 5 · ĐỐI THOẠI', script: reflectionScript(),
+    voice: data.voice, finish, lastExtra: extra}, emit);
   return {...panel, cleanup: () => {if (textarea) textarea.value = ''; panel.cleanup();}};
 }
 
@@ -83,12 +82,12 @@ export function createPanel(view, data, emit, snapshot, world) {
     node.append(heading('Sổ tay · Căn phòng cuối', snapshot.standalonePreview ? 'BẢN CHƠI RIÊNG · PHÒNG 5' : 'HÀNH TRÌNH PHÒNG 5'), element('p', 'r1-lead', data.inventory));
     if (snapshot.state?.reflectionSeen) node.append(button('Đọc lại toàn bộ cuộc trò chuyện', () => emit('reflection-reread')));
     else node.append(element('p', '', 'Đến bàn phục dựng để ghép tranh, rồi tìm nơi ánh sáng bên cửa.'));
-    node.append(element('p', 'r1-muted', SOURCE_LABEL)); return {node};
+    return {node};
   }
   if (view === 'completed') {
     const node = element('section', 'r1-completed');
     node.append(heading('Đã bước qua cánh cửa', 'HOÀN THÀNH PHÒNG 5'), painting(), element('blockquote', 'r5-door-message', DOOR_MESSAGE),
-      element('p', 'r1-lead', CLOSING_LINE), element('p', 'r1-muted', SOURCE_LABEL));
+      element('p', 'r1-lead', CLOSING_LINE));
     if (data.standalonePreview) {
       node.append(element('p', 'r1-muted', 'Bạn đã hoàn thành bản chơi riêng. Tiến độ này không ghi nhận thành tích trong hành trình chính.'));
       const campaign = element('a', 'r1-button r1-primary', 'Mở hành trình năm phòng'); campaign.href = './index.html'; node.append(campaign);

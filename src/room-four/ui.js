@@ -15,6 +15,6 @@ export class RoomFourUI extends RoomOneUI {
     this.root.classList.add('r4-app');
   }
 
-  // Door puzzles key their Hệ Thống hints on the gate; boards on T/L (inherited).
-  hintKeyFor(view, data) { return view === 'door' ? `door-${data.gateId}` : super.hintKeyFor(view, data); }
+  // Door puzzles key their Hệ Thống hints on the gate; both cipher tables share the same clue-based guidance.
+  hintKeyFor(view, data) { return view === 'door' ? `door-${data.gateId}` : view === 'board' ? 'board' : super.hintKeyFor(view, data); }
 }

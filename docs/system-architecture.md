@@ -12,29 +12,29 @@ UI phòng gửi intent → controller kiểm tra view/token → reducer thuần 
 
 ## Các phòng và đồ thị tiến độ
 
-Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `character-atlas.js` giữ một phép biến đổi chung cho 64 ô (16 cột: đi 0–7, chạy 8–15); `character-animation.js` đăng ký texture/clip một lần trong mỗi Game. Chỉ chuyển idle/walk/run sau bước physics thật, giữ cadence8/12fps riêng; reduced-motion chọn idle. Nạp ảnh lỗi thì pausephysics, hiện thông báo giữa màn hình và không tạo sprite giả. Các scene con không tạo lớp phủ nếu base chưa có player. Collider nguồn48×32/offset56,160/scale.5 trở thành24×16 đặt tâm tại vị trí người chơi. [Hợp đồng](../assets/characters/long/README.md) · [Review](../plans/261031-quang-reference-character/reports/code-review.md).
+Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `character-atlas.js` giữ một phép biến đổi chung cho 64 ô (16 cột: đi 0–7, chạy 8–15); `character-animation.js` đăng ký texture/clip một lần trong mỗi Game. Sprite hiển thị ở tỷ lệ .75; body nguồn32×21⅓/offset64,165⅓ giữ collider24×16 đặt đúng tâm tại vị trí người chơi. Chỉ chuyển idle/walk/run sau bước physics thật, giữ cadence8/12fps riêng; reduced-motion chọn idle. Nạp ảnh lỗi thì pausephysics, hiện thông báo giữa màn hình và không tạo sprite giả. Các scene con không tạo lớp phủ nếu base chưa có player. [Hợp đồng](../assets/characters/long/README.md) · [Review](../plans/261031-quang-reference-character/reports/code-review.md).
 
 - Phòng 1: thế giới 2400×1600; thư → A-03 → bốn hồ sơ → đối chiếu → ngăn kéo/tên → rương I → cửa. Nền 1950–7/1953: thư đầu năm chỉ nhìn lại; N-01 tháng bảy đọc sau giải danh tính, không thêm gating cũ.
 - Phòng 2: world/gate/art và renderer puzzle/narrative gốc Bảo; bảy clues, chín beats, bốn puzzles. Registry deep-compare với donor, renderer/art bodies và CSS đối chiếu hash. Adapter không gọi reducer/save legacy hoặc dựng thành tích bảo tàng/Him Lam giả. Fold cuối hợp lệ cấp II; cửa đông mới sang 3, không thêm rương/pickup hoặc bắt đọc hết outro. [Bảo toàn nguồn](../plans/261031-campaign-link/reports/room-two.md).
 - Phòng 3: trại 3200×2000, năm giấy xen bốn thử thách. Chuẩn bị song song → sáu vai trò tiếp vận → hai phương châm/lý do → tin 13/15/17. `answers.js` kiểm tra ngữ nghĩa/tập lựa chọn; thẻ NHANH/CHẮC cùng chữ được đổi tương đương. Đủ bốn mới dùng 13/03/1954; mở rương → nhận III → cửa.
-- Phòng 4: archive 2800×1800, bảy giấy theo thời gian → ô chữ 17 cột → cột index 8/TIMTVAL → T/L → câu cuối → rương mở → lấy IV → cửa. Hàng bốn đủ 16 chữ; bảng L giữ ULTAV. Không thay nội dung lịch sử khi nối campaign.
+- Phòng 4: archive 2800×1800, bảy giấy theo thời gian → ô chữ → chỉ dẫn cho hai bàn mật mã → ghép câu mở khóa → rương → lấy IV → cửa. Tên bàn và gợi ý Hệ Thống giữ kín hình cần dò để người chơi tự giải từ manh mối trước.
 - Phòng 5: 2000×1400; đủ bốn mảnh thật và cửa trước mới ghép đúng bốn phần tư → cuộc trò chuyện → xác nhận tiếp tục → cửa thật. Ô suy nghĩ cá nhân chỉ ở DOM, không gửi intent/persist. Sau exit 5, runtime hiện museum-return; acknowledgment mới đặt endingSeen.
 
 `world.js` của mỗi phòng là nguồn hình học cho collision, tầm E và map. RoomOneScene nhận world/art/key/goal tùy chọn; các phòng truyền cấu hình riêng. Camera kẹp trong biên, đi/chạy 260/390 chuẩn hóa đường chéo, footsteps lấy chuyển động thật. Bố cục học tập không phải tọa độ đơn vị lịch sử.
 
 ## Giấy đọc, sổ chung và UI
 
-Reader dùng nguyên văn HTML chọn/copy được; nguồn/hư cấu ngoài thân giấy. Đọc đến cuối → suy nghĩ Long → token xác nhận hiện hành mới thu thập. Đóng/reset/dispose vô hiệu callback cũ; notebook reread không cấp tiến độ.
+Reader dùng nguyên văn HTML chọn/copy được; giấy giữ lời chào, chữ ký và ngày viết. Đọc đến cuối → suy nghĩ Long → token xác nhận hiện hành mới thu thập. Đóng/reset/dispose vô hiệu callback cũ; notebook reread không cấp tiến độ.
 
 `src/campaign/archive.js` tập hợp giấy đã kiếm được từ phòng 1–5, gồm toàn bộ các đoạn clue gốc Bảo và N-01 khi đủ điều kiện. Sổ hành trình pause child input/audio qua isPaused; không cho gửi intent trong lúc overlay mở. Có sổ trong phòng và sổ xuyên phòng, không rút hồ sơ thành tóm tắt.
 
-RoomOneUI nhận nhãn/ngày/world/panel factory; Bảo bọc DOM renderer gốc vào shell chung. Header chiến dịch có sổ, kho mảnh, mục tiêu và restart; link preview ghi rõ save riêng. WASD/Shift/E/M/N/Q/Esc theo focus, form giữ hành vi nhập bình thường. Modal/blur/tab ẩn xóa phím giữ, vận tốc và bước chân. Desktop thấp dùng mini-map gọn, map lớn nhận đúng world hiện tại.
+RoomOneUI nhận nhãn/ngày/world/panel factory; Bảo bọc DOM renderer gốc vào shell chung. Header chiến dịch duy nhất hiển thị logo và tên phòng, cung cấp sổ, âm thanh, tùy chọn, restart và link preview; header trong từng phòng chỉ hiện ở bản chơi riêng. WASD/Shift/E/M/N/Q/Esc theo focus, form giữ hành vi nhập bình thường. Modal/blur/tab ẩn xóa phím giữ, vận tốc và bước chân. Desktop thấp dùng mini-map gọn, map lớn nhận đúng world hiện tại.
 
 ## Lưu, phục hồi và reset
 
 Khóa chiến dịch `mat-ma-dien-bien-phu:campaign:v1` chứa version, introSeen, rooms, settings, endingSeen. `sanitizeCampaign` dùng sanitizer từng phòng, chỉ giữ chuỗi exit liên tục và tối đa một phòng đang chơi. Mảnh I từ chestOpened hợp lệ, II từ fold/fragment đã kiểm tra, III/IV từ pickup. Phòng 5 chỉ phục hồi với đủ mảnh/cửa trước; return/ending không thể vượt assembly/reflection/exit 5. Không tin currentRoom hoặc danh sách mảnh tùy ý.
 
-Bốn preview giữ key `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` cùng tiền tố; không migrate/import các key này hoặc save donor. Room 3 giữ graph giấy/thử thách chung; Room 4 giữ tiền tố bảy giấy/câu đố. Reload về safe spawn của phòng hiện tại, không lưu tọa độ, draft, cursor hoặc lời suy ngẫm.
+Bốn preview giữ key `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` cùng tiền tố; không migrate/import các key này hoặc save donor. Room 3 giữ graph giấy/thử thách chung; Room 4 lưu các câu trả lời ô chữ đang nhập trong state phòng để phục hồi sau reload. Reload về safe spawn của phòng hiện tại, không lưu tọa độ, vị trí thước/cursor hoặc lời suy ngẫm.
 
 Reset phòng giữ các room trước và cắt current/downstream/ending phụ thuộc. Global new game có xác nhận, chỉ reset envelope campaign; epoch chặn callback/import cũ hồi sinh session. Storage lỗi vẫn chơi trong phiên với thông báo. Shared settings là nguồn âm thanh khi tạo phòng/merge save, không để default phòng mới ghi đè preference chung.
 

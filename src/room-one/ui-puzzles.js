@@ -24,7 +24,7 @@ function comparison(data, emit) {
   const body = element('section');
   body.append(heading('Hai phía của bàn cờ'), element('p', 'r1-lead', 'Dùng bốn hồ sơ đã ghi trong sổ tay để đối chiếu tình thế hai phía.'));
   if (data.solved) {
-    body.append(element('p', 'r1-success', 'Đã hoàn tất đối chiếu.'), element('p', 'r1-code-label', 'MẬT MÃ NGĂN KÉO'), element('output', 'r1-revealed-code', '2413'));
+    body.append(element('p', 'r1-success', 'Đã hoàn tất đối chiếu.'), element('p', 'r1-muted', 'Dựa vào thứ tự vừa ghép, hãy ghi lại dãy số mở ngăn kéo.'));
     return body;
   }
   body.append(comparisonBoard(emit));

@@ -38,7 +38,7 @@ export function handleAction(s, action, p = {}) {
     }
     case 'letter-finish':
       if (inView('document') && !active.readOnly && active.document.id === 'restored-letter' && p.id === active.document.id)
-        return s.dialogue('Long · Sau khi đọc thư', [...LETTER_DOCUMENT.reflection, ...LINES.letterArchive, ...GUIDE.letter], 'Nhớ ký hiệu A-03', 'letter-record', {documentId:'restored-letter'});
+        return s.dialogue('Long · Sau khi đọc thư', [...LETTER_DOCUMENT.reflection, ...LINES.letterArchive, ...GUIDE.letter], 'Ghi dấu trên thư vào sổ', 'letter-record', {documentId:'restored-letter'});
       return;
     case 'letter-record':
       if (dialogueToken() && active.action === 'letter-record' && s.commit('letter', p)) s.close();
@@ -75,7 +75,7 @@ export function handleAction(s, action, p = {}) {
       if (!inView('comparison')) return;
       if (!s.commit('comparison', p)) return s.error('Có chỗ chưa khớp.');
       s.audio.playCue('success');
-      return s.dialogue('Bốn hàng dữ kiện', [...LINES.comparison, ...GUIDE.comparison], 'Ghi mã ngăn kéo 2413', 'close');
+      return s.dialogue('Bốn hàng dữ kiện', [...LINES.comparison, ...GUIDE.comparison], 'Quay lại phòng', 'close');
     case 'drawer-submit':
       if (!inView('drawer')) return;
       if (!s.commit('drawer', p)) return s.error('Chưa đúng.');

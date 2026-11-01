@@ -44,7 +44,6 @@ function furniture(ctx, p) {
     for (let row = 0; row < 6; row++) for (let col = 0; col < 5; col++) {
       rect(ctx, x + 69 + col * 12, y + 12 + row * 10, 10, 8, '#e4d4a6');
     }
-    label(ctx, p.station, x + 33, y + 57, 30, '#4a4f3a');
     rect(ctx, x + w - 28, y + 26, 6, 37, '#3c3f2f');
   } else if (kind === 'crossword') {
     rect(ctx, x + 12, y + 10, w - 24, h - 20, '#d7c99d');

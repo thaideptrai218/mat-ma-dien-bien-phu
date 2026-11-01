@@ -6,7 +6,6 @@ const introLines = (fragmentNote, progressNote) => [
   {speaker: 'Hệ Thống', text: 'Kế hoạch tiếp vận đã bị mã hóa. Ký Chủ phải vượt bốn thử thách để khôi phục bốn dữ kiện: hồ sơ chuẩn bị, những chuyến hàng, mật lệnh của Bộ Chỉ huy và mật điện chiến thắng.'},
   {speaker: 'Hệ Thống', text: `Trước mỗi trạm, Ký Chủ đọc trọn tờ giấy liên quan rồi suy nghĩ và xác nhận. Tờ đầu tiên nằm gần kho hàng. ${fragmentNote}`},
   {speaker: 'Long', text: 'Đọc trước, giải sau. Tôi nhớ rồi.'},
-  {speaker: 'Hệ Thống', text: 'Thư, người viết và chuyện riêng là hư cấu; sáu tranh vận chuyển là minh họa sáng tác, không phải ảnh tư liệu. Nguồn lịch sử ghi bên ngoài lời văn.'},
   {speaker: 'Hệ Thống', text: `WASD hoặc mũi tên để đi, Shift để chạy, E để xem vật gần. M mở sơ đồ, N mở sổ tay, Q thu/mở nhiệm vụ. ${progressNote}`},
 ];
 export const INTRO = introLines('Chỉ mảnh III được trao ở phòng độc lập này.', 'Các phòng giữ tiến độ riêng.');

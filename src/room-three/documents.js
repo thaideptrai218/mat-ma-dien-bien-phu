@@ -1,13 +1,9 @@
-// Named writers, personal dates and private scenes are fiction, disclosed outside prose.
-// Historical anchors come only from the supplied brief, PDF and local transcript.
 export const DOCUMENTS = [
   {
     id: 'preparation-record', code: 'H-01', kind: 'report',
     title: 'Bản tổng hợp trước và sau ngày mở màn',
-    date: 'Tháng 3/1954, sau ngày mở màn · Mốc biên soạn hư cấu',
-    author: 'Trịnh Văn Quý · Người tổng hợp hư cấu',
-    fictionDisclosure: 'Trịnh Văn Quý và bản tổng hợp là hư cấu. Lời văn, người viết và thời điểm biên soạn được sáng tác, không phải báo cáo quân sự lưu trữ.',
-    source: 'Nội dung người dùng bổ sung 31/10/2026; PDF bản 4, tr. 6: quyết định 6/12/1953, chuẩn bị chiến dịch và mở màn 13/3/1954.',
+    date: 'Tháng 3/1954, sau ngày mở màn',
+    author: 'Trịnh Văn Quý · Người tổng hợp',
     paragraphs: [
       'Tôi gom lại các việc chuẩn bị để những người nhận phần tiếp theo biết công sức đã được đặt vào đâu. Mốc đầu tiên là ngày 6 tháng 12 năm 1953: Bộ Chính trị quyết định mở Chiến dịch Điện Biên Phủ. Bộ Chỉ huy chiến dịch do Đại tướng Võ Nguyên Giáp phụ trách. Từ quyết định ấy, rất nhiều công việc phải cùng bắt đầu.',
       'Cần chuẩn bị lực lượng, vũ khí, đạn dược, lương thực và thuốc men. Từng thứ có công dụng riêng, thiếu thứ nào cũng thành trở ngại khi chiến đấu kéo dài. Có súng mà thiếu đạn thì không thể tiếp tục bắn; có người mà thiếu ăn, thiếu thuốc thì sức chiến đấu cũng không thể giữ được như mong muốn.',
@@ -24,10 +20,8 @@ export const DOCUMENTS = [
   {
     id: 'supply-journal', code: 'H-02', kind: 'journal',
     title: 'Sổ người đi cùng chuyến hàng',
-    date: 'Đầu tháng 3/1954 · Mốc ghi sổ hư cấu',
-    author: 'Bùi Thị Duyên · Người dân công hư cấu',
-    fictionDisclosure: 'Bùi Thị Duyên, chuyến hàng và các chi tiết đời thường là hư cấu. Ngày ghi sổ là mốc sáng tác; đây không phải nhật ký hay lời chứng có thật.',
-    source: 'Nội dung hậu cần và sáu vai trò vận chuyển do người dùng bổ sung 31/10/2026; PDF bản 4, tr. 3, 6.',
+    date: 'Đầu tháng 3/1954',
+    author: 'Bùi Thị Duyên · Dân công',
     paragraphs: [
       'Tối nay tôi ngồi xuống mới thấy hai vai mỏi hơn lúc đang đi. Cuốn sổ đặt trên đầu gối cứ trượt, phải lấy tay giữ lại. Tôi đã tính chỉ viết một dòng báo mình còn khỏe, rồi lại muốn kể cho đủ những người gặp trên đường. Mai ai cũng đi tiếp, chưa chắc còn gặp đúng từng gương mặt ấy.',
       'Có người dắt xe đạp thồ chở lương thực và hàng hóa. Đường miền núi hẹp, khó đi, xe thồ giúp mang được nhiều hàng mà vẫn có thể dắt, đẩy qua chỗ không thuận cho xe lớn. Chỗ khó, người đi cạnh lại ghé tay giúp. Tôi nhìn kiện hàng buộc trên xe rồi cúi xuống sửa lại gánh của mình.',
@@ -44,10 +38,8 @@ export const DOCUMENTS = [
   {
     id: 'command-telegrams', code: 'H-03', kind: 'journal',
     title: 'Trang sổ người chép lệnh',
-    date: 'Trước ngày mở màn tháng 3/1954 · Mốc ghi sổ hư cấu',
-    author: 'Hoàng Văn Tâm · Người chép lệnh hư cấu',
-    fictionDisclosure: 'Hoàng Văn Tâm và trang sổ là hư cấu. Các phương châm là nội dung lịch sử được cung cấp; phần lời kể, cảm nghĩ và ngày ghi sổ là sáng tác, không phải điện lệnh gốc.',
-    source: 'Nội dung người dùng bổ sung 31/10/2026 và PDF bản 4, tr. 3: chuyển phương châm; không dùng ngày chuyển cụ thể từ bản chữ có lỗi.',
+    date: 'Trước ngày mở màn tháng 3/1954',
+    author: 'Hoàng Văn Tâm · Người chép lệnh',
     paragraphs: [
       'Tôi vừa chép xong thì lại mở sổ ra nhìn hai dòng đặt cạnh nhau. Bàn tay quen viết nhanh khiến lúc đầu tôi chỉ chú ý xem có thiếu chữ nào không. Đến khi dừng lại mới nghĩ đến những người sẽ làm theo các chữ ấy. Với người chép, một dòng có thể rất ngắn; với người chiến đấu, nó gắn với cả sinh mạng.',
       'Phương châm ban đầu là Đánh nhanh, giải quyết nhanh. Ai cũng mong chiến dịch giành thắng lợi, nhưng lòng mong muốn không thay được việc xem xét tình hình. Trước khi quyết định cách đánh, phải nhìn thực tế và tương quan lực lượng, xem những gì đã chuẩn bị có đáp ứng được yêu cầu hay chưa, những khó khăn còn nằm ở đâu.',
@@ -64,10 +56,8 @@ export const DOCUMENTS = [
   {
     id: 'opening-letter', code: 'H-04', kind: 'letter',
     title: 'Thư sau những trận mở đầu',
-    date: '16/3/1954 · Mốc viết thư hư cấu',
+    date: '16/3/1954',
     author: 'Nguyễn Văn Sơn', recipient: 'Em gái Nguyễn Thị Cúc',
-    fictionDisclosure: 'Sơn, Cúc và chuyện gia đình là hư cấu. Ngày viết, lá thư và lời kể cá nhân là sáng tác; các mốc Him Lam/Độc Lập theo nội dung cung cấp, không phải thư lịch sử.',
-    source: 'Nội dung người dùng bổ sung 31/10/2026: Him Lam 13/3, Độc Lập 15/3/1954; PDF bản 4, tr. 6.',
     salutation: 'Cúc, em của anh,',
     paragraphs: [
       'Anh đã nhận được mấy dòng em gửi. Em bảo mẹ cứ dặn gấp thư cho gọn, sợ đường xa giấy rách. Anh đọc mà bật cười, rồi lại nhớ bàn tay mẹ vuốt từng nếp giấy. Lá thư này anh cũng sẽ gấp cẩn thận. Anh còn khỏe, em đọc câu ấy cho mẹ nghe trước nhé, đừng để mẹ phải đợi.',
@@ -86,10 +76,8 @@ export const DOCUMENTS = [
   {
     id: 'north-report', code: 'H-05', kind: 'report',
     title: 'Bản tổng hợp sau ngày mười bảy',
-    date: '18/3/1954 · Mốc biên soạn hư cấu',
-    author: 'Lê Đức Hải · Người tổng hợp hư cấu',
-    fictionDisclosure: 'Lê Đức Hải và bản tổng hợp là hư cấu. Lời văn và ngày biên soạn là sáng tác dựa trên nội dung người dùng cung cấp, không phải báo cáo lưu trữ.',
-    source: 'Nội dung người dùng bổ sung 31/10/2026 và PDF bản 4, tr. 6: Bản Kéo 17/3, kết quả/ý nghĩa đợt đầu; không coi 17/3 là kết thúc chiến dịch.',
+    date: '18/3/1954',
+    author: 'Lê Đức Hải · Người tổng hợp',
     paragraphs: [
       'Tôi nối thêm tình hình ngày 17 tháng 3 vào phần đã chép về Him Lam và Độc Lập. Quân Pháp tại Bản Kéo đầu hàng dưới sức bao vây, uy hiếp của quân ta. Cần ghi đúng cách vị trí này mất đi, vì không phải diễn biến ở cả ba nơi đều giống nhau, dù cùng góp vào kết quả những ngày mở đầu.',
       'Ngày 13 tháng 3, ta tiến công và làm chủ Him Lam; ngày 15 tháng 3 tiêu diệt Độc Lập; ngày 17 tháng 3 là Bản Kéo. Tuyến phòng ngự phía Bắc và Đông Bắc của tập đoàn cứ điểm bị phá vỡ. Đây là thay đổi lớn về thế trận, khiến hệ thống phòng ngự của quân Pháp suy yếu ngay trong đợt đầu.',

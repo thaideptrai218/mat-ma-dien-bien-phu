@@ -1,4 +1,4 @@
-// A fictional reconstruction room; the layout does not reproduce a historical bunker.
+// The layout represents the final room in the campaign.
 export const WORLD = Object.freeze({
   id: 'room-five', width: 2000, height: 1400,
   walls: [[0, 0, 2000, 48], [0, 1352, 2000, 48], [0, 48, 48, 1304], [1952, 48, 48, 1304],

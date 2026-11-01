@@ -2,10 +2,8 @@
 export const NAVA_CONTEXT_DOCUMENT = Object.freeze({
   id: 'nava-context', code: 'N-01', kind: 'report',
   title: 'Bản tin sau khi kế hoạch mới được thông qua',
-  date: 'Tháng 7/1953 · Mốc biên soạn hư cấu',
-  author: 'Jean Lefèvre · Người biên soạn hư cấu',
-  fictionDisclosure: 'Jean Lefèvre và bản tin tiếng Việt là hư cấu. Lời văn và mốc biên soạn được sáng tác từ nội dung người dùng cung cấp, không phải báo cáo hay trích dẫn lịch sử.',
-  source: 'Nội dung người dùng bổ sung về bổ nhiệm Henri Navarre tháng 5/1953, thông qua kế hoạch tháng 7/1953 và mục tiêu của Pháp; PDF bản 4, tr. 6, 12.',
+  date: 'Tháng 7/1953',
+  author: 'Jean Lefèvre · Người biên soạn',
   paragraphs: [
     'Tôi viết bản tin này trong tháng bảy, khi Chính phủ Pháp đã thông qua kế hoạch quân sự mới. Trước khi nói đến những điều đang trông đợi, cần nhìn lại tình thế khiến một kế hoạch khác trở nên cấp thiết. Chiến tranh kéo dài, những khó khăn và thất bại ở Đông Dương chưa tìm được lối ra.',
     'Tháng 5 năm 1953, Henri Navarre được cử sang Đông Dương làm Tổng chỉ huy quân đội viễn chinh Pháp. Tên ông thường được gọi là Nava trong tiếng Việt. Việc thay người chỉ huy gắn với mong muốn xoay chuyển tình hình; người được giao trách nhiệm mới phải đối diện cả những trở ngại mà lực lượng Pháp đã mang theo từ trước.',

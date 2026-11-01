@@ -1,4 +1,4 @@
-// Chest lock: drag the two slogan strips (read from the solved T and L boards) into the two lock slots.
+// Chest lock: drag the two slogan strips found on the cipher tables into the lock slots.
 // The strip placed in slot 1 is spoken first. Output is the same phrase the typed field used to send.
 import {element, heading} from '../room-one/ui-elements.js';
 import {createTokenBins, contents, trayTokens} from '../ui/tactile/token-bins-model.js';
@@ -15,7 +15,7 @@ export function finalPanel(data, emit) {
     body.append(element('p', 'r1-success', 'Khóa đã mở. Hãy đến chiếc rương để nhận mảnh tranh thứ tư.'));
     return body;
   }
-  body.append(element('p', 'r1-lead', 'Hai dải chữ đã dò được ở bảng T và bảng L nằm trên khay. Kéo từng dải vào khe của khóa rương sao cho đọc thành một câu trọn vẹn, rồi bấm Mở khóa rương. Có thể bấm chọn dải rồi bấm khe, hoặc dùng bàn phím.'));
+  body.append(element('p', 'r1-lead', 'Hai dải chữ vừa tìm được nằm trên khay. Kéo từng dải vào khe khóa rương sao cho đọc thành một câu trọn vẹn, rồi bấm Mở khóa rương. Có thể bấm chọn dải rồi bấm khe, hoặc dùng bàn phím.'));
   const fresh = () => createTokenBins({tokens: strips(BOARDS), bins: SLOT_IDS.map(id => ({id, capacity: 1})), swap: true});
   const submit = element('button', 'r1-button r1-primary', 'Mở khóa rương');
   submit.type = 'button';

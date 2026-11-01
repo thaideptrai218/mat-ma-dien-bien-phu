@@ -1,13 +1,9 @@
-// All named writers, recipients and personal circumstances are authored fiction.
-// Historical facts follow the supplied PDF; provenance stays outside each paper's prose.
 export const DOCUMENTS = [
   {
     id: 'east-offensive', code: 'T-01', kind: 'letter',
     title: 'Thư viết khi vòng vây khép lại',
-    date: 'Cuối tháng 4/1954 · Mốc viết thư hư cấu',
+    date: 'Cuối tháng 4/1954',
     author: 'Nguyễn Văn Bình', recipient: 'Mẹ, bà Trần Thị Sen',
-    fictionDisclosure: 'Bình, bà Sen và chuyện gia đình là hư cấu. Lá thư, ngày viết và lời kể được sáng tác cho trò chơi, không phải thư hay lời chứng lịch sử.',
-    source: 'Bối cảnh theo PDF bản 4, tr. 6, 18: tiến công phía Đông từ 30/3 đến 30/4/1954.',
     salutation: 'Mẹ kính yêu,',
     paragraphs: [
       'Lâu rồi con mới ngồi viết được một lá thư dài. Mẹ đừng trách con ít kể chuyện. Có hôm muốn viết lắm mà vừa cầm bút lại phải gấp giấy. Con vẫn nhớ mẹ thường bảo có vài chữ báo bình an cũng được. Hôm nay con gửi mẹ nhiều hơn vài chữ, mong mẹ yên lòng phần nào.',
@@ -26,10 +22,8 @@ export const DOCUMENTS = [
   {
     id: 'final-assault', code: 'T-02', kind: 'report',
     title: 'Bản tổng hợp những ngày đầu tháng năm',
-    date: '1–6/5/1954 · Khoảng thời gian lịch sử; bản viết hư cấu',
-    author: 'Đặng Văn Nghi · Người tổng hợp tình hình hư cấu',
-    fictionDisclosure: 'Đặng Văn Nghi và bản báo cáo là hư cấu. Đây là lời văn sáng tác dựa trên diễn biến trong PDF, không phải báo cáo quân sự lưu trữ.',
-    source: 'Bối cảnh theo PDF bản 4, tr. 18: đợt tiến công thứ ba bắt đầu ngày 1/5/1954.',
+    date: '1–6/5/1954',
+    author: 'Đặng Văn Nghi · Người tổng hợp tình hình',
     paragraphs: [
       'Tôi tổng hợp tình hình từ ngày 1 tháng 5 để nối với phần cuối tháng tư đã chép trước đây. Các vị trí phòng ngự của Pháp đang bị thu hẹp, nhưng vẫn còn những cứ điểm phải đánh chiếm. Chưa thể coi việc vòng vây đã khép chặt là chiến dịch tự nó sẽ kết thúc.',
       'Ngày 1 tháng 5 năm 1954, quân ta mở đợt tiến công thứ ba. Mục tiêu là tiêu diệt các cứ điểm còn lại, chiếm các cao điểm quan trọng ở phía Đông, tạo điều kiện tiến hành tổng công kích. Công việc trước mắt vì thế rất rõ: tiếp tục đánh vào những nơi đối phương còn cố giữ.',
@@ -46,10 +40,8 @@ export const DOCUMENTS = [
   {
     id: 'a1', code: 'T-03', kind: 'journal',
     title: 'Trang sổ sau đêm A1',
-    date: 'Rạng sáng 7/5/1954 · Mốc ghi sổ hư cấu',
-    author: 'Lê Xuân Phúc · Người lính công binh hư cấu',
-    fictionDisclosure: 'Lê Xuân Phúc, trang sổ và các cảm giác cá nhân là hư cấu. Mốc ghi sổ là sáng tác; không phải nhật ký hay lời chứng có thật.',
-    source: 'Bối cảnh theo PDF bản 4, tr. 18: đường hầm, khối bộc phá khoảng một tấn đêm 6/5 và cuộc tiến công A1.',
+    date: 'Rạng sáng 7/5/1954',
+    author: 'Lê Xuân Phúc · Công binh',
     paragraphs: [
       'Trời đang sáng dần. Tôi muốn chợp mắt một lát, nhưng cứ khép mắt lại thấy đoạn đường hầm. Bàn tay vẫn quen co vào như lúc làm việc, cầm bút cũng thấy lạ. Tôi viết mấy dòng để sau này còn nhớ đêm vừa qua, nhớ cả những người đã cùng mình chờ đến lúc ấy.',
       'A1 đã qua nhiều trận giành giật. Tôi nghe tên ngọn đồi này nhiều đến nỗi có lúc tưởng chẳng thể nghĩ tới việc gì khác. Từ trước đêm nay, công binh đã đào đường hầm và chuẩn bị khối bộc phá. Phần việc nằm dưới đất ấy nối với phần việc của những người sẽ tiến lên trên mặt đất.',
@@ -66,10 +58,8 @@ export const DOCUMENTS = [
   {
     id: 'headquarters', code: 'T-04', kind: 'letter',
     title: 'Lá thư chưa kịp gửi tối mồng bảy',
-    date: 'Tối 7/5/1954 · Mốc viết thư hư cấu',
+    date: 'Tối 7/5/1954',
     author: 'Vũ Thị Hạnh', recipient: 'Em gái Vũ Thị Nga',
-    fictionDisclosure: 'Hạnh, Nga và lá thư là hư cấu. Ngày viết, chuyện riêng và lời kể được sáng tác; không phải thư hay lời chứng lịch sử.',
-    source: 'Bối cảnh theo PDF bản 4, tr. 19: tổng công kích 7/5, chiếm sở chỉ huy khoảng 17 giờ 30 và bắt Đờ Cát.',
     salutation: 'Nga, em của chị,',
     paragraphs: [
       'Chị vừa viết ngày lên đầu giấy mà phải nhìn lại một lần. Mồng bảy tháng năm. Lâu nay chị quen đếm xem đã bao nhiêu hôm chưa có thư nhà, còn hôm nay cứ muốn giữ nguyên ngày này. Chị chẳng biết lá thư sẽ đến tay em lúc nào, nhưng muốn viết ngay khi mọi chuyện còn ở rất gần.',
@@ -88,10 +78,8 @@ export const DOCUMENTS = [
   {
     id: 'results', code: 'T-05', kind: 'report',
     title: 'Bản ghi kết quả sau chiến dịch',
-    date: 'Sau ngày 7/5/1954 · Bản tổng hợp hư cấu',
-    author: 'Phạm Đức Kiên · Người biên soạn hư cấu',
-    fictionDisclosure: 'Phạm Đức Kiên và bản ghi là hư cấu. Các đoạn được biên soạn lại cho trò chơi từ PDF bản 4, không phải bản báo cáo gốc hay trích dẫn lịch sử.',
-    source: 'Kết quả và ý nghĩa theo PDF bản 4, tr. 6, 19. Con số 16.200 chỉ tổng quân địch bị tiêu diệt và bắt sống.',
+    date: 'Sau ngày 7/5/1954',
+    author: 'Phạm Đức Kiên · Người biên soạn',
     paragraphs: [
       'Tôi lập bản ghi này sau khi Chiến dịch Điện Biên Phủ kết thúc. Cần tách phần kết quả trực tiếp với phần ảnh hưởng về sau, để khi nhắc lại không gom mọi việc vào một buổi chiều. Sau 56 ngày đêm chiến đấu, quân và dân ta đã giành thắng lợi, đập tan tập đoàn cứ điểm Điện Biên Phủ.',
       'Tổng số quân địch bị tiêu diệt và bắt sống là 16.200. Tôi giữ hai việc trong cùng một dòng, bởi không thể đổi tổng số ấy thành số tù binh. Khi sao lại con số, chỉ bỏ đi vài chữ cũng đủ làm sai nghĩa. Người nhận bản ghi cần đọc trọn câu trước khi chuyển sang mục tiếp theo.',
@@ -108,10 +96,8 @@ export const DOCUMENTS = [
   {
     id: 'north', code: 'T-06', kind: 'journal',
     title: 'Cuốn sổ của người dạy học',
-    date: 'Năm 1954, sau Hiệp định Genève · Mốc ghi sổ hư cấu',
-    author: 'Đỗ Thị Thu · Người dạy học hư cấu',
-    fictionDisclosure: 'Đỗ Thị Thu, lớp học và trang sổ là hư cấu. Bối cảnh được đặt sau Hiệp định Genève năm 1954; đây không phải nhật ký lịch sử.',
-    source: 'Ý nghĩa đối với Việt Nam theo PDF bản 4, tr. 19: miền Bắc được giải phóng, xây dựng hậu phương cho đấu tranh thống nhất về sau.',
+    date: 'Năm 1954, sau Hiệp định Genève',
+    author: 'Đỗ Thị Thu · Người dạy học',
     paragraphs: [
       'Hôm nay tôi mở lại cuốn sổ cũ để tính chuyện dạy học. Lâu nay mỗi dự định đều phải kèm một chữ nếu. Nếu có đủ người, nếu có chỗ ngồi, nếu không phải nghỉ giữa chừng. Bây giờ muốn viết những việc có thể bắt tay làm, tôi vẫn ngập ngừng như chưa quen với cách nghĩ ấy.',
       'Chiến thắng Điện Biên Phủ đã góp phần tạo cơ sở cho Hiệp định Genève năm 1954 về đình chỉ chiến sự ở Việt Nam. Tôi muốn khi kể với học trò sẽ nói từng mốc một. Ngày 7 tháng 5 là ngày thắng trận ở Điện Biên Phủ; chuyện miền Bắc được giải phóng thuộc bước chuyển tiếp theo, sau hiệp định.',
@@ -128,10 +114,8 @@ export const DOCUMENTS = [
   {
     id: 'independence', code: 'T-07', kind: 'letter',
     title: 'Thư gửi người bạn còn nhiều câu hỏi',
-    date: 'Cuối năm 1954 · Mốc viết thư hư cấu',
+    date: 'Cuối năm 1954',
     author: 'Nguyễn Ngọc Liên', recipient: 'Bạn Lê Minh Đức',
-    fictionDisclosure: 'Liên, Đức và cuộc trao đổi là hư cấu. Lá thư, ngày viết và hoàn cảnh cá nhân là sáng tác, không phải thư hay lời chứng lịch sử.',
-    source: 'Ý nghĩa quốc tế theo PDF bản 4, tr. 19: cổ vũ phong trào chống thực dân, đấu tranh giành độc lập dân tộc.',
     salutation: 'Đức thân mến,',
     paragraphs: [
       'Tớ đọc câu hỏi của cậu rồi: vì sao một trận đánh ở nước mình lại khiến người ở những nơi xa xôi nghĩ đến? Tớ cũng đã tự hỏi như vậy. Cứ nhìn tên Điện Biên Phủ trên giấy, thấy đó là một nơi cụ thể, rồi lại nghĩ đến bao người chưa từng đặt chân tới mà vẫn nhớ tên ấy.',

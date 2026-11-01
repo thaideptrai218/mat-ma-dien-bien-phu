@@ -1,5 +1,21 @@
 /* Full local font files keep Vietnamese marks in the same family as each base letter. */
 @font-face {
+  font-family: 'Malinton';
+  src: url('../../assets/fonts/malinton-regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Malinton';
+  src: url('../../assets/fonts/malinton-semibold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'DBP Hand';
   src: url('../../assets/fonts/patrick-hand-regular.ttf') format('truetype');
   font-style: normal;
