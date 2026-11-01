@@ -20,7 +20,9 @@ export function handleAction(session, action, payload = {}) {
       return;
     case 'interact': return s.interact(s.position.nearbyId);
     case 'map': return s.show('map', {position: s.position, state: s.state, goal: goalFor(s.state, s.fragments)});
-    case 'notebook': return s.show('notebook', {inventory: `Đang giữ ${s.fragments.length ? s.fragments.map(id => ['I', 'II', 'III', 'IV'][id - 1]).join(', ') : 'chưa có mảnh tranh nào'}. Bốn mảnh chỉ đến từ bốn phòng đã chơi.`});
+    case 'notebook': return s.show('notebook', {inventory: s.options.standalonePreview
+      ? 'Bản chơi riêng có sẵn bốn mảnh minh họa để thử câu đố. Tiến độ này không tính vào hành trình chính.'
+      : `Đang giữ ${s.fragments.length ? s.fragments.map(id => ['I', 'II', 'III', 'IV'][id - 1]).join(', ') : 'chưa có mảnh ghép nào'}. Bốn mảnh chỉ đến từ bốn phòng đã chơi.`});
     case 'quests-toggle': s.ui.toggleQuests(); return;
     case 'settings': if (s.ui.isOpen) s.close(); else s.show('settings', {audio: s.audio.getSnapshot()}); return;
     case 'reset-confirmed': if (inView('settings')) s.reset(); return;

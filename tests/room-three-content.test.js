@@ -11,7 +11,7 @@ import {NAVA_CONTEXT_DOCUMENT} from '../src/room-one/nava-context.js';
 const documentIds = ['preparation-record','supply-journal','command-telegrams','opening-letter','north-report'];
 const body = id => DOCUMENTS.find(document => document.id === id).paragraphs.join(' ');
 
-test('five full papers keep prose, source, fiction and Quang deductions separate', () => {
+test('five full papers keep prose, source, fiction and Long deductions separate', () => {
   assert.deepEqual(DOCUMENTS.map(document => document.id), documentIds);
   for (const document of DOCUMENTS) {
     const text = document.paragraphs.join(' ');
@@ -23,7 +23,7 @@ test('five full papers keep prose, source, fiction and Quang deductions separate
     assert.match(document.fictionDisclosure, /hư cấu/u);
     assert.match(document.source, /người dùng bổ sung/u);
     assert.equal(document.reflection.length, 2);
-    assert.ok(document.reflection.every(line => line.startsWith('Quang: ') && line.length < 130));
+    assert.ok(document.reflection.every(line => line.startsWith('Long: ') && line.length < 130));
     assert.doesNotMatch(text, /trò chơi|người đọc|PDF|theo tài liệu|mảnh tranh|mật mã|thẻ chữ/u);
     if (document.kind === 'letter') assert.ok(document.salutation && document.recipient && document.closing && document.signature);
   }

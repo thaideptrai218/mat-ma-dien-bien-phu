@@ -15,7 +15,7 @@ const snapshotGateRects = snapshot => (Array.isArray(snapshot.lockedGateRects) ?
 export function createRoomMap(snapshot = {}, compact = false, world = WORLD) {
   const { position = {}, goal = {}, state = {} } = snapshot;
   const wrapper = element('div', compact ? 'r1-map r1-map-compact' : 'r1-map');
-  const svg = shape('svg', { viewBox: `0 0 ${world.width} ${world.height}`, role: 'img', 'aria-label': 'Sơ đồ căn phòng: vị trí Quang, vật dụng và mục tiêu hiện tại' });
+  const svg = shape('svg', { viewBox: `0 0 ${world.width} ${world.height}`, role: 'img', 'aria-label': 'Sơ đồ căn phòng: vị trí Long, vật dụng và mục tiêu hiện tại' });
   svg.append(shape('rect', { x: 0, y: 0, width: world.width, height: world.height, fill: '#d9ccaa' }));
   svg.append(shape('rect', { x: 35, y: 35, width: world.width - 70, height: world.height - 70, fill: '#ece1c6', stroke: '#9e8967', 'stroke-width': 12 }));
   for (const wall of world.walls || []) {
@@ -41,11 +41,11 @@ export function createRoomMap(snapshot = {}, compact = false, world = WORLD) {
   }
   if (Number.isFinite(position.x) && Number.isFinite(position.y)) {
     svg.append(shape('circle', { cx: position.x, cy: position.y, r: compact ? 45 : 34, fill: '#224e73', stroke: '#fff8e6', 'stroke-width': 12 }));
-    if (!compact) svg.append(shape('text', { x: position.x, y: position.y - 65, 'text-anchor': 'middle', fill: '#224e73', 'font-size': 35, 'font-family': 'DBP Text, serif', 'font-weight': 700 }, 'Quang'));
+    if (!compact) svg.append(shape('text', { x: position.x, y: position.y - 65, 'text-anchor': 'middle', fill: '#224e73', 'font-size': 35, 'font-family': 'DBP Text, serif', 'font-weight': 700 }, 'Long'));
   }
   wrapper.append(svg);
   if (!compact) {
-    const legend = element('p', 'r1-map-legend', '● Quang   ◉ Mục tiêu   ● Đã xem   ● Vật dụng');
+    const legend = element('p', 'r1-map-legend', '● Long   ◉ Mục tiêu   ● Đã xem   ● Vật dụng');
     wrapper.append(legend, element('p', 'r1-muted', 'Sơ đồ kể chuyện của căn phòng. Dùng WASD hoặc phím mũi tên để đi đến vật dụng.'));
   }
   return wrapper;

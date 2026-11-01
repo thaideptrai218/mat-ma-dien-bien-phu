@@ -39,17 +39,17 @@ export function reduce(state, action, payload = {}, fragments = []) {
 
 export function goalFor(state, fragments = []) {
   const steps = [
-    {title: 'Ghép bốn mảnh tranh', done: state.assemblySolved},
+    {title: 'Ghép bốn phần của bức ảnh', done: state.assemblySolved},
     {title: 'Lắng nghe câu hỏi cuối', done: state.reflectionSeen},
     {title: 'Bước qua cánh cửa', done: state.exitReached},
   ];
   const step = !state.assemblySolved ? 0 : !state.reflectionSeen ? 1 : 2;
   const goals = [
-    {id: 'assembly', label: 'Đến bàn phục dựng bức tranh', detail: hasAllFragments(fragments)
-      ? 'Chọn hai mảnh để đổi chỗ. Hoàn thiện bức tranh từ bốn phần tư.'
+    {id: 'assembly', label: 'Đến bàn ghép ảnh chiến thắng', detail: hasAllFragments(fragments)
+      ? 'Chọn hai mảnh để đổi chỗ. Ghép liền bốn phần của bức ảnh.'
       : 'Cần đủ mảnh I, II, III, IV kiếm được trong hành trình. Phòng này không cấp mảnh còn thiếu.'},
     {id: 'reflection', label: 'Đến nơi ánh sáng cạnh cửa', detail: 'Bức tranh đã nguyên vẹn, nhưng cửa vẫn đóng. Còn một cuộc trò chuyện cần lắng nghe.'},
     {id: 'door', label: state.exitReached ? 'Đã bước qua cửa trở về' : 'Đi tới cửa phía bắc', detail: 'Đến gần cánh cửa rồi nhấn E để trở lại bảo tàng.'},
   ];
-  return {...goals[step], step, steps, count: `Mảnh tranh: ${[1, 2, 3, 4].filter(id => fragments.includes(id)).length}/4`};
+  return {...goals[step], step, steps, count: `Mảnh ghép: ${[1, 2, 3, 4].filter(id => fragments.includes(id)).length}/4`};
 }

@@ -1,5 +1,6 @@
 import {DOCUMENTS} from './documents.js';
 import {ENDING,CAMPAIGN_ENDING,GUIDE,LINES} from './content.js';
+import {withHeroReaction} from '../heroes/hero-copy.js';
 import {CHALLENGES} from './puzzle-data.js';
 import {recoveredTokens} from './rules.js';
 import {goalFor} from './goals.js';
@@ -44,11 +45,11 @@ export function handleAction(s,action,p={}){
     case'document-finish':{
       if(!inView('document')||active.readOnly||p.id!==active.document.id)return;
       if(!s.commit('read',p)&&!s.state.readNoteIds.includes(p.id))return;
-      const d=DOCUMENTS.find(doc=>doc.id===p.id);if(d)return s.dialogue(`Quang · ${d.title}`,d.reflection,'Ghi dữ kiện vào sổ tay','document-collect',{id:p.id});return;
+      const d=DOCUMENTS.find(doc=>doc.id===p.id);if(d)return s.dialogue(`Long · ${d.title}`,d.reflection,'Ghi dữ kiện vào sổ tay','document-collect',{id:p.id});return;
     }
     case'document-collect':if(confirmed('document-collect')&&p.id===active.payload.id&&s.commit('collect',p)){s.audio.playCue('paper');s.notice='Đã ghi dữ kiện. Sổ tay N giữ toàn văn và các mật mã đã khôi phục.';s.close();}return;
     case'document-reread':if(inView('notebook')&&s.state.collectedNoteIds.includes(p.id))s.show('document',{document:DOCUMENTS.find(d=>d.id===p.id),readOnly:true});return;
     case'final-submit':if(!inView('final'))return;if(!s.commit('final',p))return s.error('Chưa đúng.');s.audio.playCue('success');return s.dialogue('13/03/1954',[...LINES.final,...GUIDE.final]);
-    case'fragment-collect':if(confirmed('fragment-collect')&&p.id==='chest'&&active.payload.id==='chest'&&s.commit('fragment')){s.audio.playCue('reveal');s.dialogue('Mảnh tranh số III',s.options?.onExit?CAMPAIGN_ENDING:ENDING);}return;
+    case'fragment-collect':if(confirmed('fragment-collect')&&p.id==='chest'&&active.payload.id==='chest'&&s.commit('fragment')){s.audio.playCue('reveal');s.dialogue('Mảnh tranh số III',s.options?.onExit?withHeroReaction(CAMPAIGN_ENDING,3):ENDING);}return;
   }
 }

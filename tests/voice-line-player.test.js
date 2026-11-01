@@ -5,6 +5,7 @@ import { VoicePreferences, VOICE_PREFERENCES_KEY } from '../src/audio/voice-pref
 import { createDialogueVoice } from '../src/audio/dialogue-voice.js';
 import { AudioController } from '../src/audio/audio-controller.js';
 import { voiceIdFor, framingLine } from '../src/audio/voice-id.js';
+import { heroVoiceKey, heroText } from '../src/heroes/hero-profiles.js';
 
 // Controlled Web Audio / fetch adapters: they verify sequencing, routing and cleanup, not audible output.
 class FakeParam { constructor() { this.value = 0; } setValueAtTime(v) { this.value = v; } cancelScheduledValues() {} exponentialRampToValueAtTime() {} }
@@ -43,7 +44,8 @@ class FakeContext extends EventTarget {
 }
 
 const line = (speaker, text) => ({ speaker, text });
-const idOf = (voice, text) => voiceIdFor(voice, text);
+// Ids as the active hero's route resolves them (voice role → that route's voice key, hero-localized text).
+const idOf = (voice, text) => voiceIdFor(heroVoiceKey(voice), heroText(text));
 
 // Manifest for every id in `entries`; `files` maps id → body text (absent → 404).
 function fakeFetch(entries, files, { manifestOk = true } = {}) {
@@ -73,7 +75,7 @@ function setup({ lines, autoEnd = true, audible = true, audioEnabled = true, pre
 }
 
 test('plays a sequence in order, reports the line being read and cleans up', async () => {
-  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), 'Mình cần xem kỹ.', line('Quang', 'Đi thôi.')];
+  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), 'Mình cần xem kỹ.', line('Long', 'Đi thôi.')];
   const { player, context, controller } = setup({ lines });
   const seen = [];
   const result = await player.playSequence(lines, { onLine: index => seen.push(index) });
@@ -305,7 +307,7 @@ test('createDialogueVoice is null without a player; enable() runs the room audio
 
 test('framing paragraphs map to the speaker named by their prefix', () => {
   assert.deepEqual(framingLine('Hệ Thống: Chào.'), { speaker: 'Hệ Thống', text: 'Chào.' });
-  assert.deepEqual(framingLine('Quang: Khoan đã.'), { speaker: 'Quang', text: 'Khoan đã.' });
+  assert.deepEqual(framingLine('Long: Khoan đã.'), { speaker: 'Long', text: 'Khoan đã.' });
   assert.deepEqual(framingLine('Một đoạn kể.'), { speaker: 'Lời kể', text: 'Một đoạn kể.' });
 });
 
@@ -322,7 +324,7 @@ test('Room 2 narrative hook voices the shown line (or whole scene) without touch
   assert.deepEqual(played, [], 'playback waits a microtask for the session to enter dialogue mode');
   await Promise.resolve();
   const expected = beat.lines[1];
-  assert.deepEqual(played, [[{ speaker: expected.speakerId === 'system' ? 'Hệ Thống' : 'Quang', text: expected.text }]]);
+  assert.deepEqual(played, [[{ speaker: expected.speakerId === 'system' ? 'Hệ Thống' : 'Long', text: expected.text }]]);
 
   narrative.active.lineIndex = 0; narrative.renderLine(); narrative.active.lineIndex = 2; // moved on before the microtask ran
   await Promise.resolve();
@@ -366,7 +368,7 @@ test('campaign store setAudio switches sound on for every room save and persists
 });
 
 test('Hệ Thống lines are announced by the system chime and ducking follows the voice', async () => {
-  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), line('Quang', 'Đi thôi.')];
+  const lines = [line('Hệ Thống', 'Chào Ký Chủ.'), line('Long', 'Đi thôi.')];
   const { player, controller } = setup({ lines });
   const events = [];
   controller.cues = { play: name => { events.push(name); return true; } };
@@ -420,7 +422,7 @@ test('Room 5 reflection script resolves to recorded manifest lines and is handed
   assert.equal(REFLECTION_SCRIPT.length, 6);
   for (const scriptLine of REFLECTION_SCRIPT) {
     const entry = known.get(lineVoiceId(scriptLine));
-    if (scriptLine.speaker === 'Quang') { assert.equal(entry, undefined, 'Quang is text-only: no recording is listed'); continue; }
+
     assert.ok(entry, `no manifest entry for: ${scriptLine.text.slice(0, 40)}`);
     assert.equal(entry.text, scriptLine.text.normalize('NFC'));
   }

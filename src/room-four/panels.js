@@ -4,7 +4,7 @@ import { puzzlePanel } from './puzzles.js';
 
 function completed(data) {
   const body = element('section', 'r1-completed r4-completed');
-  body.append(heading(data.title || 'Mảnh ký ức thứ tư', 'HOÀN THÀNH PHÒNG 4 · TRÂM'));
+  body.append(heading(data.title || 'Mảnh ký ức thứ tư', 'HOÀN THÀNH PHÒNG 4'));
   const badge = element('div', 'r1-fragment-badge');
   badge.append(element('span', '', 'IV'), element('p', '', 'MẢNH TRANH THỨ TƯ'));
   body.append(badge);
@@ -12,9 +12,7 @@ function completed(data) {
   body.append(element('p', 'r4-completion-note', 'Bạn đã tìm được riêng mảnh IV của phòng 4. Chơi hành trình năm phòng ở trang chính để mang đủ bốn mảnh tới phòng ghép tranh.'));
   const link = element('a', 'r1-button r1-primary', 'Chơi hành trình năm phòng');
   link.href = './index.html';
-  const bao = element('a', 'r1-button', 'Mở bản của Bảo ↗');
-  bao.href = './room-two.html'; bao.target = '_blank'; bao.rel = 'noopener noreferrer';
-  body.append(link, bao, element('p', 'r1-muted', 'Các bản chơi riêng và hành trình giữ tiến độ riêng, không tự chuyển mảnh tranh.'));
+  body.append(link, element('p', 'r1-muted', 'Các bản chơi riêng và hành trình giữ tiến độ riêng, không tự chuyển mảnh tranh.'));
   return { node: body };
 }
 

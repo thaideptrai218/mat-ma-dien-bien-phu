@@ -13,7 +13,7 @@ function dialogue(data, emit) {
 
 function notebook(data, emit) {
   const body = element('section');
-  body.append(heading('Sổ tay của Quang'), element('p', 'r1-lead', 'Những hồ sơ đã đọc và xác nhận. Mở lại để đối chiếu toàn văn.'));
+  body.append(heading('Sổ tay của Long'), element('p', 'r1-lead', 'Những hồ sơ đã đọc và xác nhận. Mở lại để đối chiếu toàn văn.'));
   const list = element('div', 'r1-notebook-list');
   for (const doc of data.documents || []) {
     const row = button('', () => emit('document-reread', { id: doc.id }), 'r1-notebook-row');
@@ -33,7 +33,7 @@ function completed(data) {
   body.append(badge);
   for (const line of data.lines || []) body.append(element('p', 'r1-lead', line));
   body.append(element('p', 'r1-muted', 'Bạn đã hoàn thành bản chơi riêng của phòng 1. Hành trình năm phòng có phần mở đầu, tiến độ chung và phòng ghép tranh ở trang chính.'));
-  const link = element('a', 'r1-button r1-primary', 'Mở bản của Bảo — Phòng 2 ↗');
+  const link = element('a', 'r1-button r1-primary', 'Mở bản chơi riêng — Phòng 2 ↗');
   link.href = './room-two.html';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';

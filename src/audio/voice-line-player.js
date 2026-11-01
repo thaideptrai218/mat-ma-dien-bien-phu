@@ -3,7 +3,7 @@
 // Anything missing or failing is skipped silently: the game stays fully playable as text.
 // The manifest lists every script line, but mastering only adds durationMs once a recording exists, so entries
 // without it are treated as not recorded yet (no request, no 404 noise in the console).
-import {voiceIdFor, voiceOf} from './voice-id.js';
+import {voiceOf, heroLineId} from './voice-id.js';
 import {voicePreferences} from './voice-preferences.js';
 import {MASTER_MAKEUP} from './cue-library.js';
 
@@ -11,13 +11,13 @@ const MANIFEST_PATH = 'audio/voice/manifest.json';
 const FILE_PATTERN = /^audio\/voice\/[0-9a-f]{16}\.mp3$/; // same-origin recordings only
 const VOICE_MAKEUP = MASTER_MAKEUP; // master gain tops out at 0.45; recordings are mastered to -16 LUFS
 const MANIFEST_RETRY_MS = 5000;
+// Voices play 1 % slower than recorded (user request 2026-11-01).
+export const VOICE_RATE = 0.99;
 const CHIME_WAIT_MS = 400;
 const noop = () => {};
 
-export function lineVoiceId(line) {
-  const voice = voiceOf(line), text = typeof line === 'string' ? line : line?.text;
-  return voice && typeof text === 'string' ? voiceIdFor(voice, text) : null;
-}
+// The recording depends on the chosen hero (name in the text, voice per route), so ids resolve per route.
+export const lineVoiceId = heroLineId;
 
 class BufferCache {
   constructor(max) { this.max = max; this.items = new Map(); }
@@ -35,7 +35,7 @@ class BufferCache {
 export class VoiceLinePlayer {
   // controller needs: context, master, preferences.audioEnabled, voiceAudible() (see AudioController).
   constructor(controller, {fetchImpl = globalThis.fetch?.bind(globalThis), baseUrl = './', preferences = voicePreferences,
-    cacheSize = 16, gapMs = 220, chimeGapMs = 300} = {}) {
+    cacheSize = 16, gapMs = 750, chimeGapMs = 300} = {}) {
     this.controller = controller; this.fetchImpl = fetchImpl; this.baseUrl = baseUrl; this.prefs = preferences; this.gapMs = gapMs; this.chimeGapMs = chimeGapMs;
     this.cache = new BufferCache(cacheSize); this.pending = new Map(); this.failed = new Set();
     this.manifest = new Map(); this.manifestPromise = null; this.retryAfter = 0; this.gain = null; this.session = null; this.current = null;
@@ -109,7 +109,7 @@ export class VoiceLinePlayer {
     return new Promise(resolve => {
       const source = this.controller.context.createBufferSource();
       const current = {source, done: resolve};
-      source.buffer = buffer; source.connect(this.output());
+      source.buffer = buffer; if (source.playbackRate) source.playbackRate.value = VOICE_RATE; source.connect(this.output());
       source.onended = () => { if (this.current === current) this.finishCurrent(); else resolve(); };
       this.current = current; onStart(); source.start();
     });

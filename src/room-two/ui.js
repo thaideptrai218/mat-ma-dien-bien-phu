@@ -10,6 +10,7 @@ import {puzzles} from './content.js';
 import {revealOddHighlight} from './tactile-radio-station.js';
 
 import {NEUTRAL_WRONG} from '../ui/neutral-notice.js';
+import {renameHero, installHeroName} from './hero-name.js';
 
 export class RoomTwoUI extends RoomOneUI {
   constructor({root, onAction, getState, onIntent, audio}) {
@@ -24,7 +25,7 @@ export class RoomTwoUI extends RoomOneUI {
     root.append(this.announcement);
     const dialog = {show: data => {
       if (this.destroyed) return;
-      super.show('bao-content', data);
+      super.show('bao-content', {...data, kicker: renameHero(data.kicker)}); // donor kicker "LỜI QUANG" → LONG
       this.dialog.classList.add('r2-modal');
       if (data.variant) this.dialog.classList.add(data.variant);
     }, close: () => this.close()};
@@ -40,6 +41,7 @@ export class RoomTwoUI extends RoomOneUI {
     installTactileStations(this.puzzle); // drag/dial controls over the donor forms (donor files untouched)
     this.door = new DoorPuzzleView({dialog, onAttempt: (doorId, answer) => onIntent({type: 'solve-door', doorId, answer})});
     this.narrative = new NarrativeView({dialog, getState, onIntent});
+    installHeroName(this.narrative); // donor view still says "QUANG"; shown as Long (donor files untouched)
     this.openNotebook = () => { if (!this.destroyed) this.emit('notebook'); };
     document.addEventListener('game-open-notebook', this.openNotebook);
   }

@@ -5,7 +5,7 @@ import { doorPanel } from './door-panel.js';
 
 function notebook(data, emit) {
   const body = element('section', 'r3-notebook');
-  body.append(heading('Sổ tay tuyến tiếp vận', 'PHÒNG 3 · HỒ SƠ CỦA QUANG'), element('p', 'r1-lead', 'Những dữ kiện và giấy tờ đã đọc, xác nhận. Mở lại toàn văn bất cứ lúc nào để đối chiếu.'), element('h3', '', 'Mật mã đã khôi phục'), tokenCards(data.tokens || []), element('h3', '', 'Giấy tờ đã ghi nhận'));
+  body.append(heading('Sổ tay tuyến tiếp vận', 'PHÒNG 3 · HỒ SƠ CỦA LONG'), element('p', 'r1-lead', 'Những dữ kiện và giấy tờ đã đọc, xác nhận. Mở lại toàn văn bất cứ lúc nào để đối chiếu.'), element('h3', '', 'Mật mã đã khôi phục'), tokenCards(data.tokens || []), element('h3', '', 'Giấy tờ đã ghi nhận'));
   const list = element('div', 'r1-notebook-list');
   for (const doc of data.documents || []) {
     const row = button('', () => emit('document-reread', { id: doc.id }), 'r1-notebook-row');

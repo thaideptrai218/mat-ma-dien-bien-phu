@@ -17,7 +17,7 @@
 - Shared settings là authoritative khi mount/merge. Không để default audio phòng mới ghi đè preference đã chọn. Runtime unlock tách preference.
 - Preview keys room-one/two/three/four:v 1 với tiền tố `mat-ma-dien-bien-phu:` giữ riêng; không auto-migrate/import donor/preview vào campaign. Reset room giữ trước/cắt downstream; global new game xác nhận, chỉ reset campaign envelope.
 - Không lưu tọa độ, cursor, draft hoặc suy nghĩ cá nhân Room 5; suy nghĩ không vào payload/validator/network. Optional, để trống được, không chấm.
-- Storage hỏng/bị chặn có thông báo, vẫn chơi trong phiên. Hồ sơ cần đọc cuối và current Quang confirmation; readonly reread không cấp tiến độ.
+- Storage hỏng/bị chặn có thông báo, vẫn chơi trong phiên. Hồ sơ cần đọc cuối và current Long confirmation; readonly reread không cấp tiến độ.
 - Room 3 giữ graph giấy/thử thách xen kẽ; ba việc chuẩn bị cùng nhóm, NHANH/CHẮC hoán đổi tương đương. Room 4 giữ bảy giấy→ô chữ→cột→T/L→rương→pickup→cửa.
 
 ## Bảo toàn nội dung và tương tác
@@ -27,7 +27,7 @@
 - Canvas shortcuts theo focus; native forms giữ nhập liệu; modal/blur/hidden/disposal xóa phím giữ. Font/art/audio cục bộ, font đợi trước Canvas.
 - Văn bản dùng textContent/native DOM, không ghép HTML từ input/save. Source/fiction nằm ngoài thân giấy. Full journal giữ toàn văn đã kiếm được, gồm clue beats Bảo, không rút thành tóm tắt.
 - Chỉ PDF bản 4/bản chữ/brief đã cung cấp, không nghiên cứu lịch sử web. Không đoán ngày đổi phương châm hoặc gán ngày Trung Du/Hòa Bình chưa có. Giữ 252.000/445.000 theo nguồn, trên 2.000 đợt đầu,16.200 toàn chiến dịch và miền Bắc sau Genève.
-- Sáu SVG hậu cần và tranh victory-painting là sáng tác có nhãn/alt text, không ảnh tư liệu hoặc bản sao tranh bảo tàng. Không tải PDF cá nhân lên website/Git.
+- Sáu SVG hậu cần là minh họa sáng tác có nhãn/alt text; ảnh chiến thắng do người dùng cung cấp. Không tải PDF cá nhân lên website/Git.
 
 ## Kiểm chứng và bàn giao
 

@@ -19,12 +19,12 @@ export function sanitizeSave(raw, fragments) {
   return state;
 }
 
-export function loadSave(storage, fragments = []) {
-  try { return {state: sanitizeSave(JSON.parse(storage.getItem(SAVE_KEY)), fragments), notice: ''}; }
+export function loadSave(storage, fragments = [], key = SAVE_KEY) {
+  try { return {state: sanitizeSave(JSON.parse(storage.getItem(key)), fragments), notice: ''}; }
   catch { return {state: createState(), notice: 'Không đọc được tiến độ phòng 5. Bạn vẫn có thể chơi trong phiên này.'}; }
 }
 
-export function persistSave(storage, state, fragments = []) {
-  try { storage.setItem(SAVE_KEY, JSON.stringify(sanitizeSave(state, fragments))); return ''; }
+export function persistSave(storage, state, fragments = [], key = SAVE_KEY) {
+  try { storage.setItem(key, JSON.stringify(sanitizeSave(state, fragments))); return ''; }
   catch { return 'Không lưu được tiến độ phòng 5. Bạn vẫn có thể chơi trong phiên này.'; }
 }

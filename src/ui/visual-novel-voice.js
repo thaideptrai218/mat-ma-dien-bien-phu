@@ -1,7 +1,7 @@
 import {button} from '../room-one/ui-elements.js';
 
 // Voice side of the visual-novel dialogue. Only the step on screen is spoken: advancing plays that line,
-// "Đọc toàn cảnh" plays the remaining lines in order. Quang is text-only, so his lines are skipped silently.
+// "Đọc toàn cảnh" plays the remaining lines in order. Lines without an audio file are skipped silently.
 // `view` supplies range() -> {from, to} (lines to read), emit and highlight(lineIndex | -1).
 export function attachLineVoice(voice, lines, view) {
   const replay = button('Nghe lại', async () => {

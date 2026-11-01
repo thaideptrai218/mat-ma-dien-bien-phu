@@ -1,8 +1,8 @@
-// Quang and these conversations are authored fiction for the learning game.
-// Hệ Thống calls Quang "Ký Chủ"; Quang calls it "Hệ Thống" and says "tao" to it, "mình" when thinking alone.
+// Long and these conversations are authored fiction for the learning game.
+// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it, "mình" when thinking alone.
 export const INTRO = [
   { speaker: 'Hệ Thống', text: 'Phòng 1 — Trước bản kế hoạch. Không gian này tái hiện chặng đường từ bước chuyển năm 1950 đến tình thế năm 1953. Lá thư mở đầu được viết vào đầu năm 1953.' },
-  { speaker: 'Quang', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tao đọc nó trước được chứ?' },
+  { speaker: 'Long', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tôi đọc nó trước được chứ?' },
   { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ đầu tiên: đọc trọn lá thư trên bàn gần cửa vào. Ký Chủ hãy để ý những ký hiệu nằm ngoài lời thư.' },
   { speaker: 'Hệ Thống', text: 'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn E để xem. N mở sổ tay, M mở bản đồ, Q xem nhiệm vụ.' },
   { speaker: 'Hệ Thống', text: 'Thư, ghi chép và nhân vật là hư cấu dựa trên tài liệu được cung cấp. Thông tin nguồn nằm bên ngoài lời văn. Ký Chủ đọc hết giấy rồi cùng suy nghĩ để ghi nhận hồ sơ.' },
@@ -11,25 +11,25 @@ export const INTRO = [
 // Step-by-step guidance appended to the success dialogue of each Room 1 step.
 export const GUIDE = {
   letter: [
-    { speaker: 'Hệ Thống', text: 'Ký Chủ hãy ghi nhớ ký hiệu A-03. Nhiệm vụ tiếp theo: tìm ô A-03 trên bản đồ treo ở bức tường phía bắc.' },
-    { speaker: 'Quang', text: 'Hàng A, cột 03. Tao đi xem ngay.' },
+    { speaker: 'Hệ Thống', text: 'Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.' },
+    { speaker: 'Long', text: 'Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.' },
   ],
   a03: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },
-    { speaker: 'Quang', text: 'Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tao lo.' },
+    { speaker: 'Long', text: 'Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tôi lo.' },
   ],
   dossiers: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã được ghi nhận. Nhiệm vụ tiếp theo: mang dữ kiện đến bàn đối chiếu ở giữa phòng, so từng mặt của hai phía.' },
-    { speaker: 'Quang', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tao không?' },
+    { speaker: 'Long', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tôi không?' },
     { speaker: 'Hệ Thống', text: 'Hệ Thống không trả lời thay Ký Chủ. Sổ tay N vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.' },
   ],
   comparison: [
     { speaker: 'Hệ Thống', text: 'Mã 2413 đã được ghi nhận. Ngăn kéo mật mã đang chờ Ký Chủ.' },
-    { speaker: 'Quang', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tao không cần gợi ý.' },
+    { speaker: 'Long', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tôi không cần gợi ý.' },
   ],
   identity: [
     { speaker: 'Hệ Thống', text: 'Danh tính đã được xác nhận. Ký Chủ hãy đọc bản tin tháng 7/1953 trước khi tới rương sắt.' },
-    { speaker: 'Quang', text: 'Rõ. Đọc xong, tao sẽ mang cái tên ấy tới rương.' },
+    { speaker: 'Long', text: 'Rõ. Đọc xong, tôi sẽ mang cái tên ấy tới rương.' },
   ],
   chest: [
     { speaker: 'Hệ Thống', text: 'Rương sắt đang chờ. Nhập đúng họ ấy, mảnh ghép thứ nhất sẽ thuộc về Ký Chủ.' },
@@ -37,18 +37,18 @@ export const GUIDE = {
 };
 
 const ENDING_STORY = [
-  { speaker: 'Quang', text: 'Tên trong bản điện là Henri Navarre, thường gọi là Nava. Tháng 5/1953, Chính phủ Pháp cử ông làm tổng chỉ huy quân đội viễn chinh Pháp ở Đông Dương.' },
-  { speaker: 'Quang', text: 'Đến tháng 7/1953, Chính phủ Pháp thông qua kế hoạch mới, nhằm giành thắng lợi quân sự quyết định và kết thúc chiến tranh trong điều kiện có lợi cho Pháp.' },
-  { speaker: 'Quang', text: 'Trong lá thư đầu, anh Lâm vẫn còn chờ ngày về. Mình muốn biết kế hoạch mới này sẽ đưa cuộc chiến đến đâu.' },
+  { speaker: 'Long', text: 'Tên trong bản điện là Henri Navarre, thường gọi là Nava. Tháng 5/1953, Chính phủ Pháp cử ông làm tổng chỉ huy quân đội viễn chinh Pháp ở Đông Dương.' },
+  { speaker: 'Long', text: 'Đến tháng 7/1953, Chính phủ Pháp thông qua kế hoạch mới, nhằm giành thắng lợi quân sự quyết định và kết thúc chiến tranh trong điều kiện có lợi cho Pháp.' },
+  { speaker: 'Long', text: 'Trong lá thư đầu, anh Lâm vẫn còn chờ ngày về. Mình muốn biết kế hoạch mới này sẽ đưa cuộc chiến đến đâu.' },
   { speaker: 'Hệ Thống', text: 'Ký Chủ đã nhận mảnh tranh đầu tiên. Tới cửa phía bắc để hoàn thành Phòng 1.' },
 ];
 export const ENDING = [
   ...ENDING_STORY,
-  { speaker: 'Hệ Thống', text: 'Sau khi hoàn thành, Ký Chủ có thể mở bản thử Phòng 2 của Bảo bằng liên kết riêng. Tiến độ của hai bản được lưu riêng.' },
+  { speaker: 'Hệ Thống', text: 'Sau khi hoàn thành, Ký Chủ có thể mở bản chơi riêng của Phòng 2 bằng liên kết trên màn hình. Tiến độ của hai bản được lưu riêng.' },
 ];
 export const CAMPAIGN_ENDING = [
   ...ENDING_STORY,
-  { speaker: 'Quang', text: 'Một mảnh rồi. Còn ba mảnh nữa, Hệ Thống.' },
+  { speaker: 'Long', text: 'Một mảnh rồi. Còn ba mảnh nữa, Hệ Thống.' },
   { speaker: 'Hệ Thống', text: 'Phía sau cánh cửa là Phòng 2, nơi kế hoạch của Nava được bày lên bàn cờ Đông Dương.' },
 ];
 
@@ -59,7 +59,7 @@ export const REACTIONS = {
     locked: ['Mình chưa đọc hết lá thư.'],
   },
   'map-a03': {
-    first: ['Có ô A-03, đúng ký hiệu trên tờ thư.'],
+    first: ['Ô này khớp với dấu lưu trữ trên lá thư.'],
     repeat: ['Từ ô A-03, mình đã tìm được vị trí bốn hồ sơ.'],
     locked: ['Mình cần xem ký hiệu lưu trữ trên lá thư trước.'],
   },
@@ -85,7 +85,7 @@ export const REACTIONS = {
   },
   comparison: {
     first: ['Đủ chỗ cho bốn tờ giấy. Mình thử so từng mặt của hai phía.'],
-    repeat: ['Mã 2413 đã hiện ra. Khóa ngăn kéo cũng cần bốn chữ số.'],
+    repeat: ['Bốn hàng đối chiếu đã cho một dãy số. Ngăn kéo bên cạnh có khóa cùng dạng.'],
     locked: ['Mình còn hồ sơ chưa đọc và ghi nhận. Sổ tay sẽ cho biết thiếu tờ nào.'],
   },
   drawer: {
@@ -120,10 +120,10 @@ export const REACTIONS = {
   },
 };
 
-// Quang's thoughts in step dialogues (plain strings are Quang; objects name another speaker).
+// Long's thoughts in step dialogues (plain strings are Long; objects name another speaker).
 export const LINES = {
   letterArchive: [
-    'Nhãn lưu trữ ghi A-03. Trên bản đồ treo vách cũng có những ô như vậy.',
+    'Nhãn lưu trữ ghi A-03. Trên sơ đồ treo vách cũng có những ô được đánh dấu như vậy.',
   ],
   a03: [
     'Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.',

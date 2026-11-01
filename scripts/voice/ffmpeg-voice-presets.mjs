@@ -5,12 +5,14 @@ const TRIM_BOTH = `${TRIM},areverse,${TRIM},areverse`;
 const LOUDNESS = 'loudnorm=I=-16:TP=-1.5:LRA=7';
 const ROBOT = "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75";
 
+const STRONG_ROBOT = `[0:a]${TRIM_BOTH},asplit=2[dry][wet];[wet]${ROBOT}[robot];[dry][robot]amix=inputs=2:weights='0.4 0.6'[mix];` +
+  `[mix]flanger=delay=2:depth=2:speed=0.3,acrusher=bits=9:mode=log:aa=1:mix=0.3,highpass=f=180,lowpass=f=6000,` +
+  `aecho=0.8:0.6:7|14:0.35|0.25,${LOUDNESS}[out]`;
+const PLAIN = `[0:a]${TRIM_BOTH},highpass=f=70,${LOUDNESS}[out]`;
+
 export const VOICE_FILTERS = Object.freeze({
-  system: `[0:a]${TRIM_BOTH},asplit=2[dry][wet];[wet]${ROBOT}[robot];[dry][robot]amix=inputs=2:weights='0.4 0.6'[mix];` +
-    `[mix]flanger=delay=2:depth=2:speed=0.3,acrusher=bits=9:mode=log:aa=1:mix=0.3,highpass=f=180,lowpass=f=6000,` +
-    `aecho=0.8:0.6:7|14:0.35|0.25,${LOUDNESS}[out]`,
-  quang: `[0:a]${TRIM_BOTH},highpass=f=70,${LOUDNESS}[out]`,
-  narrator: `[0:a]${TRIM_BOTH},highpass=f=70,${LOUDNESS}[out]`,
+  system: STRONG_ROBOT,
+  quang: PLAIN, narrator: PLAIN, 'narrator-lecture': PLAIN,
 });
 
 export const TARGET_LUFS = -16;

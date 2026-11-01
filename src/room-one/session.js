@@ -65,10 +65,10 @@ export class RoomOneSession {
     const anchor = gateAnchors(this.state).find(a => a.id === id), p = this.scene.getPosition();
     if (!anchor || p.nearbyId !== id || Math.hypot(anchor.x - p.x, anchor.y - p.y) > anchor.radius) return;
     this.notice = '';
-    if (!doorAvailable(gateId, this.state)) { this.notice = 'Khóa này cần một manh mối Quang chưa có. Hãy đọc kỹ hồ sơ trước.'; this.render(); return; }
+    if (!doorAvailable(gateId, this.state)) { this.notice = 'Khóa này cần một manh mối Long chưa có. Hãy đọc kỹ hồ sơ trước.'; this.render(); return; }
     this.audio.playCue('paper'); this.show(`door-${gateId}`, {gate: gateId});
   }
-  // Quang bumped a barred gate: neutral notice (no voice, no answer), cleared after a few seconds.
+  // Long bumped a barred gate: neutral notice (no voice, no answer), cleared after a few seconds.
   gateBlocked(id) {
     const notice = gateById(AREA_GATES, id)?.notice;
     if (this.disposed || !notice) return;
@@ -94,7 +94,7 @@ export class RoomOneSession {
     const messages = lines.map(line => typeof line === 'string' ? line : `${line.speaker} — ${line.text}`);
     const token = ++this.nonce;
     const voice = createDialogueVoice(this.audio, lines);
-    this.show('dialogue', {title, speaker: 'Quang', lines: messages, script: lines, voice, buttonLabel, action, payload: {...payload, token}});
+    this.show('dialogue', {title, speaker: 'Long', lines: messages, script: lines, voice, buttonLabel, action, payload: {...payload, token}});
     this.active.token = token; startDialogueVoice(this, voice);
   }
   close() { if (this.disposed) return; this.audio.voice?.stop(); this.ui.close(); this.active = null; this.scene?.clearKeys(); this.scene?.focus(); this.render(); }

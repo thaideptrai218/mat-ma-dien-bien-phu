@@ -1,4 +1,4 @@
-import portraitUrl from '../../../../assets/images/quang-portrait.png';
+import portraitUrl from '../../../../assets/images/long-portrait.png';
 import emblemUrl from '../../../../assets/images/game-emblem.png';
 import { clues, chapters } from '../content/story-data.js';
 import { beats } from '../../system-guidance.js';

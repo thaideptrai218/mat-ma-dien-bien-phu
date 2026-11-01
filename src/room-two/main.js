@@ -3,9 +3,11 @@ import '../room-one/styles.css';
 import './styles.css';
 import {loadGameFonts} from '../ui/game-fonts.js';
 import {addRoomLink} from '../ui/room-links.js';
+import {syncHeroDomName} from '../heroes/hero-dom-name.js';
 import {RoomTwoSession} from './session.js';
 
 await loadGameFonts(document.fonts);
+syncHeroDomName(); // standalone previews follow the hero chosen in the campaign
 const session = new RoomTwoSession(document.getElementById('app'));
 addRoomLink('./index.html', 'Hành trình');
 addRoomLink('./room-one.html', 'Phòng 1');

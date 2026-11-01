@@ -1,16 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {PAINTING_URL, REFLECTION_SCRIPT, SYSTEM_QUESTION, QUANG_ANSWER, DOOR_MESSAGE, MUSEUM_RETURN, CLOSING_LINE, SOURCE_LABEL} from '../src/room-five/content.js';
+import {VICTORY_PHOTO_URL, REFLECTION_SCRIPT, SYSTEM_QUESTION, LONG_ANSWER, DOOR_MESSAGE, MUSEUM_RETURN, CLOSING_LINE, SOURCE_LABEL} from '../src/room-five/content.js';
 import {getArchiveEntries} from '../src/room-five/archive.js';
 import {shuffledPieces} from '../src/room-five/assembly-pieces.js';
 
-test('the shared original painting is a local full 2x2 image and is explicitly disclosed as illustration', async () => {
-  assert.ok(PAINTING_URL.endsWith('/assets/images/victory-painting.svg'));
-  const svg = await readFile(new URL(PAINTING_URL), 'utf8');
-  assert.match(svg, /viewBox="0 0 1200 800"/);
-  assert.match(svg, /không phải ảnh tư liệu/);
-  assert.doesNotMatch(svg, /https?:\/\/(?!www.w3.org)/);
+test('the supplied victory photograph is a local 3:2 image used for the four-piece assembly', async () => {
+  assert.ok(VICTORY_PHOTO_URL.endsWith('/assets/images/dien-bien-phu-victory-photo.png'));
+  const photo = await readFile(new URL(VICTORY_PHOTO_URL));
+  assert.deepEqual([...photo.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
+  assert.equal(photo.readUInt32BE(16), 1200);
+  assert.equal(photo.readUInt32BE(20), 800);
+  assert.match(SOURCE_LABEL, /Ảnh tư liệu do người dùng cung cấp/);
   for (const random of [() => 0, () => .999, () => .5]) {
     const order = shuffledPieces(random);
     assert.deepEqual([...order].sort(), [0, 1, 2, 3]); assert.notDeepEqual(order, [0, 1, 2, 3]);
@@ -19,8 +20,8 @@ test('the shared original painting is a local full 2x2 image and is explicitly d
 
 test('full supplied final conversation and museum ending remain selectable text without truncation', () => {
   assert.ok(REFLECTION_SCRIPT.some(line => line.text === SYSTEM_QUESTION));
-  assert.ok(REFLECTION_SCRIPT.some(line => line.text === QUANG_ANSWER));
-  assert.ok(QUANG_ANSWER.endsWith('đóng góp cho cộng đồng bằng chính khả năng của mình.'));
+  assert.ok(REFLECTION_SCRIPT.some(line => line.text === LONG_ANSWER));
+  assert.ok(LONG_ANSWER.endsWith('đóng góp cho cộng đồng bằng chính khả năng của mình.'));
   assert.ok(REFLECTION_SCRIPT.some(line => line.text.includes('Đằng sau chiến thắng ấy là sự hy sinh')));
   assert.ok(DOOR_MESSAGE.endsWith('hành động của thế hệ hôm nay.'));
   assert.equal(MUSEUM_RETURN.length, 3);
@@ -30,6 +31,6 @@ test('full supplied final conversation and museum ending remain selectable text 
   assert.deepEqual(getArchiveEntries({reflectionSeen: false}), []);
   const archive = getArchiveEntries({reflectionSeen: true, personalResponse: 'NEVER-ARCHIVE'});
   assert.equal(archive.length, 1); assert.equal(archive[0].kind, 'report');
-  assert.ok(archive[0].paragraphs.includes(`Quang — ${QUANG_ANSWER}`));
+  assert.ok(archive[0].paragraphs.includes(`Long — ${LONG_ANSWER}`));
   assert.equal(JSON.stringify(archive).includes('NEVER-ARCHIVE'), false);
 });

@@ -1,8 +1,8 @@
 import {beats as donorBeats} from './bao/content/story-data.js';
 
 // Campaign voice for Room 2. Donor registries stay byte-identical; this overlay only re-addresses
-// Hệ Thống's lines (it calls Quang "Ký Chủ"; Quang calls it "Hệ Thống" and says "tao" to it)
-// and adds Quang ↔ Hệ Thống guidance lines that point the player to the next station.
+// Hệ Thống's lines (it calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it)
+// and adds Long ↔ Hệ Thống guidance lines that point the player to the next station.
 const line = (speakerId, text) => ({speakerId, portraitId: speakerId, text, sourceIds: [], fictional: true});
 const system = text => line('system', text);
 const quang = text => line('quang', text);
@@ -18,7 +18,7 @@ const intro = rewrite('navarre-plan-intro', ([arrival, , resolve]) => [
   system('Phòng 2 gồm bốn bước nối tiếp: cân lại 84 tiểu đoàn, tách hai bức điện, mở nắm đấm thép và gấp bản đồ ở hòm sắt. Mỗi trạm chỉ mở khi Ký Chủ đã ghi đủ manh mối của nó.'),
   resolve,
   system('Bàn làm việc của Nava ở gian tây bắc. Nhấn Q bất cứ lúc nào để xem trạm kế tiếp.'),
-  quang('Rõ rồi, Hệ Thống. Tao đi đây.'),
+  quang('Rõ rồi, Hệ Thống. Tôi đi đây.'),
 ]);
 
 const outro = rewrite('navarre-plan-outro', ([decision, ...reflection]) => [
@@ -34,15 +34,15 @@ export const beats = {...donorBeats, [intro.id]: intro, [outro.id]: outro};
 export const PUZZLE_GUIDE = {
   'nava-balance': [
     {speaker: 'Hệ Thống', text: 'Cán cân đã khóa. Một cuộn băng điện báo vừa bật ra. Ký Chủ hãy đọc ghi chú trên điện đài ở lán Việt Bắc, gian đông bắc, rồi tách hai bức điện.'},
-    {speaker: 'Quang', text: 'Nava muốn dồn quân thành một nắm đấm. Để tao nghe xem bên kia đáp lại thế nào.'},
+    {speaker: 'Long', text: 'Nava muốn dồn quân thành một nắm đấm. Để tôi nghe xem bên kia đáp lại thế nào.'},
   ],
   'nava-radio': [
     {speaker: 'Hệ Thống', text: 'Hai giọng đã tách. Bốn thẻ mũi tên đã ở trong tay Ký Chủ. Trước khi tới sa bàn giữa hành lang, hãy ghi đủ bốn mẩu tin: nhật ký chiến sĩ, trang báo cũ, điện liên quân Việt – Lào và tờ lịch tháng 2/1954.'},
-    {speaker: 'Quang', text: 'Bốn mẩu tin, bốn ngón tay sắt. Tao sẽ xếp từ nơi tập trung quân thứ hai tới thứ năm.'},
+    {speaker: 'Long', text: 'Bốn mẩu tin, bốn ngón tay sắt. Tôi sẽ xếp từ nơi tập trung quân thứ hai tới thứ năm.'},
   ],
   'nava-fist': [
     {speaker: 'Hệ Thống', text: 'Nắm đấm thép đã xòe. Tấm bản đồ gấp đang ở trong tay Ký Chủ. Đọc Hồ sơ Điện Biên Phủ trên nắp hòm sắt, rồi gấp bản đồ tới nơi quyết chiến.'},
-    {speaker: 'Quang', text: 'Hòm sắt ở phía đông hành lang. Tao đi ngay.'},
+    {speaker: 'Long', text: 'Hòm sắt ở phía đông hành lang. Tôi đi ngay.'},
   ],
 };
 // Hệ Thống's side card while a station is open: a short reminder, then a gentle nudge (level 1, first wrong try)

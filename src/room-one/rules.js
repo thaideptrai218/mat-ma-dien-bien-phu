@@ -48,21 +48,21 @@ export function goalFor(s) {
 }
 function baseGoal(s) {
   const steps = [
-    { title: 'Đọc lá thư và tìm A-03', done: s.envelopeOpened },
+    { title: 'Đọc lá thư, lần theo dấu lưu trữ', done: s.envelopeOpened },
     { title: 'Đọc, suy luận và đối chiếu bốn hồ sơ', done: s.comparisonSolved },
     { title: 'Mở ngăn kéo và giải điện mật', done: s.identitySolved },
     { title: 'Mở rương, nhận mảnh ký ức', done: s.exitReached },
   ];
   let id = 'letter', label = 'Đọc lá thư gửi người nhà', detail = 'Một phong thư nằm trên bàn gần cửa vào.', step = 0;
-  if (s.letterSolved) { id = 'map-a03'; label = 'Tìm ô A-03 trên bản đồ'; detail = 'Bản đồ nằm trên bức tường phía bắc.'; }
+  if (s.letterSolved) { id = 'map-a03'; label = 'Đối chiếu dấu lưu trữ với sơ đồ'; detail = 'Tìm sơ đồ treo ở bức tường phía bắc và đối chiếu dấu ghi trên lá thư.'; }
   if (s.envelopeOpened) {
     step = 1; id = NOTE_IDS.find(note => !s.collectedNoteIds.includes(note)) || 'comparison';
     label = id === 'comparison' ? 'Đối chiếu lực lượng hai phía' : `Đọc hồ sơ ${id[0] === 'v' ? 'V' : 'P'}-0${id[1]}`;
-    detail = id === 'comparison' ? 'Đưa dữ kiện về bàn đối chiếu ở giữa phòng.' : 'Đọc đầy đủ trang giấy, cùng Quang suy luận rồi ghi dữ kiện.';
+    detail = id === 'comparison' ? 'Đưa dữ kiện về bàn đối chiếu ở giữa phòng.' : 'Đọc đầy đủ trang giấy, cùng Long suy luận rồi ghi dữ kiện.';
   }
-  if (s.comparisonSolved) { step = 2; id = 'drawer'; label = 'Mở ngăn kéo: 2413'; detail = 'Bốn hàng đối chiếu đã cho bốn chữ số 2 · 4 · 1 · 3.'; }
-  if (s.drawerOpened) { id = 'drawer'; label = 'Giải tên người trong điện mật'; detail = 'Dùng bảng A1Z26 nằm trong ngăn kéo.'; }
-  if (s.identitySolved) { step = 3; id = 'chest'; label = 'Mang tên Nava đến rương sắt'; detail = 'Nhập họ được Việt hóa trong lời suy luận: NAVA.'; }
+  if (s.comparisonSolved) { step = 2; id = 'drawer'; label = 'Mở ngăn kéo theo kết quả đối chiếu'; detail = 'Đọc lại bốn hàng vừa đối chiếu rồi nhập dãy số tìm được.'; }
+  if (s.drawerOpened) { id = 'drawer'; label = 'Giải danh tính trong điện mật'; detail = 'Dùng bảng quy đổi kèm theo và đối chiếu các hồ sơ đã đọc.'; }
+  if (s.identitySolved) { step = 3; id = 'chest'; label = 'Dùng cách gọi vừa suy luận để mở rương'; detail = 'Long đã xác định người trong điện mật. Thử cách gọi phù hợp trên khóa chữ.'; }
   if (s.chestOpened) { id = 'door'; label = 'Đến cửa phía bắc'; detail = 'Bạn đã có mảnh tranh đầu tiên.'; }
   if (s.exitReached) { label = 'Đã hoàn thành phòng 1'; detail = 'Bốn mảnh tranh thuộc toàn bộ hành trình; hiện bạn đã tìm được mảnh thứ nhất.'; }
   return { id, label, detail, step, steps, count: `${s.collectedNoteIds.length} / 4 hồ sơ` };

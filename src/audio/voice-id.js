@@ -2,7 +2,20 @@
 // Same voice + same NFC text → same id; any text edit yields a new id, so stale recordings are detectable.
 const OFFSET = 0xcbf29ce484222325n, PRIME = 0x100000001b3n, MASK = 0xffffffffffffffffn;
 
-export const VOICES = Object.freeze({'Hệ Thống': 'system', Quang: 'quang', 'Lời kể': 'narrator'});
+import {activeHero, heroText, heroVoiceKey} from '../heroes/hero-profiles.js';
+
+// Speaker label → voice ROLE. Roles map to a concrete voice key per hero (see hero-profiles.js).
+export const VOICES = Object.freeze({'Hệ Thống': 'system', Long: 'quang', 'Lời kể': 'narrator'});
+
+/** The recording a line needs in the given hero's route: role, route voice key, hero-localized text and clip id.
+ *  Single source for the game runtime and the manifest builder, so they can never disagree. */
+export function heroLineVoice(line, hero = activeHero()) {
+  const role = voiceOf(line), raw = typeof line === 'string' ? line : line?.text;
+  if (!role || typeof raw !== 'string') return null;
+  const voice = heroVoiceKey(role, hero), text = heroText(raw.normalize('NFC'), hero);
+  return {role, voice, text, id: voiceIdFor(voice, text)};
+}
+export const heroLineId = (line, hero = activeHero()) => heroLineVoice(line, hero)?.id ?? null;
 
 // 64-bit FNV-1a over UTF-8 bytes; synchronous so it runs the same in Node and the browser.
 export function voiceIdFor(voice, text) {
@@ -14,14 +27,14 @@ export function voiceIdFor(voice, text) {
   return hash.toString(16).padStart(16, '0');
 }
 
-// Dialogue lines are plain strings (Quang's thoughts) or {speaker, text}; returns null for unknown speakers.
+// Dialogue lines are plain strings (Long's thoughts) or {speaker, text}; returns null for unknown speakers.
 export function voiceOf(line) {
   if (typeof line === 'string') return 'quang';
   return VOICES[line?.speaker] ?? null;
 }
 
-// Campaign framing paragraphs name Hệ Thống/Quang with a "Name: " prefix; anything else is the narrator.
-const FRAMING_PREFIX = /^(Hệ Thống|Quang): /u;
+// Campaign framing paragraphs name Hệ Thống/Long with a "Name: " prefix; anything else is the narrator.
+const FRAMING_PREFIX = /^(Hệ Thống|Long): /u;
 export function framingLine(text) {
   const match = text.match(FRAMING_PREFIX);
   return match ? {speaker: match[1], text: text.slice(match[0].length)} : {speaker: 'Lời kể', text};

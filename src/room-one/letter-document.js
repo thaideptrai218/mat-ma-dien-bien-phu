@@ -22,7 +22,7 @@ export const LETTER_DOCUMENT = Object.freeze({
   "archiveLabel": "Ký hiệu lưu trữ",
   "archiveMark": "A-03",
   "reflection": [
-    "Quang: Từ Biên giới 1950 qua Trung Du, Hòa Bình, Tây Bắc, quân đội và hậu phương cùng trưởng thành.",
-    "Quang: Anh Lâm vẫn chưa biết ngày về. Gia đình chỉ có thể đợi tin qua từng lá thư."
+    "Long: Từ Biên giới 1950 qua Trung Du, Hòa Bình, Tây Bắc, quân đội và hậu phương cùng trưởng thành.",
+    "Long: Anh Lâm vẫn chưa biết ngày về. Gia đình chỉ có thể đợi tin qua từng lá thư."
   ]
 });

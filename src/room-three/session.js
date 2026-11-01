@@ -48,7 +48,7 @@ export class RoomThreeSession{
   dialogue(title,lines,buttonLabel='Trở lại bản đồ',action='close',payload={}){
     if(this.disposed)return;
     const token=++this.nonce;const voice=createDialogueVoice(this.audio,lines);
-    this.show('dialogue',{title,speaker:'Quang',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),script:lines,voice,buttonLabel,action,payload:{...payload,token}});this.active.token=token;startDialogueVoice(this,voice);
+    this.show('dialogue',{title,speaker:'Long',lines:lines.map(line=>typeof line==='string'?line:`${line.speaker} — ${line.text}`),script:lines,voice,buttonLabel,action,payload:{...payload,token}});this.active.token=token;startDialogueVoice(this,voice);
   }
   close(){if(this.disposed)return;this.audio.voice?.stop();this.ui.close();this.active=null;this.scene?.clearKeys();this.scene?.focus();this.render();}
   error(message){if(this.disposed)return;this.notice=message;this.audio.playCue('error');this.ui.noteMistake();this.render();}

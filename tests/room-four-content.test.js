@@ -24,7 +24,7 @@ test('seven full papers keep chronology, natural prose and provenance outside th
     assert.ok(['letter', 'journal', 'report'].includes(document.kind));
     assert.doesNotMatch(body, /trò chơi|PDF|theo tài liệu|người đọc|hồ sơ này|mật mã|ô chữ|mảnh tranh/u);
     assert.equal(document.reflection.length, 2);
-    assert.ok(document.reflection.every(line => line.startsWith('Quang: ') && line.length < 130));
+    assert.ok(document.reflection.every(line => line.startsWith('Long: ') && line.length < 130));
     assert.doesNotMatch(document.reflection.join(' '), /Mình ghi nhận|tư liệu này|người đọc/u);
     if (document.kind === 'letter') {
       assert.ok(document.recipient && document.salutation && document.closing && document.signature);
