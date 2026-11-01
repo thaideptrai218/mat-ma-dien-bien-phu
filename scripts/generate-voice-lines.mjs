@@ -1,4 +1,4 @@
-// npm run voice:generate -- [--voice=system|quang|narrator] [--room=r1] [--ids=a,b] [--limit=N] [--force]
+// npm run voice:generate -- [--voice=system|system-v2|quang|narrator|narrator-lecture] [--room=r1] [--ids=a,b] [--limit=N] [--force]
 // Sends each manifest line's ttsText to its TTS engine and caches the raw MP3 as .cache/voice-raw/<id>.mp3.
 // Existing files are skipped unless --force, so the run can be resumed after a failure.
 import fs from 'node:fs';
@@ -33,7 +33,7 @@ let done = 0, failed = 0;
 for (const line of todo) {
   try {
     // Sentences are rendered one by one and joined with real pauses (Hệ Thống keeps one take: robot FX hides the join).
-    const parts = line.voice === 'system' ? [line.ttsText] : splitSentences(line.ttsText);
+    const parts = line.voice.startsWith('system') ? [line.ttsText] : splitSentences(line.ttsText);
     const clips = [];
     for (const part of parts) clips.push(await synthesize(line.voice, part, line.id));
     const audio = joinWithPauses(clips);

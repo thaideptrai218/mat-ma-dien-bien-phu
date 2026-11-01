@@ -3,9 +3,11 @@ import '../room-one/styles.css';
 import '../room-one/letter-styles.css';
 import {loadGameFonts} from '../ui/game-fonts.js';
 import {addRoomLink} from '../ui/room-links.js';
+import {syncHeroDomName} from '../heroes/hero-dom-name.js';
 import {RoomFiveSession} from './session.js';
 
 await loadGameFonts(document.fonts);
+syncHeroDomName(); // standalone previews follow the hero chosen in the campaign
 const session = new RoomFiveSession(document.getElementById('app'), {
   standalonePreview: true,
   saveKey: 'mat-ma-dien-bien-phu:room-five-preview:v1',

@@ -2,7 +2,16 @@
 // Same voice + same NFC text → same id; any text edit yields a new id, so stale recordings are detectable.
 const OFFSET = 0xcbf29ce484222325n, PRIME = 0x100000001b3n, MASK = 0xffffffffffffffffn;
 
+import {activeHero, heroText, heroVoiceKey} from '../heroes/hero-profiles.js';
+
+// Speaker label → voice ROLE. Roles map to a concrete voice key per hero (see hero-profiles.js).
 export const VOICES = Object.freeze({'Hệ Thống': 'system', Long: 'quang', 'Lời kể': 'narrator'});
+
+/** Id of the recording for a line in the given hero's route: hero-localized text + that route's voice key. */
+export function heroLineId(line, hero = activeHero()) {
+  const role = voiceOf(line), text = typeof line === 'string' ? line : line?.text;
+  return role && typeof text === 'string' ? voiceIdFor(heroVoiceKey(role, hero), heroText(text, hero)) : null;
+}
 
 // 64-bit FNV-1a over UTF-8 bytes; synchronous so it runs the same in Node and the browser.
 export function voiceIdFor(voice, text) {

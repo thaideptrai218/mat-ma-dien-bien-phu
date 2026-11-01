@@ -3,7 +3,7 @@
 // Anything missing or failing is skipped silently: the game stays fully playable as text.
 // The manifest lists every script line, but mastering only adds durationMs once a recording exists, so entries
 // without it are treated as not recorded yet (no request, no 404 noise in the console).
-import {voiceIdFor, voiceOf} from './voice-id.js';
+import {voiceOf, heroLineId} from './voice-id.js';
 import {voicePreferences} from './voice-preferences.js';
 import {MASTER_MAKEUP} from './cue-library.js';
 
@@ -16,10 +16,8 @@ export const VOICE_RATE = 0.99;
 const CHIME_WAIT_MS = 400;
 const noop = () => {};
 
-export function lineVoiceId(line) {
-  const voice = voiceOf(line), text = typeof line === 'string' ? line : line?.text;
-  return voice && typeof text === 'string' ? voiceIdFor(voice, text) : null;
-}
+// The recording depends on the chosen hero (name in the text, voice per route), so ids resolve per route.
+export const lineVoiceId = heroLineId;
 
 class BufferCache {
   constructor(max) { this.max = max; this.items = new Map(); }

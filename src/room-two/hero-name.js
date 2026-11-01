@@ -1,6 +1,12 @@
-// The hero is now named Long. Bảo's donor narrative view (src/room-two/bao/**, byte-locked by hash) still
-// hard-codes the old name, so Room 2 renames it in what that view renders instead of editing the donor body.
-export const renameHero = text => typeof text === 'string' ? text.replace(/QUANG/g, 'LONG').replace(/Quang/g, 'Long') : text;
+import {activeHero} from '../heroes/hero-profiles.js';
+
+// Bảo's donor narrative view (src/room-two/bao/**, byte-locked by hash) hard-codes the original name "Quang",
+// so Room 2 renames it to the hero chosen for this run (Long or Quang) in what that view renders.
+export const renameHero = text => {
+  if (typeof text !== 'string') return text;
+  const {name, upper} = activeHero();
+  return text.replace(/QUANG/g, upper).replace(/Quang/g, name);
+};
 
 export function renameHeroIn(root) {
   if (!root) return;

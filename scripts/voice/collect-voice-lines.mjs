@@ -2,6 +2,7 @@
 // Plain strings are Long's thoughts; {speaker, text} objects and Room 2 beats name their speaker.
 // Document prose (letters, reports) is read on screen and is not voiced; only Long's reflections are.
 import {voiceIdFor, voiceOf, framingLine, VOICES} from '../../src/audio/voice-id.js';
+import {HERO_PROFILES, heroText, heroVoiceKey} from '../../src/heroes/hero-profiles.js';
 import {OPENING} from '../../src/campaign/framing.js';
 import * as r1 from '../../src/room-one/content.js';
 import {DOCUMENTS as R1_DOCUMENTS} from '../../src/room-one/documents.js';
@@ -52,19 +53,22 @@ function sources() {
   ];
 }
 
-// Returns unique lines (first occurrence wins) with every room/group that uses them.
+// Returns unique lines (first occurrence wins) with every room/group that uses them. Each hero route has its own
+// localized text and voice keys; a line shared by both routes (same text, same voice key) is recorded once.
 export function collectVoiceLines() {
   const lines = new Map();
-  for (const [room, root, value] of sources()) {
-    walk(value, root, (line, group) => {
-      const voice = voiceOf(line), text = (typeof line === 'string' ? line : line.text).normalize('NFC');
-      if (!voice) throw new Error(`Unknown speaker "${line.speaker}" in ${room}.${group}`);
-      const id = voiceIdFor(voice, text);
-      const entry = lines.get(id) || {id, voice, speaker: Object.keys(VOICES).find(name => VOICES[name] === voice), text, rooms: [], groups: []};
-      if (!entry.rooms.includes(room)) entry.rooms.push(room);
-      if (!entry.groups.includes(`${room}.${group}`)) entry.groups.push(`${room}.${group}`);
-      lines.set(id, entry);
-    });
+  for (const hero of Object.values(HERO_PROFILES)) {
+    for (const [room, root, value] of sources()) {
+      walk(value, root, (line, group) => {
+        const role = voiceOf(line), raw = (typeof line === 'string' ? line : line.text).normalize('NFC');
+        if (!role) throw new Error(`Unknown speaker "${line.speaker}" in ${room}.${group}`);
+        const voice = heroVoiceKey(role, hero), text = heroText(raw, hero), id = voiceIdFor(voice, text);
+        const entry = lines.get(id) || {id, voice, speaker: Object.keys(VOICES).find(name => VOICES[name] === role), text, rooms: [], groups: []};
+        if (!entry.rooms.includes(room)) entry.rooms.push(room);
+        if (!entry.groups.includes(`${room}.${group}`)) entry.groups.push(`${room}.${group}`);
+        lines.set(id, entry);
+      });
+    }
   }
   return [...lines.values()];
 }

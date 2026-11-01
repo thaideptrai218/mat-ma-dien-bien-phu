@@ -24,7 +24,7 @@ test('the committed manifest matches the current dialogue (run npm run voice:scr
   assert.deepEqual(manifest.lines.map(pick), buildManifestLines().map(pick));
   assert.equal(new Set(manifest.lines.map(line => line.id)).size, manifest.lines.length);
   assert.ok(manifest.lines.length > 70);
-  for (const voice of ['system', 'quang', 'narrator']) assert.ok(manifest.lines.some(line => line.voice === voice), voice);
+  for (const voice of ['system', 'system-v2', 'quang', 'narrator', 'narrator-lecture']) assert.ok(manifest.lines.some(line => line.voice === voice), voice);
 });
 
 test('every TTS payload is spelled out: no digits, slashes, dashes or all-caps runs left', () => {

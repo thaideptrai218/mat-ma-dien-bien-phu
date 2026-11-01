@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CHARACTER_TEXTURE, CHARACTER_FRAME, CHARACTER_DIRECTIONS, characterAnimationKey,
+import {characterTexture, CHARACTER_FRAME, CHARACTER_DIRECTIONS, characterAnimationKey,
   characterClips, characterAtlasLayout, characterIdleFrame} from '../src/game/character-atlas.js';
 import {PLAYER_BODY} from '../src/core/world-geometry.js';
 
@@ -13,7 +13,7 @@ test('four directional idle, 7-step walk and fast alternating run clips use the 
   assert.equal(clips.length,12);
   for (let row=0;row<4;row++) {
     const [idle,walk,run] = clips.slice(row*3,row*3+3);
-    assert.equal(idle.key, `${CHARACTER_TEXTURE}-${CHARACTER_DIRECTIONS[row]}-idle`);
+    assert.equal(idle.key, `${characterTexture()}-${CHARACTER_DIRECTIONS[row]}-idle`);
     assert.deepEqual(idle.frames,[row*17+16]);
     assert.deepEqual(walk.frames,[0,1,2,3,4,5,6].map(column=>row*17+column));
     assert.deepEqual(run.frames,[8,9,10,11,12,13,14].map(column=>row*17+column));
@@ -30,7 +30,7 @@ test('four directional idle, 7-step walk and fast alternating run clips use the 
 
 test('reduced motion holds directional idle without changing movement or clip data', () => {
   for (const direction of CHARACTER_DIRECTIONS) for (const mode of ['idle','walk','run'])
-    assert.equal(characterAnimationKey(direction,mode,true),`${CHARACTER_TEXTURE}-${direction}-idle`);
+    assert.equal(characterAnimationKey(direction,mode,true),`${characterTexture()}-${direction}-idle`);
   assert.throws(()=>characterAnimationKey('north','walk'));
   assert.throws(()=>characterAnimationKey('down',true));
 });

@@ -4,6 +4,8 @@ import {CampaignUI} from './ui.js';
 import {SessionHost} from './session-host.js';
 import {currentRoom,fragmentsFor,phaseFor} from './state.js';
 import {introFrame,returnFrame} from './framing.js';
+import {heroSelectFrame} from '../heroes/hero-select-screen.js';
+import {syncHeroDomName} from '../heroes/hero-dom-name.js';
 import {SAVE_KEY as ONE} from '../room-one/save.js';
 import {SAVE_KEY as TWO} from '../room-two/save.js';
 import {SAVE_KEY as THREE} from '../room-three/save.js';
@@ -44,7 +46,7 @@ export class CampaignRuntime {
         session?.render();
       },
     });
-    this.render();this.openCurrent();
+    syncHeroDomName();this.render();this.openCurrent();
     this.onPageHide=()=>this.audio.setMode('inactive');window.addEventListener('pagehide',this.onPageHide);
   }
   render(){this.ui?.render(this.store.state,this.store.notice);}
@@ -52,7 +54,7 @@ export class CampaignRuntime {
     if(!this.audio.voiceReady())return;
     this.audio.setMode('dialogue');this.audio.voice.playSequence(lines);
   }
-  confirmRestart(){this.ui.confirmRestart(()=>{this.store.reset();this.openCurrent();});}
+  confirmRestart(){this.ui.confirmRestart(()=>{this.store.reset();syncHeroDomName();this.openCurrent();});}
   async openCurrent() {
     this.ui.close(false);this.audio.setMode('inactive');this.host.active?.scene?.clearKeys();
     try{
@@ -60,7 +62,8 @@ export class CampaignRuntime {
         this.ui.loading();
         const state=this.store.state,phase=phaseFor(state),room=currentRoom(state),voice=this.frameVoice;
         if(phase!=='room')return()=>{
-          const view=phase==='museum-intro'?introFrame(()=>{this.store.begin();this.openCurrent();},voice):
+          const view=phase==='hero-select'?heroSelectFrame(id=>{this.store.chooseHero(id);syncHeroDomName();this.openCurrent();}):
+            phase==='museum-intro'?introFrame(()=>{this.store.begin();this.openCurrent();},voice):
             returnFrame(phase==='complete',()=>{this.store.finish();this.openCurrent();},()=>this.confirmRestart(),voice);
           this.ui.stage.replaceChildren(view);this.render();return null;
         };
