@@ -33,7 +33,7 @@ function completed(data) {
   body.append(badge);
   for (const line of data.lines || []) body.append(element('p', 'r1-lead', line));
   body.append(element('p', 'r1-muted', 'Bạn đã hoàn thành bản chơi riêng của phòng 1. Hành trình năm phòng có phần mở đầu, tiến độ chung và phòng ghép tranh ở trang chính.'));
-  const link = element('a', 'r1-button r1-primary', 'Mở bản của Bảo — Phòng 2 ↗');
+  const link = element('a', 'r1-button r1-primary', 'Mở bản chơi riêng — Phòng 2 ↗');
   link.href = './room-two.html';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';

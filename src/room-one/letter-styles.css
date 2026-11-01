@@ -104,13 +104,13 @@
 .r1-artifact-sheet .r1-artifact-prose p { text-indent: 1.25em; }
 .r1-letter-signoff { margin: 29px 0 0 auto; max-width: 75%; text-align: right; }
 .r1-letter-signoff .r1-letter-closing { margin-bottom: 6px; }
-.r1-letter-signoff .r1-letter-signature { margin-bottom: 0; font-size: 29px; line-height: 1.35; }
+.r1-letter-signoff .r1-letter-signature { margin-bottom: 0; font: 400 clamp(31px, 3.6vw, 38px)/1.15 'DBP Hand', cursive; letter-spacing: .015em; transform: rotate(-2deg); transform-origin: right center; }
 .r1-artifact-sheet--journal { background-color: #efe4c9; }
 .r1-artifact-sheet--journal .r1-letter-date { text-align: left; border-bottom: 1px solid #b3a18180; padding-bottom: 14px; }
 .r1-artifact-sheet--report { background-color: #eee5d2; }
 .r1-artifact-sheet--report p { font: 400 16px/1.85 'DBP Text', sans-serif; }
 .r1-artifact-sheet--report .r1-report-title { font: 600 22px/1.4 'DBP Display', serif; text-align: center; margin: 0 0 28px; }
-.r1-artifact-sheet--report .r1-letter-signature { font: 600 17px/1.6 'DBP Text', sans-serif; }
+.r1-artifact-sheet--report .r1-letter-signature { font: 400 clamp(31px, 3.6vw, 38px)/1.15 'DBP Hand', cursive; letter-spacing: .015em; }
 .r1-letter-archive {
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@
   .r1-artifact-sheet { padding: 46px 55px 48px; }
   .r1-artifact-sheet p { font-size: 21px; line-height: 1.65; margin-bottom: 24px; }
   .r1-artifact-sheet--report p { font-size: 17px; line-height: 1.85; }
-  .r1-letter-signoff .r1-letter-signature { font-size: 33px; }
+  .r1-letter-signoff .r1-letter-signature { font-size: clamp(32px, 3.2vw, 38px); }
   .r1-letter-envelope { margin-right: 20px; min-height: 126px; padding-top: 49px; }
   .r1-document--artifact .r1-document-footer { display: flex; }
 }

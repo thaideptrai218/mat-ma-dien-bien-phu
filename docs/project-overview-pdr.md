@@ -6,27 +6,27 @@ Mật mã Điện Biên Phủ là game khám phá/visual novel lịch sử tiế
 
 | Giai đoạn | Nội dung và điều kiện hoàn tất |
 | --- | --- |
-| Bảo tàng | Long chạm tranh chiến thắng, vào không gian hư cấu hầm Đờ Cát 7/5/1954; hệ thống giải thích năm phòng/bốn mảnh. |
+| Bảo tàng | Long chạm mặt kính trước ảnh tư liệu chiến thắng, vào không gian hư cấu hầm Đờ Cát 7/5/1954; hệ thống giải thích năm phòng/bốn mảnh. |
 | Phòng 1 — Trước bản kế hoạch | Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc, quân đội/hậu phương, tình thế hai phía 1953. Thư→A-03→bốn hồ sơ→đối chiếu→điện danh tính→N-01 tháng 7→rương I→cửa. N-01 không thêm khóa/gating cũ. |
-| Phòng 2 — Bảo | Giữ exact world/bảy manh mối/bốn câu đố/renderers gốc: cân, băng tần, nắm đấm, gấp phong bì. Fold cuối hợp lệ cấp II, cửa đông sang 3; donor 4180 không bị sửa. |
+| Phòng 2 — Kế hoạch Nava | Giữ bản đồ/bảy manh mối/bốn câu đố/renderers của bản gốc: cân, băng tần, nắm đấm, gấp phong bì. Nếp gấp cuối hợp lệ cấp II, cửa đông sang 3. |
 | Phòng 3 — Hậu phương | Năm giấy/bốn hoạt động xen kẽ: chuẩn bị song song, sáu vai trò vận chuyển, phương châm/lý do,13/15/17 March/ý nghĩa. Đủ cả 4 token→13/03/1954→rương→pickup III→cửa. |
-| Phòng 4 — Trâm | Bảy giấy 30/3–7/5 và ý nghĩa 1954; ô chữ→cột→T/L→câu cuối→rương→pickup IV→cửa. Giữ 16.200 tiêu diệt/bắt sống và miền Bắc sau Genève. |
+| Phòng 4 — Những ngày quyết định | Bảy giấy 30/3–7/5 và ý nghĩa 1954; ô chữ→cột→T/L→câu cuối→rương→pickup IV→cửa. Giữ 16.200 tiêu diệt/bắt sống và miền Bắc sau Genève. |
 | Phòng 5 | Chỉ bốn mảnh thật/các cửa trước mới ghép đúng 2×2. Lắng nghe cuộc trò chuyện, ô cá nhân tùy chọn/không chấm/không lưu; continue rồi đến cửa thật. |
-| Bảo tàng trở về | Cùng bức tranh, lời kết, acknowledgment riêng mới ghi campaign complete. |
+| Bảo tàng trở về | Cùng ảnh tư liệu, lời kết, acknowledgment riêng mới ghi campaign complete. |
 
-Mảnh chỉ từ kết quả thật, không cấp lạiI–IV ở phòng cuối, không nhập thành tích preview. Tất cả chuyển phòng cùng origin, không iframe/cross-origin shortcut. Bốn preview 1–4 có đường dẫn riêng; Phòng 1 chuyển từ `/` sang room-one.html. Room 5 không có entry auto-grant.
+Mảnh chiến dịch chỉ từ kết quả thật; preview không ghi tiến độ vào chiến dịch. Entry độc lập 1–5 có đường dẫn riêng. Bản chơi riêng Phòng 5 có sẵn mảnh minh họa và khóa lưu riêng, không cấp thành tích chiến dịch.
 
 ## Trải nghiệm và dữ liệu
 
 - WASD/mũi tên, Shift 260/390, E gần-only, M mini/full map, N sổ trong phòng, Q HUD góc phải. Sổ hành trình trên header giữ toàn văn giấy đã kiếm qua các phòng, gồm clue beats Bảo; không biến thành tóm tắt.
-- Scene geometry/va chạm/camera theo đúng world: Phòng 1 2400×1600, Bảo exact donor, hậu phương 3200×2000, Trâm 2800×1800, phòng cuối 2000×1400. Bố cục học tập, không tọa độ lịch sử.
+- Scene geometry/va chạm/camera theo đúng world: Phòng 1 2400×1600, Phòng 2 theo bản đồ gốc, hậu phương 3200×2000, Phòng 4 2800×1800, phòng cuối 2000×1400. Bố cục học tập, không tọa độ lịch sử.
 - Giấy full prose, nguồn/fiction riêng, đọc cuối→Long→xác nhận; readonly reread không cấp tiến độ. Personal reflection không vào payload/save/network; blank vẫn tiếp tục, không có đáp án tư tưởng bắt buộc.
 - Global key `mat-ma-dien-bien-phu:campaign:v1`, rooms sanitize/chuỗi exit liên tục, mảnh/current room suy ra. Reset phòng giữ trước, restart global có xác nhận chỉ global key; preview và donor tách biệt.
 - Một parent runtime/session/Game tại một thời điểm, shared audio; async destroy thực trước mount phòng mới. Font/art/audio local, gesture mở tiếng, storage lỗi vẫn chơi được. Không tài khoản/backend/TTS/touch walking.
 
 ## Nguồn và phạm vi bảo toàn
 
-PDF bản 4, lich su.txt và [brief 31/10](../plans/261031-room-three-logistics/source-brief.md) là nguồn lịch sử; không độc lập nghiên cứu lại. Quân số 252.000/445.000 có nhãn nguồn; trên 2.000 chỉ đợt đầu,16.200 toàn chiến dịch; không đoán ngày đổi phương châm. Thư/nhân vật/ngày riêng là hư cấu; sáu SVG tiếp vận và victory-painting là minh họa sáng tác, không ảnh tư liệu/bản sao hiện vật. Không tải private PDF/transcript lên Git/website.
+PDF bản 4, lich su.txt và [brief 31/10](../plans/261031-room-three-logistics/source-brief.md) là nguồn lịch sử; không độc lập nghiên cứu lại. Quân số 252.000/445.000 có nhãn nguồn; trên 2.000 chỉ đợt đầu,16.200 toàn chiến dịch; không đoán ngày đổi phương châm. Thư/nhân vật/ngày riêng là hư cấu; sáu SVG tiếp vận là minh họa sáng tác. Ảnh tư liệu chiến thắng do người dùng cung cấp. Không tải private PDF/transcript lên Git/website.
 
 Bảo được sao từ current donor với font fixes, bảo toàn dữ liệu/renderer/art/CSS bằng deep comparison/body hash; original checkout/4180 không sửa. Cơ chế Room 2 Bảo được giữ theo yêu cầu, không thay bằng phiên bản puzzle khác trong PDF. [Provenance](../plans/261031-campaign-link/reports/room-two.md).
 

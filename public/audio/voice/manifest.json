@@ -17,7 +17,7 @@
       "durationMs": 7677
     },
     {
-      "id": "9d8a1f718cb8493c",
+      "id": "a1d605ce36466ffa",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -26,13 +26,12 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức tranh về chiến thắng sau 56 ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
-      "ttsText": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức tranh về chiến thắng sau năm mươi sáu ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
-      "file": "audio/voice/9d8a1f718cb8493c.mp3",
-      "durationMs": 13538
+      "text": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
+      "ttsText": "Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?",
+      "file": "audio/voice/a1d605ce36466ffa.mp3"
     },
     {
-      "id": "9a710d8fedfc4a8b",
+      "id": "bed56df5c72b0f44",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -41,10 +40,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Long đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
-      "ttsText": "Long đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
-      "file": "audio/voice/9a710d8fedfc4a8b.mp3",
-      "durationMs": 4372
+      "text": "Long đặt tay lên mặt kính trước bức ảnh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
+      "ttsText": "Long đặt tay lên mặt kính trước bức ảnh. Một quầng sáng bỗng tràn qua đầu ngón tay.",
+      "file": "audio/voice/bed56df5c72b0f44.mp3"
     },
     {
       "id": "81b8c219b48e1754",
@@ -107,7 +105,7 @@
       "durationMs": 8235
     },
     {
-      "id": "b7157ee474078a4f",
+      "id": "825e954d5ec0a820",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -116,10 +114,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức tranh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.",
-      "ttsText": "Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức tranh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.",
-      "file": "audio/voice/b7157ee474078a4f.mp3",
-      "durationMs": 19845
+      "text": "Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức ảnh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.",
+      "ttsText": "Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức ảnh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.",
+      "file": "audio/voice/825e954d5ec0a820.mp3"
     },
     {
       "id": "f1e74273b3337729",
@@ -257,7 +254,7 @@
       "durationMs": 12245
     },
     {
-      "id": "961f6ebb30f14299",
+      "id": "a17f7c235ff9ccf4",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -266,13 +263,12 @@
       "groups": [
         "r1.GUIDE.letter"
       ],
-      "text": "Ký Chủ hãy ghi nhớ ký hiệu A-03. Nhiệm vụ tiếp theo: tìm ô A-03 trên bản đồ treo ở bức tường phía bắc.",
-      "ttsText": "Ký Chủ hãy ghi nhớ ký hiệu a không ba. Nhiệm vụ tiếp theo: tìm ô a không ba trên bản đồ treo ở bức tường phía bắc.",
-      "file": "audio/voice/961f6ebb30f14299.mp3",
-      "durationMs": 8404
+      "text": "Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.",
+      "ttsText": "Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.",
+      "file": "audio/voice/a17f7c235ff9ccf4.mp3"
     },
     {
-      "id": "2ef3f680e40afad2",
+      "id": "f04f37edd10dd7ff",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -281,10 +277,9 @@
       "groups": [
         "r1.GUIDE.letter"
       ],
-      "text": "Hàng A, cột 03. Tao đi xem ngay.",
-      "ttsText": "Hàng a, cột không ba. Tao đi xem ngay.",
-      "file": "audio/voice/2ef3f680e40afad2.mp3",
-      "durationMs": 3284
+      "text": "Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.",
+      "ttsText": "Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.",
+      "file": "audio/voice/f04f37edd10dd7ff.mp3"
     },
     {
       "id": "60b9b8dbd53e4e10",
@@ -437,7 +432,7 @@
       "durationMs": 5597
     },
     {
-      "id": "d342d10949159f09",
+      "id": "48024483266b280c",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -446,10 +441,9 @@
       "groups": [
         "r1.LINES.letterArchive"
       ],
-      "text": "Nhãn lưu trữ ghi A-03. Trên bản đồ treo vách cũng có những ô như vậy.",
-      "ttsText": "Nhãn lưu trữ ghi a không ba. Trên bản đồ treo vách cũng có những ô như vậy.",
-      "file": "audio/voice/d342d10949159f09.mp3",
-      "durationMs": 4103
+      "text": "Nhãn lưu trữ ghi A-03. Trên sơ đồ treo vách cũng có những ô được đánh dấu như vậy.",
+      "ttsText": "Nhãn lưu trữ ghi a không ba. Trên sơ đồ treo vách cũng có những ô được đánh dấu như vậy.",
+      "file": "audio/voice/48024483266b280c.mp3"
     },
     {
       "id": "4d011ac754276783",
@@ -632,7 +626,7 @@
       "durationMs": 1259
     },
     {
-      "id": "4c520726b07ace5f",
+      "id": "0a79bf9f1dfef9f0",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -641,10 +635,9 @@
       "groups": [
         "r1.REACTIONS.map-a03.first"
       ],
-      "text": "Có ô A-03, đúng ký hiệu trên tờ thư.",
-      "ttsText": "Có ô a không ba, đúng ký hiệu trên tờ thư.",
-      "file": "audio/voice/4c520726b07ace5f.mp3",
-      "durationMs": 1906
+      "text": "Ô này khớp với dấu lưu trữ trên lá thư.",
+      "ttsText": "Ô này khớp với dấu lưu trữ trên lá thư.",
+      "file": "audio/voice/0a79bf9f1dfef9f0.mp3"
     },
     {
       "id": "2ff01f398bbf200d",
@@ -872,7 +865,7 @@
       "durationMs": 3998
     },
     {
-      "id": "31c035a78f5fc4e4",
+      "id": "6e6775cb2d2343ca",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -881,10 +874,9 @@
       "groups": [
         "r1.REACTIONS.comparison.repeat"
       ],
-      "text": "Mã 2413 đã hiện ra. Khóa ngăn kéo cũng cần bốn chữ số.",
-      "ttsText": "Mã hai bốn một ba đã hiện ra. Khóa ngăn kéo cũng cần bốn chữ số.",
-      "file": "audio/voice/31c035a78f5fc4e4.mp3",
-      "durationMs": 4112
+      "text": "Bốn hàng đối chiếu đã cho một dãy số. Ngăn kéo bên cạnh có khóa cùng dạng.",
+      "ttsText": "Bốn hàng đối chiếu đã cho một dãy số. Ngăn kéo bên cạnh có khóa cùng dạng.",
+      "file": "audio/voice/6e6775cb2d2343ca.mp3"
     },
     {
       "id": "543e4548169f7d2b",
@@ -1416,7 +1408,7 @@
       "durationMs": 5488
     },
     {
-      "id": "a9945ed435901b3e",
+      "id": "0071223210b36745",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1425,10 +1417,9 @@
       "groups": [
         "r1.ENDING"
       ],
-      "text": "Sau khi hoàn thành, Ký Chủ có thể mở bản thử Phòng 2 của Bảo bằng liên kết riêng. Tiến độ của hai bản được lưu riêng.",
-      "ttsText": "Sau khi hoàn thành, Ký Chủ có thể mở bản thử Phòng hai của Bảo bằng liên kết riêng. Tiến độ của hai bản được lưu riêng.",
-      "file": "audio/voice/a9945ed435901b3e.mp3",
-      "durationMs": 9061
+      "text": "Sau khi hoàn thành, Ký Chủ có thể mở bản chơi riêng của Phòng 2 bằng liên kết trên màn hình. Tiến độ của hai bản được lưu riêng.",
+      "ttsText": "Sau khi hoàn thành, Ký Chủ có thể mở bản chơi riêng của Phòng hai bằng liên kết trên màn hình. Tiến độ của hai bản được lưu riêng.",
+      "file": "audio/voice/0071223210b36745.mp3"
     },
     {
       "id": "8bc5392d833b784b",
@@ -3914,7 +3905,7 @@
       "durationMs": 10544
     },
     {
-      "id": "ccbf11e38591c13e",
+      "id": "95e04f3fca495dc3",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -3923,10 +3914,9 @@
       "groups": [
         "r3.ENDING"
       ],
-      "text": "Chiến dịch còn tiếp tục sau ngày 17/3. Phòng 4 của Trâm và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.",
-      "ttsText": "Chiến dịch còn tiếp tục sau ngày mười bảy tháng ba. Phòng bốn của Trâm và Phòng năm ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.",
-      "file": "audio/voice/ccbf11e38591c13e.mp3",
-      "durationMs": 14168
+      "text": "Chiến dịch còn tiếp tục sau ngày 17/3. Phòng 4 và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.",
+      "ttsText": "Chiến dịch còn tiếp tục sau ngày mười bảy tháng ba. Phòng bốn và Phòng năm ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.",
+      "file": "audio/voice/95e04f3fca495dc3.mp3"
     },
     {
       "id": "15a5516de5710104",
@@ -4337,7 +4327,7 @@
       "durationMs": 11617
     },
     {
-      "id": "4b3874a0f62a8b1c",
+      "id": "761e0e631c02e7b7",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -4346,10 +4336,9 @@
       "groups": [
         "r4.INTRO"
       ],
-      "text": "Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên phần của Trâm trong tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "ttsText": "Đây là bản chơi độc lập. Chỉ mảnh tranh bốn có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên phần của Trâm trong tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "file": "audio/voice/4b3874a0f62a8b1c.mp3",
-      "durationMs": 15683
+      "text": "Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
+      "ttsText": "Đây là bản chơi độc lập. Chỉ mảnh tranh bốn có trong phòng này. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
+      "file": "audio/voice/761e0e631c02e7b7.mp3"
     },
     {
       "id": "6ea8f0851dfb6ef6",
@@ -4368,7 +4357,7 @@
       "durationMs": 14605
     },
     {
-      "id": "0ea328fe6f210248",
+      "id": "8fcf312cbc0556f3",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -4377,10 +4366,9 @@
       "groups": [
         "r4.CAMPAIGN_INTRO"
       ],
-      "text": "Chặng này giữ mảnh tranh IV của hành trình. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên phần của Trâm trong tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "ttsText": "Chặng này giữ mảnh tranh bốn của hành trình. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên phần của Trâm trong tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
-      "file": "audio/voice/0ea328fe6f210248.mp3",
-      "durationMs": 14304
+      "text": "Chặng này giữ mảnh tranh IV của hành trình. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
+      "ttsText": "Chặng này giữ mảnh tranh bốn của hành trình. Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.",
+      "file": "audio/voice/8fcf312cbc0556f3.mp3"
     },
     {
       "id": "23b30204c37ccd34",
@@ -4413,7 +4401,7 @@
       "durationMs": 3825
     },
     {
-      "id": "64428ab896018ec0",
+      "id": "23df127c0dea9ce4",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -4422,13 +4410,12 @@
       "groups": [
         "r4.GUIDE.column"
       ],
-      "text": "Lời chỉ dẫn đã hiện. Bàn mật mã T ở bên trái, bàn mật mã L ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.",
-      "ttsText": "Lời chỉ dẫn đã hiện. Bàn mật mã tê ở bên trái, bàn mật mã e-lờ ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.",
-      "file": "audio/voice/64428ab896018ec0.mp3",
-      "durationMs": 9932
+      "text": "Lời chỉ dẫn vừa tìm được có thể giúp Ký Chủ đọc hai bảng chữ phía sau rương. Hãy đối chiếu câu ấy với cách các ô được xếp.",
+      "ttsText": "Lời chỉ dẫn vừa tìm được có thể giúp Ký Chủ đọc hai bảng chữ phía sau rương. Hãy đối chiếu câu ấy với cách các ô được xếp.",
+      "file": "audio/voice/23df127c0dea9ce4.mp3"
     },
     {
-      "id": "bc2d83d5f9cac467",
+      "id": "9207a58b401f8e27",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -4437,10 +4424,9 @@
       "groups": [
         "r4.GUIDE.column"
       ],
-      "text": "Hình T trước, hình L sau. Hệ Thống cứ xem tao làm.",
-      "ttsText": "Hình tê trước, hình e-lờ sau. Hệ Thống cứ xem tao làm.",
-      "file": "audio/voice/bc2d83d5f9cac467.mp3",
-      "durationMs": 3956
+      "text": "Vậy là mình biết phải tìm gì rồi. Hai bảng phía sau rương đang chờ.",
+      "ttsText": "Vậy là mình biết phải tìm gì rồi. Hai bảng phía sau rương đang chờ.",
+      "file": "audio/voice/9207a58b401f8e27.mp3"
     },
     {
       "id": "de4ccaedec49baaa",
@@ -4458,7 +4444,7 @@
       "durationMs": 6793
     },
     {
-      "id": "2138405f08ec9349",
+      "id": "56032358f40c671b",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -4467,25 +4453,9 @@
       "groups": [
         "r4.LINES.column"
       ],
-      "text": "T · I · M · T · V · A · L. Đọc thành “TÌM T VÀ L”.",
-      "ttsText": "tê, i, em-mờ, tê, vê, a, e-lờ. Đọc thành tìm tê và e-lờ.",
-      "file": "audio/voice/2138405f08ec9349.mp3",
-      "durationMs": 3947
-    },
-    {
-      "id": "e6a5e59c8d206a5f",
-      "voice": "quang",
-      "speaker": "Long",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.LINES.column"
-      ],
-      "text": "Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.",
-      "ttsText": "Phía sau rương có hai bảng chữ. Mình sẽ tìm hình tê trên bảng bên trái và hình e-lờ trên bảng bên phải.",
-      "file": "audio/voice/e6a5e59c8d206a5f.mp3",
-      "durationMs": 5338
+      "text": "TIMTVAL… “Tìm T và L.” Hai bảng chữ phía sau rương hẳn là nơi mình cần nhìn tiếp.",
+      "ttsText": "timtval… Tìm tê và e-lờ. Hai bảng chữ phía sau rương hẳn là nơi mình cần nhìn tiếp.",
+      "file": "audio/voice/56032358f40c671b.mp3"
     },
     {
       "id": "e3a8849b76b5daa1",
@@ -4923,19 +4893,19 @@
       "durationMs": 3540
     },
     {
-      "id": "b4e15a7ee26939db",
+      "id": "a642af640331f479",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
         "r4"
       ],
       "groups": [
-        "r4.REACTIONS.board-t.repeat"
+        "r4.REACTIONS.board-t.repeat",
+        "r4.REACTIONS.board-l.repeat"
       ],
-      "text": "Theo nét ngang rồi nét dọc của T, các chữ nối thành QUYẾT CHIẾN.",
-      "ttsText": "Theo nét ngang rồi nét dọc của tê, các chữ nối thành quyết chiến.",
-      "file": "audio/voice/b4e15a7ee26939db.mp3",
-      "durationMs": 3060
+      "text": "Mình đã ghi lại những chữ đọc được trên bảng này.",
+      "ttsText": "Mình đã ghi lại những chữ đọc được trên bảng này.",
+      "file": "audio/voice/a642af640331f479.mp3"
     },
     {
       "id": "b24710df5d1a5e69",
@@ -4966,21 +4936,6 @@
       "ttsText": "Bảng còn lại có cùng số ô. Mình thử tìm chữ e-lờ.",
       "file": "audio/voice/bfd952b4b07086a6.mp3",
       "durationMs": 3525
-    },
-    {
-      "id": "d5127cdc026f3da9",
-      "voice": "quang",
-      "speaker": "Long",
-      "rooms": [
-        "r4"
-      ],
-      "groups": [
-        "r4.REACTIONS.board-l.repeat"
-      ],
-      "text": "Đi xuống rồi sang phải theo chữ L: QUYẾT THẮNG.",
-      "ttsText": "Đi xuống rồi sang phải theo chữ e-lờ: quyết thắng.",
-      "file": "audio/voice/d5127cdc026f3da9.mp3",
-      "durationMs": 1937
     },
     {
       "id": "fc954617aee5dec8",
@@ -5842,7 +5797,7 @@
       "durationMs": 6339
     },
     {
-      "id": "51be6b84f4f79fe1",
+      "id": "3946f0353bfa4128",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -5851,10 +5806,9 @@
       "groups": [
         "r5.INTRO"
       ],
-      "text": "Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức tranh còn thiếu những mảnh ghép cuối cùng.",
-      "ttsText": "Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức tranh còn thiếu những mảnh ghép cuối cùng.",
-      "file": "audio/voice/51be6b84f4f79fe1.mp3",
-      "durationMs": 8469
+      "text": "Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức ảnh còn thiếu những mảnh ghép cuối cùng.",
+      "ttsText": "Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức ảnh còn thiếu những mảnh ghép cuối cùng.",
+      "file": "audio/voice/3946f0353bfa4128.mp3"
     },
     {
       "id": "c6f0f137d0ed8738",
@@ -5872,7 +5826,7 @@
       "durationMs": 1679
     },
     {
-      "id": "779828c3723e147f",
+      "id": "861ba391ee646b6c",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -5881,10 +5835,9 @@
       "groups": [
         "r5.INTRO"
       ],
-      "text": "Đã xác nhận bốn mảnh ghép. Nhiệm vụ cuối: ghép lại bức tranh trên bàn phục dựng. Chọn hai mảnh để đổi chỗ cho đến khi các đường nét liền nhau.",
-      "ttsText": "Đã xác nhận bốn mảnh ghép. Nhiệm vụ cuối: ghép lại bức tranh trên bàn phục dựng. Chọn hai mảnh để đổi chỗ cho đến khi các đường nét liền nhau.",
-      "file": "audio/voice/779828c3723e147f.mp3",
-      "durationMs": 10409
+      "text": "Đã xác nhận bốn mảnh ghép. Nhiệm vụ cuối: ghép lại bức ảnh trên bàn phục dựng. Chọn hai mảnh để đổi chỗ cho đến khi các đường nét liền nhau.",
+      "ttsText": "Đã xác nhận bốn mảnh ghép. Nhiệm vụ cuối: ghép lại bức ảnh trên bàn phục dựng. Chọn hai mảnh để đổi chỗ cho đến khi các đường nét liền nhau.",
+      "file": "audio/voice/861ba391ee646b6c.mp3"
     },
     {
       "id": "29789c350d896f66",
@@ -6007,7 +5960,7 @@
       "durationMs": 4356
     },
     {
-      "id": "8fe4255f91272da4",
+      "id": "e4fe988a786008ee",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -6016,13 +5969,12 @@
       "groups": [
         "r5.LINES.assemblyMissing"
       ],
-      "text": "Chưa có đủ bốn mảnh I, II, III, IV. Căn phòng không tạo thêm mảnh tranh; cần hoàn thành các chặng trước trong hành trình.",
-      "ttsText": "Chưa có đủ bốn mảnh một, ii, iii, iv. Căn phòng không tạo thêm mảnh tranh; cần hoàn thành các chặng trước trong hành trình.",
-      "file": "audio/voice/8fe4255f91272da4.mp3",
-      "durationMs": 6580
+      "text": "Chưa có đủ bốn mảnh I, II, III, IV. Căn phòng không tạo thêm mảnh ghép; cần hoàn thành các chặng trước trong hành trình.",
+      "ttsText": "Chưa có đủ bốn mảnh một, ii, iii, iv. Căn phòng không tạo thêm mảnh ghép; cần hoàn thành các chặng trước trong hành trình.",
+      "file": "audio/voice/e4fe988a786008ee.mp3"
     },
     {
-      "id": "d69c7d92f49307b6",
+      "id": "f9142891074130f7",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -6031,10 +5983,9 @@
       "groups": [
         "r5.LINES.reflectionLocked"
       ],
-      "text": "Nơi này vẫn yên lặng. Trước hết, mình cần hoàn thiện bức tranh ở bàn phục dựng.",
-      "ttsText": "Nơi này vẫn yên lặng. Trước hết, mình cần hoàn thiện bức tranh ở bàn phục dựng.",
-      "file": "audio/voice/d69c7d92f49307b6.mp3",
-      "durationMs": 4233
+      "text": "Nơi này vẫn yên lặng. Trước hết, mình cần hoàn thiện bức ảnh ở bàn phục dựng.",
+      "ttsText": "Nơi này vẫn yên lặng. Trước hết, mình cần hoàn thiện bức ảnh ở bàn phục dựng.",
+      "file": "audio/voice/f9142891074130f7.mp3"
     },
     {
       "id": "7f62cdfe03ca558e",
@@ -6067,7 +6018,7 @@
       "durationMs": 4377
     },
     {
-      "id": "1ab97e875f7f89d7",
+      "id": "9284e0a40e348bee",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -6076,10 +6027,9 @@
       "groups": [
         "r5.LINES.lookAssembly"
       ],
-      "text": "Bốn phần của cùng một bức tranh đang chờ được đặt đúng vị trí.",
-      "ttsText": "Bốn phần của cùng một bức tranh đang chờ được đặt đúng vị trí.",
-      "file": "audio/voice/1ab97e875f7f89d7.mp3",
-      "durationMs": 2734
+      "text": "Bốn phần của cùng một bức ảnh đang chờ được đặt đúng vị trí.",
+      "ttsText": "Bốn phần của cùng một bức ảnh đang chờ được đặt đúng vị trí.",
+      "file": "audio/voice/9284e0a40e348bee.mp3"
     },
     {
       "id": "e8823ef30fa048d3",
@@ -6112,7 +6062,7 @@
       "durationMs": 4113
     },
     {
-      "id": "916687bb1177163a",
+      "id": "d97be0a03fcd3fdf",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6121,10 +6071,9 @@
       "groups": [
         "r5.LINES.assembly"
       ],
-      "text": "Cậu cẩn thận lắp từng mảnh vào đúng vị trí, hoàn thiện bức tranh và chờ đợi cánh cửa mở ra.",
-      "ttsText": "Cậu cẩn thận lắp từng mảnh vào đúng vị trí, hoàn thiện bức tranh và chờ đợi cánh cửa mở ra.",
-      "file": "audio/voice/916687bb1177163a.mp3",
-      "durationMs": 4979
+      "text": "Cậu cẩn thận lắp từng mảnh vào đúng vị trí, hoàn thiện bức ảnh và chờ đợi cánh cửa mở ra.",
+      "ttsText": "Cậu cẩn thận lắp từng mảnh vào đúng vị trí, hoàn thiện bức ảnh và chờ đợi cánh cửa mở ra.",
+      "file": "audio/voice/d97be0a03fcd3fdf.mp3"
     },
     {
       "id": "ae49882ca8f6354b",
@@ -6247,7 +6196,7 @@
       "durationMs": 7259
     },
     {
-      "id": "bdd9015c17fe718c",
+      "id": "1363f8c651037a9b",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -6256,10 +6205,9 @@
       "groups": [
         "r5.SYSTEM_HINTS.assembly"
       ],
-      "text": "Ký Chủ, bốn mảnh cần khớp thành một bức tranh liền nét.",
-      "ttsText": "Ký Chủ, bốn mảnh cần khớp thành một bức tranh liền nét.",
-      "file": "audio/voice/bdd9015c17fe718c.mp3",
-      "durationMs": 4184
+      "text": "Ký Chủ, bốn mảnh cần khớp thành một bức ảnh liền nét.",
+      "ttsText": "Ký Chủ, bốn mảnh cần khớp thành một bức ảnh liền nét.",
+      "file": "audio/voice/1363f8c651037a9b.mp3"
     },
     {
       "id": "2b8ab72ec8248dbf",
@@ -6292,7 +6240,7 @@
       "durationMs": 5490
     },
     {
-      "id": "658b38702b08d671",
+      "id": "1ab8603d12271b51",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -6301,10 +6249,9 @@
       "groups": [
         "r5.SYSTEM_HINTS.door-reconstruction-hall"
       ],
-      "text": "Ký Chủ, mỗi mảnh tranh nhớ về một phòng đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
-      "ttsText": "Ký Chủ, mỗi mảnh tranh nhớ về một phòng đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
-      "file": "audio/voice/658b38702b08d671.mp3",
-      "durationMs": 6313
+      "text": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
+      "ttsText": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
+      "file": "audio/voice/1ab8603d12271b51.mp3"
     },
     {
       "id": "2e4fec097fd5497e",
@@ -6337,7 +6284,7 @@
       "durationMs": 7364
     },
     {
-      "id": "15b0b276bf527c14",
+      "id": "8b34193d4dfc586b",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6346,13 +6293,12 @@
       "groups": [
         "museum.MUSEUM_RETURN"
       ],
-      "text": "Một luồng sáng bao trùm lấy Long, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức tranh như thể chưa từng rời đi.",
-      "ttsText": "Một luồng sáng bao trùm lấy Long, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức tranh như thể chưa từng rời đi.",
-      "file": "audio/voice/15b0b276bf527c14.mp3",
-      "durationMs": 13473
+      "text": "Một luồng sáng bao trùm lấy Long, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức ảnh như thể chưa từng rời đi.",
+      "ttsText": "Một luồng sáng bao trùm lấy Long, cuốn theo những hình ảnh về chiến trường, căn hầm và hành trình giải mã bốn căn phòng. Khi tỉnh lại, cậu đã trở về Bảo tàng Chiến thắng Điện Biên Phủ, vẫn đứng trước bức ảnh như thể chưa từng rời đi.",
+      "file": "audio/voice/8b34193d4dfc586b.mp3"
     },
     {
-      "id": "0d42be72f3de2dbb",
+      "id": "20df26fe4d668a0a",
       "voice": "narrator",
       "speaker": "Lời kể",
       "rooms": [
@@ -6361,10 +6307,9 @@
       "groups": [
         "museum.MUSEUM_RETURN"
       ],
-      "text": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Long, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay bức tranh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Long không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
-      "ttsText": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Long, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay bức tranh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Long không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
-      "file": "audio/voice/0d42be72f3de2dbb.mp3",
-      "durationMs": 33247
+      "text": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Long, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay những bức ảnh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Long không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
+      "ttsText": "Mọi thứ xung quanh vẫn bình thường, nhưng trong tâm trí Long, chuyến hành trình vừa qua đã mở ra một góc nhìn hoàn toàn khác về lịch sử. Cậu hiểu rằng lịch sử không chỉ nằm lại trong những trang sách, hiện vật hay những bức ảnh được lưu giữ trong bảo tàng, mà còn hiện diện trong nền hòa bình hôm nay và trách nhiệm của mỗi người đối với tương lai đất nước. Rời bảo tàng, Long không còn nhìn những sự kiện lịch sử như những mốc thời gian cần ghi nhớ, mà xem đó là những câu chuyện về lòng dũng cảm, tinh thần đoàn kết và sự hy sinh, nhắc nhở mỗi thế hệ về giá trị của độc lập, tự do.",
+      "file": "audio/voice/20df26fe4d668a0a.mp3"
     },
     {
       "id": "96f8542a2269c2ff",

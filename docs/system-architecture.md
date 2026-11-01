@@ -1,6 +1,6 @@
 # Kiến trúc hệ thống
 
-Cập nhật 2026-10-31. `/` chạy chiến dịch bảo tàng → phòng 1–5 → bảo tàng trong cùng origin. Bốn entry `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html` là preview với save riêng. Phòng 5 không có entry tự cấp mảnh. Phaser vẽ thế giới; HTML/native dialog hiển thị giấy, câu đố và sổ chung.
+Cập nhật 2026-11-01. `/` chạy chiến dịch bảo tàng → phòng 1–5 → bảo tàng trong cùng origin. Entry `room-one.html` đến `room-five.html` là preview với save riêng. Phòng 5 độc lập dùng bốn mảnh minh họa trong vùng lưu riêng; campaign vẫn chỉ cấp mảnh từ kết quả thật. Phaser vẽ thế giới; HTML/native dialog hiển thị giấy, câu đố và sổ chung.
 
 ## Runtime và vòng đời
 
@@ -42,7 +42,7 @@ Reset phòng giữ các room trước và cắt current/downstream/ending phụ 
 
 Một AudioController/context xuyên campaign; parent giữ ownership/status callback, child đổi mode. Preview sở hữu audio riêng. Runtime unlock/resume vẫn cần gesture; preference đã lưu không cấp quyền phát. Cue Bảo được bổ sung tương thích; không TTS/dịch vụ ngoài.
 
-Be Vietnam Pro/Lora/Patrick Hand và ảnh đều cục bộ, đợi font trước Canvas. Sáu SVG hậu cần và victory-painting.svg là minh họa sáng tác. Cùng tranh dùng ở museum intro, bốn mảnh và return, không giả ảnh/bản sao hiện vật. Lịch sử chỉ PDF bản 4, bản chữ và brief cung cấp; nội dung cũ được giữ. Các nhãn 252.000/445.000, trên 2.000 đợt đầu và 16.200 toàn chiến dịch giữ đúng ngữ cảnh; không đoán ngày đổi phương châm.
+Be Vietnam Pro/Lora/Patrick Hand và ảnh đều cục bộ, đợi font trước Canvas. Sáu SVG hậu cần là minh họa sáng tác. Ảnh tư liệu do người dùng cung cấp dùng ở museum intro, bốn mảnh ghép và return. Lịch sử chỉ PDF bản 4, bản chữ và brief cung cấp; nội dung cũ được giữ. Các nhãn 252.000/445.000, trên 2.000 đợt đầu và 16.200 toàn chiến dịch giữ đúng ngữ cảnh; không đoán ngày đổi phương châm.
 
 ## Kiểm chứng hiện tại
 

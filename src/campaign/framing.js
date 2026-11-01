@@ -1,20 +1,20 @@
 import {element,button,heading} from '../room-one/ui-elements.js';
-import {PAINTING_URL,MUSEUM_RETURN,CLOSING_LINE} from '../room-five/content.js';
+import {VICTORY_PHOTO_URL,MUSEUM_RETURN,CLOSING_LINE} from '../room-five/content.js';
 import {framingLine} from '../audio/voice-id.js';
 
 function painting() {
   const figure=element('figure','campaign-painting');
-  const image=element('img'); image.src=PAINTING_URL;
-  image.alt='Tranh minh họa chiến thắng: lá cờ, những người lính và đoàn người tiếp vận giữa núi rừng.';
-  figure.append(image,element('figcaption','','Tranh minh họa sáng tác cho trò chơi · Không phải tranh hoặc ảnh tư liệu tại bảo tàng.'));
+  const image=element('img'); image.src=VICTORY_PHOTO_URL;
+  image.alt='Ảnh tư liệu Điện Biên Phủ: lá cờ đỏ sao vàng tung bay trên nóc hầm.';
+  figure.append(image,element('figcaption','','Ảnh tư liệu do người dùng cung cấp.'));
   return figure;
 }
 export const OPENING = [
-  {eyebrow:'BẢO TÀNG · HIỆN TẠI',title:'Trước một bức tranh',paragraphs:[
+  {eyebrow:'BẢO TÀNG · HIỆN TẠI',title:'Trước một bức ảnh',paragraphs:[
     'Long thích công nghệ, những trò giải đố và các câu chuyện bí ẩn. Nhưng với cậu, lịch sử thường chỉ còn là những mốc thời gian phải nhớ.',
-    'Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức tranh về chiến thắng sau 56 ngày đêm. Cậu nhìn những gương mặt trong tranh, rồi tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?',
-    'Long đưa tay chạm vào bức tranh. Một quầng sáng bỗng tràn qua đầu ngón tay.'
-  ],button:'Chạm vào bức tranh'},
+    'Trong chuyến tham quan Bảo tàng Chiến thắng Điện Biên Phủ, Long dừng lại trước bức ảnh ghi khoảnh khắc lá cờ tung bay trên nóc hầm. Cậu tự hỏi: nếu có thể đến tận nơi, mình sẽ hiểu những điều ấy như thế nào?',
+    'Long đặt tay lên mặt kính trước bức ảnh. Một quầng sáng bỗng tràn qua đầu ngón tay.'
+  ],button:'Chạm vào mặt kính'},
   {eyebrow:'KHÔNG GIAN HƯ CẤU · 7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
     'Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.',
     'Hệ Thống: Ký Chủ đã bước vào dòng chảy lịch sử. Đây là không gian tái hiện hầm chỉ huy của tướng Đờ Cát, ngày 7 tháng 5 năm 1954. Muốn trở về thời đại của mình, Ký Chủ phải giải mã những dấu mốc đã làm nên chiến thắng Điện Biên Phủ.',
@@ -22,7 +22,7 @@ export const OPENING = [
     'Hệ Thống: Hệ Thống là người dẫn đường của Ký Chủ trong hành trình này. Ký Chủ hãy bình tĩnh; mỗi chỉ dẫn sẽ được đưa ra đúng lúc.'
   ],button:'Lắng nghe lời chỉ dẫn'},
   {eyebrow:'NĂM CĂN PHÒNG · BỐN MẢNH TRANH',title:'Lần theo những dấu mốc',paragraphs:[
-    'Hệ Thống: Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức tranh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.',
+    'Hệ Thống: Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức ảnh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.',
     'Long: Bốn mảnh ghép, năm căn phòng. Được, tao chơi. Nhưng Hệ Thống phải nói rõ tao bắt đầu từ đâu.',
     'Hệ Thống: Phòng 1 cất giữ chặng đường xây dựng lực lượng từ năm 1950 đến giữa năm 1953. Khi cần, Ký Chủ nhấn Q để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.',
     'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn E. M mở bản đồ, N mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.',

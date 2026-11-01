@@ -45,14 +45,14 @@ export function goalFor(s) {
   const steps=[
     {title:'Đọc bảy tư liệu theo dòng thời gian',done:s.collectedNoteIds.length===7},
     {title:'Giải ô chữ, tìm cột dọc',done:s.columnSolved},
-    {title:'Tìm hình T/L và mở rương',done:s.chestOpened},
+    {title:'Lần theo chỉ dẫn, giải các bảng chữ',done:s.chestOpened},
     {title:'Nhận mảnh tranh IV, tới cửa',done:s.exitReached},
   ];
   const titles=['Theo dấu những đường hào','Đọc ghi chép đợt tiến công cuối','Đọc trang sổ sau đêm A1','Đọc thư tối 7/5','Đọc tổng kết chiến dịch','Đọc câu chuyện về miền Bắc','Đọc thư về độc lập dân tộc'];
   let id=nextDocumentId(s),step=0,label=titles[s.collectedNoteIds.length],detail='Đi tới dấu vàng trên bản đồ. Đọc trọn trang giấy rồi cùng Long suy nghĩ.';
   if (!id) {id='crossword';step=1;label='Điền bảy hàng ô chữ';detail='Bàn ô chữ ở phía bắc. Mỗi câu hỏi gắn với một giấy tờ đã đọc.';}
   if (s.crosswordSolved) {label='Tìm cột chữ có nghĩa';detail='Chọn một cột dọc, đọc từ trên xuống dưới.';}
-  if (s.columnSolved) {step=2;id=s.boardTSolved?'board-l':'board-t';label=s.boardTSolved?'Tìm hình L trên bảng bên phải':'Tìm hình T trên bảng bên trái';detail='Hai bàn mật mã nằm phía sau rương. Chọn các ô tạo thành hình cần tìm.';}
+  if (s.columnSolved) {step=2;id=s.boardTSolved?'board-l':'board-t';label=s.boardTSolved?'Giải bảng chữ còn lại':'Đọc bảng chữ theo chỉ dẫn';detail='Đối chiếu lời vừa giải với các nét trên những bảng chữ phía sau rương.';}
   if (s.boardTSolved && s.boardLSolved) {id='chest';label='Ghép khẩu hiệu, mở rương';detail='Mang hai phần lời đọc được đến khóa rương giữa phòng.';}
   if (s.chestOpened) {step=3;id='chest';label='Lấy mảnh tranh số IV';detail='Rương đã tự mở. Đến gần và nhấn E để nhận mảnh tranh.';}
   if (s.fragmentCollected) {id='door';label='Đi tới cửa phía bắc';detail='Bạn đã giữ mảnh tranh của phòng 4.';}

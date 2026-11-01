@@ -3,6 +3,7 @@ import { createPanel } from './ui-panels.js';
 import { createRoomMap } from './ui-map.js';
 import { WORLD } from './world.js';
 import { SystemHintCard } from '../ui/system-hint-card.js';
+import GAME_TITLE_LOGO from '../../assets/images/game-title-logo.png';
 
 export class RoomOneUI {
   // audio/hints: optional voice controller and the room's SYSTEM_HINTS ({puzzleId: {open, hints}}) for the Hệ Thống side card.
@@ -17,8 +18,9 @@ export class RoomOneUI {
     this.root.classList.add('r1-app');
     const header = element('header', 'r1-header');
     const brand = element('div', 'r1-brand');
-    brand.append(element('span', 'r1-brand-mark', 'M'), element('div', 'r1-brand-copy'));
-    brand.lastChild.append(element('h1', '', 'Mật mã Điện Biên Phủ'), element('p', '', subtitle));
+    const logo = element('img', 'r1-brand-logo'); logo.src = GAME_TITLE_LOGO; logo.alt = 'Mật mã Điện Biên Phủ';
+    brand.append(logo, element('div', 'r1-brand-copy'));
+    brand.lastChild.append(element('p', '', subtitle));
     const tools = element('nav', 'r1-header-tools');
     tools.setAttribute('aria-label', 'Công cụ');
     this.audioButton = button('Bật âm thanh', () => this.emit('audio-toggle'), 'r1-header-button');
