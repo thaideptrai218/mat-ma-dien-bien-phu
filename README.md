@@ -39,7 +39,7 @@ Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuy�
 
 Khi chơi mới, người chơi chọn **Long** (học sinh hay trốn tiết, dần nhận ra ý nghĩa của việc cố gắng học; có vài câu phản ứng sau Phòng 1, 3, 4 và đoạn kết suy ngẫm riêng) hoặc **Quang** (sinh viên ham học hỏi, mê công nghệ và giải đố; nhân vật ban đầu). Lựa chọn được lưu và khóa suốt lượt chơi; muốn đổi thì **Chơi mới**. Hồ sơ nhân vật nằm ở `src/heroes/` (tên, chân dung, sprite, avatar Hệ Thống, khóa giọng, nội dung riêng); nội dung dùng chung viết với tên “Long” rồi đổi tên theo nhân vật.
 
-- Nhân vật xưng “tôi” với Hệ Thống; Hệ Thống gọi nhân vật là “Ký Chủ”.
+- Long xưng “tôi”, gọi Hệ Thống là “bạn”; Quang xưng “mình”, gọi Hệ Thống là “cậu” với giọng lịch sự. Hệ Thống gọi cả hai là “Ký Chủ”.
 - Giọng: cả hai route dùng chung Hệ Thống (giọng CapCut ban đầu, biểu tượng ban đầu) và giọng nhân vật chính (mck). Kể chuyện: route Long = giọng nữ truyền cảm (1.05x), route Quang = giọng đọc bài giảng.
 
 ### Nhân vật Long theo ảnh mẫu
@@ -83,7 +83,7 @@ Phòng 2800×1800 có rương ở giữa, hai bàn mật mã phía sau và bảy
 | Bước | Việc cần làm |
 | --- | --- |
 | 1 | Đọc hết rồi xác nhận lần lượt bảy giấy tờ; sổ tay giữ toàn văn. |
-| 2 | Trả lời bảy câu hỏi lịch sử, điền ô chữ và chọn cột dọc tạo thành lời chỉ dẫn. |
+| 2 | Trả lời bảy câu hỏi lịch sử, đối chiếu từng mảnh ghi chú, điền ô chữ và chọn cột dọc tạo thành lời chỉ dẫn. Các câu trả lời tự lưu khi nhập. |
 | 3 | Theo chỉ dẫn vừa giải để đọc hai bảng chữ, ghép câu mở khóa. Rương tự mở và đổi hình ngay khi đúng. |
 | 4 | Đến gần rương, nhấn E và nhận riêng mảnh IV; đi tới cửa phía bắc mới hoàn thành phòng. |
 
@@ -95,7 +95,7 @@ Bản chiến dịch yêu cầu bốn mảnh thật và đã qua cửa bốn ph�
 
 ## Tiến độ và âm thanh
 
-Chiến dịch dùng **`mat-ma-dien-bien-phu:campaign:v1`**: state đã kiểm tra của từng phòng, tiến trình cửa liên tục và tùy chọn âm thanh chung. Mảnh tranh được tính từ kết quả thật của các phòng, không tin danh sách mảnh hoặc số phòng tùy ý trong save. Reload về điểm vào an toàn của phòng hiện tại. Sổ hành trình đọc lại toàn văn; không lưu tọa độ, draft hay lời suy ngẫm cá nhân.
+Chiến dịch dùng **`mat-ma-dien-bien-phu:campaign:v1`**: state đã kiểm tra của từng phòng, tiến trình cửa liên tục và tùy chọn âm thanh chung. Mảnh tranh được tính từ kết quả thật của các phòng, không tin danh sách mảnh hoặc số phòng tùy ý trong save. Reload về điểm vào an toàn của phòng hiện tại. Sổ hành trình đọc lại toàn văn. Phòng 4 tự lưu các câu trả lời đang nhập trong ô chữ; tọa độ, vị trí thước/cursor và lời suy ngẫm cá nhân không được lưu.
 
 Bốn preview Phòng 1–4 giữ khóa riêng `mat-ma-dien-bien-phu:room-one:v1` đến `:room-four:v1`. Bản chơi riêng Phòng 5 dùng `mat-ma-dien-bien-phu:room-five-preview:v1`; không bản nào tự nhập tiến độ vào chiến dịch. Reset phòng hiện tại giữ thành tích trước, loại tiến độ phụ thuộc phía sau; xác nhận hành trình mới chỉ xóa envelope chiến dịch. Dev/preview có vùng lưu riêng theo origin/cổng.
 

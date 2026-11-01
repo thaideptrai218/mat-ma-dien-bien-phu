@@ -4,9 +4,15 @@ import {DOOR_IDS,checkDoorAnswer,goalDoorFor} from './area-gates.js';
 export const DOCUMENT_ORDER = Object.freeze(['east-offensive','final-assault','a1','headquarters','results','north','independence']);
 export const OBJECT_IDS = Object.freeze([...DOCUMENT_ORDER,'crossword','board-t','board-l','chest','door','lamp','radio']);
 export const normalizeAnswer = value => String(value ?? '').replace(/[đĐ]/g,'D').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/gi,'').toUpperCase();
+const CROSSWORD_IDS = new Set(CROSSWORD_ROWS.map(row => row.id));
+export function sanitizeCrosswordDraft(raw) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  return Object.fromEntries(CROSSWORD_ROWS.flatMap(({id}) =>
+    typeof raw[id] === 'string' && raw[id].trim() ? [[id,raw[id].slice(0,80)]] : []));
+}
 export function createState() {
   return {version:1,introSeen:false,readNoteIds:[],collectedNoteIds:[],seenObjectIds:[],
-    crosswordSolved:false,columnSolved:false,boardTSolved:false,boardLSolved:false,
+    crosswordDraft:{},crosswordSolved:false,columnSolved:false,boardTSolved:false,boardLSolved:false,
     chestOpened:false,fragmentCollected:false,exitReached:false,doorsSolved:[],audioEnabled:false,audioVolume:.5};
 }
 export const nextDocumentId = state => DOCUMENT_ORDER[state.collectedNoteIds.length] || null;
@@ -27,6 +33,12 @@ export function reduce(s, action, p = {}) {
     case 'seen': return OBJECT_IDS.includes(p.id) && !s.seenObjectIds.includes(p.id) ? {...s,seenObjectIds:[...s.seenObjectIds,p.id]} : s;
     case 'read': return p.id === nextDocumentId(s) && !s.readNoteIds.includes(p.id) ? {...s,readNoteIds:[...s.readNoteIds,p.id]} : s;
     case 'collect': return p.id === nextDocumentId(s) && s.readNoteIds.includes(p.id) ? {...s,collectedNoteIds:[...s.collectedNoteIds,p.id]} : s;
+    case 'crossword-draft': {
+      if (s.collectedNoteIds.length !== 7 || s.crosswordSolved || !CROSSWORD_IDS.has(p.id) || typeof p.value !== 'string') return s;
+      const crosswordDraft = sanitizeCrosswordDraft({...s.crosswordDraft,[p.id]:p.value});
+      if (JSON.stringify(crosswordDraft) === JSON.stringify(s.crosswordDraft)) return s;
+      return {...s,crosswordDraft};
+    }
     case 'crossword': return s.collectedNoteIds.length === 7 && crosswordCorrect(p.answers) ? {...s,crosswordSolved:true} : s;
     case 'column': return s.crosswordSolved && Number(p.column) === 8 ? {...s,columnSolved:true} : s;
     case 'shape': {

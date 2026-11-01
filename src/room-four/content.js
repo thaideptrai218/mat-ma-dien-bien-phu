@@ -1,5 +1,5 @@
 // Long and the system dialogue are authored for this learning room.
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it.
+// The shared dialogue adapter applies "tôi – bạn" or "mình – cậu" to protagonist dialogue by route.
 const introLines = scopeNote => [
   { speaker: 'Hệ Thống', text: 'Phòng 4 — Những ngày quyết định. Từ 30/3 đến chiến thắng 7/5/1954, rồi nhìn lại kết quả và ý nghĩa.' },
   { speaker: 'Long', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tôi bắt đầu ở cuối tháng ba nhé?' },
@@ -118,7 +118,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues.
 export const LINES = {
   column: [
-    'Tìm T và L… Viết liền thành TIMTVAL nên suýt nữa mình đọc nhầm. Câu ở ô chữ vừa chỉ ra đúng hai chữ cần tìm.',
+    'Tôi đọc được câu: “Tìm T và L.”',
   ],
   final: [
     '“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.',
@@ -136,8 +136,8 @@ export const SYSTEM_HINTS = {
     hints: ['Ký Chủ thử đọc câu hỏi, rồi tìm lại giấy tờ nói về ý đó trong sổ tay.', 'Ký Chủ để ý cách viết đáp án: viết liền, không dấu, và con số nếu có thì viết bằng chữ.'],
   },
   column: {
-    open: 'Ký Chủ, trượt thước đọc dọc theo ô chữ, cột nào thành lời?',
-    hints: ['Ký Chủ thử trượt thước tới từng cột, đọc các ô từ hàng đầu xuống hàng cuối.', 'Lời chỉ dẫn phải là một câu có nghĩa. Ký Chủ thử cột nào đọc lên thành lời.'],
+    open: 'Ký Chủ, đọc các ô theo một cột từ trên xuống dưới rồi thử thêm dấu tiếng Việt.',
+    hints: ['Ký Chủ thử trượt thước qua từng cột và đọc các chữ có mặt theo thứ tự từ trên xuống.', 'Khi thêm dấu tiếng Việt, cột nào trở thành một từ hoặc cụm từ có nghĩa?'],
   },
   board: {
     open: 'Ký Chủ, hãy dựa vào lời chỉ dẫn vừa tìm được để đọc các ô trên bàn này.',

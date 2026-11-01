@@ -45,10 +45,17 @@ export function handleAction(s,action,p={}) {
       }return;
     case 'document-reread':
       if(inView('notebook')&&s.state.collectedNoteIds.includes(p.id))s.show('document',{document:DOCUMENTS.find(d=>d.id===p.id),readOnly:true});return;
+    case 'crossword-draft':
+      if(inView('crossword'))s.commit('crossword-draft',p);return;
     case 'crossword-submit':
       if(!inView('crossword'))return;
       if(!s.commit('crossword',p))return s.error('Có chỗ chưa khớp.');
-      s.audio.playCue('success');return s.show('column',{solved:s.state.columnSolved});
+      s.audio.playCue('success');return s.dialogue('Bảy hàng đã khớp',[
+        {speaker:'Long',text:'Mình đã trả lời đủ bảy câu. Những chữ xếp dọc vẫn chưa thành một từ quen thuộc.'},
+        {speaker:'Hệ Thống',text:'Chọn được cột thẳng hàng sao cho khi tự thêm dấu tiếng Việt, bạn thu được một từ hoặc cụm từ có nghĩa. Đó chính là manh mối giải mật mã cuối cùng!'},
+      ],'Đọc cột dọc','column-open');
+    case 'column-open':
+      if(confirmed('column-open')&&s.state.crosswordSolved)s.show('column',{solved:s.state.columnSolved});return;
     case 'column':if((inView('crossword')||inView('column'))&&s.state.crosswordSolved)s.show('column',{solved:s.state.columnSolved});return;
     case 'column-submit':
       if(!inView('column'))return;

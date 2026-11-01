@@ -1,4 +1,4 @@
-import {createState,DOCUMENT_ORDER,OBJECT_IDS} from './rules.js';
+import {createState,DOCUMENT_ORDER,OBJECT_IDS,sanitizeCrosswordDraft} from './rules.js';
 import {DOOR_IDS} from './area-gates.js';
 export const SAVE_KEY='mat-ma-dien-bien-phu:room-four:v1';
 export function sanitizeSave(raw) {
@@ -13,6 +13,7 @@ export function sanitizeSave(raw) {
   const next=DOCUMENT_ORDER[s.collectedNoteIds.length];
   if (next && read.includes(next)) s.readNoteIds.push(next);
   s.seenObjectIds=Array.isArray(raw.seenObjectIds)?[...new Set(raw.seenObjectIds.filter(id=>OBJECT_IDS.includes(id)))]:[];
+  s.crosswordDraft=s.collectedNoteIds.length===7?sanitizeCrosswordDraft(raw.crosswordDraft):{};
   s.crosswordSolved=s.collectedNoteIds.length===7 && raw.crosswordSolved===true;
   s.columnSolved=s.crosswordSolved && raw.columnSolved===true;
   s.boardTSolved=s.columnSolved && raw.boardTSolved===true;

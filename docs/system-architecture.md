@@ -34,7 +34,7 @@ RoomOneUI nhận nhãn/ngày/world/panel factory; Bảo bọc DOM renderer gốc
 
 Khóa chiến dịch `mat-ma-dien-bien-phu:campaign:v1` chứa version, introSeen, rooms, settings, endingSeen. `sanitizeCampaign` dùng sanitizer từng phòng, chỉ giữ chuỗi exit liên tục và tối đa một phòng đang chơi. Mảnh I từ chestOpened hợp lệ, II từ fold/fragment đã kiểm tra, III/IV từ pickup. Phòng 5 chỉ phục hồi với đủ mảnh/cửa trước; return/ending không thể vượt assembly/reflection/exit 5. Không tin currentRoom hoặc danh sách mảnh tùy ý.
 
-Bốn preview giữ key `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` cùng tiền tố; không migrate/import các key này hoặc save donor. Room 3 giữ graph giấy/thử thách chung; Room 4 giữ tiền tố bảy giấy/câu đố. Reload về safe spawn của phòng hiện tại, không lưu tọa độ, draft, cursor hoặc lời suy ngẫm.
+Bốn preview giữ key `mat-ma-dien-bien-phu:room-one:v1`, `:room-two:v1`, `:room-three:v1`, `:room-four:v1` cùng tiền tố; không migrate/import các key này hoặc save donor. Room 3 giữ graph giấy/thử thách chung; Room 4 lưu các câu trả lời ô chữ đang nhập trong state phòng để phục hồi sau reload. Reload về safe spawn của phòng hiện tại, không lưu tọa độ, vị trí thước/cursor hoặc lời suy ngẫm.
 
 Reset phòng giữ các room trước và cắt current/downstream/ending phụ thuộc. Global new game có xác nhận, chỉ reset envelope campaign; epoch chặn callback/import cũ hồi sinh session. Storage lỗi vẫn chơi trong phiên với thông báo. Shared settings là nguồn âm thanh khi tạo phòng/merge save, không để default phòng mới ghi đè preference chung.
 

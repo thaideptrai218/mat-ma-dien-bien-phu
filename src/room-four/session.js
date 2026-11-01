@@ -94,7 +94,7 @@ export class RoomFourSession {
     if(this.isLocked(id))return this.close();
     const document=DOCUMENTS.find(d=>d.id===id);
     if(document)return this.show('document',{document,readOnly:this.state.collectedNoteIds.includes(id)});
-    if(id==='crossword')return this.show(this.state.crosswordSolved?'column':'crossword',{solved:this.state.columnSolved});
+    if(id==='crossword')return this.show(this.state.crosswordSolved?'column':'crossword',{solved:this.state.columnSolved,draft:this.state.crosswordDraft});
     if(id==='board-t'||id==='board-l')return this.show('board',{board:id==='board-t'?'t':'l',solved:id==='board-t'?this.state.boardTSolved:this.state.boardLSolved});
     if(id==='chest') {
       if(!this.state.chestOpened)return this.show('final');

@@ -16,7 +16,7 @@
 - MảnhI từ chestOpened hợp lệ,II từ final fold/prefix Bảo,III/IV từ pickup thật. Phòng 5 cần đủ mảnh/cửa trước; assembly→reflection→door→museum acknowledgment tách bước.
 - Shared settings là authoritative khi mount/merge. Không để default audio phòng mới ghi đè preference đã chọn. Runtime unlock tách preference.
 - Preview keys room-one/two/three/four:v 1 với tiền tố `mat-ma-dien-bien-phu:` giữ riêng; không auto-migrate/import donor/preview vào campaign. Reset room giữ trước/cắt downstream; global new game xác nhận, chỉ reset campaign envelope.
-- Không lưu tọa độ, cursor, draft hoặc suy nghĩ cá nhân Room 5; suy nghĩ không vào payload/validator/network. Optional, để trống được, không chấm.
+- Room 4 lưu câu trả lời nháp của bảy hàng ô chữ trong state đã sanitize. Không lưu tọa độ hoặc vị trí thước/cursor. Suy nghĩ cá nhân Room 5 vẫn không vào save/payload/network: tùy chọn, có thể để trống và không chấm.
 - Storage hỏng/bị chặn có thông báo, vẫn chơi trong phiên. Hồ sơ cần đọc cuối và current Long confirmation; readonly reread không cấp tiến độ.
 - Room 3 giữ graph giấy/thử thách xen kẽ; ba việc chuẩn bị cùng nhóm, NHANH/CHẮC hoán đổi tương đương. Room 4 giữ bảy giấy→ô chữ→cột→T/L→rương→pickup→cửa.
 
