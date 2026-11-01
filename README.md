@@ -2,7 +2,7 @@
 
 **Chơi trực tuyến:** [mat-ma-dien-bien-phu.vercel.app](https://mat-ma-dien-bien-phu.vercel.app/). Đã triển khai production bằng MCP Vercel; [cấu hình và kiểm tra](docs/deployment.md).
 
-Bản chính hiện tại là **hành trình năm phòng hoàn chỉnh**: bảo tàng → Phòng 1 → Phòng 2: Kế hoạch Nava → Phòng 3: Hậu phương → Phòng 4: Những ngày quyết định → Phòng 5: ghép ảnh và suy ngẫm → trở lại bảo tàng. Long đọc giấy tờ, giải đố và tự kiếm đủ bốn mảnh ghép. Game dùng Phaser, JavaScript và tài nguyên cục bộ.
+Bản chính hiện tại là **hành trình năm phòng hoàn chỉnh**: bảo tàng → Phòng 1: Trước Kế hoạch Nava → Phòng 2: Bàn cờ Đông Dương → Phòng 3: Hậu phương → Phòng 4: Những ngày quyết định → Phòng 5: ghép ảnh và suy ngẫm → trở lại bảo tàng. Long đọc giấy tờ, giải đố và tự kiếm đủ bốn mảnh ghép. Game dùng Phaser, JavaScript và tài nguyên cục bộ.
 
 Entry `/` chạy toàn hành trình trong cùng trang/cùng origin; chỉ đổi phòng sau khi tới cửa thật. **Sổ hành trình** giữ toàn văn các giấy đã thu thập ở những phòng trước. Các bản chơi riêng có tại `room-one.html` đến `room-five.html`, dùng save riêng và không được nhập thành thành tích chiến dịch. Phòng 5 độc lập có sẵn bốn mảnh minh họa để thử ghép ảnh và phần kết; tiến độ của nó không ảnh hưởng hành trình chính.
 

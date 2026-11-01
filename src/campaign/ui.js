@@ -4,7 +4,7 @@ import {currentRoom,fragmentsFor,phaseFor} from './state.js';
 import {archiveEntries} from './archive.js';
 import GAME_TITLE_LOGO from '../../assets/images/game-title-logo.png';
 
-const ROOM_NAMES=['Trước bản kế hoạch','Kế hoạch Nava','Mật mã hậu phương','Những ngày quyết định','Bức tranh hoàn chỉnh'];
+const ROOM_NAMES=['Trước Kế hoạch Nava','Bàn cờ Đông Dương','Mật mã hậu phương','Những ngày quyết định','Bức tranh hoàn chỉnh'];
 const ROMAN=['I','II','III','IV'];
 export class CampaignUI {
   constructor(root,{onArchive,onRestart,onOverlayChange}={}) {
@@ -74,7 +74,7 @@ export class CampaignUI {
   }
   showPreviews() {
     const section=element('section');section.append(heading('Các bản chơi riêng'),element('p','r1-lead','Các đường dẫn này có tiến độ riêng, dùng để xem lại từng phòng. Hành trình năm phòng được lưu riêng tại trang chính.'));
-    for(const [path,label] of [['room-one.html','Phòng 1'],['room-two.html','Phòng 2'],['room-three.html','Phòng 3 · Hậu phương'],['room-four.html','Phòng 4 · Những ngày quyết định'],['room-five.html','Phòng 5 · Bản chơi riêng']]){
+    for(const [path,label] of [['room-one.html','Phòng 1 · Trước Kế hoạch Nava'],['room-two.html','Phòng 2 · Bàn cờ Đông Dương'],['room-three.html','Phòng 3 · Hậu phương'],['room-four.html','Phòng 4 · Những ngày quyết định'],['room-five.html','Phòng 5 · Bản chơi riêng']]){
       const link=element('a','r1-button',label);link.href=`./${path}`;link.target='_blank';link.rel='noopener';section.append(link);
     }
     this.show(section);
