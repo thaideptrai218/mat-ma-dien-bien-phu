@@ -18,12 +18,12 @@ export const OPENING = [
   {eyebrow:'KHÔNG GIAN HƯ CẤU · 7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
     'Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.',
     'Hệ Thống: Ký Chủ đã bước vào dòng chảy lịch sử. Đây là không gian tái hiện hầm chỉ huy của tướng Đờ Cát, ngày 7 tháng 5 năm 1954. Muốn trở về thời đại của mình, Ký Chủ phải giải mã những dấu mốc đã làm nên chiến thắng Điện Biên Phủ.',
-    'Long: Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tao vừa còn đứng trong bảo tàng mà.',
+    'Long: Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tôi vừa còn đứng trong bảo tàng mà.',
     'Hệ Thống: Hệ Thống là người dẫn đường của Ký Chủ trong hành trình này. Ký Chủ hãy bình tĩnh; mỗi chỉ dẫn sẽ được đưa ra đúng lúc.'
   ],button:'Lắng nghe lời chỉ dẫn'},
   {eyebrow:'NĂM CĂN PHÒNG · BỐN MẢNH TRANH',title:'Lần theo những dấu mốc',paragraphs:[
     'Hệ Thống: Trước mắt Ký Chủ là năm căn phòng liên tiếp: bốn căn phòng thử thách và một căn phòng cuối cùng dẫn đến lối thoát. Hãy vượt qua bốn thử thách, thu thập đủ bốn mảnh ghép và hoàn thiện bức ảnh trên cánh cửa cuối cùng. Chỉ khi ấy, Ký Chủ mới có thể trở về hiện tại.',
-    'Long: Bốn mảnh ghép, năm căn phòng. Được, tao chơi. Nhưng Hệ Thống phải nói rõ tao bắt đầu từ đâu.',
+    'Long: Bốn mảnh ghép, năm căn phòng. Được, tôi chơi. Nhưng Hệ Thống phải nói rõ tôi bắt đầu từ đâu.',
     'Hệ Thống: Phòng 1 cất giữ chặng đường xây dựng lực lượng từ năm 1950 đến giữa năm 1953. Khi cần, Ký Chủ nhấn Q để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.',
     'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn E. M mở bản đồ, N mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.',
     'Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.'

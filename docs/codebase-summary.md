@@ -39,8 +39,7 @@ Cập nhật 2026-11-01. Bản chính là campaign năm phòng cùng origin, Jav
 
 ## Hợp đồng cần giữ
 
-Xưng hô: Hệ Thống gọi Long là **Ký Chủ** (không dùng “ngươi”/“bạn”); Long gọi **Hệ Thống**, xưng **tao** khi nói với nó, xưng “mình” khi tự nghĩ. Phòng 1/3/4/5 có `GUIDE` (lời dẫn sau từng bước), Phòng 2 có `PUZZLE_GUIDE`; Phòng 1/3/4 dùng mảng `CAMPAIGN_*` thay cho thay chuỗi (Phòng 2 dùng lời trung tính cho cả hai chế độ); `tests/system-address-dialogue.test.js` khóa quy ước này. Lời đáp cuối của Long ở Phòng 5 giữ nguyên văn cốt truyện (“Tôi…”).
-
+Xưng hô: Hệ Thống gọi Long là **Ký Chủ** (không dùng “ngươi”/“bạn”); Long/Quang gọi **Hệ Thống**, xưng **tôi** khi nói với nó (không dùng “tao”/“mày”), xưng “mình” khi tự nghĩ. Phòng 1/3/4/5 có `GUIDE` (lời dẫn sau từng bước), Phòng 2 có `PUZZLE_GUIDE`; Phòng 1/3/4 dùng mảng `CAMPAIGN_*` thay cho thay chuỗi (Phòng 2 dùng lời trung tính cho cả hai chế độ); `tests/system-address-dialogue.test.js` khóa quy ước này.
 UI không cấp tiến độ, scene không ghi storage; controller kiểm tra active view/token/parent pause/disposal. Session nhận optional storage/audio/isPaused/onExit, không lấy save preview khi campaign đã inject adapter. Parent await destroy thực trước khi tái dùng root, giữ một shared audio context. Diagnostics trả bản clone, không setter gameplay.
 
 Campaign key `mat-ma-dien-bien-phu:campaign:v1` chỉ nhận snapshot phòng đã sanitize/chuỗi exit liên tục. Mảnh suy từ chest I/fold II/pickup III-IV; Room 5 cần cả bốn và các cửa trước. Suy nghĩ cá nhân không có trong intents/save. Current-room reset giữ trước, global new game chỉ campaign; preview 1–4 và donor giữ riêng, không migration.

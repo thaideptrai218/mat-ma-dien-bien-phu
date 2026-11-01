@@ -74,7 +74,7 @@
       "file": "audio/voice/431453301b11d634.mp3"
     },
     {
-      "id": "45dd54ff78bd765d",
+      "id": "84c02c648c565975",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -83,10 +83,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tao vừa còn đứng trong bảo tàng mà.",
-      "ttsText": "Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tao vừa còn đứng trong bảo tàng mà.",
-      "file": "audio/voice/45dd54ff78bd765d.mp3",
-      "durationMs": 7279
+      "text": "Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tôi vừa còn đứng trong bảo tàng mà.",
+      "ttsText": "Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tôi vừa còn đứng trong bảo tàng mà.",
+      "file": "audio/voice/84c02c648c565975.mp3"
     },
     {
       "id": "637848cbc4b5a3a3",
@@ -117,7 +116,7 @@
       "file": "audio/voice/eeff1c01c038cd85.mp3"
     },
     {
-      "id": "f1e74273b3337729",
+      "id": "2dda61412a3737db",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -126,10 +125,9 @@
       "groups": [
         "museum.OPENING"
       ],
-      "text": "Bốn mảnh ghép, năm căn phòng. Được, tao chơi. Nhưng Hệ Thống phải nói rõ tao bắt đầu từ đâu.",
-      "ttsText": "Bốn mảnh ghép, năm căn phòng. Được, tao chơi. Nhưng Hệ Thống phải nói rõ tao bắt đầu từ đâu.",
-      "file": "audio/voice/f1e74273b3337729.mp3",
-      "durationMs": 6476
+      "text": "Bốn mảnh ghép, năm căn phòng. Được, tôi chơi. Nhưng Hệ Thống phải nói rõ tôi bắt đầu từ đâu.",
+      "ttsText": "Bốn mảnh ghép, năm căn phòng. Được, tôi chơi. Nhưng Hệ Thống phải nói rõ tôi bắt đầu từ đâu.",
+      "file": "audio/voice/2dda61412a3737db.mp3"
     },
     {
       "id": "20fa2537b01cef50",
@@ -190,7 +188,7 @@
       "file": "audio/voice/abaaaf6d0843a7e7.mp3"
     },
     {
-      "id": "4caf994063446a35",
+      "id": "05aa9029e3be3c87",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -199,10 +197,9 @@
       "groups": [
         "r1.INTRO"
       ],
-      "text": "Một lá thư gửi người em ở nhà. Hệ Thống, tao đọc nó trước được chứ?",
-      "ttsText": "Một lá thư gửi người em ở nhà. Hệ Thống, tao đọc nó trước được chứ?",
-      "file": "audio/voice/4caf994063446a35.mp3",
-      "durationMs": 4116
+      "text": "Một lá thư gửi người em ở nhà. Hệ Thống, tôi đọc nó trước được chứ?",
+      "ttsText": "Một lá thư gửi người em ở nhà. Hệ Thống, tôi đọc nó trước được chứ?",
+      "file": "audio/voice/05aa9029e3be3c87.mp3"
     },
     {
       "id": "ffd123730bce98fa",
@@ -289,7 +286,7 @@
       "file": "audio/voice/230fc9a1de5560fb.mp3"
     },
     {
-      "id": "7e1ab5fdea36b06a",
+      "id": "8e0a7e31d6e4f576",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -298,10 +295,9 @@
       "groups": [
         "r1.GUIDE.a03"
       ],
-      "text": "Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tao lo.",
-      "ttsText": "Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tao lo.",
-      "file": "audio/voice/7e1ab5fdea36b06a.mp3",
-      "durationMs": 3681
+      "text": "Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tôi lo.",
+      "ttsText": "Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tôi lo.",
+      "file": "audio/voice/8e0a7e31d6e4f576.mp3"
     },
     {
       "id": "cbf4cfc8cb38b1e5",
@@ -318,7 +314,7 @@
       "file": "audio/voice/cbf4cfc8cb38b1e5.mp3"
     },
     {
-      "id": "8dd38896dd299e71",
+      "id": "ad9bfd08c9779529",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -327,10 +323,9 @@
       "groups": [
         "r1.GUIDE.dossiers"
       ],
-      "text": "Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tao không?",
-      "ttsText": "Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tao không?",
-      "file": "audio/voice/8dd38896dd299e71.mp3",
-      "durationMs": 4234
+      "text": "Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tôi không?",
+      "ttsText": "Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tôi không?",
+      "file": "audio/voice/ad9bfd08c9779529.mp3"
     },
     {
       "id": "4cc8d19680aa6af3",
@@ -361,7 +356,7 @@
       "file": "audio/voice/1dfb85340d5d59a8.mp3"
     },
     {
-      "id": "b43179728164a09b",
+      "id": "4080a6e7f626ff39",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -370,10 +365,9 @@
       "groups": [
         "r1.GUIDE.comparison"
       ],
-      "text": "Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tao không cần gợi ý.",
-      "ttsText": "Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tao không cần gợi ý.",
-      "file": "audio/voice/b43179728164a09b.mp3",
-      "durationMs": 4230
+      "text": "Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tôi không cần gợi ý.",
+      "ttsText": "Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tôi không cần gợi ý.",
+      "file": "audio/voice/4080a6e7f626ff39.mp3"
     },
     {
       "id": "e81de7c8c591bb8b",
@@ -390,7 +384,7 @@
       "file": "audio/voice/e81de7c8c591bb8b.mp3"
     },
     {
-      "id": "842ea074d1ae148b",
+      "id": "f9b092486e14bc6f",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -399,10 +393,9 @@
       "groups": [
         "r1.GUIDE.identity"
       ],
-      "text": "Rõ. Đọc xong, tao sẽ mang cái tên ấy tới rương.",
-      "ttsText": "Rõ. Đọc xong, tao sẽ mang cái tên ấy tới rương.",
-      "file": "audio/voice/842ea074d1ae148b.mp3",
-      "durationMs": 3511
+      "text": "Rõ. Đọc xong, tôi sẽ mang cái tên ấy tới rương.",
+      "ttsText": "Rõ. Đọc xong, tôi sẽ mang cái tên ấy tới rương.",
+      "file": "audio/voice/f9b092486e14bc6f.mp3"
     },
     {
       "id": "d719e50eeb9d486f",
@@ -1832,7 +1825,7 @@
       "file": "audio/voice/4cadf5d6d95c664f.mp3"
     },
     {
-      "id": "a7c2bb728fe07269",
+      "id": "5ed5029b8d411c23",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -1841,10 +1834,9 @@
       "groups": [
         "r2.beats.navarre-plan-intro"
       ],
-      "text": "Rõ rồi, Hệ Thống. Tao đi đây.",
-      "ttsText": "Rõ rồi, Hệ Thống. Tao đi đây.",
-      "file": "audio/voice/a7c2bb728fe07269.mp3",
-      "durationMs": 2931
+      "text": "Rõ rồi, Hệ Thống. Tôi đi đây.",
+      "ttsText": "Rõ rồi, Hệ Thống. Tôi đi đây.",
+      "file": "audio/voice/5ed5029b8d411c23.mp3"
     },
     {
       "id": "3834674a00831e24",
@@ -2189,7 +2181,7 @@
       "file": "audio/voice/aa8c597a97a3395a.mp3"
     },
     {
-      "id": "1f16eec4e03bb3b7",
+      "id": "ad96c5fd707fc8cf",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2198,10 +2190,9 @@
       "groups": [
         "r2.PUZZLE_GUIDE.nava-balance"
       ],
-      "text": "Nava muốn dồn quân thành một nắm đấm. Để tao nghe xem bên kia đáp lại thế nào.",
-      "ttsText": "Nava muốn dồn quân thành một nắm đấm. Để tao nghe xem bên kia đáp lại thế nào.",
-      "file": "audio/voice/1f16eec4e03bb3b7.mp3",
-      "durationMs": 4147
+      "text": "Nava muốn dồn quân thành một nắm đấm. Để tôi nghe xem bên kia đáp lại thế nào.",
+      "ttsText": "Nava muốn dồn quân thành một nắm đấm. Để tôi nghe xem bên kia đáp lại thế nào.",
+      "file": "audio/voice/ad96c5fd707fc8cf.mp3"
     },
     {
       "id": "b4bc1f92677f795e",
@@ -2218,7 +2209,7 @@
       "file": "audio/voice/b4bc1f92677f795e.mp3"
     },
     {
-      "id": "4fe87207d88e8a2b",
+      "id": "69b4f26bccfa6899",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2227,10 +2218,9 @@
       "groups": [
         "r2.PUZZLE_GUIDE.nava-radio"
       ],
-      "text": "Bốn mẩu tin, bốn ngón tay sắt. Tao sẽ xếp từ nơi tập trung quân thứ hai tới thứ năm.",
-      "ttsText": "Bốn mẩu tin, bốn ngón tay sắt. Tao sẽ xếp từ nơi tập trung quân thứ hai tới thứ năm.",
-      "file": "audio/voice/4fe87207d88e8a2b.mp3",
-      "durationMs": 4834
+      "text": "Bốn mẩu tin, bốn ngón tay sắt. Tôi sẽ xếp từ nơi tập trung quân thứ hai tới thứ năm.",
+      "ttsText": "Bốn mẩu tin, bốn ngón tay sắt. Tôi sẽ xếp từ nơi tập trung quân thứ hai tới thứ năm.",
+      "file": "audio/voice/69b4f26bccfa6899.mp3"
     },
     {
       "id": "0da3f16980c1f5fc",
@@ -2247,7 +2237,7 @@
       "file": "audio/voice/0da3f16980c1f5fc.mp3"
     },
     {
-      "id": "2b910c064d9cf71b",
+      "id": "f7ecdc97f35c22ed",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2256,10 +2246,9 @@
       "groups": [
         "r2.PUZZLE_GUIDE.nava-fist"
       ],
-      "text": "Hòm sắt ở phía đông hành lang. Tao đi ngay.",
-      "ttsText": "Hòm sắt ở phía đông hành lang. Tao đi ngay.",
-      "file": "audio/voice/2b910c064d9cf71b.mp3",
-      "durationMs": 3339
+      "text": "Hòm sắt ở phía đông hành lang. Tôi đi ngay.",
+      "ttsText": "Hòm sắt ở phía đông hành lang. Tôi đi ngay.",
+      "file": "audio/voice/f7ecdc97f35c22ed.mp3"
     },
     {
       "id": "6831662308860718",
@@ -2616,7 +2605,7 @@
       "file": "audio/voice/bc31301f47ae6f6c.mp3"
     },
     {
-      "id": "e4d8a5c2908e1728",
+      "id": "768121f43f23fd24",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2626,10 +2615,9 @@
         "r3.INTRO",
         "r3.CAMPAIGN_INTRO"
       ],
-      "text": "Đọc trước, giải sau. Tao nhớ rồi.",
-      "ttsText": "Đọc trước, giải sau. Tao nhớ rồi.",
-      "file": "audio/voice/e4d8a5c2908e1728.mp3",
-      "durationMs": 3407
+      "text": "Đọc trước, giải sau. Tôi nhớ rồi.",
+      "ttsText": "Đọc trước, giải sau. Tôi nhớ rồi.",
+      "file": "audio/voice/768121f43f23fd24.mp3"
     },
     {
       "id": "db5a8dfb469840d6",
@@ -2703,7 +2691,7 @@
       "file": "audio/voice/e33f69b812621fb1.mp3"
     },
     {
-      "id": "5d03a97124705822",
+      "id": "649d0fbae2ad68d0",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2712,10 +2700,9 @@
       "groups": [
         "r3.GUIDE.preparation"
       ],
-      "text": "Sáu bức tranh bị mất chú thích. Để tao xem ai đã đưa gạo, đạn ra mặt trận.",
-      "ttsText": "Sáu bức tranh bị mất chú thích. Để tao xem ai đã đưa gạo, đạn ra mặt trận.",
-      "file": "audio/voice/5d03a97124705822.mp3",
-      "durationMs": 3832
+      "text": "Sáu bức tranh bị mất chú thích. Để tôi xem ai đã đưa gạo, đạn ra mặt trận.",
+      "ttsText": "Sáu bức tranh bị mất chú thích. Để tôi xem ai đã đưa gạo, đạn ra mặt trận.",
+      "file": "audio/voice/649d0fbae2ad68d0.mp3"
     },
     {
       "id": "d9cf66a82fae9322",
@@ -2732,7 +2719,7 @@
       "file": "audio/voice/d9cf66a82fae9322.mp3"
     },
     {
-      "id": "d575ad0af5806ac5",
+      "id": "766e3f6fe1c82845",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2741,10 +2728,9 @@
       "groups": [
         "r3.GUIDE.cargo"
       ],
-      "text": "Hai bức điện, hai phương châm. Tao sẽ đọc thật chậm.",
-      "ttsText": "Hai bức điện, hai phương châm. Tao sẽ đọc thật chậm.",
-      "file": "audio/voice/d575ad0af5806ac5.mp3",
-      "durationMs": 3838
+      "text": "Hai bức điện, hai phương châm. Tôi sẽ đọc thật chậm.",
+      "ttsText": "Hai bức điện, hai phương châm. Tôi sẽ đọc thật chậm.",
+      "file": "audio/voice/766e3f6fe1c82845.mp3"
     },
     {
       "id": "7b84072def3585db",
@@ -2761,7 +2747,7 @@
       "file": "audio/voice/7b84072def3585db.mp3"
     },
     {
-      "id": "49e372bf12dea0f8",
+      "id": "4bbf1d9d543f47bc",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2770,10 +2756,9 @@
       "groups": [
         "r3.GUIDE.strategy"
       ],
-      "text": "Những ngày đầu của chiến dịch. Lần này tao phải nhớ cả ngày tháng.",
-      "ttsText": "Những ngày đầu của chiến dịch. Lần này tao phải nhớ cả ngày tháng.",
-      "file": "audio/voice/49e372bf12dea0f8.mp3",
-      "durationMs": 3679
+      "text": "Những ngày đầu của chiến dịch. Lần này tôi phải nhớ cả ngày tháng.",
+      "ttsText": "Những ngày đầu của chiến dịch. Lần này tôi phải nhớ cả ngày tháng.",
+      "file": "audio/voice/4bbf1d9d543f47bc.mp3"
     },
     {
       "id": "52403eb654414763",
@@ -2790,7 +2775,7 @@
       "file": "audio/voice/52403eb654414763.mp3"
     },
     {
-      "id": "f3029bdd536fadbd",
+      "id": "8e62995712dfc34d",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -2799,10 +2784,9 @@
       "groups": [
         "r3.GUIDE.opening"
       ],
-      "text": "Các dữ kiện ấy đều nằm trong sổ tay. Hệ Thống chờ tao một chút.",
-      "ttsText": "Các dữ kiện ấy đều nằm trong sổ tay. Hệ Thống chờ tao một chút.",
-      "file": "audio/voice/f3029bdd536fadbd.mp3",
-      "durationMs": 4022
+      "text": "Các dữ kiện ấy đều nằm trong sổ tay. Hệ Thống chờ tôi một chút.",
+      "ttsText": "Các dữ kiện ấy đều nằm trong sổ tay. Hệ Thống chờ tôi một chút.",
+      "file": "audio/voice/8e62995712dfc34d.mp3"
     },
     {
       "id": "6647b739e4f6923c",
@@ -3867,7 +3851,7 @@
       "file": "audio/voice/bc8689be34e6c7c1.mp3"
     },
     {
-      "id": "9a87a6906bbbd6e0",
+      "id": "c642a5b839a99334",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -3876,10 +3860,9 @@
       "groups": [
         "r3.CAMPAIGN_ENDING"
       ],
-      "text": "Ba mảnh rồi. Chặng cuối là gì thì tao cũng đi tới cùng, Hệ Thống.",
-      "ttsText": "Ba mảnh rồi. Chặng cuối là gì thì tao cũng đi tới cùng, Hệ Thống.",
-      "file": "audio/voice/9a87a6906bbbd6e0.mp3",
-      "durationMs": 3745
+      "text": "Ba mảnh rồi. Chặng cuối là gì thì tôi cũng đi tới cùng, Hệ Thống.",
+      "ttsText": "Ba mảnh rồi. Chặng cuối là gì thì tôi cũng đi tới cùng, Hệ Thống.",
+      "file": "audio/voice/c642a5b839a99334.mp3"
     },
     {
       "id": "ee8bd6e12c36c507",
@@ -4191,7 +4174,7 @@
       "file": "audio/voice/cc014288d8ee6f89.mp3"
     },
     {
-      "id": "91fcf319c1a1789e",
+      "id": "1e4ff1373b214a18",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -4201,10 +4184,9 @@
         "r4.INTRO",
         "r4.CAMPAIGN_INTRO"
       ],
-      "text": "Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tao bắt đầu ở cuối tháng ba nhé?",
-      "ttsText": "Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tao bắt đầu ở cuối tháng ba nhé?",
-      "file": "audio/voice/91fcf319c1a1789e.mp3",
-      "durationMs": 6408
+      "text": "Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tôi bắt đầu ở cuối tháng ba nhé?",
+      "ttsText": "Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tôi bắt đầu ở cuối tháng ba nhé?",
+      "file": "audio/voice/1e4ff1373b214a18.mp3"
     },
     {
       "id": "4e5146d186596717",
@@ -4279,7 +4261,7 @@
       "file": "audio/voice/23f6123a3c4dfb1f.mp3"
     },
     {
-      "id": "26544ee243e529ee",
+      "id": "a7a3b257eef67c22",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -4288,10 +4270,9 @@
       "groups": [
         "r4.GUIDE.documents"
       ],
-      "text": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tao không sợ.",
-      "ttsText": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay en-nờ bên cạnh, tao không sợ.",
-      "file": "audio/voice/26544ee243e529ee.mp3",
-      "durationMs": 3825
+      "text": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tôi không sợ.",
+      "ttsText": "Bảy câu hỏi, bảy tờ giấy. Có sổ tay en-nờ bên cạnh, tôi không sợ.",
+      "file": "audio/voice/a7a3b257eef67c22.mp3"
     },
     {
       "id": "abbca547bebdc3ed",
@@ -5323,7 +5304,7 @@
       "file": "audio/voice/bf20b7e2ac2d7670.mp3"
     },
     {
-      "id": "fdb38c4f8124c335",
+      "id": "2a736365cfa74c4f",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -5332,10 +5313,9 @@
       "groups": [
         "r4.CAMPAIGN_ENDING"
       ],
-      "text": "Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tao về được chứ?",
-      "ttsText": "Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tao về được chứ?",
-      "file": "audio/voice/fdb38c4f8124c335.mp3",
-      "durationMs": 3673
+      "text": "Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tôi về được chứ?",
+      "ttsText": "Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tôi về được chứ?",
+      "file": "audio/voice/2a736365cfa74c4f.mp3"
     },
     {
       "id": "6586a58050e97b70",
@@ -5676,7 +5656,7 @@
       "file": "audio/voice/3946f0353bfa4128.mp3"
     },
     {
-      "id": "c6f0f137d0ed8738",
+      "id": "0868015b3b7a0316",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -5685,10 +5665,9 @@
       "groups": [
         "r5.INTRO"
       ],
-      "text": "Hệ Thống, tao mang đủ bốn mảnh tới rồi đây.",
-      "ttsText": "Hệ Thống, tao mang đủ bốn mảnh tới rồi đây.",
-      "file": "audio/voice/c6f0f137d0ed8738.mp3",
-      "durationMs": 1679
+      "text": "Hệ Thống, tôi mang đủ bốn mảnh tới rồi đây.",
+      "ttsText": "Hệ Thống, tôi mang đủ bốn mảnh tới rồi đây.",
+      "file": "audio/voice/0868015b3b7a0316.mp3"
     },
     {
       "id": "d5d247bc10538805",
@@ -5705,7 +5684,7 @@
       "file": "audio/voice/d5d247bc10538805.mp3"
     },
     {
-      "id": "29789c350d896f66",
+      "id": "eca2a0090d2f302a",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -5714,10 +5693,9 @@
       "groups": [
         "r5.INTRO"
       ],
-      "text": "Ghép xong là về nhà. Tao làm ngay.",
-      "ttsText": "Ghép xong là về nhà. Tao làm ngay.",
-      "file": "audio/voice/29789c350d896f66.mp3",
-      "durationMs": 3107
+      "text": "Ghép xong là về nhà. Tôi làm ngay.",
+      "ttsText": "Ghép xong là về nhà. Tôi làm ngay.",
+      "file": "audio/voice/eca2a0090d2f302a.mp3"
     },
     {
       "id": "34a26bb4bcfdc23b",
@@ -5734,7 +5712,7 @@
       "file": "audio/voice/34a26bb4bcfdc23b.mp3"
     },
     {
-      "id": "1d454feccfa63a9b",
+      "id": "852950d84894fc9d",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -5743,10 +5721,9 @@
       "groups": [
         "r5.GUIDE.assembly"
       ],
-      "text": "Chưa kết thúc? Hệ Thống còn muốn gì ở tao nữa?",
-      "ttsText": "Chưa kết thúc? Hệ Thống còn muốn gì ở tao nữa?",
-      "file": "audio/voice/1d454feccfa63a9b.mp3",
-      "durationMs": 3728
+      "text": "Chưa kết thúc? Hệ Thống còn muốn gì ở tôi nữa?",
+      "ttsText": "Chưa kết thúc? Hệ Thống còn muốn gì ở tôi nữa?",
+      "file": "audio/voice/852950d84894fc9d.mp3"
     },
     {
       "id": "8fa835b2f0e51f2c",
@@ -5763,7 +5740,7 @@
       "file": "audio/voice/8fa835b2f0e51f2c.mp3"
     },
     {
-      "id": "eebfd678802f0546",
+      "id": "663dc52c9b3f50a2",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -5772,10 +5749,9 @@
       "groups": [
         "r5.GUIDE.door"
       ],
-      "text": "Cảm ơn Hệ Thống. Tao sẽ tự bước qua cánh cửa này.",
-      "ttsText": "Cảm ơn Hệ Thống. Tao sẽ tự bước qua cánh cửa này.",
-      "file": "audio/voice/eebfd678802f0546.mp3",
-      "durationMs": 3383
+      "text": "Cảm ơn Hệ Thống. Tôi sẽ tự bước qua cánh cửa này.",
+      "ttsText": "Cảm ơn Hệ Thống. Tôi sẽ tự bước qua cánh cửa này.",
+      "file": "audio/voice/663dc52c9b3f50a2.mp3"
     },
     {
       "id": "7d3db9f13c21abe2",
@@ -6100,7 +6076,7 @@
       "file": "audio/voice/fb234d3e1614440a.mp3"
     },
     {
-      "id": "a53badbb388f7b50",
+      "id": "dfa2219c7f672d75",
       "voice": "system-v2",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -6109,9 +6085,9 @@
       "groups": [
         "r5.SYSTEM_HINTS.door-reconstruction-hall"
       ],
-      "text": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
-      "ttsText": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
-      "file": "audio/voice/a53badbb388f7b50.mp3"
+      "text": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng đã đi qua. Các biển đang lệch thứ tự.",
+      "ttsText": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng đã đi qua. Các biển đang lệch thứ tự.",
+      "file": "audio/voice/dfa2219c7f672d75.mp3"
     },
     {
       "id": "5657ab1f70f264e1",
@@ -9136,7 +9112,7 @@
       "durationMs": 5490
     },
     {
-      "id": "1ab8603d12271b51",
+      "id": "5821735beba6f364",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -9145,9 +9121,9 @@
       "groups": [
         "r5.SYSTEM_HINTS.door-reconstruction-hall"
       ],
-      "text": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
-      "ttsText": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.",
-      "file": "audio/voice/1ab8603d12271b51.mp3"
+      "text": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng đã đi qua. Các biển đang lệch thứ tự.",
+      "ttsText": "Ký Chủ, mỗi mảnh ghép gắn với một căn phòng đã đi qua. Các biển đang lệch thứ tự.",
+      "file": "audio/voice/5821735beba6f364.mp3"
     },
     {
       "id": "2e4fec097fd5497e",

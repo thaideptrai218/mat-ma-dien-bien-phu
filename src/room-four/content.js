@@ -1,8 +1,8 @@
 // Long and the system dialogue are authored for this learning room.
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tao" to it.
+// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it.
 const introLines = scopeNote => [
   { speaker: 'Hệ Thống', text: 'Phòng 4 — Những ngày quyết định. Từ 30/3 đến chiến thắng 7/5/1954, rồi nhìn lại kết quả và ý nghĩa.' },
-  { speaker: 'Long', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tao bắt đầu ở cuối tháng ba nhé?' },
+  { speaker: 'Long', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tôi bắt đầu ở cuối tháng ba nhé?' },
   { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ: đọc bảy tư liệu theo dòng thời gian, giải bảng ô chữ lịch sử, tìm cột chữ có nghĩa, rồi lần theo lời chỉ dẫn để mở rương mảnh tranh thứ tư.' },
   { speaker: 'Hệ Thống', text: `${scopeNote} Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.` },
   { speaker: 'Hệ Thống', text: 'Đi bằng WASD hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn E. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. N mở sổ tay, M mở sơ đồ, Q xem nhiệm vụ.' },
@@ -14,7 +14,7 @@ export const CAMPAIGN_INTRO = introLines('Chặng này giữ mảnh tranh IV c�
 export const GUIDE = {
   documents: [
     { speaker: 'Hệ Thống', text: 'Bảy tư liệu đã được ghi nhận. Nhiệm vụ tiếp theo: bảng ô chữ lịch sử ở phía bắc. Mỗi câu hỏi gắn với một tờ giấy Ký Chủ đã đọc.' },
-    { speaker: 'Long', text: 'Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tao không sợ.' },
+    { speaker: 'Long', text: 'Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tôi không sợ.' },
   ],
   column: [
     { speaker: 'Hệ Thống', text: 'Lời chỉ dẫn vừa tìm được có thể giúp Ký Chủ đọc hai bảng chữ phía sau rương. Hãy đối chiếu câu ấy với cách các ô được xếp.' },
@@ -38,7 +38,7 @@ export const CAMPAIGN_ENDING = [
   ...ENDING_STORY,
   { speaker: 'Hệ Thống', text: 'Ký Chủ đã nhận mảnh tranh IV. Tới cửa phía bắc để tiếp tục hành trình.' },
   { speaker: 'Hệ Thống', text: 'Qua cửa là Phòng 5: ghép bốn mảnh tranh trên cánh cửa cuối cùng.' },
-  { speaker: 'Long', text: 'Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tao về được chứ?' },
+  { speaker: 'Long', text: 'Đủ bốn mảnh rồi, Hệ Thống. Lần này thì tôi về được chứ?' },
   { speaker: 'Hệ Thống', text: 'Câu trả lời nằm sau cánh cửa, thưa Ký Chủ.' },
 ];
 
