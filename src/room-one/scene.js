@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import {collisionRects, nearbyTarget} from '../core/world-geometry.js';
-import {preloadCharacter, releaseCharacterLoader, registerCharacterAnimations, characterAnimationKey, characterSnapshot,
+import {preloadCharacter, releaseCharacterLoader, registerCharacterAnimations, characterAnimationKey, snapCharacterToIdle, characterSnapshot,
   CHARACTER_TEXTURE, CHARACTER_FRAME} from '../game/character-animation.js';
 import {WORLD} from './world.js';
 import {createRoomOneArtwork} from './art.js';
@@ -77,7 +77,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.events.on(Phaser.Scenes.Events.POST_UPDATE, this.afterPhysics, this);
     this.resizeCamera = size => camera.setSize(size.width, size.height);
     this.scale.on(Phaser.Scale.Events.RESIZE, this.resizeCamera);
-    this.player.play(characterAnimationKey(this.facing, 'idle'));
+    snapCharacterToIdle(this.player, this.facing);
     this.setGoal(this.goalId); this.updateNearby(); this.publishPosition(true);
     this.callbacks.onReady?.(this);
   }
@@ -97,7 +97,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.player?.body?.setVelocity(0, 0);
     if (this.player?.anims) {
       this.lastPosition = {x: this.player.x, y: this.player.y};
-      this.player.play(characterAnimationKey(this.facing, 'idle'), true);
+      snapCharacterToIdle(this.player, this.facing);
     }
     this.callbacks.audio?.reportMotion({distance: 0, blocked: true});
   }
@@ -119,7 +119,8 @@ export class RoomOneScene extends Phaser.Scene {
     this.walking = distance > .01;
     if (this.walking) this.facing = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up');
     this.motion = this.walking ? (this.sprinting ? 'run' : 'walk') : 'idle';
-    this.player.play(characterAnimationKey(this.facing, this.motion, this.reducedMotion?.matches), true);
+    if (this.motion === 'idle' || this.reducedMotion?.matches) snapCharacterToIdle(this.player, this.facing);
+    else this.player.play(characterAnimationKey(this.facing, this.motion), true);
     this.shadow.setPosition(point.x, point.y + 4);
     this.nameLabel.setPosition(point.x, point.y + 23);
     this.lastPosition = point;

@@ -1,10 +1,10 @@
 export const CHARACTER_TEXTURE = 'long-hero';
-// Motion sheet: 16 columns per direction row, walk cycle in 0-7 and run cycle in 8-15.
-export const CHARACTER_COLUMNS = 16;
+// The 17th column stores a full standing pose for each direction.
+export const CHARACTER_COLUMNS = 17;
 export const CHARACTER_DIRECTIONS = Object.freeze(['down', 'left', 'right', 'up']);
 export const CHARACTER_FRAME = Object.freeze({width:160, height:192, scale:.5,
   originX:.5, originY:176/192, bodyWidth:48, bodyHeight:32, bodyOffsetX:56, bodyOffsetY:160});
-const poses = Object.freeze({idle:[0], walk:[0,1,2,3,4,5,6,7], run:[8,9,10,11,12,13,14,15]});
+const poses = Object.freeze({idle:[16], walk:[0,1,2,3,4,5,6], run:[8,9,10,11,12,13,14]});
 
 export function characterAnimationKey(facing, motion = 'idle', reduced = false) {
   if (!CHARACTER_DIRECTIONS.includes(facing) || !Object.hasOwn(poses, motion)) throw new Error('Invalid character animation.');
@@ -14,8 +14,14 @@ export function characterAnimationKey(facing, motion = 'idle', reduced = false) 
 export function characterClips() {
   return CHARACTER_DIRECTIONS.flatMap((facing, row) => Object.entries(poses).map(([motion, columns]) => ({
     key:characterAnimationKey(facing, motion), frames:columns.map(column => row*CHARACTER_COLUMNS+column),
-    frameRate:motion === 'run' ? 12 : 8, repeat:motion === 'idle' ? 0 : -1,
+    frameRate:motion === 'run' ? 15 : motion === 'walk' ? 10 : 8, repeat:motion === 'idle' ? 0 : -1,
   })));
+}
+
+export function characterIdleFrame(facing) {
+  const row = CHARACTER_DIRECTIONS.indexOf(facing);
+  if (row < 0) throw new Error('Invalid character direction.');
+  return row * CHARACTER_COLUMNS + poses.idle[0];
 }
 
 /** One measured transform retains contact/flight height and body scale across every pose. */

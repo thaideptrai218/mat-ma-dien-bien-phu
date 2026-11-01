@@ -37,9 +37,9 @@ Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuy�
 
 ### Nhân vật Long theo ảnh mẫu
 
-Sprite di chuyển mới giữ tóc nâu gợn, áo khoác nâu đỏ, áo trắng, quần be và túi ô liu theo hình người dùng cung cấp. PNG nền trong suốt có32 tư thế cho bốn hướng; đi bộ8fps và chạy12fps dùng các khung riêng. Đứng lại, đụng tường hoặc mở nội dung sẽ về tư thế đứng. Giảm chuyển động của hệ điều hành giữ hình đứng theo hướng nhưng vẫn cho đi/chạy.
+Sprite di chuyển theo ảnh tham chiếu người dùng cung cấp. Đi bộ dùng bảy bước luân phiên ở bốn hướng (10fps); chạy dùng cùng chu kỳ chân ở 15fps để tránh lặp một bên chân. Ngay khi dừng, animation bị ngắt và đặt thẳng về khung đứng có hai chân khép; không giữ lại khung bước đang dở. File sprite gốc được giữ nguyên. Giảm chuyển động của hệ điều hành giữ hình đứng theo hướng nhưng vẫn cho đi/chạy.
 
-Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 hiển thị80×96, collider vẫn24×16; tốc độ260/390 và save/câu đố không đổi. [Sprite và thông số](assets/characters/long/README.md), [PNG](assets/characters/long/motion-sheet.png), [review](plans/261031-quang-reference-character/reports/code-review.md), [QA nhân vật](plans/261031-quang-reference-character/reports/qa.md). Phạm vi lần này là sprite khám phá; chân dung hội thoại là tài nguyên riêng.
+Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 hiển thị80×96, collider vẫn24×16; tốc độ260/390 và save/câu đố không đổi. [Sprite và thông số](assets/characters/long/README.md), [sprite gốc](assets/characters/long/motion-sheet.png), [atlas có idle](assets/characters/long/motion-sheet-with-idle.png). Phạm vi lần này là sprite khám phá; chân dung hội thoại là tài nguyên riêng.
 
 ### Phòng 1 — Trước bản kế hoạch
 

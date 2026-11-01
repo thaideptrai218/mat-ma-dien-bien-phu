@@ -1,8 +1,9 @@
-import {CHARACTER_TEXTURE, CHARACTER_FRAME, CHARACTER_COLUMNS, characterClips, characterAtlasLayout} from './character-atlas.js';
+import {CHARACTER_TEXTURE, CHARACTER_FRAME, CHARACTER_COLUMNS, characterClips, characterAtlasLayout,
+  characterIdleFrame, characterAnimationKey} from './character-atlas.js';
 export {CHARACTER_TEXTURE, CHARACTER_FRAME, characterAnimationKey} from './character-atlas.js';
 const SOURCE_KEY = `${CHARACTER_TEXTURE}-source`, MANIFEST_KEY = `${CHARACTER_TEXTURE}-manifest`;
-const sheetUrl = new URL('../../assets/characters/long/motion-sheet.png', import.meta.url).href;
-const manifestUrl = new URL('../../assets/characters/long/manifest.json', import.meta.url).href;
+const sheetUrl = new URL('../../assets/characters/long/motion-sheet-with-idle.png', import.meta.url).href;
+const manifestUrl = new URL('../../assets/characters/long/manifest-with-idle.json', import.meta.url).href;
 
 export function preloadCharacter(scene) {
   if (scene.textures.exists(CHARACTER_TEXTURE)) return;
@@ -55,6 +56,14 @@ export function registerCharacterAnimations(scene) {
     scene.anims.create({...clip, frames:clip.frames.map(frame => ({key:CHARACTER_TEXTURE, frame}))});
   }
   return true;
+}
+
+/** Stop on a complete standing pose immediately when movement input ends. */
+export function snapCharacterToIdle(player, facing) {
+  const frame = characterIdleFrame(facing);
+  if (Number(player.frame.name) === frame && !player.anims.isPlaying) return;
+  player.anims.stop();
+  player.setFrame(frame);
 }
 
 export function releaseCharacterLoader(scene) {
