@@ -55,5 +55,29 @@ export function heroText(text, hero = activeHero()) {
   return text.replace(/\bLONG\b/g, hero.upper).replace(/\bLong\b/g, hero.name);
 }
 
+/** Apply the chosen hero's first- and second-person voice to protagonist dialogue only. */
+export function heroDialogueText(text, speaker, hero = activeHero()) {
+  if (typeof text !== 'string') return text;
+  const protagonistText = ['Long', 'Quang'].includes(speaker) ? text.replace(/^(?:Long|Quang):\s*/u, '') : text;
+  const localized = heroText(protagonistText, hero);
+  if (!['Long', 'Quang'].includes(speaker)) return localized;
+
+  if (hero.id === 'long') {
+    return localized
+      .replace(/\b[Mm]ình\b/gu, word => word === 'Mình' ? 'Tôi' : 'tôi')
+      .replace(/(^|[.!?…]\s*|[ \t])Hệ Thống,\s*/gu, (match, before) =>
+        `${before}${before && !/[.!?…]/u.test(before) ? 'bạn ơi, ' : 'Bạn ơi, '}`)
+      .replace(/\bHệ Thống\b(?=\s+(?:có|còn|phải|cứ|chờ|đã|vừa)(?=\s)|[,!?…]|\.|$)/gu,
+        (word, offset, source) => /(?:^|[.!?…])\s*$/u.test(source.slice(0, offset)) ? 'Bạn' : 'bạn');
+  }
+
+  return localized
+    .replace(/\b[Tt]ôi\b/gu, word => word === 'Tôi' ? 'Mình' : 'mình')
+    .replace(/(^|[.!?…]\s*|[ \t])Hệ Thống,\s*/gu, (match, before) =>
+      `${before}${before && !/[.!?…]/u.test(before) ? 'cậu ơi, ' : 'Cậu ơi, '}`)
+    .replace(/\bHệ Thống\b(?=\s+(?:có|còn|phải|cứ|chờ|đã|vừa)(?=\s)|[,!?…]|\.|$)/gu,
+      (word, offset, source) => /(?:^|[.!?…])\s*$/u.test(source.slice(0, offset)) ? 'Cậu' : 'cậu');
+}
+
 /** Voice key for a role ('system' | 'quang' | 'narrator') in the active (or given) hero's route. */
 export const heroVoiceKey = (role, hero = activeHero()) => hero.voices[role] ?? role;

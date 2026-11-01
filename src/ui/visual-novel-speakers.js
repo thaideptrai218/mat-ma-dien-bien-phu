@@ -1,7 +1,7 @@
 // Speaker table for the visual-novel dialogue: label, portrait asset and accessible description.
 // Plain strings in a script are the hero's thoughts; {speaker, text} objects name the speaker.
 // Content keys the hero as "Long"; the name and face follow the hero chosen for this run.
-import {activeHero} from '../heroes/hero-profiles.js';
+import {activeHero, heroDialogueText} from '../heroes/hero-profiles.js';
 
 const asset = name => new URL(`../../assets/images/${name}`, import.meta.url).href;
 
@@ -13,7 +13,7 @@ export const SPEAKERS = {
 };
 
 export function normalizeLine(line) {
-  if (typeof line === 'string') return {speaker: 'Long', text: line};
+  if (typeof line === 'string') return {speaker: 'Long', text: heroDialogueText(line, 'Long')};
   const speaker = SPEAKERS[line?.speaker] ? line.speaker : 'Lời kể';
-  return {speaker, text: String(line?.text ?? '')};
+  return {speaker, text: heroDialogueText(String(line?.text ?? ''), speaker)};
 }

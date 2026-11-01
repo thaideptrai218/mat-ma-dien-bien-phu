@@ -1,5 +1,5 @@
 // Long and these conversations are authored fiction for the learning game.
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it, "mình" when thinking alone.
+// The selected-hero dialogue adapter gives Long "tôi – bạn" and Quang "mình – cậu" throughout the voiced script.
 export const INTRO = [
   { speaker: 'Hệ Thống', text: 'Phòng 1 — Trước bản kế hoạch. Không gian này tái hiện chặng đường từ bước chuyển năm 1950 đến tình thế năm 1953. Lá thư mở đầu được viết vào đầu năm 1953.' },
   { speaker: 'Long', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tôi đọc nó trước được chứ?' },
@@ -20,16 +20,16 @@ export const GUIDE = {
   ],
   dossiers: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã được ghi nhận. Nhiệm vụ tiếp theo: mang dữ kiện đến bàn đối chiếu ở giữa phòng, so từng mặt của hai phía.' },
-    { speaker: 'Long', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tôi không?' },
+    { speaker: 'Long', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống, tôi thử tự suy luận trước nhé.' },
     { speaker: 'Hệ Thống', text: 'Hệ Thống không trả lời thay Ký Chủ. Sổ tay N vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.' },
   ],
   comparison: [
-    { speaker: 'Hệ Thống', text: 'Mã 2413 đã được ghi nhận. Ngăn kéo mật mã đang chờ Ký Chủ.' },
-    { speaker: 'Long', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tôi không cần gợi ý.' },
+    { speaker: 'Hệ Thống', text: 'Bốn kết quả đã khớp. Dãy khóa vừa tìm được sẽ mở ngăn kéo mật mã.' },
+    { speaker: 'Long', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này, tôi thử tự suy luận trước nhé.' },
   ],
   identity: [
     { speaker: 'Hệ Thống', text: 'Danh tính đã được xác nhận. Ký Chủ hãy đọc bản tin tháng 7/1953 trước khi tới rương sắt.' },
-    { speaker: 'Long', text: 'Rõ. Đọc xong, tôi sẽ mang cái tên ấy tới rương.' },
+    { speaker: 'Long', text: 'Được. Đọc xong, tôi sẽ mang cái tên ấy tới rương.' },
   ],
   chest: [
     { speaker: 'Hệ Thống', text: 'Rương sắt đang chờ. Nhập đúng họ ấy, mảnh ghép thứ nhất sẽ thuộc về Ký Chủ.' },
@@ -55,7 +55,7 @@ export const CAMPAIGN_ENDING = [
 export const REACTIONS = {
   letter: {
     first: ['Lâm gửi Tín. Hai anh em xa nhau từ bao giờ nhỉ?'],
-    repeat: ['Ký hiệu lưu trữ A-03 nằm ngoài lời thư. Mình tìm ô ấy trên bản đồ.'],
+    repeat: ['Cuối thư có một dấu lưu trữ. Mình cần đối chiếu nó với sơ đồ trên vách.'],
     locked: ['Mình chưa đọc hết lá thư.'],
   },
   'map-a03': {
@@ -66,22 +66,22 @@ export const REACTIONS = {
   v1: {
     first: ['Lại một lá thư gửi về nhà. Người lính này viết sau chiến dịch Tây Bắc.'],
     repeat: ['Thành kể với vợ về những điều bộ đội đã học qua chiến đấu.'],
-    locked: ['Mình còn chưa tìm ô A-03 trên bản đồ.'],
+    locked: ['Mình cần đối chiếu dấu lưu trữ trên thư với sơ đồ trước.'],
   },
   v2: {
     first: ['Một cuốn sổ quân nhu. Người viết lo đến cái ăn và vũ khí của anh em.'],
     repeat: ['Sau bảng tổng hợp còn là chuyện lương ăn và vũ khí cho từng người.'],
-    locked: ['Mình sẽ tìm vị trí hồ sơ từ ô A-03 trước.'],
+    locked: ['Mình cần tìm vị trí hồ sơ trên sơ đồ trước.'],
   },
   p1: {
     first: ['Một bản báo cáo tham mưu phía Pháp. Mình xem họ đang vướng điều gì.'],
     repeat: ['Quân đông và trang bị tốt, nhưng lại phải chia ra nhiều nơi.'],
-    locked: ['Ô A-03 sẽ chỉ vị trí của bộ hồ sơ này.'],
+    locked: ['Dấu lưu trữ trên thư sẽ chỉ vị trí của bộ hồ sơ này.'],
   },
   p2: {
     first: ['Thư từ Paris. Ở bên ấy cũng có một gia đình đang đợi tin.'],
     repeat: ['Louise chỉ mong em trai trở về, còn cuộc chiến cứ kéo dài và tốn kém.'],
-    locked: ['Mình cần tìm ô A-03 trước khi đọc bộ hồ sơ.'],
+    locked: ['Mình cần tìm vị trí bộ hồ sơ trên sơ đồ trước.'],
   },
   comparison: {
     first: ['Đủ chỗ cho bốn tờ giấy. Mình thử so từng mặt của hai phía.'],
@@ -123,7 +123,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues (plain strings are Long; objects name another speaker).
 export const LINES = {
   letterArchive: [
-    'Nhãn lưu trữ ghi A-03. Trên sơ đồ treo vách cũng có những ô được đánh dấu như vậy.',
+    'Nhãn lưu trữ cuối thư ghi A-03. Trên sơ đồ chia ô, tôi sẽ tìm đúng vị trí ấy.',
   ],
   a03: [
     'Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.',
@@ -132,14 +132,14 @@ export const LINES = {
   comparison: [
     'Đối chiếu đúng: quân số 252.000 / 445.000; trang bị hạn chế / hiện đại; thế chủ động / lực lượng phân tán; sức ép tiếp tế / chi phí chiến tranh.',
     'Những con số cho biết quy mô lực lượng; cách bố trí và những khó khăn mới cho thấy tình thế của họ.',
-    'Bốn hàng làm lộ bốn chữ số: 2 · 4 · 1 · 3. Đây là mật mã của trò chơi, không phải một niên đại lịch sử.',
+    'Bốn hàng lần lượt cho tôi các số 2, 4, 1, 3. Mã ngăn kéo là 2413; đây là mật mã trò chơi, không phải niên đại lịch sử.',
   ],
   identity: [
-    'Henri Navarre, thường gọi là Nava, được cử sang Đông Dương làm Tổng chỉ huy tháng 5/1953.',
+    'Henri Navarre được cử sang Đông Dương làm Tổng chỉ huy tháng 5/1953. Bản tin tiếp theo sẽ cho biết kế hoạch mới được thông qua ra sao.',
     'Có một bản tin viết sau đó hai tháng. Mình sẽ đọc tiếp để biết kế hoạch mới đã được thông qua thế nào.',
   ],
   navaContext: [
-    'Trên rương cần họ theo cách gọi tiếng Việt. Mình sẽ dùng NAVA.',
+    'Bản tin ghi ông thường được gọi là Nava trong tiếng Việt. Vậy rương cần cách gọi ấy.',
   ],
   chestOpened: [
     'Rương đã mở. Mình cất mảnh tranh rồi đi đến cánh cửa phía bắc.',

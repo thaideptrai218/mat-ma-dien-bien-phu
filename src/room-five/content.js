@@ -3,7 +3,7 @@ import {heroCopy} from '../heroes/hero-copy.js';
 export const VICTORY_PHOTO_URL = new URL('../../assets/images/dien-bien-phu-victory-photo.png', import.meta.url).href;
 export const VICTORY_PHOTO_ALT = 'Lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
 
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it.
+// The shared dialogue adapter applies "tôi – bạn" or "mình – cậu" to protagonist dialogue by route.
 export const INTRO = [
   {speaker: 'Lời kể', text: 'Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức ảnh còn thiếu những mảnh ghép cuối cùng.'},
   {speaker: 'Long', text: 'Hệ Thống, tôi mang đủ bốn mảnh tới rồi đây.'},
