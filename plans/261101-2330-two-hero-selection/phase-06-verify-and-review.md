@@ -22,7 +22,8 @@ Xác nhận trong trình duyệt thật cả hai route end-to-end, chạy code-r
 
 ## Success Criteria
 - [x] Test + build xanh.
-- [ ] Hai route chơi trọn vẹn 5 phòng (mới kiểm: chọn nhân vật, intro, Phòng 1 sprite 4 hướng/idle, Phòng 2 donor; chưa chơi hết Phòng 3-5 và kết).
+- [x] Trình duyệt, cả hai route, không lỗi console: chọn nhân vật, intro, Phòng 1-4 mở đúng sprite/tên, Phòng 2 donor (tên + chân dung), Phòng 5 đọc hết đoạn suy ngẫm (Long có đoạn học tập, Quang không lẫn tên).
+- [ ] Chơi giải trọn các câu đố Phòng 1, 3, 4 và màn trở lại bảo tàng bằng tay (chưa làm: các câu phản ứng sau Phòng 1/3/4 và màn kết chỉ được kiểm bằng test đơn vị).
 - [x] Review: không có lỗi nghiêm trọng (DONE_WITH_CONCERNS); đã sửa mục Medium; mục Low còn lại ghi trong báo cáo.
 - [ ] User xác nhận trước khi push; push bằng tài khoản baodzchimto (chưa push).
 
