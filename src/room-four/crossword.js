@@ -111,7 +111,7 @@ export function columnPanel(data, emit) {
   grid.highlight(start - 1);
   body.append(grid.node, ruler.element);
   if (data.solved) {
-    body.append(element('p', 'r1-success', 'Chỉ dẫn đã giải: TÌM T VÀ L. Hãy tìm hai bảng chữ phía sau rương.'));
+    body.append(element('p', 'r1-success', 'Long đã đọc được chỉ dẫn ở cột này. Hãy tìm các bảng chữ phía sau rương.'));
     return body;
   }
   body.append(button('Đọc cột này', () => emit('column-submit', { column: ruler.getValue() - 1 }), 'r1-primary'),

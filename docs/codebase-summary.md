@@ -1,6 +1,6 @@
 # Tóm tắt mã nguồn
 
-Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, JavaScript ES modules/Phaser 3.90.0/Vite 8.3.5, không backend. Preview 1–4 giữ private saves; donor Bảo 4180 bảo toàn.
+Cập nhật 2026-11-01. Bản chính là campaign năm phòng cùng origin, JavaScript ES modules/Phaser 3.90.0/Vite 8.3.5, không backend. Preview 1–5 giữ save riêng; preview Phòng 5 dùng mảnh minh họa, không làm thay đổi campaign.
 
 | Đường dẫn | Trách nhiệm |
 | --- | --- |
@@ -8,7 +8,7 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/campaign/runtime.js`, `session-host.js` | Một session/Game tại một thời điểm, lazy imports, queue/epoch, await destroy, shared audio/parent pause. |
 | `src/campaign/state.js`, `store.js` | Envelope campaign, sanitize chuỗi exit, suy ra mảnh/current room/phase, adapter storage và shared settings. |
 | `src/campaign/ui.js`, `archive.js`, `framing.js`, `styles.css` | Header/mục tiêu/kho mảnh, sổ toàn văn xuyên phòng, restart, museum intro/return/acknowledgment. |
-| `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html` | Bốn preview độc lập; không auto-import thành tích vào campaign. |
+| `room-one.html` … `room-five.html` | Năm preview độc lập; không auto-import thành tích vào campaign. Phòng 5 có mảnh minh họa trong save riêng. |
 | `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/A-03/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
 | `src/room-one/{letter-document,documents,nava-context,content}.js` | Văn xuôi lịch sử 1950–7/1953, N-01 riêng sau identity, nguồn/hư cấu và suy nghĩ Long. |
 | `src/room-one/{world,art,scene,input}.js` | 2400×1600; scene cấu hình world/art/key/goal, input/focus/physics/animation 260/390 tái dùng. |
@@ -21,10 +21,10 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/room-three/{documents,content,world,art,scene}.js` | Năm giấy đầy đủ, trại 3200×2000 và 14 vật, lớp rương/mảnh theo state. |
 | `src/room-three/*-panel.js`, `puzzle-controls.js`, `ui.js`, `panels.js`, `puzzles.js`, `styles.css` | Phân nhóm chuẩn bị, sáu cặp, thẻ mật lệnh, tin mở màn, draft/token/notebook. |
 | `assets/room-three/*.svg` | Sáu minh họa hậu cần tự vẽ, không ảnh tư liệu. |
-| `src/room-four/` | Trâm 2800×1800, bảy giấy/ô chữ 17 cột/T-L/câu cuối/rương/pickup IV/cửa; nội dung và cơ chế giữ nguyên khi nối. |
-| `src/room-five/{session,actions,rules,save,world,scene,art}.js` | Room 5 chỉ trong campaign: actual fragments→assembly→reflection→physical exit, lifecycle chung. |
+| `src/room-four/` | Thế giới 2800×1800, bảy giấy/ô chữ 17 cột/T-L/câu cuối/rương/pickup IV/cửa; nội dung và cơ chế giữ nguyên khi nối. |
+| `src/room-five/{session,actions,rules,save,world,scene,art}.js` | Room 5 campaign nhận mảnh thật; preview riêng cấp mảnh minh họa và dùng save riêng. Cả hai dùng assembly→reflection→physical exit. |
 | `src/room-five/{content,panels,archive}.js`, `room-five.css` | Tranh 2×2, cuộc trò chuyện, ô cá nhân không gửi/lưu, archive lời Long. |
-| `assets/images/victory-painting.svg` | Một tranh sáng tác dùng xuyên museum intro/assembly/return. |
+| `assets/images/dien-bien-phu-victory-photo.png` | Ảnh tư liệu do người dùng cung cấp, dùng xuyên museum intro/assembly/return. |
 | `src/ui/room-links.js`, `font-styles.css`, `game-fonts.js`, `assets/fonts/` | Preview links, font cục bộ và hàng rào đợi font Canvas. |
 | `src/ui/visual-novel-{dialogue,speakers,voice}.js`, `visual-novel-dialogue.css` | Hội thoại kiểu visual novel dùng chung (mọi phòng): một câu mỗi bước, chân dung theo người nói, Trước/Tiếp lời/Đọc toàn cảnh, nút cuối giữ action/token của session; đọc giọng từng câu (Hệ Thống, Long, Lời kể). |
 | `src/ui/system-hint-card.{js,css}`, `SYSTEM_HINTS` trong content từng phòng (Phòng 2: `system-guidance.js`) | Thẻ Hệ Thống bên trái giữa màn hình trong dialog khi mở câu đố: lời nhắc khi mở, gợi ý nhẹ mức 1 sau lần sai đầu, mức 2 từ lần sai thứ hai; bảng chỉ báo “Chưa đúng.”, không còn nút gợi ý. |

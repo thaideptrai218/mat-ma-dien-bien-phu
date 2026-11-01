@@ -26,12 +26,12 @@ const GATE_SPECS = [
     legacy: state => state?.assemblySolved === true || has(state?.seenObjectIds, 'assembly'),
     notice: 'Sợi dây chắn lối vào gian phục dựng. Nhấn E để mở khóa.',
     door: {kind: 'plaques', label: 'Mở khóa lối vào gian phục dựng', title: 'Khóa lối vào gian phục dựng',
-      prompt: 'Bốn mảnh tranh mang số La Mã theo thứ tự các phòng Ký Chủ đã đi qua. Kéo mỗi mảnh vào tấm biển của phòng đã cho Ký Chủ mảnh ấy, rồi bấm Mở khóa.',
+      prompt: 'Bốn mảnh ghép mang số La Mã theo thứ tự các phòng Ký Chủ đã đi qua. Kéo mỗi mảnh vào tấm biển của phòng đã cho Ký Chủ mảnh ấy, rồi bấm Mở khóa.',
       fragments: FRAGMENTS, plaques: PLAQUES, answer: ANSWER}},
   {id: 'light-curtain', method: 'auto', guards: ['reflection', 'door'], style: 'curtain',
     rects: [[48, 360, 412, 32], [760, 360, 480, 32], [1540, 360, 412, 32]],
     opensWhen: state => state?.assemblySolved === true, legacy: state => state?.reflectionSeen === true,
-    notice: 'Tấm rèm sáng còn buông. Hệ Thống: Ký Chủ hãy ghép xong bức tranh trên bàn phục dựng trước.'},
+    notice: 'Tấm rèm sáng còn buông. Hệ Thống: Ký Chủ hãy ghép xong bức ảnh trên bàn trước.'},
 ];
 
 export const doorSolved = (state, id) => has(state?.doorsSolved, id);

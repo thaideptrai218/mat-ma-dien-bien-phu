@@ -4,7 +4,7 @@ const introLines = scopeNote => [
   { speaker: 'Hệ Thống', text: 'Phòng 4 — Những ngày quyết định. Từ 30/3 đến chiến thắng 7/5/1954, rồi nhìn lại kết quả và ý nghĩa.' },
   { speaker: 'Long', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tao bắt đầu ở cuối tháng ba nhé?' },
   { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ: đọc bảy tư liệu theo dòng thời gian, giải bảng ô chữ lịch sử, tìm cột chữ có nghĩa, rồi lần theo lời chỉ dẫn để mở rương mảnh tranh thứ tư.' },
-  { speaker: 'Hệ Thống', text: `${scopeNote} Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên phần của Trâm trong tài liệu được cung cấp, với nguồn ghi ngoài lời văn.` },
+  { speaker: 'Hệ Thống', text: `${scopeNote} Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.` },
   { speaker: 'Hệ Thống', text: 'Đi bằng WASD hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn E. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. N mở sổ tay, M mở sơ đồ, Q xem nhiệm vụ.' },
 ];
 export const INTRO = introLines('Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này.');
@@ -17,8 +17,8 @@ export const GUIDE = {
     { speaker: 'Long', text: 'Bảy câu hỏi, bảy tờ giấy. Có sổ tay N bên cạnh, tao không sợ.' },
   ],
   column: [
-    { speaker: 'Hệ Thống', text: 'Lời chỉ dẫn đã hiện. Bàn mật mã T ở bên trái, bàn mật mã L ở bên phải, cả hai nằm phía sau rương. Ký Chủ chọn các ô tạo thành đúng hình cần tìm.' },
-    { speaker: 'Long', text: 'Hình T trước, hình L sau. Hệ Thống cứ xem tao làm.' },
+    { speaker: 'Hệ Thống', text: 'Lời chỉ dẫn vừa tìm được có thể giúp Ký Chủ đọc hai bảng chữ phía sau rương. Hãy đối chiếu câu ấy với cách các ô được xếp.' },
+    { speaker: 'Long', text: 'Vậy là mình biết phải tìm gì rồi. Hai bảng phía sau rương đang chờ.' },
   ],
   final: [
     { speaker: 'Hệ Thống', text: 'Khẩu hiệu đã được xác nhận. Ký Chủ đến gần rương và nhấn E để nhận mảnh tranh số IV.' },
@@ -85,12 +85,12 @@ export const REACTIONS = {
   },
   'board-t': {
     first: ['Một bảng sáu hàng, năm cột. Manh mối bảo tìm chữ T.'],
-    repeat: ['Theo nét ngang rồi nét dọc của T, các chữ nối thành QUYẾT CHIẾN.'],
+    repeat: ['Mình đã ghi lại những chữ đọc được trên bảng này.'],
     locked: ['Mình cần giải ô chữ và chọn cột dọc trước.'],
   },
   'board-l': {
     first: ['Bảng còn lại có cùng số ô. Mình thử tìm chữ L.'],
-    repeat: ['Đi xuống rồi sang phải theo chữ L: QUYẾT THẮNG.'],
+    repeat: ['Mình đã ghi lại những chữ đọc được trên bảng này.'],
     locked: ['Cột dọc của ô chữ sẽ chỉ cách đọc hai bảng này.'],
   },
   chest: {
@@ -118,8 +118,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues.
 export const LINES = {
   column: [
-    'T · I · M · T · V · A · L. Đọc thành “TÌM T VÀ L”.',
-    'Phía sau rương có hai bảng chữ. Mình sẽ tìm hình T trên bảng bên trái và hình L trên bảng bên phải.',
+    'TIMTVAL… “Tìm T và L.” Hai bảng chữ phía sau rương hẳn là nơi mình cần nhìn tiếp.',
   ],
   final: [
     '“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.',

@@ -18,16 +18,18 @@ import './room-five.css';
 export class RoomFiveSession {
   constructor(root, options = {}) {
     this.disposed = false; this.options = options; this.ownsAudio = !options.audio;
-    this.fragments = [...new Set(Array.isArray(options.fragments) ? options.fragments.filter(id => [1, 2, 3, 4].includes(id)) : [])];
+    this.fragments = options.standalonePreview ? [1, 2, 3, 4]
+      : [...new Set(Array.isArray(options.fragments) ? options.fragments.filter(id => [1, 2, 3, 4].includes(id)) : [])];
     if (options.storage !== undefined) this.storage = options.storage;
     else {try {this.storage = window.localStorage;} catch {this.storage = null;}}
-    const loaded = loadSave(this.storage, this.fragments); this.state = loaded.state; this.notice = loaded.notice;
+    this.saveKey = options.saveKey;
+    const loaded = loadSave(this.storage, this.fragments, this.saveKey); this.state = loaded.state; this.notice = loaded.notice;
     this.active = null; this.nonce = 0; this.position = {...WORLD.checkpoints[0]}; this.assemblyOrder = shuffledPieces();
     this.audio = options.audio || new AudioController({onStatusChange: () => this.render()});
     this.audio.setScene('room-5');
     retainSharedAudioPreferences(this);
     this.ui = new RoomOneUI({root, onAction: (action, payload) => handleAction(this, action, payload), audio: this.audio, hints: SYSTEM_HINTS}, {
-      subtitle: 'PHÒNG 5 · BỨC TRANH HÒA BÌNH', date: 'CĂN PHÒNG CUỐI', roomLabel: 'HÀNH TRÌNH PHÒNG 5',
+      subtitle: options.standalonePreview ? 'BẢN CHƠI RIÊNG · BỨC TRANH HÒA BÌNH' : 'PHÒNG 5 · BỨC TRANH HÒA BÌNH', date: options.standalonePreview ? 'BẢN THỬ ĐỘC LẬP' : 'CĂN PHÒNG CUỐI', roomLabel: options.standalonePreview ? 'PREVIEW PHÒNG 5' : 'HÀNH TRÌNH PHÒNG 5',
       world: WORLD, panelFactory: createPanel,
     });
     this.scene = new RoomFiveScene({
@@ -40,10 +42,16 @@ export class RoomFiveSession {
       scale: {mode: Phaser.Scale.RESIZE, width: '100%', height: '100%'}, render: {antialias: true, roundPixels: true},
       scene: this.scene, physics: {default: 'arcade', arcade: {debug: false}}});
     this.audio.setPreferences(this.state); this.render();
-    if (!this.state.introSeen) this.dialogue('Bức tranh hòa bình', hasAllFragments(this.fragments) ? [...INTRO, SOURCE_LABEL] : [
+    if (!this.state.introSeen) this.dialogue('Bức tranh hòa bình', hasAllFragments(this.fragments) ? [
+      ...(options.standalonePreview ? [
+        {speaker: 'Hệ Thống', text: 'Đây là bản chơi riêng của Phòng 5. Bốn mảnh minh họa đã có sẵn để Ký Chủ thử ghép ảnh và khám phá phần kết.'},
+        {speaker: 'Hệ Thống', text: 'Tiến độ của bản này được lưu riêng; hoàn tất tại đây không thay đổi hành trình chính.'},
+      ] : []),
+      ...INTRO, SOURCE_LABEL,
+    ] : [
       NOTICES.introMissing, SOURCE_LABEL,
-    ], 'Bước vào căn phòng cuối', 'intro-finish');
-    else if (this.state.exitReached && !options.onExit) this.show('completed');
+    ], options.standalonePreview ? 'Bắt đầu bản chơi riêng' : 'Bước vào căn phòng cuối', 'intro-finish');
+    else if (this.state.exitReached && !options.onExit) this.show('completed', {standalonePreview: Boolean(options.standalonePreview)});
     this.onPageHide = () => this.audio.setMode('inactive'); window.addEventListener('pagehide', this.onPageHide);
   }
   render() {
@@ -54,6 +62,7 @@ export class RoomFiveSession {
     const goal = doorGoal ? {...base, id: doorGoal, label: 'Mở khóa lối vào gian phục dựng', detail: 'Một sợi dây chắn ngang gian phục dựng. Đến sợi dây rồi nhấn E để mở khóa.'} : base;
     const nearby = [...OBJECTS, ...doors].find(o => o.id === this.position.nearbyId) || null;
     this.ui.render({state: this.state, position: this.position, nearby, goal, notice: this.notice, audio: this.audio.getSnapshot(),
+      standalonePreview: Boolean(this.options.standalonePreview),
       lockedGateRects: lockedGateRects(AREA_GATES, this.state), gateObjects: doors});
     this.scene?.setLockedGates(locked); this.scene?.setGoal(goal.id); this.scene?.setDoorOpen(this.state.reflectionSeen);
     const mode = this.options.isPaused?.() ? 'inactive' : this.ui.isOpen ? 'dialogue' : 'exploration';
@@ -62,7 +71,7 @@ export class RoomFiveSession {
   commit(action, payload) {
     if (this.disposed || this.options.isPaused?.()) return false;
     const next = reduce(this.state, action, payload, this.fragments); if (next === this.state) return false;
-    this.state = next; const notice = persistSave(this.storage, next, this.fragments); if (notice) this.notice = notice;
+    this.state = next; const notice = persistSave(this.storage, next, this.fragments, this.saveKey); if (notice) this.notice = notice;
     this.render(); return true;
   }
   show(view, data = {}) {
@@ -111,7 +120,7 @@ export class RoomFiveSession {
     if (id === 'assembly' && hasAllFragments(this.fragments)) return this.show('assembly', {order: this.assemblyOrder, solved: this.state.assemblySolved});
     if (id === 'reflection' && this.state.assemblySolved) return this.show('reflection', {readOnly: this.state.reflectionSeen});
     if (id === 'door' && this.commit('exit')) {
-      if (!this.options.onExit) return this.show('completed');
+      if (!this.options.onExit) return this.show('completed', {standalonePreview: Boolean(this.options.standalonePreview)});
       this.close();
       deferRoomExit(this);
     }
@@ -119,7 +128,7 @@ export class RoomFiveSession {
   reset() {
     if (this.disposed) return;
     this.ui.close(); this.active = null; this.nonce++; this.state = createState(); retainSharedAudioPreferences(this);
-    this.assemblyOrder = shuffledPieces(); this.notice = persistSave(this.storage, this.state, this.fragments);
+    this.assemblyOrder = shuffledPieces(); this.notice = persistSave(this.storage, this.state, this.fragments, this.saveKey);
     this.scene.resetPosition?.(); this.audio.setPreferences(this.state); this.render();
     this.dialogue('Bức tranh hòa bình', hasAllFragments(this.fragments) ? INTRO : [NOTICES.resetMissing], 'Bước vào căn phòng cuối', 'intro-finish');
   }

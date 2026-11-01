@@ -10,7 +10,7 @@ export function goalFor(s){
   if(s.completedChallenges.length===4){label='Ghép ngày, tháng và năm';detail='Ba dữ kiện thời gian nằm trong sổ tay. Phương châm được giữ riêng là bài học về cách đánh.';}
   if(s.chestOpened){id='chest';label='Nhận mảnh tranh số III';detail='Hồ sơ tiếp vận đã được khôi phục. Rương đang mở, đến gần và nhấn E.';}
   if(s.fragmentCollected){id='door';label='Đi tới cửa ra';detail='Bạn đã có mảnh tranh của phòng 3.';}
-  if(s.exitReached){label='Đã hoàn thành phòng 3';detail='Phòng 4 của Trâm có thể mở bằng liên kết riêng.';}
+  if(s.exitReached){label='Đã hoàn thành phòng 3';detail='Phòng 4 có thể mở bằng liên kết riêng.';}
   // The next station may sit behind a fenced door puzzle: point at the door until it is open.
   const door=goalDoorFor(s,id);if(door){id=door;detail='Rào phía trước có khóa. Đến chỗ rào, nhấn E để mở khóa bằng một câu đố nhỏ.';}
   return{id,label,detail,step,steps,count:`${s.completedChallenges.length} / 4 thử thách · ${s.collectedNoteIds.length} / 5 giấy tờ`};

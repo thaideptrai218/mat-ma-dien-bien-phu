@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {EventEmitter} from 'node:events';
 import {CHARACTER_TEXTURE, preloadCharacter, registerCharacterAnimations,
-  releaseCharacterLoader, characterSnapshot} from '../src/game/character-animation.js';
+  releaseCharacterLoader, characterSnapshot, snapCharacterToIdle} from '../src/game/character-animation.js';
 
 function sceneFixture(loaded=false) {
   const load=new EventEmitter(), queued=[], clips=new Map();
@@ -12,11 +12,11 @@ function sceneFixture(loaded=false) {
     cache:{json:{exists:()=>false}}, anims:{exists:key=>clips.has(key),create:clip=>clips.set(clip.key,clip)}};
 }
 
-test('preload queues local image and measured manifest once before scene creation', () => {
+test('preload queues the derived directional walk atlas and manifest once before scene creation', () => {
   const scene=sceneFixture(); preloadCharacter(scene);
   assert.equal(scene.queued.length,2);
-  assert.match(scene.queued[0][2],/assets\/characters\/long\/motion-sheet\.png$/);
-  assert.match(scene.queued[1][2],/assets\/characters\/long\/manifest\.json$/);
+  assert.match(scene.queued[0][2],/assets\/characters\/long\/motion-sheet-with-idle\.png$/);
+  assert.match(scene.queued[1][2],/assets\/characters\/long\/manifest-with-idle\.json$/);
   scene.load.emit('loaderror',{key:'unrelated'}); assert.equal(scene.characterError,undefined);
   scene.load.emit('loaderror',{key:scene.queued[0][1]});
   assert.throws(()=>registerCharacterAnimations(scene),/Không tải được/);
@@ -33,7 +33,7 @@ test('each Game owns its clips while repeat registration reuses existing texture
     assert.equal(registerCharacterAnimations(scene),true);
     assert.equal(scene.clips.size,12);
     assert.deepEqual(scene.clips.get('long-hero-left-run').frames,
-      [24,25,26,27,28,29,30,31].map(frame=>({key:CHARACTER_TEXTURE,frame})));
+      [25,26,27,28,29,30,31].map(frame=>({key:CHARACTER_TEXTURE,frame})));
   }
   assert.notEqual(first.clips,second.clips);
 });
@@ -60,4 +60,13 @@ test('character diagnostic contains detached primitive data only', () => {
   const snapshot=structuredClone(characterSnapshot(scene));
   assert.equal(snapshot.frame,6); assert.equal(snapshot.motion,'run');
   snapshot.body.width=900; assert.equal(scene.player.body.width,24);
+});
+
+test('stopping movement stops the partial walk frame and sets the facing idle pose immediately',()=>{
+  const calls=[],player={frame:{name:3},anims:{currentAnim:{key:'long-hero-down-walk'},isPlaying:true,
+    stop(){calls.push('stop');this.currentAnim=null;this.isPlaying=false;}},setFrame(frame){calls.push(['frame',frame]);this.frame={name:frame};}};
+  snapCharacterToIdle(player,'down');
+  assert.deepEqual(calls,['stop',['frame',16]]);
+  calls.length=0;snapCharacterToIdle(player,'down');assert.deepEqual(calls,[],'already standing does not restart');
+  snapCharacterToIdle(player,'left');assert.deepEqual(calls,['stop',['frame',33]]);
 });

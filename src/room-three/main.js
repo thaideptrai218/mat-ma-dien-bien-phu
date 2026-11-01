@@ -8,5 +8,5 @@ import {RoomThreeSession} from './session.js';
 
 await loadGameFonts(document.fonts);
 const session=new RoomThreeSession(document.getElementById('app'));
-addRoomLink('./index.html','Hành trình 5 phòng');addRoomLink('./room-one.html','Phòng 1');addRoomLink('./room-four.html','Phòng 4 · Trâm');
+addRoomLink('./index.html','Hành trình 5 phòng');addRoomLink('./room-one.html','Phòng 1');addRoomLink('./room-four.html','Phòng 4 · Những ngày quyết định');addRoomLink('./room-five.html','Phòng 5 · Bản chơi riêng');
 window.getRoomThreeSnapshot=()=>structuredClone({state:session.state,...session.scene.getSnapshot(),view:session.active?.kind||null,audio:session.audio.getSnapshot()});

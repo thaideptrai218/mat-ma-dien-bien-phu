@@ -1,0 +1,42 @@
+{
+  "columns": 17,
+  "rows": 4,
+  "sourceWidth": 3502,
+  "sourceHeight": 1024,
+  "crop": {
+    "x": 27,
+    "y": 12,
+    "width": 174,
+    "height": 236
+  },
+  "anchor": {
+    "x": 103,
+    "y": 248
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "poses": [
+    "walk-step-1",
+    "walk-step-2",
+    "walk-step-3",
+    "walk-step-4",
+    "walk-step-5",
+    "walk-step-6",
+    "walk-step-7",
+    "walk-reserved-duplicate",
+    "run-step-1",
+    "run-step-2",
+    "run-step-3",
+    "run-step-4",
+    "run-step-5",
+    "run-step-6",
+    "run-step-7",
+    "run-reserved-duplicate",
+    "idle-stand"
+  ],
+  "idleColumn": 16
+}

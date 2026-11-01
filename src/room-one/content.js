@@ -11,8 +11,8 @@ export const INTRO = [
 // Step-by-step guidance appended to the success dialogue of each Room 1 step.
 export const GUIDE = {
   letter: [
-    { speaker: 'Hệ Thống', text: 'Ký Chủ hãy ghi nhớ ký hiệu A-03. Nhiệm vụ tiếp theo: tìm ô A-03 trên bản đồ treo ở bức tường phía bắc.' },
-    { speaker: 'Long', text: 'Hàng A, cột 03. Tao đi xem ngay.' },
+    { speaker: 'Hệ Thống', text: 'Ở bức tường phía bắc có một sơ đồ chia ô. Ký Chủ hãy đối chiếu dấu lưu trữ vừa đọc với sơ đồ ấy.' },
+    { speaker: 'Long', text: 'Dấu trên thư trùng với một ô trên sơ đồ. Vậy hồ sơ hẳn được xếp ở đó.' },
   ],
   a03: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },
@@ -44,7 +44,7 @@ const ENDING_STORY = [
 ];
 export const ENDING = [
   ...ENDING_STORY,
-  { speaker: 'Hệ Thống', text: 'Sau khi hoàn thành, Ký Chủ có thể mở bản thử Phòng 2 của Bảo bằng liên kết riêng. Tiến độ của hai bản được lưu riêng.' },
+  { speaker: 'Hệ Thống', text: 'Sau khi hoàn thành, Ký Chủ có thể mở bản chơi riêng của Phòng 2 bằng liên kết trên màn hình. Tiến độ của hai bản được lưu riêng.' },
 ];
 export const CAMPAIGN_ENDING = [
   ...ENDING_STORY,
@@ -59,7 +59,7 @@ export const REACTIONS = {
     locked: ['Mình chưa đọc hết lá thư.'],
   },
   'map-a03': {
-    first: ['Có ô A-03, đúng ký hiệu trên tờ thư.'],
+    first: ['Ô này khớp với dấu lưu trữ trên lá thư.'],
     repeat: ['Từ ô A-03, mình đã tìm được vị trí bốn hồ sơ.'],
     locked: ['Mình cần xem ký hiệu lưu trữ trên lá thư trước.'],
   },
@@ -85,7 +85,7 @@ export const REACTIONS = {
   },
   comparison: {
     first: ['Đủ chỗ cho bốn tờ giấy. Mình thử so từng mặt của hai phía.'],
-    repeat: ['Mã 2413 đã hiện ra. Khóa ngăn kéo cũng cần bốn chữ số.'],
+    repeat: ['Bốn hàng đối chiếu đã cho một dãy số. Ngăn kéo bên cạnh có khóa cùng dạng.'],
     locked: ['Mình còn hồ sơ chưa đọc và ghi nhận. Sổ tay sẽ cho biết thiếu tờ nào.'],
   },
   drawer: {
@@ -123,7 +123,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues (plain strings are Long; objects name another speaker).
 export const LINES = {
   letterArchive: [
-    'Nhãn lưu trữ ghi A-03. Trên bản đồ treo vách cũng có những ô như vậy.',
+    'Nhãn lưu trữ ghi A-03. Trên sơ đồ treo vách cũng có những ô được đánh dấu như vậy.',
   ],
   a03: [
     'Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.',

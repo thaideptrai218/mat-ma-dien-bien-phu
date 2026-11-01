@@ -102,7 +102,7 @@ export function createRoomFourArtwork(scene, world, key = 'room-four-archive') {
   for (const [x, y] of [[780, 240], [2020, 240], [780, 1440], [2170, 1450], [1240, 740], [1560, 740]]) lantern(ctx, x, y);
   paper(ctx, 1015, 1305, 33, 43, .16); paper(ctx, 2155, 1000, 30, 40, -.2);
   label(ctx, 'PHÒNG 4 · NHỮNG NGÀY QUYẾT ĐỊNH', 1400, 1720, 26, '#ded4b2');
-  label(ctx, 'PHÒNG LƯU TRỮ · TRÂM', 1400, 1470, 21, '#b8c6b1');
+  label(ctx, 'PHÒNG LƯU TRỮ', 1400, 1470, 21, '#b8c6b1');
   label(ctx, 'GÓC GIẢI MÃ', 1400, 365, 23, '#d4bd7c');
   label(ctx, 'BỐ CỤC HỌC TẬP · KHÔNG PHẢI BẢN ĐỒ TÁC CHIẾN', 1400, 1694, 14, '#aeb9a2');
   for (const object of world.objects.filter(item => item.type !== 'prop' && !item.gateId)) {

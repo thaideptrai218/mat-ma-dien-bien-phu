@@ -42,7 +42,7 @@ const ENDING_STORY = [
 export const ENDING = [
   ...ENDING_STORY,
   {speaker: 'Hệ Thống', text: 'Ký Chủ đã khôi phục bốn dữ kiện và nhận riêng mảnh tranh III. Tới cửa để hoàn thành Phòng 3; không có mảnh của các phòng khác được cấp ở đây.'},
-  {speaker: 'Hệ Thống', text: 'Chiến dịch còn tiếp tục sau ngày 17/3. Phòng 4 của Trâm và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.'},
+  {speaker: 'Hệ Thống', text: 'Chiến dịch còn tiếp tục sau ngày 17/3. Phòng 4 và Phòng 5 ghép tranh có trong hành trình năm phòng ở trang chính. Các bản chơi riêng không tự chuyển tiến độ.'},
 ];
 export const CAMPAIGN_ENDING = [
   ...ENDING_STORY,

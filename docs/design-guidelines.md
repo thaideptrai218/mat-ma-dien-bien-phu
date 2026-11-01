@@ -1,6 +1,6 @@
 # Hướng dẫn thiết kế — Mật mã Điện Biên Phủ
 
-Cập nhật 2026-10-31. Campaign năm phòng có museum intro/return, common journal và mảnh tranh tích lũy thật. Preview 1–4 giữ save riêng và được ghi rõ trên link. Giữ góc nhìn trên xuống, xanh đất/ô liu, ánh vàng, giấy ngà và điểm nhấn đồng/đỏ trầm; không đưa giao diện app cũ vào bản chính.
+Cập nhật 2026-11-01. Campaign năm phòng có museum intro/return, common journal và mảnh tranh tích lũy thật. Preview 1–5 giữ save riêng và được ghi rõ trên link; Phòng 5 dùng mảnh minh họa. Logo tiêu đề lấy từ `assets/images/game-title-logo.png`, giữ nền trong suốt và tỉ lệ ngang ở campaign/header phòng. Giữ góc nhìn trên xuống, xanh đất/ô liu, ánh vàng, giấy ngà và điểm nhấn đồng/đỏ trầm; không đưa giao diện app cũ vào bản chính.
 
 ## Nhân vật theo ảnh mẫu
 
@@ -39,7 +39,7 @@ Các form native, lựa chọn ngữ nghĩa rõ, nút lên/xuống có nhãn, v�
 
 ## Tranh cuối, suy ngẫm và trở về
 
-`victory-painting.svg` là tranh sáng tác, cùng một ảnh ở bảo tàng mở đầu, bốn phần tư ghép 2×2 và return. Caption/alt ghi minh họa, không ảnh/bản sao tranh thật. Trước puzzle cần đủ I–IV và các cửa trước; chọn hai native buttons để swap, hỗ trợ keyboard, thứ tự đúng mới hoàn tất assembly.
+Ảnh tư liệu do người dùng cung cấp được dùng ở bảo tàng mở đầu, bốn phần tư ghép 2×2 và return. Khung bảo tàng giữ đúng tỷ lệ 3:2; caption/alt ghi rõ nguồn ảnh. Trước puzzle cần đủ I–IV và các cửa trước; chọn hai native buttons để swap, hỗ trợ keyboard, thứ tự đúng mới hoàn tất assembly. Chữ ký ở cuối giấy dùng Patrick Hand cục bộ, 31–38 px theo bề rộng màn hình, xoay nhẹ để tách khỏi phần văn bản.
 
 Ghép xong cửa vẫn chờ cuộc trò chuyện. Hiển thị câu hỏi từ PDF bản 4/phòng 5 và lời đáp sáng tác của Long; ô suy nghĩ cá nhân **optional/ungraded/skippable**, không truyền qua callback/payload/save hoặc network. Blank vẫn tiếp tục. Nút tiếp tục hoàn tất đoạn trò chuyện rồi người chơi phải đến cửa E. Không dùng câu trả lời cá nhân làm mật khẩu tư tưởng.
 
