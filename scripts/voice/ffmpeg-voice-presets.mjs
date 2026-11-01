@@ -12,7 +12,7 @@ const PLAIN = `[0:a]${TRIM_BOTH},highpass=f=70,${LOUDNESS}[out]`;
 
 export const VOICE_FILTERS = Object.freeze({
   system: STRONG_ROBOT,
-  quang: PLAIN, narrator: PLAIN, 'narrator-lecture': PLAIN,
+  quang: PLAIN, 'quang-capcut': PLAIN, narrator: PLAIN, 'narrator-lecture': PLAIN,
 });
 
 export const TARGET_LUFS = -16;
