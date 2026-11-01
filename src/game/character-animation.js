@@ -1,21 +1,30 @@
-import {CHARACTER_TEXTURE, CHARACTER_FRAME, CHARACTER_COLUMNS, characterClips, characterAtlasLayout,
+import {CHARACTER_FRAME, characterSpec, characterTexture, characterClips, characterAtlasLayout,
   characterIdleFrame, characterAnimationKey} from './character-atlas.js';
-export {CHARACTER_TEXTURE, CHARACTER_FRAME, characterAnimationKey} from './character-atlas.js';
-const SOURCE_KEY = `${CHARACTER_TEXTURE}-source`, MANIFEST_KEY = `${CHARACTER_TEXTURE}-manifest`;
-const sheetUrl = new URL('../../assets/characters/long/motion-sheet-with-idle.png', import.meta.url).href;
-const manifestUrl = new URL('../../assets/characters/long/manifest-with-idle.json', import.meta.url).href;
+import {activeHero} from '../heroes/hero-profiles.js';
+export {CHARACTER_FRAME, characterAnimationKey, characterTexture} from './character-atlas.js';
+
+// Sheet + measurement file per sprite (literal URLs so the bundler emits both).
+const SHEETS = {
+  long: {sheet:new URL('../../assets/characters/long/motion-sheet-with-idle.png', import.meta.url).href,
+    manifest:new URL('../../assets/characters/long/manifest-with-idle.json', import.meta.url).href},
+  quang: {sheet:new URL('../../assets/characters/quang-reference/motion-sheet.png', import.meta.url).href,
+    manifest:new URL('../../assets/characters/quang-reference/manifest.json', import.meta.url).href},
+};
+const sourceKey = () => `${characterTexture()}-source`, manifestKey = () => `${characterTexture()}-manifest`;
 
 export function preloadCharacter(scene) {
-  if (scene.textures.exists(CHARACTER_TEXTURE)) return;
+  if (scene.textures.exists(characterTexture())) return;
+  const keys = [sourceKey(), manifestKey()], files = SHEETS[activeHero().sprite];
   scene.characterLoadFailure = file => {
-    if (!scene.tornDown && [SOURCE_KEY, MANIFEST_KEY].includes(file.key)) scene.characterError = 'Không tải được hình nhân vật Long.';
+    if (!scene.tornDown && keys.includes(file.key)) scene.characterError = `Không tải được hình nhân vật ${activeHero().name}.`;
   };
   scene.load.on('loaderror', scene.characterLoadFailure);
-  if (!scene.textures.exists(SOURCE_KEY)) scene.load.image(SOURCE_KEY, sheetUrl);
-  if (!scene.cache.json.exists(MANIFEST_KEY)) scene.load.json(MANIFEST_KEY, manifestUrl);
+  if (!scene.textures.exists(keys[0])) scene.load.image(keys[0], files.sheet);
+  if (!scene.cache.json.exists(keys[1])) scene.load.json(keys[1], files.manifest);
 }
 
 function packCharacter(scene) {
+  const SOURCE_KEY = sourceKey(), MANIFEST_KEY = manifestKey(), CHARACTER_TEXTURE = characterTexture(), CHARACTER_COLUMNS = characterSpec().columns;
   if (!scene.textures.exists(SOURCE_KEY)) throw new Error('Character image is missing.');
   const image = scene.textures.get(SOURCE_KEY).getSourceImage();
   const manifest = scene.cache.json.get(MANIFEST_KEY);
@@ -50,10 +59,11 @@ function packCharacter(scene) {
 export function registerCharacterAnimations(scene) {
   if (scene.tornDown) return false;
   if (scene.characterError) throw new Error(scene.characterError);
-  if (!scene.textures.exists(CHARACTER_TEXTURE)) packCharacter(scene);
+  const texture = characterTexture();
+  if (!scene.textures.exists(texture)) packCharacter(scene);
   for (const clip of characterClips()) {
     if (scene.anims.exists(clip.key)) continue;
-    scene.anims.create({...clip, frames:clip.frames.map(frame => ({key:CHARACTER_TEXTURE, frame}))});
+    scene.anims.create({...clip, frames:clip.frames.map(frame => ({key:texture, frame}))});
   }
   return true;
 }

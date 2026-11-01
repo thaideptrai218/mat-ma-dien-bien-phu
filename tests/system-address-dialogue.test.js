@@ -7,7 +7,7 @@ import * as roomFive from '../src/room-five/content.js';
 import {beats as voicedBeats, PUZZLE_GUIDE, SYSTEM_HINTS as roomTwoHints} from '../src/room-two/system-guidance.js';
 import {beats as donorBeats, CHAPTER} from '../src/room-two/content.js';
 
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tao" to it.
+// Hệ Thống calls the hero "Ký Chủ"; the hero calls it "Hệ Thống" and says "tôi" to it.
 const lists = [
   roomOne.INTRO, roomOne.ENDING, roomOne.CAMPAIGN_ENDING, ...Object.values(roomOne.GUIDE),
   roomThree.INTRO, roomThree.CAMPAIGN_INTRO, roomThree.ENDING, roomThree.CAMPAIGN_ENDING, ...Object.values(roomThree.GUIDE),
@@ -30,11 +30,12 @@ test('Hệ Thống addresses Long as Ký Chủ and never as ngươi or bạn', (
   assert.ok(lines.every(line => line.speaker !== 'Hệ thống'), 'speaker label is the proper name Hệ Thống');
 });
 
-test('Long says tao to Hệ Thống in the guidance conversations', () => {
+test('the hero says "tôi" to Hệ Thống, never "tao"/"mày", anywhere in the dialogue', () => {
   const guidance = [roomOne.GUIDE, roomThree.GUIDE, roomFour.GUIDE, roomFive.GUIDE, PUZZLE_GUIDE].flatMap(Object.values).flat();
-  const quang = guidance.filter(line => line.speaker === 'Long');
-  assert.ok(quang.length >= 10);
-  for (const line of quang) assert.match(line.text, /\b[Tt]ao\b|Hệ Thống/u, line.text);
+  const hero = guidance.filter(line => line.speaker === 'Long');
+  assert.ok(hero.length >= 10);
+  assert.ok(hero.filter(line => /\b[Tt]ôi\b|Hệ Thống/u.test(line.text)).length >= 10, 'most replies address Hệ Thống');
+  for (const line of [...lines, ...roomTwoLines]) assert.doesNotMatch(line.text, /\b([Tt]ao|[Mm]ày)\b/u, line.text);
 });
 
 test('Room 2 overlay only re-voices the intro and outro; recorded clue narratives stay the donor text', () => {

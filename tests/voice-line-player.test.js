@@ -5,6 +5,7 @@ import { VoicePreferences, VOICE_PREFERENCES_KEY } from '../src/audio/voice-pref
 import { createDialogueVoice } from '../src/audio/dialogue-voice.js';
 import { AudioController } from '../src/audio/audio-controller.js';
 import { voiceIdFor, framingLine } from '../src/audio/voice-id.js';
+import { heroVoiceKey, heroText } from '../src/heroes/hero-profiles.js';
 
 // Controlled Web Audio / fetch adapters: they verify sequencing, routing and cleanup, not audible output.
 class FakeParam { constructor() { this.value = 0; } setValueAtTime(v) { this.value = v; } cancelScheduledValues() {} exponentialRampToValueAtTime() {} }
@@ -43,7 +44,8 @@ class FakeContext extends EventTarget {
 }
 
 const line = (speaker, text) => ({ speaker, text });
-const idOf = (voice, text) => voiceIdFor(voice, text);
+// Ids as the active hero's route resolves them (voice role → that route's voice key, hero-localized text).
+const idOf = (voice, text) => voiceIdFor(heroVoiceKey(voice), heroText(text));
 
 // Manifest for every id in `entries`; `files` maps id → body text (absent → 404).
 function fakeFetch(entries, files, { manifestOk = true } = {}) {

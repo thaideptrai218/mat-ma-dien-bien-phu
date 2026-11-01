@@ -1,8 +1,8 @@
 // Long and these conversations are authored fiction for the learning game.
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tao" to it, "mình" when thinking alone.
+// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it, "mình" when thinking alone.
 export const INTRO = [
   { speaker: 'Hệ Thống', text: 'Phòng 1 — Trước bản kế hoạch. Không gian này tái hiện chặng đường từ bước chuyển năm 1950 đến tình thế năm 1953. Lá thư mở đầu được viết vào đầu năm 1953.' },
-  { speaker: 'Long', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tao đọc nó trước được chứ?' },
+  { speaker: 'Long', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tôi đọc nó trước được chứ?' },
   { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ đầu tiên: đọc trọn lá thư trên bàn gần cửa vào. Ký Chủ hãy để ý những ký hiệu nằm ngoài lời thư.' },
   { speaker: 'Hệ Thống', text: 'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy. Đến gần vật và nhấn E để xem. N mở sổ tay, M mở bản đồ, Q xem nhiệm vụ.' },
   { speaker: 'Hệ Thống', text: 'Hãy đọc trọn từng giấy, rồi cùng Long suy luận để ghi nhận hồ sơ.' },
@@ -16,20 +16,20 @@ export const GUIDE = {
   ],
   a03: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },
-    { speaker: 'Long', text: 'Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tao lo.' },
+    { speaker: 'Long', text: 'Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tôi lo.' },
   ],
   dossiers: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã được ghi nhận. Nhiệm vụ tiếp theo: mang dữ kiện đến bàn đối chiếu ở giữa phòng, so từng mặt của hai phía.' },
-    { speaker: 'Long', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tao không?' },
+    { speaker: 'Long', text: 'Quân số, trang bị, thế trận, sức ép. Hệ Thống có định nhắc bài cho tôi không?' },
     { speaker: 'Hệ Thống', text: 'Hệ Thống không trả lời thay Ký Chủ. Sổ tay N vẫn giữ toàn văn bốn hồ sơ để Ký Chủ tra lại.' },
   ],
   comparison: [
     { speaker: 'Hệ Thống', text: 'Mã 2413 đã được ghi nhận. Ngăn kéo mật mã đang chờ Ký Chủ.' },
-    { speaker: 'Long', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tao không cần gợi ý.' },
+    { speaker: 'Long', text: 'Ngăn kéo bốn chữ số, mã bốn chữ số. Lần này tôi không cần gợi ý.' },
   ],
   identity: [
     { speaker: 'Hệ Thống', text: 'Danh tính đã được xác nhận. Ký Chủ hãy đọc bản tin tháng 7/1953 trước khi tới rương sắt.' },
-    { speaker: 'Long', text: 'Rõ. Đọc xong, tao sẽ mang cái tên ấy tới rương.' },
+    { speaker: 'Long', text: 'Rõ. Đọc xong, tôi sẽ mang cái tên ấy tới rương.' },
   ],
   chest: [
     { speaker: 'Hệ Thống', text: 'Rương sắt đang chờ. Nhập đúng họ ấy, mảnh ghép thứ nhất sẽ thuộc về Ký Chủ.' },

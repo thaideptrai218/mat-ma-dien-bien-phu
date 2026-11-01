@@ -4,10 +4,12 @@ import {sanitizeSave as three} from '../room-three/save.js';
 import {sanitizeSave as four} from '../room-four/save.js';
 import {sanitizeSave as five} from '../room-five/save.js';
 
+import {DEFAULT_HERO, isHeroId} from '../heroes/hero-profiles.js';
+
 const sanitizers = [one, two, three, four, five];
 export const CAMPAIGN_KEY = 'mat-ma-dien-bien-phu:campaign:v1';
 export function createCampaignState() {
-  return {version:1, introSeen:false, rooms:{}, settings:{audioEnabled:false,audioVolume:.5}, endingSeen:false};
+  return {version:1, hero:null, introSeen:false, rooms:{}, settings:{audioEnabled:false,audioVolume:.5}, endingSeen:false};
 }
 export function audioSettings(raw = {}) {
   return {audioEnabled:raw.audioEnabled === true,
@@ -19,6 +21,8 @@ export function sanitizeCampaign(raw) {
   if (!raw || raw.version !== 1) return s;
   s.settings = audioSettings(raw.settings);
   s.introSeen = raw.introSeen === true;
+  // Journeys saved before the hero choice existed were played as Long.
+  s.hero = isHeroId(raw.hero) ? raw.hero : s.introSeen ? DEFAULT_HERO : null;
   if (!s.introSeen) return s;
   for (let room=1; room<=5; room++) {
     const value = raw.rooms?.[room];
@@ -40,6 +44,7 @@ export function currentRoom(s) {
   return 5;
 }
 export function phaseFor(s) {
+  if (!s.hero) return 'hero-select';
   if (!s.introSeen) return 'museum-intro';
   if (s.endingSeen) return 'complete';
   if (s.rooms[5]?.exitReached) return 'museum-return';

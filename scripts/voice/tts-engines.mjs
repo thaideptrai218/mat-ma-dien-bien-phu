@@ -5,14 +5,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export const TOOL_ROOT = process.env.VOICE_TOOL_ROOT || 'F:/AI-auto-generate-video';
-const NARRATOR_PROFILE = '131af5c2-8d45-4733-8568-9e10166695ee';
+const NARRATOR_PROFILE = '628a71fc-954f-4a05-8409-de850a3745c6'; // "Giọng nữ truyền cảm (kiếm lai)"
 const MCK_PROFILE = '3d2f2ab7-4c57-4979-b454-7221da30acb7';
+const LECTURE_PROFILE = '131af5c2-8d45-4733-8568-9e10166695ee'; // "Giọng đọc bài giảng"
 
-// Voices chosen with the user on 2026-10-31.
+// Voice keys are part of every clip id (see src/heroes/hero-profiles.js): one key per sound, per hero route.
+//   Both routes: system (original CapCut) and quang (mck).   Quang's narrator: narrator-lecture.   Long's narrator: narrator.
 export const VOICE_CONFIG = Object.freeze({
   system: {engine: 'capcut', voiceKey: 'capcut:d1c749e2fea5836aed206f5bdfb2ac64', name: 'Cô Gái Hoạt Ngôn', speed: 1.0},
-  quang: {engine: 'omnivoice', profileId: MCK_PROFILE, name: 'mck (Long)', speed: 1.0},
-  narrator: {engine: 'omnivoice', profileId: NARRATOR_PROFILE, name: 'Giọng đọc bài giảng', speed: 1.0},
+  quang: {engine: 'omnivoice', profileId: MCK_PROFILE, name: 'mck (hero)', speed: 1.0},
+  narrator: {engine: 'omnivoice', profileId: NARRATOR_PROFILE, name: 'Giọng nữ truyền cảm (kiếm lai)', speed: 1.05},
+  'narrator-lecture': {engine: 'omnivoice', profileId: LECTURE_PROFILE, name: 'Giọng đọc bài giảng', speed: 1.0},
 });
 
 function capcutBridge() {

@@ -6,6 +6,7 @@ import '../room-three/styles.css';
 import '../room-four/styles.css';
 import '../room-five/room-five.css';
 import './styles.css';
+import '../heroes/hero-select.css';
 import {loadGameFonts} from '../ui/game-fonts.js';
 import {CampaignRuntime} from './runtime.js';
 

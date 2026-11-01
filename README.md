@@ -35,6 +35,13 @@ Bản build có sáu entry: `index.html` cho chiến dịch và năm bản chơi
 
 Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuyển tiếp; mở rương hoặc nhận mảnh chưa thay thao tác ra cửa. **Sổ hành trình** trên thanh chung đọc lại giấy đã kiếm được mà không cấp thêm tiến độ. **Bắt đầu lại phòng** giữ các phòng trước; **Hành trình mới** cần xác nhận và chỉ xóa save chiến dịch. Không nhập thành tích từ bản thử riêng.
 
+### Hai nhân vật: Long và Quang
+
+Khi chơi mới, người chơi chọn **Long** (học sinh hay trốn tiết, dần nhận ra ý nghĩa của việc cố gắng học; có vài câu phản ứng sau Phòng 1, 3, 4 và đoạn kết suy ngẫm riêng) hoặc **Quang** (sinh viên ham học hỏi, mê công nghệ và giải đố; nhân vật ban đầu). Lựa chọn được lưu và khóa suốt lượt chơi; muốn đổi thì **Chơi mới**. Hồ sơ nhân vật nằm ở `src/heroes/` (tên, chân dung, sprite, avatar Hệ Thống, khóa giọng, nội dung riêng); nội dung dùng chung viết với tên “Long” rồi đổi tên theo nhân vật.
+
+- Nhân vật xưng “tôi” với Hệ Thống; Hệ Thống gọi nhân vật là “Ký Chủ”.
+- Giọng: cả hai route dùng chung Hệ Thống (giọng CapCut ban đầu, biểu tượng ban đầu) và giọng nhân vật chính (mck). Kể chuyện: route Long = giọng nữ truyền cảm (1.05x), route Quang = giọng đọc bài giảng.
+
 ### Nhân vật Long theo ảnh mẫu
 
 Sprite Long có bốn hướng di chuyển. Đi bộ dùng bảy bước luân phiên (10fps); chạy dùng cùng chu kỳ chân ở 15fps để tránh lặp một bên chân. Khi dừng, nhân vật chuyển ngay sang tư thế đứng khép hai chân. File sprite gốc được giữ nguyên. Giảm chuyển động của hệ điều hành giữ hình đứng theo hướng nhưng vẫn cho đi/chạy.

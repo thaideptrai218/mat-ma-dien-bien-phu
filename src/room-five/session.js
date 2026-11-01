@@ -6,7 +6,7 @@ import {RoomOneUI} from '../room-one/ui.js';
 import {RoomFiveScene} from './scene.js';
 import {createPanel} from './panels.js';
 import {shuffledPieces} from './assembly-pieces.js';
-import {INTRO, LINES, NOTICES, REFLECTION_SCRIPT, SYSTEM_HINTS} from './content.js';
+import {INTRO, LINES, NOTICES, reflectionScript, SYSTEM_HINTS} from './content.js';
 import {WORLD, OBJECTS} from './world.js';
 import {createState, goalFor, hasAllFragments, reduce} from './rules.js';
 import {loadSave, persistSave} from './save.js';
@@ -77,7 +77,7 @@ export class RoomFiveSession {
   show(view, data = {}) {
     if (this.disposed || this.options.isPaused?.()) return;
     const token = ++this.nonce; this.audio.voice?.stop(); this.scene?.clearKeys();
-    const voice = view === 'reflection' ? createDialogueVoice(this.audio, REFLECTION_SCRIPT) : null;
+    const voice = view === 'reflection' ? createDialogueVoice(this.audio, reflectionScript()) : null;
     if (voice) data = {...data, voice};
     // Mark the active context before mounting a panel: opening a dialog may synchronously emit modal-open.
     this.active = {kind: view, ...data, token}; this.ui.show(view, {...data, token}); this.render();

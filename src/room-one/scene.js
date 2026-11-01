@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import {collisionRects, nearbyTarget} from '../core/world-geometry.js';
 import {preloadCharacter, releaseCharacterLoader, registerCharacterAnimations, characterAnimationKey, snapCharacterToIdle, characterSnapshot,
-  CHARACTER_TEXTURE, CHARACTER_FRAME} from '../game/character-animation.js';
+  characterTexture, CHARACTER_FRAME} from '../game/character-animation.js';
+import {activeHero} from '../heroes/hero-profiles.js';
 import {WORLD} from './world.js';
 import {createRoomOneArtwork} from './art.js';
 import {bindRoomOneInput, movementVelocity} from './input.js';
@@ -31,7 +32,7 @@ export class RoomOneScene extends Phaser.Scene {
     catch (error) {
       this.characterError = error.message;
       this.physics.pause();
-      const notice=this.add.text(this.scale.width/2, this.scale.height*.58, 'Không tải được nhân vật Long.\nHãy tải lại trang để thử lại.', {
+      const notice=this.add.text(this.scale.width/2, this.scale.height*.58, `Không tải được nhân vật ${activeHero().name}.\nHãy tải lại trang để thử lại.`, {
         fontFamily:'"DBP Text", sans-serif', fontSize:'18px', color:'#fff1c9', backgroundColor:'#172d24',
         padding:{x:18,y:18}, wordWrap:{width:Math.max(160, Math.min(480,this.scale.width-80))},
       }).setOrigin(.5).setScrollFactor(0).setDepth(1000);
@@ -48,7 +49,7 @@ export class RoomOneScene extends Phaser.Scene {
     }
     const spawn = this.map.checkpoints[0];
     this.shadow = this.add.ellipse(spawn.x, spawn.y + 4, 34, 13, 0x18221b, .5).setDepth(2);
-    this.player = this.physics.add.sprite(spawn.x, spawn.y, CHARACTER_TEXTURE, 0)
+    this.player = this.physics.add.sprite(spawn.x, spawn.y, characterTexture(), 0)
       .setOrigin(CHARACTER_FRAME.originX, CHARACTER_FRAME.originY).setScale(CHARACTER_FRAME.scale).setDepth(5);
     this.player.body.setSize(CHARACTER_FRAME.bodyWidth, CHARACTER_FRAME.bodyHeight, false)
       .setOffset(CHARACTER_FRAME.bodyOffsetX, CHARACTER_FRAME.bodyOffsetY);
@@ -56,7 +57,7 @@ export class RoomOneScene extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, this.map.width, this.map.height);
     this.collider = this.physics.add.collider(this.player, this.solids);
     this.gateLayer.build(this.player); // area gates: no-op without areaGates
-    this.nameLabel = this.add.text(spawn.x, spawn.y + 23, 'LONG', {
+    this.nameLabel = this.add.text(spawn.x, spawn.y + 23, activeHero().upper, {
       fontFamily: '"DBP Text", serif', fontSize: '13px', color: '#f6e7bb',
       backgroundColor: '#21392dd9', padding: {x: 7, y: 3},
     }).setOrigin(.5, 0).setDepth(9);

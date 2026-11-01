@@ -1,9 +1,10 @@
 import {DOCUMENTS} from './documents.js';
 import {goalFor} from './rules.js';
 import {ENDING,CAMPAIGN_ENDING,GUIDE,LINES} from './content.js';
+import {withHeroReaction} from '../heroes/hero-copy.js';
 import {DOOR_OPENED_NOTICE} from './area-gates.js';
 
-const endingFor=s=>s.options?.onExit?CAMPAIGN_ENDING:ENDING;
+const endingFor=s=>s.options?.onExit?withHeroReaction(CAMPAIGN_ENDING,4):ENDING;
 
 export function handleAction(s,action,p={}) {
   if(s.disposed||s.options?.isPaused?.())return;
@@ -52,7 +53,7 @@ export function handleAction(s,action,p={}) {
     case 'column-submit':
       if(!inView('column'))return;
       if(!s.commit('column',p))return s.error('Chưa đúng.');
-      s.audio.playCue('success');return s.dialogue('TÌM T VÀ L',[...LINES.column,...GUIDE.column]);
+      s.audio.playCue('success');return s.dialogue('Đã tìm ra lời chỉ dẫn',[...LINES.column,...GUIDE.column]);
     case 'shape-submit':{
       if(!inView('board')||p.board!==active.board)return;
       if(!s.commit('shape',p))return s.error('Chưa đúng.');

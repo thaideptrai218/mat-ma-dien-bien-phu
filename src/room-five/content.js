@@ -1,22 +1,24 @@
+import {heroCopy} from '../heroes/hero-copy.js';
+
 export const VICTORY_PHOTO_URL = new URL('../../assets/images/dien-bien-phu-victory-photo.png', import.meta.url).href;
 export const VICTORY_PHOTO_ALT = 'Lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
 
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tao" to it.
+// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it.
 export const INTRO = [
   {speaker: 'Lời kể', text: 'Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức ảnh còn thiếu những mảnh ghép cuối cùng.'},
-  {speaker: 'Long', text: 'Hệ Thống, tao mang đủ bốn mảnh tới rồi đây.'},
+  {speaker: 'Long', text: 'Hệ Thống, tôi mang đủ bốn mảnh tới rồi đây.'},
   {speaker: 'Hệ Thống', text: 'Đã xác nhận bốn mảnh ghép. Nhiệm vụ cuối: ghép lại bức ảnh trên bàn phục dựng. Chọn hai mảnh để đổi chỗ cho đến khi các đường nét liền nhau.'},
-  {speaker: 'Long', text: 'Ghép xong là về nhà. Tao làm ngay.'},
+  {speaker: 'Long', text: 'Ghép xong là về nhà. Tôi làm ngay.'},
 ];
 // Guidance after the painting is assembled and after the final answer opens the door.
 export const GUIDE = {
   assembly: [
     {speaker: 'Hệ Thống', text: 'Bức tranh đã hoàn thiện. Nhưng nhiệm vụ của Ký Chủ chưa kết thúc. Hãy đến nơi ánh sáng cạnh cửa.'},
-    {speaker: 'Long', text: 'Chưa kết thúc? Hệ Thống còn muốn gì ở tao nữa?'},
+    {speaker: 'Long', text: 'Chưa kết thúc? Hệ Thống còn muốn gì ở tôi nữa?'},
   ],
   door: [
     {speaker: 'Hệ Thống', text: 'Câu trả lời đã được ghi nhận. Cánh cửa đã mở. Hành trình của Ký Chủ không kết thúc ở đây; nó chỉ vừa bắt đầu.'},
-    {speaker: 'Long', text: 'Cảm ơn Hệ Thống. Tao sẽ tự bước qua cánh cửa này.'},
+    {speaker: 'Long', text: 'Cảm ơn Hệ Thống. Tôi sẽ tự bước qua cánh cửa này.'},
   ],
 };
 export const ASSEMBLY_COMPLETED = 'Cậu cẩn thận lắp từng mảnh vào đúng vị trí, hoàn thiện bức ảnh và chờ đợi cánh cửa mở ra.';
@@ -41,10 +43,17 @@ export const MUSEUM_RETURN = [
 ];
 export const CLOSING_LINE = 'Mật mã cuối cùng đã được giải, nhưng câu chuyện hòa bình vẫn đang chờ thế hệ hôm nay viết tiếp.';
 
+// The reflection and the museum return, with the hero's own story beat (Long's change of heart about studying).
+export function reflectionScript(hero) {
+  const extra = heroCopy(hero).reflection;
+  return extra.length ? [...REFLECTION_SCRIPT.slice(0, 3), ...extra, ...REFLECTION_SCRIPT.slice(3)] : REFLECTION_SCRIPT;
+}
+export const museumReturn = hero => [...MUSEUM_RETURN, ...heroCopy(hero).museumReturn];
+
 export function getArchiveEntries(state) {
   if (!state.reflectionSeen) return [];
   return [{id: 'final-reflection', title: 'Câu hỏi cuối cùng và lời Long', code: 'V', kind: 'report',
-    paragraphs: [...REFLECTION_SCRIPT.map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
+    paragraphs: [...reflectionScript().map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
 }
 
 // Long's thoughts and narration in Room 5 dialogues (plain strings are Long; objects name the speaker).
@@ -77,7 +86,7 @@ export const SYSTEM_HINTS = {
   },
   // Door puzzle (key = door- plus the gate id in area-gates.js): no digits, never names the answer outright.
   'door-reconstruction-hall': {
-    open: 'Ký Chủ, mỗi mảnh ghép gắn với một căn phòng Ký Chủ đã đi qua. Các tấm biển đang đứng lệch thứ tự.',
+    open: 'Ký Chủ, mỗi mảnh ghép gắn với một căn phòng đã đi qua. Các biển đang lệch thứ tự.',
     hints: ['Ký Chủ thử nhớ lại: mảnh đầu tiên Ký Chủ nhặt được nằm ở phòng nào?', 'Số La Mã của mảnh đi theo thứ tự các phòng Ký Chủ đã đi qua. Ký Chủ chỉ cần đọc kỹ tên từng tấm biển.'],
   },
 };
