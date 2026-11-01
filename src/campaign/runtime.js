@@ -38,6 +38,7 @@ export class CampaignRuntime {
     this.ui=new CampaignUI(root,{
       onArchive:()=>this.ui.showArchive(this.store.state),
       onRestart:()=>this.confirmRestart(),
+      onRoomAction:action=>{this.host.active?.ui?.emit(action);this.render();},
       onOverlayChange:open=>{
         const session=this.host.active;session?.scene?.clearKeys();
         if(open)this.audio.setMode('inactive');else if(!session?.ui?.isOpen)session?.scene?.focus();
@@ -47,7 +48,7 @@ export class CampaignRuntime {
     this.render();this.openCurrent();
     this.onPageHide=()=>this.audio.setMode('inactive');window.addEventListener('pagehide',this.onPageHide);
   }
-  render(){this.ui?.render(this.store.state,this.store.notice);}
+  render(){this.ui?.render(this.store.state,this.store.notice,this.host.active?.audio?.getSnapshot?.());}
   speakFrame(lines){
     if(!this.audio.voiceReady())return;
     this.audio.setMode('dialogue');this.audio.voice.playSequence(lines);

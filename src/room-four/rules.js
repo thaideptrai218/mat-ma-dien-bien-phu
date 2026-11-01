@@ -52,8 +52,8 @@ export function goalFor(s) {
   let id=nextDocumentId(s),step=0,label=titles[s.collectedNoteIds.length],detail='Đi tới dấu vàng trên bản đồ. Đọc trọn trang giấy rồi cùng Long suy nghĩ.';
   if (!id) {id='crossword';step=1;label='Điền bảy hàng ô chữ';detail='Bàn ô chữ ở phía bắc. Mỗi câu hỏi gắn với một giấy tờ đã đọc.';}
   if (s.crosswordSolved) {label='Tìm cột chữ có nghĩa';detail='Chọn một cột dọc, đọc từ trên xuống dưới.';}
-  if (s.columnSolved) {step=2;id=s.boardTSolved?'board-l':'board-t';label=s.boardTSolved?'Giải bảng chữ còn lại':'Đọc bảng chữ theo chỉ dẫn';detail='Đối chiếu lời vừa giải với các nét trên những bảng chữ phía sau rương.';}
-  if (s.boardTSolved && s.boardLSolved) {id='chest';label='Ghép khẩu hiệu, mở rương';detail='Mang hai phần lời đọc được đến khóa rương giữa phòng.';}
+  if (s.columnSolved) {step=2;id=s.boardTSolved?'board-l':'board-t';label=s.boardTSolved?'Giải bàn mật mã còn lại':'Đọc bàn mật mã theo chỉ dẫn';detail='Dùng câu vừa tìm được ở ô chữ để dò các ô ở hai bàn phía sau rương.';}
+  if (s.boardTSolved && s.boardLSolved) {id='chest';label='Ghép câu mở khóa';detail='Đưa hai nửa câu vừa đọc được vào khóa rương giữa phòng.';}
   if (s.chestOpened) {step=3;id='chest';label='Lấy mảnh tranh số IV';detail='Rương đã tự mở. Đến gần và nhấn E để nhận mảnh tranh.';}
   if (s.fragmentCollected) {id='door';label='Đi tới cửa phía bắc';detail='Bạn đã giữ mảnh tranh của phòng 4.';}
   if (s.exitReached) {label='Đã hoàn thành phòng 4';detail='Bản thử này chưa nối sang phòng ghép tranh cuối hành trình.';}

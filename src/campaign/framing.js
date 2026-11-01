@@ -1,15 +1,22 @@
 import {element,button,heading} from '../room-one/ui-elements.js';
 import {VICTORY_PHOTO_URL,MUSEUM_RETURN,CLOSING_LINE} from '../room-five/content.js';
 import {framingLine} from '../audio/voice-id.js';
+import GAME_TITLE_LOGO from '../../assets/images/game-title-logo.png';
 
-function painting(onSelect) {
-  const figure=element('figure','campaign-painting');
-  const image=element('img'); image.src=VICTORY_PHOTO_URL;
+function painting(onSelect,{titleLogo=false}={}) {
+  const figure=element('figure',`campaign-painting${titleLogo?' campaign-painting--title':''}`);
+  const art=element('span','campaign-painting-art');
+  const image=element('img','campaign-painting-photo'); image.src=VICTORY_PHOTO_URL;
   image.alt='Lá cờ đỏ sao vàng tung bay trên nóc hầm Điện Biên Phủ.';
+  art.append(image);
+  if(titleLogo){
+    const logo=element('img','campaign-painting-logo');logo.src=GAME_TITLE_LOGO;logo.alt='';logo.setAttribute('aria-hidden','true');
+    art.append(logo);
+  }
   if(onSelect){
     const trigger=button('',onSelect,'campaign-painting-trigger');
-    trigger.setAttribute('aria-label','Chạm vào bức ảnh để tiếp tục'); trigger.append(image); figure.append(trigger);
-  }else figure.append(image);
+    trigger.setAttribute('aria-label','Chạm vào bức ảnh để tiếp tục'); trigger.append(art); figure.append(trigger);
+  }else figure.append(art);
   return figure;
 }
 export const OPENING = [
@@ -50,7 +57,7 @@ function voiceButton(voice,lines,isCurrent) {
   refresh();return node;
 }
 export function introFrame(onBegin,voice) {
-  const section=element('section','campaign-story'); let step=0,drawn=0;
+  const section=element('section','campaign-story campaign-story--intro'); let step=0,drawn=0;
   const draw=()=>{
     const current=OPENING[step],copy=element('div','campaign-story-copy');
     const advance=()=>{if(step===0)voice?.cue('time-warp');if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}};
@@ -60,7 +67,7 @@ export function introFrame(onBegin,voice) {
     voice?.scene(step===0?'museum':'bunker'); // bed: museum, then the Đờ Cát bunker once the light has taken Long
     copy.append(button(current.button,advance,'r1-primary'));
     const enable=voiceButton(voice,lines,node=>node.isConnected&&token===drawn);if(enable)copy.append(enable);
-    section.replaceChildren(painting(step===0?advance:null),copy);
+    section.replaceChildren(painting(step===0?advance:null,{titleLogo:step===0}),copy);
     voice?.speak(lines);
   };
   draw(); return section;

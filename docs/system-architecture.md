@@ -17,18 +17,18 @@ Scene chung kế thừa `preload()` cho PNG/manifest nhân vật cục bộ. `ch
 - Phòng 1: thế giới 2400×1600; thư → A-03 → bốn hồ sơ → đối chiếu → ngăn kéo/tên → rương I → cửa. Nền 1950–7/1953: thư đầu năm chỉ nhìn lại; N-01 tháng bảy đọc sau giải danh tính, không thêm gating cũ.
 - Phòng 2: world/gate/art và renderer puzzle/narrative gốc Bảo; bảy clues, chín beats, bốn puzzles. Registry deep-compare với donor, renderer/art bodies và CSS đối chiếu hash. Adapter không gọi reducer/save legacy hoặc dựng thành tích bảo tàng/Him Lam giả. Fold cuối hợp lệ cấp II; cửa đông mới sang 3, không thêm rương/pickup hoặc bắt đọc hết outro. [Bảo toàn nguồn](../plans/261031-campaign-link/reports/room-two.md).
 - Phòng 3: trại 3200×2000, năm giấy xen bốn thử thách. Chuẩn bị song song → sáu vai trò tiếp vận → hai phương châm/lý do → tin 13/15/17. `answers.js` kiểm tra ngữ nghĩa/tập lựa chọn; thẻ NHANH/CHẮC cùng chữ được đổi tương đương. Đủ bốn mới dùng 13/03/1954; mở rương → nhận III → cửa.
-- Phòng 4: archive 2800×1800, bảy giấy theo thời gian → ô chữ 17 cột → cột index 8/TIMTVAL → T/L → câu cuối → rương mở → lấy IV → cửa. Hàng bốn đủ 16 chữ; bảng L giữ ULTAV. Không thay nội dung lịch sử khi nối campaign.
+- Phòng 4: archive 2800×1800, bảy giấy theo thời gian → ô chữ → chỉ dẫn cho hai bàn mật mã → ghép câu mở khóa → rương → lấy IV → cửa. Tên bàn và gợi ý Hệ Thống giữ kín hình cần dò để người chơi tự giải từ manh mối trước.
 - Phòng 5: 2000×1400; đủ bốn mảnh thật và cửa trước mới ghép đúng bốn phần tư → cuộc trò chuyện → xác nhận tiếp tục → cửa thật. Ô suy nghĩ cá nhân chỉ ở DOM, không gửi intent/persist. Sau exit 5, runtime hiện museum-return; acknowledgment mới đặt endingSeen.
 
 `world.js` của mỗi phòng là nguồn hình học cho collision, tầm E và map. RoomOneScene nhận world/art/key/goal tùy chọn; các phòng truyền cấu hình riêng. Camera kẹp trong biên, đi/chạy 260/390 chuẩn hóa đường chéo, footsteps lấy chuyển động thật. Bố cục học tập không phải tọa độ đơn vị lịch sử.
 
 ## Giấy đọc, sổ chung và UI
 
-Reader dùng nguyên văn HTML chọn/copy được; nguồn/hư cấu ngoài thân giấy. Đọc đến cuối → suy nghĩ Long → token xác nhận hiện hành mới thu thập. Đóng/reset/dispose vô hiệu callback cũ; notebook reread không cấp tiến độ.
+Reader dùng nguyên văn HTML chọn/copy được; giấy giữ lời chào, chữ ký và ngày viết. Đọc đến cuối → suy nghĩ Long → token xác nhận hiện hành mới thu thập. Đóng/reset/dispose vô hiệu callback cũ; notebook reread không cấp tiến độ.
 
 `src/campaign/archive.js` tập hợp giấy đã kiếm được từ phòng 1–5, gồm toàn bộ các đoạn clue gốc Bảo và N-01 khi đủ điều kiện. Sổ hành trình pause child input/audio qua isPaused; không cho gửi intent trong lúc overlay mở. Có sổ trong phòng và sổ xuyên phòng, không rút hồ sơ thành tóm tắt.
 
-RoomOneUI nhận nhãn/ngày/world/panel factory; Bảo bọc DOM renderer gốc vào shell chung. Header chiến dịch có sổ, kho mảnh, mục tiêu và restart; link preview ghi rõ save riêng. WASD/Shift/E/M/N/Q/Esc theo focus, form giữ hành vi nhập bình thường. Modal/blur/tab ẩn xóa phím giữ, vận tốc và bước chân. Desktop thấp dùng mini-map gọn, map lớn nhận đúng world hiện tại.
+RoomOneUI nhận nhãn/ngày/world/panel factory; Bảo bọc DOM renderer gốc vào shell chung. Header chiến dịch duy nhất hiển thị logo và tên phòng, cung cấp sổ, âm thanh, tùy chọn, restart và link preview; header trong từng phòng chỉ hiện ở bản chơi riêng. WASD/Shift/E/M/N/Q/Esc theo focus, form giữ hành vi nhập bình thường. Modal/blur/tab ẩn xóa phím giữ, vận tốc và bước chân. Desktop thấp dùng mini-map gọn, map lớn nhận đúng world hiện tại.
 
 ## Lưu, phục hồi và reset
 

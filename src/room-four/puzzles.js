@@ -9,12 +9,12 @@ function boardPanel(data, emit) {
   const boardId = data.board === 'l' ? 'l' : 't';
   const board = BOARDS[boardId];
   const body = element('section', 'r4-puzzle');
-  body.append(heading(`Bảng chữ ${boardId.toUpperCase()}`, 'PHÒNG 4 · MẬT MÃ HÌNH CHỮ'));
-  body.append(element('p', 'r1-lead', `Chọn các ô tạo thành hình chữ ${boardId.toUpperCase()}. Đọc những ô được chọn từ trái sang phải, từ hàng trên xuống hàng dưới. Bấm lại một ô để bỏ chọn. Giữ chuột hoặc ngón tay rồi quét bút dò qua nhiều ô để chọn liền một nét; quét qua ô đã chọn sẽ bỏ chọn.`));
+  body.append(heading('Bàn ký tự', 'PHÒNG 4 · MẬT MÃ HÌNH CHỮ'));
+  body.append(element('p', 'r1-lead', 'Dựa vào lời chỉ dẫn vừa tìm được để chọn những ô cần đọc. Đọc các ô đã chọn từ trái sang phải, từ hàng trên xuống hàng dưới. Bấm lại một ô để bỏ chọn. Giữ chuột hoặc ngón tay rồi quét bút dò qua nhiều ô để chọn liền một nét; quét qua ô đã chọn sẽ bỏ chọn.'));
   let selected = new Set(data.solved ? board.cells : []);
   const grid = element('div', 'r4-shape-grid');
   grid.setAttribute('role', 'group');
-  grid.setAttribute('aria-label', `Bảng chữ ${boardId.toUpperCase()}, 6 hàng, 5 cột`);
+  grid.setAttribute('aria-label', 'Bàn ký tự, 6 hàng, 5 cột');
   const buttons = [];
   const reading = element('output', 'r4-reading-order');
   reading.setAttribute('aria-live', 'polite');
@@ -76,9 +76,9 @@ function boardPanel(data, emit) {
   body.append(grid, count, element('p', 'r4-reading-label', 'CHỮ ĐANG ĐỌC'), reading);
   update();
   if (data.solved) {
-    body.append(element('p', 'r1-success', `Đã giải bảng chữ ${boardId.toUpperCase()}.`), element('p', 'r4-board-phrase', board.phrase));
+    body.append(element('p', 'r1-success', 'Đã tìm được nửa câu trên bàn.'), element('p', 'r4-board-phrase', board.phrase));
   } else {
-    body.append(button('Kiểm tra hình chữ', () => emit('shape-submit', { board: boardId, selected: [...selected].sort((a, b) => a - b) }), 'r1-primary'));
+    body.append(button('Kiểm tra lựa chọn', () => emit('shape-submit', { board: boardId, selected: [...selected].sort((a, b) => a - b) }), 'r1-primary'));
   }
   return body;
 }
