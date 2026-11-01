@@ -1,4 +1,4 @@
-// PDF p21–22 supplies the answers and alignment. Its fourth drawn row is one cell short;
+// The fourth drawn row is one cell short;
 // retain the full 16-letter answer and add only its trailing cell.
 export const CROSSWORD_ROWS = [
   { id: 'objective', documentId: 'final-assault', question: 'Mục tiêu của quân đội Việt Nam trong đợt tiến công thứ ba phải làm gì với các cứ điểm còn lại?', answer: 'TIEUDIET', start: 8 },

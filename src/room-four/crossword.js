@@ -1,5 +1,6 @@
 import { element, button, heading, formField, submitButton } from '../room-one/ui-elements.js';
 import { CROSSWORD_ROWS } from './puzzle-data.js';
+import { DOCUMENTS } from './documents.js';
 import { createRangeRuler } from '../ui/tactile/range-ruler.js';
 
 const SOLVED_COLUMN = 9;
@@ -74,6 +75,7 @@ export function crosswordPanel(data, emit) {
     return body;
   }
   body.append(element('p', 'r1-lead', 'Dùng bảy tư liệu trong sổ tay để trả lời. Viết chữ hoa, không dấu và không cách; bạn cũng có thể nhập tiếng Việt có dấu.'));
+  body.append(element('p', 'r4-autosave-note', 'Mỗi mảnh ghi chú mở ngay dưới câu hỏi. Câu trả lời được lưu tự động trên trình duyệt; đóng phòng rồi quay lại vẫn tiếp tục được.'));
   const preview = diagram([]);
   body.append(preview.node);
   const form = element('form', 'r4-crossword-form');
@@ -84,13 +86,26 @@ export function crosswordPanel(data, emit) {
     field.input.maxLength = 80;
     field.input.spellcheck = false;
     field.input.autocapitalize = 'characters';
+    field.input.value = data.draft?.[row.id] || '';
     field.input.setAttribute('aria-describedby', `r4-length-${index}`);
     const length = element('span', 'r4-answer-length', `${row.answer.length} chữ cái`);
     length.id = `r4-length-${index}`;
     field.label.append(length);
-    field.input.addEventListener('input', () => preview.update(index, letters(field.input.value)));
+    field.input.addEventListener('input', () => {
+      preview.update(index, letters(field.input.value));
+      emit('crossword-draft', {id:row.id,value:field.input.value});
+    });
     fields.push([row.id, field.input]);
-    form.append(field.label);
+    const item = element('div', 'r4-crossword-item');
+    item.append(field.label);
+    const document = DOCUMENTS.find(entry => entry.id === row.documentId);
+    if (document?.summary) {
+      const note = element('details', 'r4-question-note');
+      note.append(element('summary', '', `Mảnh ghi chú · ${document.title} · ${document.date}`),element('p', '', document.summary));
+      item.append(note);
+    }
+    form.append(item);
+    if (field.input.value) preview.update(index, letters(field.input.value));
   }
   form.append(submitButton('Kiểm tra bảy hàng chữ'));
   form.addEventListener('submit', event => {

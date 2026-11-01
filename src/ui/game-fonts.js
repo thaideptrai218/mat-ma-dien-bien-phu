@@ -3,6 +3,7 @@ export const GAME_FONTS = Object.freeze({ display: 'DBP Display', body: 'DBP Tex
 const faces = [
   '400 20px "DBP Text"', '600 20px "DBP Text"', '700 20px "DBP Text"',
   '400 20px "DBP Display"', '700 20px "DBP Display"', 'italic 400 20px "DBP Display"',
+  '400 20px "Malinton"', '600 20px "Malinton"',
   '400 21px "DBP Hand"',
 ];
 

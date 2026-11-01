@@ -1,23 +1,33 @@
 import {element,button,heading} from '../room-one/ui-elements.js';
 import {VICTORY_PHOTO_URL,museumReturn,CLOSING_LINE} from '../room-five/content.js';
-import {activeHero} from '../heroes/hero-profiles.js';
+import {activeHero, heroDialogueText} from '../heroes/hero-profiles.js';
 import {heroCopy} from '../heroes/hero-copy.js';
 import {framingLine} from '../audio/voice-id.js';
+const GAME_TITLE_LOGO = new URL('../../assets/images/game-title-logo.png', import.meta.url).href;
 
-function painting() {
-  const figure=element('figure','campaign-painting');
-  const image=element('img'); image.src=VICTORY_PHOTO_URL;
-  image.alt='Ảnh tư liệu Điện Biên Phủ: lá cờ đỏ sao vàng tung bay trên nóc hầm.';
-  figure.append(image,element('figcaption','','Ảnh tư liệu do người dùng cung cấp.'));
+function painting(onSelect,{titleLogo=false}={}) {
+  const figure=element('figure',`campaign-painting${titleLogo?' campaign-painting--title':''}`);
+  const art=element('span','campaign-painting-art');
+  const image=element('img','campaign-painting-photo'); image.src=VICTORY_PHOTO_URL;
+  image.alt='Lá cờ đỏ sao vàng tung bay trên nóc hầm Điện Biên Phủ.';
+  art.append(image);
+  if(titleLogo){
+    const logo=element('img','campaign-painting-logo');logo.src=GAME_TITLE_LOGO;logo.alt='';logo.setAttribute('aria-hidden','true');
+    art.append(logo);
+  }
+  if(onSelect){
+    const trigger=button('',onSelect,'campaign-painting-trigger');
+    trigger.setAttribute('aria-label','Chạm vào bức ảnh để tiếp tục'); trigger.append(art); figure.append(trigger);
+  }else figure.append(art);
   return figure;
 }
 // The first frame (who the hero is) belongs to the chosen hero; the rest is shared and localized by name.
 export const openingFrames = (hero = activeHero()) => [
   {eyebrow:'BẢO TÀNG · HIỆN TẠI',title:'Trước một bức ảnh',paragraphs:heroCopy(hero).intro,button:'Chạm vào mặt kính'},
-  {eyebrow:'KHÔNG GIAN HƯ CẤU · 7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
+  {eyebrow:'ĐIỆN BIÊN PHỦ · 7/5/1954',title:'Bên kia quầng sáng',paragraphs:[
     'Khi mở mắt, Long thấy một căn hầm chật, những tấm bản đồ trên vách và cánh cửa đóng kín. Âm thanh bên ngoài vọng xuống, khác hẳn sự yên tĩnh trong bảo tàng.',
     'Hệ Thống: Ký Chủ đã bước vào dòng chảy lịch sử. Đây là không gian tái hiện hầm chỉ huy của tướng Đờ Cát, ngày 7 tháng 5 năm 1954. Muốn trở về thời đại của mình, Ký Chủ phải giải mã những dấu mốc đã làm nên chiến thắng Điện Biên Phủ.',
-    'Long: Khoan đã… Hệ Thống? Hệ Thống là cái gì vậy? Tôi vừa còn đứng trong bảo tàng mà.',
+    'Long: Khoan đã… Hệ Thống, tôi chưa hiểu chuyện gì đang xảy ra. Tôi vừa còn đứng trong bảo tàng mà.',
     'Hệ Thống: Hệ Thống là người dẫn đường của Ký Chủ trong hành trình này. Ký Chủ hãy bình tĩnh; mỗi chỉ dẫn sẽ được đưa ra đúng lúc.'
   ],button:'Lắng nghe lời chỉ dẫn'},
   {eyebrow:'NĂM CĂN PHÒNG · BỐN MẢNH TRANH',title:'Lần theo những dấu mốc',paragraphs:[
@@ -25,7 +35,7 @@ export const openingFrames = (hero = activeHero()) => [
     'Long: Bốn mảnh ghép, năm căn phòng. Được, tôi chơi. Nhưng Hệ Thống phải nói rõ tôi bắt đầu từ đâu.',
     'Hệ Thống: Phòng 1 cất giữ chặng đường xây dựng lực lượng từ năm 1950 đến giữa năm 1953. Khi cần, Ký Chủ nhấn Q để xem nhiệm vụ hiện tại; Hệ Thống sẽ lên tiếng sau mỗi bước.',
     'Dùng WASD hoặc phím mũi tên để đi, giữ Shift để chạy nhanh. Đến gần vật và nhấn E. M mở bản đồ, N mở sổ tay trong phòng; Sổ hành trình ở thanh trên giữ toàn văn các giấy đã ghi nhận ở những phòng trước.',
-    'Cốt truyện du hành, thư và nhân vật viết thư là sáng tác. Nguồn lịch sử được ghi ngoài phần kể chuyện. Tiến độ tự lưu trên trình duyệt này.'
+    'Tiến độ hành trình được lưu trên trình duyệt này.'
   ],button:'Bước vào phòng 1'}
 ];
 // `voice` is optional ({ready, speak, enable, scene, cue} from the runtime): frames are read aloud once sound is on, and until
@@ -46,16 +56,24 @@ function voiceButton(voice,lines,isCurrent) {
   refresh();return node;
 }
 export function introFrame(onBegin,voice) {
-  const section=element('section','campaign-story'),OPENING=openingFrames(); let step=0,drawn=0;
+  const section=element('section','campaign-story campaign-story--intro'),OPENING=openingFrames(); let step=0,drawn=0;
+  const advance=()=>{
+    if(step!==0)return;
+    voice?.cue('time-warp');step=1;draw();section.querySelector('.r1-primary')?.focus();
+  };
   const draw=()=>{
     const current=OPENING[step],copy=element('div','campaign-story-copy');
     copy.append(heading(current.title,current.eyebrow));
-    current.paragraphs.forEach(text=>copy.append(element('p','',text)));
+    current.paragraphs.forEach(text=>{
+      const line=framingLine(text);
+      const shown=line.speaker==='Long'?`${activeHero().name}: ${heroDialogueText(line.text,'Long')}`:text;
+      copy.append(element('p','',shown));
+    });
     const lines=current.paragraphs.map(framingLine),token=++drawn;
     voice?.scene(step===0?'museum':'bunker'); // bed: museum, then the Đờ Cát bunker once the light has taken Long
-    copy.append(button(current.button,()=>{if(step===0)voice?.cue('time-warp');if(step===2)onBegin();else{step++;draw();section.querySelector('.r1-primary')?.focus();}},'r1-primary'));
+    copy.append(button(current.button,()=>{if(step===0){advance();return;}if(step===2){onBegin();return;}step++;draw();section.querySelector('.r1-primary')?.focus();},'r1-primary'));
     const enable=voiceButton(voice,lines,node=>node.isConnected&&token===drawn);if(enable)copy.append(enable);
-    section.replaceChildren(painting(),copy);
+    section.replaceChildren(painting(step===0?advance:null,{titleLogo:step===0}),copy);
     voice?.speak(lines);
   };
   draw(); return section;

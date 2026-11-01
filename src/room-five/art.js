@@ -53,7 +53,7 @@ export function createRoomFiveArtwork(scene, world, key = 'room-five-reconstruct
     }
   }
   label(ctx, 'CĂN PHÒNG CUỐI · BỨC TRANH HÒA BÌNH', 1000, 520, 28);
-  label(ctx, 'BỐ CỤC HƯ CẤU CHO TRÒ CHƠI HỌC TẬP', 1000, 565, 17, '#b4b397');
+  label(ctx, 'PHÒNG GHÉP ẢNH · HÀNH TRÌNH ĐIỆN BIÊN PHỦ', 1000, 565, 17, '#b4b397');
   for (const o of world.objects) {
     const w = Math.max(160, o.label.length * 10 + 30);
     rect(ctx, o.x - w / 2, o.y + 98, w, 36, '#223b30dd');

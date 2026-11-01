@@ -1,5 +1,3 @@
-// Fictional voices, based only on the user-supplied local historical text.
-// These authored documents are not historical quotations or archival records.
 export const DOCUMENTS = [
   {
     "id": "v1",
@@ -9,8 +7,6 @@ export const DOCUMENTS = [
     "date": "Đầu năm 1953",
     "author": "Trần Đức Thành",
     "recipient": "Nguyễn Thị Hòa",
-    "fictionDisclosure": "Thành và Hòa là nhân vật hư cấu. Lá thư là sáng tác, không phải thư hay lời chứng lịch sử.",
-    "source": "Bối cảnh theo bản chữ, PDF bản 4 và nội dung người dùng bổ sung về quân đội, hậu phương giai đoạn 1950–1953.",
     "salutation": "Hòa thương nhớ,",
     "paragraphs": [
       "Hòa ạ, em hỏi từ sau Tây Bắc anh có thay đổi gì không. Có chứ. Anh bớt nói chắc những việc chưa xảy đến. Có những người cùng đi năm trước giờ không còn nữa. Anh cũng thấy anh em vững hơn, biết nghe nhau.",
@@ -34,8 +30,6 @@ export const DOCUMENTS = [
     "title": "Sổ tay người phụ trách quân nhu",
     "date": "Đầu năm 1953",
     "author": "Phạm Văn Định · Phụ trách quân nhu",
-    "fictionDisclosure": "Phạm Văn Định là nhân vật hư cấu. Ghi chép là sáng tác dựa trên bối cảnh lịch sử.",
-    "source": "Số liệu theo tài liệu cung cấp",
     "paragraphs": [
       "Hôm nay tôi chép lại bảng tổng hợp quân số: 252.000 người. Viết mấy chữ số thì nhanh, nghĩ đến số người cần lương ăn và vũ khí mới thấy việc còn nhiều. Làm quân nhu, tôi quen nhìn một dòng thống kê rồi tự hỏi những người trong đó đã có đủ thứ cần dùng chưa.",
       "Lực lượng ta chủ yếu vẫn là bộ binh, có thêm pháo binh và súng phòng không. So với quân Pháp có cả không quân, hải quân cùng trang bị hiện đại, phần thiếu của mình còn nhiều. Lúc nghe chuyện đánh được, ai cũng vui. Đến khi trở về với sổ sách, tôi lại nghĩ anh em cần gì để còn tiếp tục.",
@@ -54,10 +48,8 @@ export const DOCUMENTS = [
     "code": "P-01",
     "kind": "report",
     "title": "Báo cáo về quân số và sự phân tán",
-    "date": "Tháng 3/1953 · Mốc dựng truyện hư cấu",
+    "date": "Tháng 3/1953",
     "author": "André Morel · Nhân viên tham mưu Pháp",
-    "fictionDisclosure": "André Morel là nhân vật hư cấu. Đây là bản báo cáo và bản tiếng Việt được sáng tác, không phải tài liệu lưu trữ lịch sử.",
-    "source": "Số liệu theo tài liệu cung cấp",
     "paragraphs": [
       "Thưa ông, tôi gửi bản tổng hợp tình hình lực lượng. Tổng quân số phía chúng ta được ghi là 445.000 người. Bộ binh, không quân và hải quân đều có mặt, với trang bị hiện đại. Chúng ta có ưu thế về số người và phương tiện.",
       "Phía Việt Nam có 252.000 người, chủ yếu là bộ binh, thêm pháo binh và súng phòng không. Chênh lệch ấy dễ làm nảy sinh sự tin tưởng khi nhìn vào bảng thống kê. Tuy nhiên, quân số của toàn chiến trường chưa phải số quân có thể lập tức dành cho một cuộc tiến công.",
@@ -76,11 +68,9 @@ export const DOCUMENTS = [
     "code": "P-02",
     "kind": "letter",
     "title": "Thư từ Paris",
-    "date": "Tháng 4/1953 · Mốc dựng truyện hư cấu",
+    "date": "Tháng 4/1953",
     "author": "Louise Bernard",
     "recipient": "Paul Bernard",
-    "fictionDisclosure": "Louise và Paul Bernard là nhân vật hư cấu. Lá thư và bản tiếng Việt là sáng tác, không phải thư hay lời chứng lịch sử.",
-    "source": "Bối cảnh lịch sử theo bản chữ do người dùng cung cấp.",
     "salutation": "Paul thân mến,",
     "paragraphs": [
       "Chị đã nhận được thư em. Chị đọc hai lần, rồi đưa cho mẹ. Mẹ cứ hỏi có tin gì thêm không, như thể giữa hai lần đọc chị sẽ tìm ra một câu còn bỏ sót. Chiến tranh ở Đông Dương xa nhà mình đến thế, mà trong nhà nói chuyện gì cũng quay về đó.",

@@ -1,10 +1,10 @@
 // Long and the system dialogue are authored for this learning room.
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it.
+// The shared dialogue adapter applies "tôi – bạn" or "mình – cậu" to protagonist dialogue by route.
 const introLines = scopeNote => [
   { speaker: 'Hệ Thống', text: 'Phòng 4 — Những ngày quyết định. Từ 30/3 đến chiến thắng 7/5/1954, rồi nhìn lại kết quả và ý nghĩa.' },
   { speaker: 'Long', text: 'Bảy tờ giấy quanh phòng, từ những đường hào đến những điều đổi thay sau chiến thắng. Hệ Thống, tôi bắt đầu ở cuối tháng ba nhé?' },
   { speaker: 'Hệ Thống', text: 'Chính xác. Nhiệm vụ: đọc bảy tư liệu theo dòng thời gian, giải bảng ô chữ lịch sử, tìm cột chữ có nghĩa, rồi lần theo lời chỉ dẫn để mở rương mảnh tranh thứ tư.' },
-  { speaker: 'Hệ Thống', text: `${scopeNote} Thư, người viết và chuyện riêng là hư cấu; sự kiện lịch sử dựa trên tài liệu được cung cấp, với nguồn ghi ngoài lời văn.` },
+  { speaker: 'Hệ Thống', text: scopeNote },
   { speaker: 'Hệ Thống', text: 'Đi bằng WASD hoặc phím mũi tên, giữ Shift để chạy. Đến gần vật và nhấn E. Đọc hết giấy, cùng suy nghĩ rồi xác nhận. N mở sổ tay, M mở sơ đồ, Q xem nhiệm vụ.' },
 ];
 export const INTRO = introLines('Đây là bản chơi độc lập. Chỉ mảnh tranh IV có trong phòng này.');
@@ -84,19 +84,19 @@ export const REACTIONS = {
     locked: ['Mình cần đọc hết và ghi nhận bảy tờ giấy quanh phòng.'],
   },
   'board-t': {
-    first: ['Một bảng sáu hàng, năm cột. Manh mối bảo tìm chữ T.'],
+    first: ['Câu chỉ dẫn vừa tìm được dường như áp dụng cho những ô trên mặt bàn này.'],
     repeat: ['Mình đã ghi lại những chữ đọc được trên bảng này.'],
-    locked: ['Mình cần giải ô chữ và chọn cột dọc trước.'],
+    locked: ['Mình cần tìm được câu chỉ dẫn ở ô chữ trước.'],
   },
   'board-l': {
-    first: ['Bảng còn lại có cùng số ô. Mình thử tìm chữ L.'],
+    first: ['Mình sẽ dựa vào câu chỉ dẫn vừa tìm được để đọc những ô trên bàn này.'],
     repeat: ['Mình đã ghi lại những chữ đọc được trên bảng này.'],
-    locked: ['Cột dọc của ô chữ sẽ chỉ cách đọc hai bảng này.'],
+    locked: ['Cột dọc ở ô chữ sẽ chỉ cách đọc những ô trên bàn này.'],
   },
   chest: {
-    first: ['Khóa rương còn đóng. Mình sẽ ghép hai phần lời đã tìm được ở bảng T và bảng L.'],
+    first: ['Khóa rương còn đóng. Mình sẽ ghép hai nửa câu vừa tìm được trên các bàn mật mã.'],
     repeat: ['Mình đã lấy mảnh IV. Cửa ở phía bắc.'],
-    locked: ['Hai bảng phía sau rương sẽ giúp tìm câu mở khóa.'],
+    locked: ['Mình cần hoàn thành cả hai bàn mật mã để tìm câu mở khóa.'],
   },
   door: {
     first: ['Mảnh tranh IV đã cất rồi. Mình có thể đi qua cánh cửa này.'],
@@ -118,7 +118,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues.
 export const LINES = {
   column: [
-    'TIMTVAL… “Tìm T và L.” Hai bảng chữ phía sau rương hẳn là nơi mình cần nhìn tiếp.',
+    'Tôi đọc được câu: “Tìm T và L.”',
   ],
   final: [
     '“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.',
@@ -136,20 +136,16 @@ export const SYSTEM_HINTS = {
     hints: ['Ký Chủ thử đọc câu hỏi, rồi tìm lại giấy tờ nói về ý đó trong sổ tay.', 'Ký Chủ để ý cách viết đáp án: viết liền, không dấu, và con số nếu có thì viết bằng chữ.'],
   },
   column: {
-    open: 'Ký Chủ, trượt thước đọc dọc theo ô chữ, cột nào thành lời?',
-    hints: ['Ký Chủ thử trượt thước tới từng cột, đọc các ô từ hàng đầu xuống hàng cuối.', 'Lời chỉ dẫn phải là một câu có nghĩa. Ký Chủ thử cột nào đọc lên thành lời.'],
+    open: 'Ký Chủ, đọc các ô theo một cột từ trên xuống dưới rồi thử thêm dấu tiếng Việt.',
+    hints: ['Ký Chủ thử trượt thước qua từng cột và đọc các chữ có mặt theo thứ tự từ trên xuống.', 'Khi thêm dấu tiếng Việt, cột nào trở thành một từ hoặc cụm từ có nghĩa?'],
   },
-  'board-t': {
-    open: 'Ký Chủ, hãy quét bút dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
-    hints: ['Ký Chủ nhớ lại lời chỉ dẫn vừa tìm được để biết cần dò theo hình nào.', 'Hình này gồm một nét ngang và một nét dọc. Các chữ được chọn sẽ đọc thành một nửa khẩu hiệu.'],
-  },
-  'board-l': {
-    open: 'Ký Chủ, hãy quét bút dò trên bảng chữ theo hình mà lời chỉ dẫn nhắc tới.',
-    hints: ['Ký Chủ nhớ lại lời chỉ dẫn vừa tìm được để biết cần dò theo hình nào.', 'Hình này gồm một nét dọc và một nét ngang. Các chữ được chọn sẽ đọc thành nửa còn lại của khẩu hiệu.'],
+  board: {
+    open: 'Ký Chủ, hãy dựa vào lời chỉ dẫn vừa tìm được để đọc các ô trên bàn này.',
+    hints: ['Ký Chủ mở lại câu vừa giải ở ô chữ. Câu ấy nhắc mình cần tìm gì?', 'Hãy ngắt câu chỉ dẫn thành từng phần rồi xem cách chúng có thể hiện ra trên các ô.'],
   },
   final: {
-    open: 'Ký Chủ, đặt hai dải chữ vào khóa rương theo đúng thứ tự.',
-    hints: ['Ký Chủ nhớ lại hai nửa khẩu hiệu đọc được từ hai bảng chữ.', 'Ký Chủ thử đọc hai dải cạnh nhau như một câu hoàn chỉnh trên lá cờ chiến thắng.'],
+    open: 'Ký Chủ, xếp hai phần vừa đọc được thành một câu hoàn chỉnh trên khóa rương.',
+    hints: ['Ký Chủ nhớ lại thứ tự đọc mà các manh mối trước đã gợi ra.', 'Ký Chủ thử đặt hai dải cạnh nhau rồi đọc thành câu trọn vẹn.'],
   },
   // Door puzzles at the locked gates. Each leans on the paper the player has just read.
   'door-a1-night': {

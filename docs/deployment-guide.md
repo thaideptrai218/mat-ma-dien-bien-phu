@@ -45,7 +45,7 @@ Checkout riêng của bản gốc không bị thay đổi bởi build/reset chi�
 
 Bấm canvas, WASD/mũi tên đi, Shift chạy 260→390, E vật gần, M map, N sổ phòng, Q nhiệm vụ, Esc đóng/tùy chọn. Sổ hành trình trên header giữ giấy đã kiếm ở các phòng; mở sổ pause room/input/audio, không dịch chuyển từ map/journal. Qua cửa thật mới chuyển room.
 
-Be Vietnam Pro/Lora/Patrick Hand, chân dung, ảnh tư liệu do người dùng cung cấp và sáu SVG hậu cần đều local. Không CDN/TTS hoặc tải PDF nguồn lên website. Campaign giữ một Web Audio controller/context; bật/resume từ gesture, preference tách runtime permission. Chuyển phòng giữ setting chung, preview vẫn độc lập.
+Be Vietnam Pro/Lora/Patrick Hand, chân dung, ảnh chiến thắng và sáu SVG hậu cần đều local. Không CDN/TTS. Campaign giữ một Web Audio controller/context; bật/resume từ gesture, preference tách runtime permission. Chuyển phòng giữ setting chung, preview vẫn độc lập.
 
 ## Kiểm chứng
 

@@ -1,21 +1,28 @@
 import {activeHero} from '../heroes/hero-profiles.js';
 
 export const CHARACTER_DIRECTIONS = Object.freeze(['down', 'left', 'right', 'up']);
-export const CHARACTER_FRAME = Object.freeze({width:160, height:192, scale:.5,
-  originX:.5, originY:176/192, bodyWidth:48, bodyHeight:32, bodyOffsetX:56, bodyOffsetY:160});
 
 // One sprite sheet per hero: 4 direction rows × `columns` poses. Long's 17th column is a full standing pose;
 // Quang's 1st column is his standing pose.
 const SPECS = Object.freeze({
   long: Object.freeze({texture:'long-hero', columns:17, rates:{idle:8, walk:10, run:15},
+    frame:Object.freeze({width:160,height:192,scale:.75,originX:.5,originY:176/192,
+      bodyWidth:32,bodyHeight:64/3,bodyOffsetX:64,bodyOffsetY:176-8/.75}),
     poses:Object.freeze({idle:[16], walk:[0,1,2,3,4,5,6], run:[8,9,10,11,12,13,14]})}),
   quang: Object.freeze({texture:'quang-hero', columns:8, rates:{idle:8, walk:8, run:12},
+    frame:Object.freeze({width:160,height:192,scale:.5,originX:.5,originY:176/192,
+      bodyWidth:48,bodyHeight:32,bodyOffsetX:56,bodyOffsetY:160}),
     poses:Object.freeze({idle:[0], walk:[1,2,3,4], run:[5,6,7,6]})}),
 });
 
 /** Sprite configuration of the hero chosen for this run. */
 export const characterSpec = () => SPECS[activeHero().sprite];
 export const characterTexture = () => characterSpec().texture;
+// Keep the original Long size and collider, while using the matching dimensions for Quang's sheet.
+export const CHARACTER_FRAME = Object.freeze(Object.defineProperties({},Object.fromEntries(
+  ['width','height','scale','originX','originY','bodyWidth','bodyHeight','bodyOffsetX','bodyOffsetY']
+    .map(key=>[key,{enumerable:true,get:()=>characterSpec().frame[key]}]),
+)));
 
 export function characterAnimationKey(facing, motion = 'idle', reduced = false) {
   const spec = characterSpec();

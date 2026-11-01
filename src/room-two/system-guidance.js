@@ -1,8 +1,8 @@
 import {beats as donorBeats} from './bao/content/story-data.js';
 
 // Campaign voice for Room 2. Donor registries stay byte-identical; this overlay only re-addresses
-// Hệ Thống's lines (it calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it)
-// and adds Long ↔ Hệ Thống guidance lines that point the player to the next station.
+// Hệ Thống's lines and hero guidance. The shared dialogue adapter applies "tôi – bạn" or "mình – cậu" by route.
+// Campaign-only guidance points the player to the next station without editing Bảo's donor content.
 const line = (speakerId, text) => ({speakerId, portraitId: speakerId, text, sourceIds: [], fictional: true});
 const system = text => line('system', text);
 const quang = text => line('quang', text);
@@ -18,14 +18,14 @@ const intro = rewrite('navarre-plan-intro', ([arrival, , resolve]) => [
   system('Phòng 2 gồm bốn bước nối tiếp: cân lại 84 tiểu đoàn, tách hai bức điện, mở nắm đấm thép và gấp bản đồ ở hòm sắt. Mỗi trạm chỉ mở khi Ký Chủ đã ghi đủ manh mối của nó.'),
   resolve,
   system('Bàn làm việc của Nava ở gian tây bắc. Nhấn Q bất cứ lúc nào để xem trạm kế tiếp.'),
-  quang('Rõ rồi, Hệ Thống. Tôi đi đây.'),
+  quang('Được rồi, Hệ Thống. Tôi bắt đầu ngay nhé.'),
 ]);
 
 const outro = rewrite('navarre-plan-outro', ([decision, ...reflection]) => [
   {...decision, text: decision.text.replace('thuộc về ngươi', 'thuộc về Ký Chủ')},
   ...reflection,
   system('Cánh cửa phía đông đã mở. Ký Chủ hãy đi tới cửa để sang chặng kế tiếp: công cuộc chuẩn bị cho chiến dịch.'),
-  quang('Mảnh ghép thứ hai đây rồi, Hệ Thống. Đi tiếp thôi.'),
+  quang('Mảnh ghép thứ hai đây rồi, Hệ Thống. Tôi đi tiếp nhé.'),
 ]);
 
 export const beats = {...donorBeats, [intro.id]: intro, [outro.id]: outro};

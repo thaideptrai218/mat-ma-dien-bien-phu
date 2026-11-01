@@ -76,7 +76,7 @@ function furniture(ctx, p) {
     rect(ctx, x + 8, y + 7, w - 16, h - 14, '#c3bb8b');
     line(ctx, [[x + 28, y + 60], [x + 65, y + 20], [x + 113, y + 55], [x + 157, y + 19], [x + 191, y + 42]], '#627d6e', 7);
     for (let i = 20; i < w - 20; i += 36) line(ctx, [[x + i, y + 10], [x + i, y + h - 10]], '#867f5c55', 1);
-    rect(ctx, x + 94, y + 25, 44, 27, '#9e4c37'); label(ctx, 'A-03', x + 116, y + 44, 15, '#fff0c3');
+    rect(ctx, x + 94, y + 25, 44, 27, '#9e4c37');
   } else if (kind === 'radio') {
     rect(ctx, x + 9, y + 9, w - 18, h - 19, '#526050'); rect(ctx, x + 20, y + 18, 51, 31, '#263930');
     for (let i = 0; i < 4; i++) rect(ctx, x + 83, y + 17 + 9 * i, 35, 2, '#24332a');

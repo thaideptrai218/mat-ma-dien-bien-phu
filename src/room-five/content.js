@@ -1,10 +1,9 @@
 import {heroCopy} from '../heroes/hero-copy.js';
 
 export const VICTORY_PHOTO_URL = new URL('../../assets/images/dien-bien-phu-victory-photo.png', import.meta.url).href;
-export const VICTORY_PHOTO_ALT = 'Ảnh tư liệu: lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
-export const SOURCE_LABEL = 'Cốt truyện theo PDF bản 4 do người dùng cung cấp, tr. 3–5. Ảnh tư liệu do người dùng cung cấp. Long, hệ thống và hành trình xuyên thời gian là hư cấu học tập.';
+export const VICTORY_PHOTO_ALT = 'Lá cờ đỏ sao vàng tung bay trên nóc hầm giữa chiến trường Điện Biên Phủ.';
 
-// Hệ Thống calls Long "Ký Chủ"; Long calls it "Hệ Thống" and says "tôi" to it.
+// The shared dialogue adapter applies "tôi – bạn" or "mình – cậu" to protagonist dialogue by route.
 export const INTRO = [
   {speaker: 'Lời kể', text: 'Với hy vọng sắp được trở về hiện tại, Long bước vào căn phòng thứ năm. Trước mắt cậu là cánh cửa lớn với bức ảnh còn thiếu những mảnh ghép cuối cùng.'},
   {speaker: 'Long', text: 'Hệ Thống, tôi mang đủ bốn mảnh tới rồi đây.'},
@@ -54,7 +53,7 @@ export const museumReturn = hero => [...MUSEUM_RETURN, ...heroCopy(hero).museumR
 export function getArchiveEntries(state) {
   if (!state.reflectionSeen) return [];
   return [{id: 'final-reflection', title: 'Câu hỏi cuối cùng và lời Long', code: 'V', kind: 'report',
-    source: SOURCE_LABEL, paragraphs: [...reflectionScript().map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
+    paragraphs: [...reflectionScript().map(line => `${line.speaker} — ${line.text}`), DOOR_MESSAGE]}];
 }
 
 // Long's thoughts and narration in Room 5 dialogues (plain strings are Long; objects name the speaker).

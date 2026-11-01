@@ -1,38 +1,40 @@
-import {element,button,heading} from '../room-one/ui-elements.js';
+import {element,button,heading,audioLabel} from '../room-one/ui-elements.js';
 import {documentPanel} from '../room-one/document-reader.js';
-import {currentRoom,fragmentsFor,phaseFor} from './state.js';
+import {currentRoom,phaseFor} from './state.js';
 import {archiveEntries} from './archive.js';
 import GAME_TITLE_LOGO from '../../assets/images/game-title-logo.png';
 
-const ROOM_NAMES=['Trước Kế hoạch Nava','Bàn cờ Đông Dương','Mật mã hậu phương','Những ngày quyết định','Bức tranh hoàn chỉnh'];
-const ROMAN=['I','II','III','IV'];
+const ROOM_NAMES=['Trước bản kế hoạch','Bàn cờ Đông Dương','Mật mã hậu phương','Những ngày quyết định','Bức tranh hoàn chỉnh'];
 export class CampaignUI {
-  constructor(root,{onArchive,onRestart,onOverlayChange}={}) {
+  constructor(root,{onArchive,onRestart,onOverlayChange,onRoomAction}={}) {
     this.root=root; this.onOverlayChange=onOverlayChange;
     root.className='campaign-app';
     const header=element('header','campaign-header');
+    this.header=header;
     const brand=element('a','campaign-brand');brand.href='./index.html';brand.setAttribute('aria-label','Mật mã Điện Biên Phủ');
     const logo=element('img','campaign-brand-logo');logo.src=GAME_TITLE_LOGO;logo.alt='Mật mã Điện Biên Phủ';brand.append(logo);
-    this.progress=element('ol','campaign-progress');this.progress.setAttribute('aria-label','Tiến độ năm phòng');
+    this.roomTitle=element('h1','campaign-room-title');
+    this.roomTitle.setAttribute('aria-live','polite');
     const tools=element('nav','campaign-tools');tools.setAttribute('aria-label','Hành trình');
-    tools.append(button('Sổ hành trình',onArchive),button('Chơi mới',onRestart),button('Bản chơi riêng',()=>this.showPreviews()));
-    this.inventory=element('p','campaign-inventory');this.notice=element('p','campaign-save-notice');this.notice.setAttribute('role','status');
-    header.append(brand,this.progress,this.inventory,tools);
+    this.audioButton=button('Bật âm thanh',()=>onRoomAction?.('audio-toggle'));
+    this.settingsButton=button('Tùy chọn',()=>onRoomAction?.('settings'));
+    tools.append(button('Sổ hành trình',onArchive),this.audioButton,this.settingsButton,button('Chơi mới',onRestart),button('Bản chơi riêng',()=>this.showPreviews()));
+    this.notice=element('p','campaign-save-notice');this.notice.setAttribute('role','status');
+    header.append(brand,this.roomTitle,tools);
     this.stage=element('div','campaign-stage');
     root.replaceChildren(header,this.notice,this.stage);
   }
   get isOpen(){return Boolean(this.dialog?.open);}
-  render(state,notice='') {
+  render(state,notice='',audio={}) {
     this.state=state;
     const current=currentRoom(state),phase=phaseFor(state);
-    this.progress.replaceChildren(...ROOM_NAMES.map((name,index)=>{
-      const room=index+1,done=state.rooms[room]?.exitReached;
-      const item=element('li',done?'is-done':phase==='room'&&room===current?'is-current':'',done?'✓':String(room));
-      item.title=`Phòng ${room} · ${name}`;item.setAttribute('aria-label',`${item.title}${done?' · Đã hoàn thành':''}`);
-      if(phase==='room'&&room===current)item.setAttribute('aria-current','step');return item;
-    }));
-    const fragments=fragmentsFor(state);
-    this.inventory.textContent=`Mảnh ghép ${ROMAN.map((label,index)=>fragments.includes(index+1)?label:'·').join('  ')} / 4`;
+    const inRoom=phase==='room';
+    this.header.hidden=phase==='museum-intro';
+    this.roomTitle.hidden=!inRoom;
+    this.roomTitle.textContent=inRoom?`Phòng ${current} – ${ROOM_NAMES[current-1]}`:'';
+    this.audioButton.hidden=!inRoom;
+    this.settingsButton.hidden=!inRoom;
+    this.audioButton.textContent=audioLabel(audio);
     this.notice.textContent=notice;this.notice.hidden=!notice;
   }
   show(content) {
@@ -74,7 +76,7 @@ export class CampaignUI {
   }
   showPreviews() {
     const section=element('section');section.append(heading('Các bản chơi riêng'),element('p','r1-lead','Các đường dẫn này có tiến độ riêng, dùng để xem lại từng phòng. Hành trình năm phòng được lưu riêng tại trang chính.'));
-    for(const [path,label] of [['room-one.html','Phòng 1 · Trước Kế hoạch Nava'],['room-two.html','Phòng 2 · Bàn cờ Đông Dương'],['room-three.html','Phòng 3 · Hậu phương'],['room-four.html','Phòng 4 · Những ngày quyết định'],['room-five.html','Phòng 5 · Bản chơi riêng']]){
+    for(const [path,label] of [['room-one.html','Phòng 1 · Trước bản kế hoạch'],['room-two.html','Phòng 2 · Bàn cờ Đông Dương'],['room-three.html','Phòng 3 · Hậu phương'],['room-four.html','Phòng 4 · Những ngày quyết định'],['room-five.html','Phòng 5 · Bản chơi riêng']]){
       const link=element('a','r1-button',label);link.href=`./${path}`;link.target='_blank';link.rel='noopener';section.append(link);
     }
     this.show(section);

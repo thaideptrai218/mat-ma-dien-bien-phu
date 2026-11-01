@@ -7,7 +7,7 @@ Cập nhật 2026-11-01. Bản chính là campaign năm phòng cùng origin, Jav
 | `index.html`, `src/campaign/main.js` | Bootstrap chiến dịch/bảo tàng, đợi font. |
 | `src/campaign/runtime.js`, `session-host.js` | Một session/Game tại một thời điểm, lazy imports, queue/epoch, await destroy, shared audio/parent pause. |
 | `src/campaign/state.js`, `store.js` | Envelope campaign, sanitize chuỗi exit, suy ra mảnh/current room/phase, adapter storage và shared settings. |
-| `src/heroes/` | Hai nhân vật chơi được (Long, Quang): `hero-profiles.js` (tên, chân dung, sprite, khóa giọng theo nhân vật, `heroText` đổi “Long”→tên), `hero-copy.js` (giới thiệu, phản ứng sau Phòng 1/3/4, kết Phòng 5 riêng), `hero-select-screen.js`+`hero-select.css` (màn chọn trước phần mở đầu), `hero-dom-name.js` (đổi tên trên màn hình/nhãn truy cập cho Quang, kể cả Phòng 2 donor). Lựa chọn nằm ở `campaign.hero` (save cũ = Long) và khóa `mat-ma-dien-bien-phu:hero:v1` cho bản chơi riêng. |
+| `src/heroes/` | Hai nhân vật chơi được (Long, Quang): `hero-profiles.js` (tên, chân dung, sprite, khóa giọng theo nhân vật, `heroText` đổi tên và `heroDialogueText` áp xưng hô), `hero-copy.js` (giới thiệu, phản ứng sau Phòng 1/3/4, kết Phòng 5 riêng), `hero-select-screen.js`+`hero-select.css` (màn chọn trước phần mở đầu), `hero-dom-name.js` (đổi tên trên màn hình/nhãn truy cập cho Quang, kể cả Phòng 2 donor). Lựa chọn nằm ở `campaign.hero` (save cũ = Long) và khóa `mat-ma-dien-bien-phu:hero:v1` cho bản chơi riêng. |
 | `src/campaign/ui.js`, `archive.js`, `framing.js`, `styles.css` | Header/mục tiêu/kho mảnh, sổ toàn văn xuyên phòng, restart, museum intro/return/acknowledgment. |
 | `room-one.html` … `room-five.html` | Năm preview độc lập; không auto-import thành tích vào campaign. Phòng 5 có mảnh minh họa trong save riêng. |
 | `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/A-03/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
@@ -16,7 +16,7 @@ Cập nhật 2026-11-01. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/room-one/{ui,ui-panels,ui-puzzles,ui-map,document-reader}.js` | Shell, native dialog/reader, mini/full map, settings và panel factory cấu hình. |
 | `src/core/session-lifecycle.js` | Disposed guards, cleanup, shared-audio ownership, async idempotent Game DESTROY và deferred real-door onExit. |
 | `src/room-two/{session,actions,rules,save,ui,scene,archive}.js` | Adapter Bảo, clue/beat và puzzle prefix thật, fold cấp II, cửa đông, toàn văn cho global journal, key riêng. |
-| `src/room-two/system-guidance.js` | Lớp lời thoại campaign cho Phòng 2: đổi xưng hô Hệ Thống ở intro/outro, thêm lời dẫn sau mỗi trạm; registry donor không đổi. |
+| `src/room-two/system-guidance.js` | Lớp lời thoại campaign cho Phòng 2: đổi lời dẫn intro/outro, thêm lời dẫn sau mỗi trạm; registry donor không đổi. Bộ bọc hiển thị và lồng tiếng áp cùng xưng hô theo nhân vật. |
 | `src/room-two/bao/` | Story/world/source registries, donor snapshot/provenance hashes, renderer/evaluator/art/CSS giữ gốc hoặc chỉ đổi import. |
 | `src/room-three/{session,actions,rules,save,goals,answers,puzzle-data}.js` | Năm giấy/bốn hoạt động xen kẽ, validators ngữ nghĩa, token, khóa ngày/rương/pickup III/cửa, graph restore. |
 | `src/room-three/{documents,content,world,art,scene}.js` | Năm giấy đầy đủ, trại 3200×2000 và 14 vật, lớp rương/mảnh theo state. |
@@ -40,7 +40,7 @@ Cập nhật 2026-11-01. Bản chính là campaign năm phòng cùng origin, Jav
 
 ## Hợp đồng cần giữ
 
-Xưng hô: Hệ Thống gọi Long là **Ký Chủ** (không dùng “ngươi”/“bạn”); Long/Quang gọi **Hệ Thống**, xưng **tôi** khi nói với nó (không dùng “tao”/“mày”), xưng “mình” khi tự nghĩ. Phòng 1/3/4/5 có `GUIDE` (lời dẫn sau từng bước), Phòng 2 có `PUZZLE_GUIDE`; Phòng 1/3/4 dùng mảng `CAMPAIGN_*` thay cho thay chuỗi (Phòng 2 dùng lời trung tính cho cả hai chế độ); `tests/system-address-dialogue.test.js` khóa quy ước này.
+Xưng hô: Hệ Thống gọi cả hai là **Ký Chủ**. Long xưng **tôi**, gọi Hệ Thống là **bạn**; Quang xưng **mình**, gọi Hệ Thống là **cậu** với giọng lịch sự. Quy tắc được áp dụng tại ranh giới hiển thị và tạo mã lồng tiếng, để chữ và giọng đọc khớp nhau. Phòng 1/3/4/5 có `GUIDE` (lời dẫn sau từng bước), Phòng 2 có `PUZZLE_GUIDE`; Phòng 1/3/4 dùng mảng `CAMPAIGN_*` thay cho thay chuỗi (Phòng 2 dùng lời trung tính cho cả hai chế độ).
 UI không cấp tiến độ, scene không ghi storage; controller kiểm tra active view/token/parent pause/disposal. Session nhận optional storage/audio/isPaused/onExit, không lấy save preview khi campaign đã inject adapter. Parent await destroy thực trước khi tái dùng root, giữ một shared audio context. Diagnostics trả bản clone, không setter gameplay.
 
 Campaign key `mat-ma-dien-bien-phu:campaign:v1` chỉ nhận snapshot phòng đã sanitize/chuỗi exit liên tục. Mảnh suy từ chest I/fold II/pickup III-IV; Room 5 cần cả bốn và các cửa trước. Suy nghĩ cá nhân không có trong intents/save. Current-room reset giữ trước, global new game chỉ campaign; preview 1–4 và donor giữ riêng, không migration.
