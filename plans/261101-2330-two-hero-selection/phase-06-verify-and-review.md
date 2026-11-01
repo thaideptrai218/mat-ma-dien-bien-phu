@@ -22,9 +22,9 @@ Xác nhận trong trình duyệt thật cả hai route end-to-end, chạy code-r
 
 ## Success Criteria
 - [x] Test + build xanh.
-- [x] Hai route chơi trọn vẹn không lỗi console, không lẫn tên/giọng.
-- [x] Review GO.
-- [x] User xác nhận trước khi push; push bằng tài khoản baodzchimto.
+- [ ] Hai route chơi trọn vẹn 5 phòng (mới kiểm: chọn nhân vật, intro, Phòng 1 sprite 4 hướng/idle, Phòng 2 donor; chưa chơi hết Phòng 3-5 và kết).
+- [x] Review: không có lỗi nghiêm trọng (DONE_WITH_CONCERNS); đã sửa mục Medium; mục Low còn lại ghi trong báo cáo.
+- [ ] User xác nhận trước khi push; push bằng tài khoản baodzchimto (chưa push).
 
 ## Risk Assessment
 Phòng 2 donor chỉ kiểm được trong trình duyệt (test dùng dữ liệu giả); phải xem thật. Save cũ của người chơi đang giữ lựa chọn mặc định `long` → kiểm tra không phá tiến độ.

@@ -30,7 +30,7 @@ Tạo audio cho mọi câu mới/đổi chữ ở cả hai route; chọn đúng 
 
 ## Success Criteria
 - [x] `voice:master` báo thiếu 0 cho cả hai route.
-- [x] User nghe lại mẫu mỗi giọng (v2, CapCut, narrator hai bản) và chấp nhận.
+- [ ] User nghe lại mẫu mỗi giọng (v2, CapCut, narrator hai bản) và chấp nhận (Claude chỉ kiểm tra kỹ thuật: thiếu 0, tốc độ đọc, không clip rỗng; chưa ai nghe).
 - [x] Test manifest khớp lời thoại xanh.
 
 ## Risk Assessment

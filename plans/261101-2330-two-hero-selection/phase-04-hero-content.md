@@ -31,7 +31,7 @@ Nội dung dùng chung ở `content.js` mỗi phòng; phần khác biệt đặt
 4. Test: mỗi hồ sơ trả đủ khóa copy, không câu nào rỗng, không còn tên sai (Long trong route Quang và ngược lại), TTS text không còn chữ số/gạch/chữ hoa liền (quy tắc có sẵn).
 
 ## Success Criteria
-- [x] User duyệt văn bản Long.
+- [ ] User duyệt văn bản Long (bản nháp do Claude viết, đã thu âm; sửa lời → `npm run voice:script` + thu lại câu đổi).
 - [x] Hai route đọc đúng tên/giới thiệu; không lẫn tên.
 - [x] Credit Wrxdie hiển thị; ảnh avatar hiển thị đúng ở khung Hệ Thống route Long.
 
