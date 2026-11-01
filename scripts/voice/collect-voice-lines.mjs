@@ -1,8 +1,8 @@
 // Collects every spoken line of the campaign straight from the game content modules.
 // Plain strings are Long's thoughts; {speaker, text} objects and Room 2 beats name their speaker.
 // Document prose (letters, reports) is read on screen and is not voiced; only Long's reflections are.
-import {voiceIdFor, voiceOf, framingLine, VOICES} from '../../src/audio/voice-id.js';
-import {HERO_PROFILES, heroText, heroVoiceKey} from '../../src/heroes/hero-profiles.js';
+import {heroLineVoice, framingLine, VOICES} from '../../src/audio/voice-id.js';
+import {HERO_PROFILES} from '../../src/heroes/hero-profiles.js';
 import {openingFrames} from '../../src/campaign/framing.js';
 import {withHeroReaction} from '../../src/heroes/hero-copy.js';
 import * as r1 from '../../src/room-one/content.js';
@@ -61,9 +61,9 @@ export function collectVoiceLines() {
   for (const hero of Object.values(HERO_PROFILES)) {
     for (const [room, root, value] of sources(hero)) {
       walk(value, root, (line, group) => {
-        const role = voiceOf(line), raw = (typeof line === 'string' ? line : line.text).normalize('NFC');
-        if (!role) throw new Error(`Unknown speaker "${line.speaker}" in ${room}.${group}`);
-        const voice = heroVoiceKey(role, hero), text = heroText(raw, hero), id = voiceIdFor(voice, text);
+        const resolved = heroLineVoice(line, hero);
+        if (!resolved) throw new Error(`Unknown speaker "${line.speaker}" in ${room}.${group}`);
+        const {role, voice, text, id} = resolved;
         const entry = lines.get(id) || {id, voice, speaker: Object.keys(VOICES).find(name => VOICES[name] === role), text, rooms: [], groups: []};
         if (!entry.rooms.includes(room)) entry.rooms.push(room);
         if (!entry.groups.includes(`${room}.${group}`)) entry.groups.push(`${room}.${group}`);

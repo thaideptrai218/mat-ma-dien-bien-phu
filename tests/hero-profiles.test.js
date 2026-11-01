@@ -1,8 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {HERO_IDS, HERO_PROFILES, activeHero, selectHero, heroText, heroVoiceKey, isHeroId} from '../src/heroes/hero-profiles.js';
-import {voiceIdFor, heroLineId} from '../src/audio/voice-id.js';
-import {characterClips, characterIdleFrame, characterTexture, characterSpec} from '../src/game/character-atlas.js';
+import {voiceIdFor, heroLineId} from '../src/audio/voice-id.js';import {characterClips, characterIdleFrame, characterTexture, characterSpec} from '../src/game/character-atlas.js';
 import {createCampaignState, sanitizeCampaign, phaseFor} from '../src/campaign/state.js';
 import {collectVoiceLines} from '../scripts/voice/collect-voice-lines.mjs';
 
@@ -44,11 +43,20 @@ test('a route resolves its own recording: Hệ Thống differs, name-free narrat
 test('every voice key the manifest needs has a TTS configuration and the manifest covers both routes', async () => {
   const {VOICE_CONFIG} = await import('../scripts/voice/tts-engines.mjs');
   const lines = collectVoiceLines();
-  assert.ok(new Set(lines.map(line => line.voice)).size === 5);
+  const {long, quang} = HERO_PROFILES;
+  const routeVoices = hero => new Set(Object.values(hero.voices));
+  const used = new Set(lines.map(line => line.voice));
+  for (const voice of [...routeVoices(long), ...routeVoices(quang)]) assert.ok(used.has(voice), `${voice} has lines`);
   for (const line of lines) assert.ok(VOICE_CONFIG[line.voice], line.voice);
-  assert.ok(lines.some(line => line.voice === 'system-v2') && lines.some(line => line.voice === 'system'));
-  assert.ok(!lines.some(line => /\bLong\b/.test(line.text) && line.voice === 'narrator-lecture'), 'Quang route never says Long');
-  assert.ok(!lines.some(line => /\bQuang\b/.test(line.text) && ['narrator', 'system-v2'].includes(line.voice)), 'Long route never says Quang');
+  // A voice key belongs to one route (mck is shared): its lines may only carry that route's hero name.
+  const only = (hero, other) => lines.filter(line => routeVoices(hero).has(line.voice) && !routeVoices(other).has(line.voice));
+  for (const line of only(quang, long)) assert.doesNotMatch(line.text, /\bLong\b|\bLONG\b/, `Quang route says Long: ${line.text}`);
+  for (const line of only(long, quang)) assert.doesNotMatch(line.text, /\bQuang\b|\bQUANG\b/, `Long route says Quang: ${line.text}`);
+  // The manifest ids are exactly what the runtime resolves for each route.
+  const ids = new Set(lines.map(line => line.id));
+  for (const hero of [long, quang]) for (const line of lines.filter(l => routeVoices(hero).has(l.voice) && !routeVoices(hero === long ? quang : long).has(l.voice)).slice(0, 40)) {
+    assert.ok(ids.has(heroLineId({speaker: line.speaker, text: line.text}, hero)), line.text);
+  }
 });
 
 test("each hero has a complete sprite configuration (Quang's sheet has 8 columns and idle in the first)", () => {
