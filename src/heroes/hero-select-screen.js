@@ -1,12 +1,12 @@
 import {element, button, heading} from '../room-one/ui-elements.js';
 import {HERO_IDS, HERO_PROFILES} from './hero-profiles.js';
 
-/** First frame of a new journey: pick who walks into the museum. The choice is saved and locked for the run. */
+/** First frame of a new journey: choose one companion for the full journey. */
 export function heroSelectFrame(onChoose) {
   const section = element('section', 'campaign-story hero-select');
   const copy = element('div', 'campaign-story-copy');
   copy.append(heading('Chọn nhân vật của bạn', 'MỞ ĐẦU · HÀNH TRÌNH ĐIỆN BIÊN PHỦ'),
-    element('p', '', 'Hai nhân vật cùng bước vào một hành trình, nhưng mỗi người đến với lịch sử bằng một tâm thế riêng. Lựa chọn được giữ suốt lượt chơi; muốn đổi, hãy bắt đầu hành trình mới.'));
+    element('p', '', 'Chọn Long hoặc Quang làm người đồng hành cùng bạn trong hành trình giải mật mã Điện Biên Phủ. Người bạn chọn sẽ đi cùng bạn suốt hành trình. Lựa chọn được giữ đến khi kết thúc lượt chơi; muốn đổi, hãy bắt đầu hành trình mới.'));
   const cards = element('div', 'hero-cards');
   cards.setAttribute('role', 'group'); cards.setAttribute('aria-label', 'Nhân vật');
   for (const id of HERO_IDS) {

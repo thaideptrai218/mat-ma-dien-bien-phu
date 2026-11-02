@@ -20,12 +20,11 @@ function rewrite(node, hero) {
   for (const child of node.childNodes) rewrite(child, hero);
 }
 
-/** (Re)applies the active hero's name to the page and keeps it applied. Safe to call repeatedly. */
+/** (Re)applies the active hero's name to page content and keeps it applied. Safe to call repeatedly. */
 export function syncHeroDomName(doc = globalThis.document) {
   observer?.disconnect(); observer = null;
   const hero = activeHero();
   if (!doc?.body || hero.name === 'Long') return;
-  doc.title = heroText(doc.title, hero);
   rewrite(doc.body, hero);
   observer = new MutationObserver(records => {
     for (const record of records) {
