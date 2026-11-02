@@ -10,10 +10,6 @@ export const INTRO = [
 
 // Step-by-step guidance appended to the success dialogue of each Room 1 step.
 export const GUIDE = {
-  letter: [
-    { speaker: 'Hệ Thống', text: 'Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.' },
-    { speaker: 'Long', text: 'Nhãn cuối thư có cả chữ lẫn số. Tôi sẽ đối chiếu chúng với cột và hàng trên bản đồ.' },
-  ],
   a03: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },
     { speaker: 'Long', text: 'Đọc đủ cả bốn rồi mới đối chiếu. Hệ Thống cứ để tôi lo.' },
@@ -55,18 +51,18 @@ export const CAMPAIGN_ENDING = [
 export const REACTIONS = {
   letter: {
     first: ['Lâm gửi Tín. Hai anh em xa nhau từ bao giờ nhỉ?'],
-    repeat: ['Cuối thư có một dấu lưu trữ. Mình cần đối chiếu nó với sơ đồ trên vách.'],
+    repeat: ['Mình nhớ những điều anh Lâm viết về gia đình.'],
     locked: ['Mình chưa đọc hết lá thư.'],
   },
   'map-a03': {
-    first: ['Sơ đồ có cột chữ và hàng số. Tôi sẽ tự đối chiếu với nhãn cuối thư.'],
-    repeat: ['Mình đã tìm được vị trí chồng hồ sơ trên sơ đồ.'],
-    locked: ['Mình cần xem ký hiệu lưu trữ trên lá thư trước.'],
+    first: ['Tấm sơ đồ cũ được chia thành nhiều ô. Mình sẽ xem kỹ từng khu vực.'],
+    repeat: ['Ngăn hồ sơ đã mở. Mình xem bên trong có gì.'],
+    locked: ['Mình chưa thể xem bản đồ này.'],
   },
   v1: {
     first: ['Lại một lá thư gửi về nhà. Người lính này viết sau chiến dịch Tây Bắc.'],
     repeat: ['Thành kể với vợ về những điều bộ đội đã học qua chiến đấu.'],
-    locked: ['Mình cần đối chiếu dấu lưu trữ trên thư với sơ đồ trước.'],
+    locked: ['Mình cần tìm cách mở khu lưu trữ trước.'],
   },
   v2: {
     first: ['Một cuốn sổ quân nhu. Người viết lo đến cái ăn và vũ khí của anh em.'],
@@ -76,7 +72,7 @@ export const REACTIONS = {
   p1: {
     first: ['Một bản báo cáo tham mưu phía Pháp. Mình xem họ đang vướng điều gì.'],
     repeat: ['Quân đông và trang bị tốt, nhưng lại phải chia ra nhiều nơi.'],
-    locked: ['Dấu lưu trữ trên thư sẽ chỉ vị trí của bộ hồ sơ này.'],
+    locked: ['Mình chưa mở được gian hồ sơ này.'],
   },
   p2: {
     first: ['Thư từ Paris. Ở bên ấy cũng có một gia đình đang đợi tin.'],
@@ -122,9 +118,6 @@ export const REACTIONS = {
 
 // Long's thoughts in step dialogues (plain strings are Long; objects name another speaker).
 export const LINES = {
-  letterArchive: [
-    'Nhãn cuối thư có cả chữ lẫn số. Tôi sẽ tự đối chiếu chúng với cột và hàng trên bản đồ.',
-  ],
   a03: [
     'Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.',
     'Chúng đều được viết trước tháng 5/1953. Mình sẽ đọc theo thứ tự ngày tháng.',
@@ -150,8 +143,8 @@ export const LINES = {
 // try) and a slightly clearer one (level 2, second wrong try on). Hints point to where to look, never to the answer.
 export const SYSTEM_HINTS = {
   a03: {
-    open: 'Ký Chủ, nhãn lưu trữ ở cuối lá thư là chỉ dẫn cho bản đồ này.',
-    hints: ['Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.', 'Ký hiệu có một chữ cái và một con số. Một cái ứng với cột, cái còn lại ứng với hàng của bản đồ.'],
+    open: 'Ký Chủ, sơ đồ được chia thành các ô. Hãy quan sát bản đồ rồi tự chọn vị trí.',
+    hints: ['Mỗi ô nằm ở giao điểm của một hàng và một cột.', 'Hãy tự chọn ô phù hợp trên lưới.'],
   },
   comparison: {
     open: 'Ký Chủ, kéo từng thẻ dữ kiện vào ô của hai phía theo bốn hồ sơ.',

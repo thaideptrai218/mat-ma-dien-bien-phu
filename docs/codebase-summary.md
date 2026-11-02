@@ -10,7 +10,7 @@ Cập nhật 2026-11-01. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/heroes/` | Hai nhân vật chơi được (Long, Quang): `hero-profiles.js` (tên, chân dung, sprite, khóa giọng theo nhân vật, `heroText` đổi tên và `heroDialogueText` áp xưng hô), `hero-copy.js` (giới thiệu, phản ứng sau Phòng 1/3/4, kết Phòng 5 riêng), `hero-select-screen.js`+`hero-select.css` (màn chọn trước phần mở đầu), `hero-dom-name.js` (đổi tên trên màn hình/nhãn truy cập cho Quang, kể cả Phòng 2 donor). Lựa chọn nằm ở `campaign.hero` (save cũ = Long) và khóa `mat-ma-dien-bien-phu:hero:v1` cho bản chơi riêng. |
 | `src/campaign/ui.js`, `archive.js`, `framing.js`, `styles.css` | Header/mục tiêu/kho mảnh, sổ toàn văn xuyên phòng, restart, museum intro/return/acknowledgment. |
 | `room-one.html` … `room-five.html` | Năm preview độc lập; không auto-import thành tích vào campaign. Phòng 5 có mảnh minh họa trong save riêng. |
-| `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/A-03/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
+| `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/bản đồ lưới/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
 | `src/room-one/{letter-document,documents,nava-context,content}.js` | Văn xuôi lịch sử 1950–7/1953, N-01 riêng sau identity, nguồn/hư cấu và suy nghĩ Long. |
 | `src/room-one/{world,art,scene,input}.js` | 2400×1600; scene cấu hình world/art/key/goal, input/focus/physics/animation 260/390 tái dùng. |
 | `src/room-one/{ui,ui-panels,ui-puzzles,ui-map,document-reader}.js` | Shell, native dialog/reader, mini/full map, settings và panel factory cấu hình. |

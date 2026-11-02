@@ -38,7 +38,7 @@ export function handleAction(s, action, p = {}) {
     }
     case 'letter-finish':
       if (inView('document') && !active.readOnly && active.document.id === 'restored-letter' && p.id === active.document.id)
-        return s.dialogue('Long · Sau khi đọc thư', [...LETTER_DOCUMENT.reflection, ...LINES.letterArchive, ...GUIDE.letter], 'Ghi dấu trên thư vào sổ', 'letter-record', {documentId:'restored-letter'});
+        return s.dialogue('Long · Sau khi đọc thư', LETTER_DOCUMENT.reflection, 'Ghi dấu trên thư vào sổ', 'letter-record', {documentId:'restored-letter'});
       return;
     case 'letter-record':
       if (dialogueToken() && active.action === 'letter-record' && s.commit('letter', p)) s.close();

@@ -48,13 +48,13 @@ export function goalFor(s) {
 }
 function baseGoal(s) {
   const steps = [
-    { title: 'Đọc lá thư, lần theo dấu lưu trữ', done: s.envelopeOpened },
+    { title: 'Đọc lá thư, khám phá khu lưu trữ', done: s.envelopeOpened },
     { title: 'Đọc, suy luận và đối chiếu bốn hồ sơ', done: s.comparisonSolved },
     { title: 'Mở ngăn kéo và giải điện mật', done: s.identitySolved },
     { title: 'Mở rương, nhận mảnh ký ức', done: s.exitReached },
   ];
   let id = 'letter', label = 'Đọc lá thư gửi người nhà', detail = 'Một phong thư nằm trên bàn gần cửa vào.', step = 0;
-  if (s.letterSolved) { id = 'map-a03'; label = 'Đối chiếu dấu lưu trữ với sơ đồ'; detail = 'Tìm sơ đồ treo ở bức tường phía bắc và đối chiếu dấu ghi trên lá thư.'; }
+  if (s.letterSolved) { id = 'map-a03'; label = 'Khảo sát sơ đồ lưu trữ'; detail = 'Bản đồ treo trên tường phía bắc. Chọn ô muốn kiểm tra.'; }
   if (s.envelopeOpened) {
     step = 1; id = NOTE_IDS.find(note => !s.collectedNoteIds.includes(note)) || 'comparison';
     label = id === 'comparison' ? 'Đối chiếu lực lượng hai phía' : `Đọc hồ sơ ${id[0] === 'v' ? 'V' : 'P'}-0${id[1]}`;
