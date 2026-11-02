@@ -118,7 +118,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues.
 export const LINES = {
   column: [
-    'Tôi đọc được câu: “Tìm T và L.”',
+    '“TIMTVAL” là gì nhỉ? Chắc đây là gợi ý cho các mật mã tiếp theo.',
   ],
   final: [
     '“Quyết chiến, Quyết thắng.” Khóa rương vừa bật.',

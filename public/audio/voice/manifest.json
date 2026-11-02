@@ -257,36 +257,6 @@
       "durationMs": 3450
     },
     {
-      "id": "4a2d21ac5eab9f73",
-      "voice": "system",
-      "speaker": "Hệ Thống",
-      "rooms": [
-        "r1"
-      ],
-      "groups": [
-        "r1.GUIDE.letter"
-      ],
-      "text": "Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.",
-      "ttsText": "Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.",
-      "file": "audio/voice/4a2d21ac5eab9f73.mp3",
-      "durationMs": 4349
-    },
-    {
-      "id": "906efcb84c0cb737",
-      "voice": "quang",
-      "speaker": "Long",
-      "rooms": [
-        "r1"
-      ],
-      "groups": [
-        "r1.GUIDE.letter"
-      ],
-      "text": "Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.",
-      "ttsText": "Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.",
-      "file": "audio/voice/906efcb84c0cb737.mp3",
-      "durationMs": 4043
-    },
-    {
       "id": "60b9b8dbd53e4e10",
       "voice": "system",
       "speaker": "Hệ Thống",
@@ -435,21 +405,6 @@
       "ttsText": "Rương sắt đang chờ. Nhập đúng họ ấy, mảnh ghép thứ nhất sẽ thuộc về Ký Chủ.",
       "file": "audio/voice/6fbbce0314d2d332.mp3",
       "durationMs": 5597
-    },
-    {
-      "id": "252f40d220bd3bfd",
-      "voice": "quang",
-      "speaker": "Long",
-      "rooms": [
-        "r1"
-      ],
-      "groups": [
-        "r1.LINES.letterArchive"
-      ],
-      "text": "Nhãn lưu trữ cuối thư ghi A-03. Trên sơ đồ chia ô, tôi sẽ tìm đúng vị trí ấy.",
-      "ttsText": "Nhãn lưu trữ cuối thư ghi a không ba. Trên sơ đồ chia ô, tôi sẽ tìm đúng vị trí ấy.",
-      "file": "audio/voice/252f40d220bd3bfd.mp3",
-      "durationMs": 4406
     },
     {
       "id": "4d011ac754276783",
@@ -602,7 +557,7 @@
       "durationMs": 3386
     },
     {
-      "id": "dbf16387da64d5ec",
+      "id": "75af39da9f870dcc",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -611,10 +566,9 @@
       "groups": [
         "r1.REACTIONS.letter.repeat"
       ],
-      "text": "Cuối thư có một dấu lưu trữ. Tôi cần đối chiếu nó với sơ đồ trên vách.",
-      "ttsText": "Cuối thư có một dấu lưu trữ. Tôi cần đối chiếu nó với sơ đồ trên vách.",
-      "file": "audio/voice/dbf16387da64d5ec.mp3",
-      "durationMs": 4241
+      "text": "Tôi nhớ những điều anh Lâm viết về gia đình.",
+      "ttsText": "Tôi nhớ những điều anh Lâm viết về gia đình.",
+      "file": "audio/voice/75af39da9f870dcc.mp3"
     },
     {
       "id": "673fa00b5b50c128",
@@ -632,7 +586,7 @@
       "durationMs": 1588
     },
     {
-      "id": "0a79bf9f1dfef9f0",
+      "id": "4c0ac624247f0507",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -641,13 +595,12 @@
       "groups": [
         "r1.REACTIONS.map-a03.first"
       ],
-      "text": "Ô này khớp với dấu lưu trữ trên lá thư.",
-      "ttsText": "Ô này khớp với dấu lưu trữ trên lá thư.",
-      "file": "audio/voice/0a79bf9f1dfef9f0.mp3",
-      "durationMs": 1938
+      "text": "Tấm sơ đồ cũ được chia thành nhiều ô. Tôi sẽ xem kỹ từng khu vực.",
+      "ttsText": "Tấm sơ đồ cũ được chia thành nhiều ô. Tôi sẽ xem kỹ từng khu vực.",
+      "file": "audio/voice/4c0ac624247f0507.mp3"
     },
     {
-      "id": "832744e94ccc208d",
+      "id": "cbb2332aa1def473",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -656,13 +609,12 @@
       "groups": [
         "r1.REACTIONS.map-a03.repeat"
       ],
-      "text": "Từ ô A-03, tôi đã tìm được vị trí bốn hồ sơ.",
-      "ttsText": "Từ ô a không ba, tôi đã tìm được vị trí bốn hồ sơ.",
-      "file": "audio/voice/832744e94ccc208d.mp3",
-      "durationMs": 2236
+      "text": "Ngăn hồ sơ đã mở. Tôi xem bên trong có gì.",
+      "ttsText": "Ngăn hồ sơ đã mở. Tôi xem bên trong có gì.",
+      "file": "audio/voice/cbb2332aa1def473.mp3"
     },
     {
-      "id": "3462c403e48686a9",
+      "id": "aa4b0115818fe990",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -671,10 +623,9 @@
       "groups": [
         "r1.REACTIONS.map-a03.locked"
       ],
-      "text": "Tôi cần xem ký hiệu lưu trữ trên lá thư trước.",
-      "ttsText": "Tôi cần xem ký hiệu lưu trữ trên lá thư trước.",
-      "file": "audio/voice/3462c403e48686a9.mp3",
-      "durationMs": 1861
+      "text": "Tôi chưa thể xem bản đồ này.",
+      "ttsText": "Tôi chưa thể xem bản đồ này.",
+      "file": "audio/voice/aa4b0115818fe990.mp3"
     },
     {
       "id": "c399c7dbba3432f1",
@@ -707,7 +658,7 @@
       "durationMs": 2350
     },
     {
-      "id": "c952043885013888",
+      "id": "34cbe7bd360e5526",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -716,10 +667,9 @@
       "groups": [
         "r1.REACTIONS.v1.locked"
       ],
-      "text": "Tôi cần đối chiếu dấu lưu trữ trên thư với sơ đồ trước.",
-      "ttsText": "Tôi cần đối chiếu dấu lưu trữ trên thư với sơ đồ trước.",
-      "file": "audio/voice/c952043885013888.mp3",
-      "durationMs": 2507
+      "text": "Tôi cần tìm cách mở khu lưu trữ trước.",
+      "ttsText": "Tôi cần tìm cách mở khu lưu trữ trước.",
+      "file": "audio/voice/34cbe7bd360e5526.mp3"
     },
     {
       "id": "604f0024b7992277",
@@ -797,7 +747,7 @@
       "durationMs": 2747
     },
     {
-      "id": "9e3732878bf5d9aa",
+      "id": "3c7faa1fb71f3858",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -806,10 +756,9 @@
       "groups": [
         "r1.REACTIONS.p1.locked"
       ],
-      "text": "Dấu lưu trữ trên thư sẽ chỉ vị trí của bộ hồ sơ này.",
-      "ttsText": "Dấu lưu trữ trên thư sẽ chỉ vị trí của bộ hồ sơ này.",
-      "file": "audio/voice/9e3732878bf5d9aa.mp3",
-      "durationMs": 2315
+      "text": "Tôi chưa mở được gian hồ sơ này.",
+      "ttsText": "Tôi chưa mở được gian hồ sơ này.",
+      "file": "audio/voice/3c7faa1fb71f3858.mp3"
     },
     {
       "id": "068feb1c0f7f6822",
@@ -1491,7 +1440,7 @@
       "durationMs": 2969
     },
     {
-      "id": "3e238d5f3cb52bbd",
+      "id": "b63fbee201fd6328",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1500,29 +1449,12 @@
       "groups": [
         "r1.SYSTEM_HINTS.a03"
       ],
-      "text": "Ký Chủ, nhãn lưu trữ ở cuối lá thư là chỉ dẫn cho bản đồ này.",
-      "ttsText": "Ký Chủ, nhãn lưu trữ ở cuối lá thư là chỉ dẫn cho bản đồ này.",
-      "file": "audio/voice/3e238d5f3cb52bbd.mp3",
-      "durationMs": 4421
+      "text": "Ký Chủ, sơ đồ được chia thành các ô. Hãy quan sát bản đồ rồi tự chọn vị trí.",
+      "ttsText": "Ký Chủ, sơ đồ được chia thành các ô. Hãy quan sát bản đồ rồi tự chọn vị trí.",
+      "file": "audio/voice/b63fbee201fd6328.mp3"
     },
     {
-      "id": "732d3c3916a99338",
-      "voice": "system",
-      "speaker": "Hệ Thống",
-      "rooms": [
-        "r1"
-      ],
-      "groups": [
-        "r1.SYSTEM_HINTS.a03",
-        "r1.SYSTEM_HINTS.door-west-archive"
-      ],
-      "text": "Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.",
-      "ttsText": "Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.",
-      "file": "audio/voice/732d3c3916a99338.mp3",
-      "durationMs": 4474
-    },
-    {
-      "id": "0504fd84b43d6484",
+      "id": "dea027fb768da1c4",
       "voice": "system",
       "speaker": "Hệ Thống",
       "rooms": [
@@ -1531,10 +1463,23 @@
       "groups": [
         "r1.SYSTEM_HINTS.a03"
       ],
-      "text": "Ký hiệu có một chữ cái và một con số. Một cái ứng với cột, cái còn lại ứng với hàng của bản đồ.",
-      "ttsText": "Ký hiệu có một chữ cái và một con số. Một cái ứng với cột, cái còn lại ứng với hàng của bản đồ.",
-      "file": "audio/voice/0504fd84b43d6484.mp3",
-      "durationMs": 6901
+      "text": "Mỗi ô nằm ở giao điểm của một hàng và một cột.",
+      "ttsText": "Mỗi ô nằm ở giao điểm của một hàng và một cột.",
+      "file": "audio/voice/dea027fb768da1c4.mp3"
+    },
+    {
+      "id": "3a37073cf2117da7",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.a03"
+      ],
+      "text": "Hãy tự chọn ô phù hợp trên lưới.",
+      "ttsText": "Hãy tự chọn ô phù hợp trên lưới.",
+      "file": "audio/voice/3a37073cf2117da7.mp3"
     },
     {
       "id": "84fd4998a13f9040",
@@ -1730,6 +1675,21 @@
       "ttsText": "Ký Chủ, ký hiệu lưu trữ cuối lá thư là chìa cho chiếc then này.",
       "file": "audio/voice/7d385b1b5ec24667.mp3",
       "durationMs": 4771
+    },
+    {
+      "id": "732d3c3916a99338",
+      "voice": "system",
+      "speaker": "Hệ Thống",
+      "rooms": [
+        "r1"
+      ],
+      "groups": [
+        "r1.SYSTEM_HINTS.door-west-archive"
+      ],
+      "text": "Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.",
+      "ttsText": "Ký Chủ thử đọc lại phần cuối lá thư, chỗ ghi ký hiệu lưu trữ.",
+      "file": "audio/voice/732d3c3916a99338.mp3",
+      "durationMs": 4474
     },
     {
       "id": "7036316da05198a9",
@@ -4502,7 +4462,7 @@
       "durationMs": 6793
     },
     {
-      "id": "1382bc791583c242",
+      "id": "e85dabc773c1e2d2",
       "voice": "quang",
       "speaker": "Long",
       "rooms": [
@@ -4511,10 +4471,9 @@
       "groups": [
         "r4.LINES.column"
       ],
-      "text": "Tôi đọc được câu: “Tìm T và L.”",
-      "ttsText": "Tôi đọc được câu: Tìm tê và e-lờ.",
-      "file": "audio/voice/1382bc791583c242.mp3",
-      "durationMs": 1818
+      "text": "“TIMTVAL” là gì nhỉ? Chắc đây là gợi ý cho các mật mã tiếp theo.",
+      "ttsText": "timtval là gì nhỉ? Chắc đây là gợi ý cho các mật mã tiếp theo.",
+      "file": "audio/voice/e85dabc773c1e2d2.mp3"
     },
     {
       "id": "e3a8849b76b5daa1",
@@ -6605,21 +6564,6 @@
       "durationMs": 3466
     },
     {
-      "id": "2e2f41916c655b0e",
-      "voice": "quang-capcut",
-      "speaker": "Long",
-      "rooms": [
-        "r1"
-      ],
-      "groups": [
-        "r1.GUIDE.letter"
-      ],
-      "text": "Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.",
-      "ttsText": "Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.",
-      "file": "audio/voice/2e2f41916c655b0e.mp3",
-      "durationMs": 4484
-    },
-    {
       "id": "2fa792a320b4e610",
       "voice": "quang-capcut",
       "speaker": "Long",
@@ -6678,21 +6622,6 @@
       "ttsText": "Được. Đọc xong, mình sẽ mang cái tên ấy tới rương.",
       "file": "audio/voice/f06a0df29b2e30ee.mp3",
       "durationMs": 3465
-    },
-    {
-      "id": "7efa24fcfb799760",
-      "voice": "quang-capcut",
-      "speaker": "Long",
-      "rooms": [
-        "r1"
-      ],
-      "groups": [
-        "r1.LINES.letterArchive"
-      ],
-      "text": "Nhãn lưu trữ cuối thư ghi A-03. Trên sơ đồ chia ô, mình sẽ tìm đúng vị trí ấy.",
-      "ttsText": "Nhãn lưu trữ cuối thư ghi a không ba. Trên sơ đồ chia ô, mình sẽ tìm đúng vị trí ấy.",
-      "file": "audio/voice/7efa24fcfb799760.mp3",
-      "durationMs": 5402
     },
     {
       "id": "0d1ae7213aea5c64",
@@ -6845,7 +6774,7 @@
       "durationMs": 2855
     },
     {
-      "id": "8524a51d4a2ce397",
+      "id": "c51a90af1f40268d",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -6854,10 +6783,9 @@
       "groups": [
         "r1.REACTIONS.letter.repeat"
       ],
-      "text": "Cuối thư có một dấu lưu trữ. Mình cần đối chiếu nó với sơ đồ trên vách.",
-      "ttsText": "Cuối thư có một dấu lưu trữ. Mình cần đối chiếu nó với sơ đồ trên vách.",
-      "file": "audio/voice/8524a51d4a2ce397.mp3",
-      "durationMs": 4137
+      "text": "Mình nhớ những điều anh Lâm viết về gia đình.",
+      "ttsText": "Mình nhớ những điều anh Lâm viết về gia đình.",
+      "file": "audio/voice/c51a90af1f40268d.mp3"
     },
     {
       "id": "f0570a301bc58001",
@@ -6875,7 +6803,7 @@
       "durationMs": 1450
     },
     {
-      "id": "14895a3ee97497cd",
+      "id": "74d0c84d0c5a1fb8",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -6884,13 +6812,12 @@
       "groups": [
         "r1.REACTIONS.map-a03.first"
       ],
-      "text": "Ô này khớp với dấu lưu trữ trên lá thư.",
-      "ttsText": "Ô này khớp với dấu lưu trữ trên lá thư.",
-      "file": "audio/voice/14895a3ee97497cd.mp3",
-      "durationMs": 2175
+      "text": "Tấm sơ đồ cũ được chia thành nhiều ô. Mình sẽ xem kỹ từng khu vực.",
+      "ttsText": "Tấm sơ đồ cũ được chia thành nhiều ô. Mình sẽ xem kỹ từng khu vực.",
+      "file": "audio/voice/74d0c84d0c5a1fb8.mp3"
     },
     {
-      "id": "7da65e4946f8b736",
+      "id": "a69f8dda27b5f37c",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -6899,13 +6826,12 @@
       "groups": [
         "r1.REACTIONS.map-a03.repeat"
       ],
-      "text": "Từ ô A-03, mình đã tìm được vị trí bốn hồ sơ.",
-      "ttsText": "Từ ô a không ba, mình đã tìm được vị trí bốn hồ sơ.",
-      "file": "audio/voice/7da65e4946f8b736.mp3",
-      "durationMs": 3124
+      "text": "Ngăn hồ sơ đã mở. Mình xem bên trong có gì.",
+      "ttsText": "Ngăn hồ sơ đã mở. Mình xem bên trong có gì.",
+      "file": "audio/voice/a69f8dda27b5f37c.mp3"
     },
     {
-      "id": "92f44900504c4c44",
+      "id": "ab4b31c8fe2da157",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -6914,10 +6840,9 @@
       "groups": [
         "r1.REACTIONS.map-a03.locked"
       ],
-      "text": "Mình cần xem ký hiệu lưu trữ trên lá thư trước.",
-      "ttsText": "Mình cần xem ký hiệu lưu trữ trên lá thư trước.",
-      "file": "audio/voice/92f44900504c4c44.mp3",
-      "durationMs": 2426
+      "text": "Mình chưa thể xem bản đồ này.",
+      "ttsText": "Mình chưa thể xem bản đồ này.",
+      "file": "audio/voice/ab4b31c8fe2da157.mp3"
     },
     {
       "id": "5a3766581a5fdf08",
@@ -6950,7 +6875,7 @@
       "durationMs": 2841
     },
     {
-      "id": "1af22bbbfc111c6d",
+      "id": "b84e4b7418e58bd3",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -6959,10 +6884,9 @@
       "groups": [
         "r1.REACTIONS.v1.locked"
       ],
-      "text": "Mình cần đối chiếu dấu lưu trữ trên thư với sơ đồ trước.",
-      "ttsText": "Mình cần đối chiếu dấu lưu trữ trên thư với sơ đồ trước.",
-      "file": "audio/voice/1af22bbbfc111c6d.mp3",
-      "durationMs": 2790
+      "text": "Mình cần tìm cách mở khu lưu trữ trước.",
+      "ttsText": "Mình cần tìm cách mở khu lưu trữ trước.",
+      "file": "audio/voice/b84e4b7418e58bd3.mp3"
     },
     {
       "id": "af02ee8babe8ebac",
@@ -7040,7 +6964,7 @@
       "durationMs": 3005
     },
     {
-      "id": "e454b0ebeccabd89",
+      "id": "432c0d5afc06d843",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -7049,10 +6973,9 @@
       "groups": [
         "r1.REACTIONS.p1.locked"
       ],
-      "text": "Dấu lưu trữ trên thư sẽ chỉ vị trí của bộ hồ sơ này.",
-      "ttsText": "Dấu lưu trữ trên thư sẽ chỉ vị trí của bộ hồ sơ này.",
-      "file": "audio/voice/e454b0ebeccabd89.mp3",
-      "durationMs": 2860
+      "text": "Mình chưa mở được gian hồ sơ này.",
+      "ttsText": "Mình chưa mở được gian hồ sơ này.",
+      "file": "audio/voice/432c0d5afc06d843.mp3"
     },
     {
       "id": "0ab398d03cc8078f",
@@ -9193,7 +9116,7 @@
       "durationMs": 4025
     },
     {
-      "id": "081cd1e9a2c93cdd",
+      "id": "1331385581273d35",
       "voice": "quang-capcut",
       "speaker": "Long",
       "rooms": [
@@ -9202,10 +9125,9 @@
       "groups": [
         "r4.LINES.column"
       ],
-      "text": "Mình đọc được câu: “Tìm T và L.”",
-      "ttsText": "Mình đọc được câu: Tìm tê và e-lờ.",
-      "file": "audio/voice/081cd1e9a2c93cdd.mp3",
-      "durationMs": 2516
+      "text": "“TIMTVAL” là gì nhỉ? Chắc đây là gợi ý cho các mật mã tiếp theo.",
+      "ttsText": "timtval là gì nhỉ? Chắc đây là gợi ý cho các mật mã tiếp theo.",
+      "file": "audio/voice/1331385581273d35.mp3"
     },
     {
       "id": "25df303496e3b49e",
