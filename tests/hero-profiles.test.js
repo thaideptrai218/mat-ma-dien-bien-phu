@@ -19,7 +19,8 @@ test('two heroes, Long by default, with their own faces, sprites and voice keys'
   assert.equal(heroVoiceKey('system', HERO_PROFILES.quang), 'system', 'both heroes hear the original Hệ Thống');
   assert.equal(heroVoiceKey('narrator', HERO_PROFILES.long), 'narrator');
   assert.equal(heroVoiceKey('narrator', HERO_PROFILES.quang), 'narrator-lecture');
-  assert.equal(heroVoiceKey('quang', HERO_PROFILES.long), heroVoiceKey('quang', HERO_PROFILES.quang), 'both heroes speak with the mck voice');
+  assert.equal(heroVoiceKey('quang', HERO_PROFILES.long), 'quang', "Long speaks with the mck clone");
+  assert.equal(heroVoiceKey('quang', HERO_PROFILES.quang), 'quang-capcut', "Quang keeps his original CapCut voice");
 });
 
 test('heroText renames whole words only, and only for Quang', () => {
@@ -34,7 +35,7 @@ test('a route resolves its own recording: Hệ Thống is shared, the two narrat
   const longSystem = heroLineId(system, HERO_PROFILES.long), quangSystem = heroLineId(system, HERO_PROFILES.quang);
   assert.equal(longSystem, voiceIdFor('system', system.text));
   assert.equal(longSystem, quangSystem, 'Hệ Thống sounds the same on both routes: one shared clip');
-  assert.equal(heroLineId(thought, HERO_PROFILES.long), heroLineId(thought, HERO_PROFILES.quang), 'same text + same voice key → one clip');
+  assert.notEqual(heroLineId(thought, HERO_PROFILES.long), heroLineId(thought, HERO_PROFILES.quang), 'each hero has his own voice for the same thought');
   const named = 'Long nhìn quanh.';
   assert.notEqual(heroLineId(named, HERO_PROFILES.long), heroLineId(named, HERO_PROFILES.quang), 'the name is spoken, so it needs its own clip');
 });
@@ -47,7 +48,7 @@ test('every voice key the manifest needs has a TTS configuration and the manifes
   const used = new Set(lines.map(line => line.voice));
   for (const voice of [...routeVoices(long), ...routeVoices(quang)]) assert.ok(used.has(voice), `${voice} has lines`);
   for (const line of lines) assert.ok(VOICE_CONFIG[line.voice], line.voice);
-  // A voice key belongs to one route (mck is shared): its lines may only carry that route's hero name.
+  // A voice key belongs to one route (only Hệ Thống's is shared): its lines may only carry that route's hero name.
   const only = (hero, other) => lines.filter(line => routeVoices(hero).has(line.voice) && !routeVoices(other).has(line.voice));
   for (const line of only(quang, long)) assert.doesNotMatch(line.text, /\bLong\b|\bLONG\b/, `Quang route says Long: ${line.text}`);
   for (const line of only(long, quang)) assert.doesNotMatch(line.text, /\bQuang\b|\bQUANG\b/, `Long route says Quang: ${line.text}`);

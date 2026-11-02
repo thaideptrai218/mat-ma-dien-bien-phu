@@ -5,7 +5,7 @@ import { VoicePreferences, VOICE_PREFERENCES_KEY } from '../src/audio/voice-pref
 import { createDialogueVoice } from '../src/audio/dialogue-voice.js';
 import { AudioController } from '../src/audio/audio-controller.js';
 import { voiceIdFor, framingLine } from '../src/audio/voice-id.js';
-import { heroVoiceKey, heroText } from '../src/heroes/hero-profiles.js';
+import { heroVoiceKey, heroDialogueText } from '../src/heroes/hero-profiles.js';
 
 // Controlled Web Audio / fetch adapters: they verify sequencing, routing and cleanup, not audible output.
 class FakeParam { constructor() { this.value = 0; } setValueAtTime(v) { this.value = v; } cancelScheduledValues() {} exponentialRampToValueAtTime() {} }
@@ -45,7 +45,8 @@ class FakeContext extends EventTarget {
 
 const line = (speaker, text) => ({ speaker, text });
 // Ids as the active hero's route resolves them (voice role → that route's voice key, hero-localized text).
-const idOf = (voice, text) => voiceIdFor(heroVoiceKey(voice), heroText(text));
+const SPEAKER_OF = { system: 'Hệ Thống', quang: 'Long', narrator: 'Lời kể' };
+const idOf = (voice, text) => voiceIdFor(heroVoiceKey(voice), heroDialogueText(text, SPEAKER_OF[voice]));
 
 // Manifest for every id in `entries`; `files` maps id → body text (absent → 404).
 function fakeFetch(entries, files, { manifestOk = true } = {}) {
@@ -424,7 +425,7 @@ test('Room 5 reflection script resolves to recorded manifest lines and is handed
     const entry = known.get(lineVoiceId(scriptLine));
 
     assert.ok(entry, `no manifest entry for: ${scriptLine.text.slice(0, 40)}`);
-    assert.equal(entry.text, scriptLine.text.normalize('NFC'));
+    assert.equal(entry.text, heroDialogueText(scriptLine.text.normalize('NFC'), scriptLine.speaker));
   }
   assert.ok(REFLECTION_SCRIPT.some(l => l.speaker === 'Hệ Thống'), 'the question is voiced by Hệ Thống (chime applies)');
 

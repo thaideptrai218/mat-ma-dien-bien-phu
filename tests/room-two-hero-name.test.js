@@ -10,13 +10,16 @@ test('donor Room 2 labels are shown with the hero name Long', () => {
   assert.equal(renameHero(undefined), undefined);
 });
 
+// Minimal stand-in for the donor view's text container (the wrap re-voices its paragraphs).
+const fakeCopy = () => ({ownerDocument: {createTreeWalker: () => ({nextNode: () => null})}, querySelectorAll: () => []});
+
 test('the wrapped narrative view renames after every rendered line', () => {
   const calls = [];
-  const narrative = {copy: null, portrait: {alt: 'Quang, nhân vật hư cấu'}, renderLine(focus) { calls.push(focus); }};
+  const narrative = {copy: fakeCopy(), portrait: {alt: 'Chân dung Quang'}, renderLine(focus) { calls.push(focus); }};
   installHeroName(narrative);
   narrative.renderLine(false);
   assert.deepEqual(calls, [false]);
-  assert.equal(narrative.portrait.alt, 'Long, nhân vật hư cấu');
+  assert.equal(narrative.portrait.alt, 'Chân dung Long');
   assert.match(narrative.portrait.src, /long-portrait\.png$/);
 });
 
@@ -24,12 +27,12 @@ test("Quang's route shows Quang's name and face in the donor view, with Hệ Th�
   selectHero('quang', {persist: false});
   try {
     assert.equal(renameHero('ĐÊM 1953 · LỜI QUANG'), 'ĐÊM 1953 · LỜI QUANG');
-    const narrative = {copy: null, portrait: {alt: 'Quang, nhân vật hư cấu', src: 'donor.png'}, renderLine() {}};
+    const narrative = {copy: fakeCopy(), portrait: {alt: 'Chân dung Quang', src: 'donor.png'}, renderLine() {}};
     installHeroName(narrative);
     narrative.renderLine(false);
-    assert.equal(narrative.portrait.alt, 'Quang, nhân vật hư cấu');
+    assert.equal(narrative.portrait.alt, 'Chân dung Quang');
     assert.match(narrative.portrait.src, /quang-portrait\.png$/);
-    const system = {copy: null, portrait: {alt: 'Giọng nói của căn phòng ký ức', src: 'emblem.png'}, renderLine() {}};
+    const system = {copy: fakeCopy(), portrait: {alt: 'Giọng nói của căn phòng ký ức', src: 'emblem.png'}, renderLine() {}};
     installHeroName(system);
     system.renderLine(false);
     assert.equal(system.portrait.src, 'emblem.png', "Hệ Thống's emblem is left as the donor shows it");

@@ -18,7 +18,7 @@ export const HERO_PROFILES = Object.freeze({
   quang: Object.freeze({
     id: 'quang', name: 'Quang', upper: 'QUANG', sprite: 'quang',
     portrait: asset('quang-portrait.png'), alt: 'Chân dung Quang',
-    voices: Object.freeze({system: 'system', quang: 'quang', narrator: 'narrator-lecture'}),
+    voices: Object.freeze({system: 'system', quang: 'quang-capcut', narrator: 'narrator-lecture'}),
     tagline: 'Sinh viên trẻ ham học hỏi, mê công nghệ, giải đố và những chuyện bí ẩn.',
   }),
 });

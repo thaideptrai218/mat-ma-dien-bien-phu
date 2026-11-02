@@ -40,7 +40,7 @@ Trong chiến dịch, đi hết từng phòng và tương tác cửa để chuy�
 Khi chơi mới, người chơi chọn **Long** (học sinh hay trốn tiết, dần nhận ra ý nghĩa của việc cố gắng học; có vài câu phản ứng sau Phòng 1, 3, 4 và đoạn kết suy ngẫm riêng) hoặc **Quang** (sinh viên ham học hỏi, mê công nghệ và giải đố; nhân vật ban đầu). Lựa chọn được lưu và khóa suốt lượt chơi; muốn đổi thì **Chơi mới**. Hồ sơ nhân vật nằm ở `src/heroes/` (tên, chân dung, sprite, avatar Hệ Thống, khóa giọng, nội dung riêng); nội dung dùng chung viết với tên “Long” rồi đổi tên theo nhân vật.
 
 - Long xưng “tôi”, gọi Hệ Thống là “bạn”; Quang xưng “mình”, gọi Hệ Thống là “cậu” với giọng lịch sự. Hệ Thống gọi cả hai là “Ký Chủ”.
-- Giọng: cả hai route dùng chung Hệ Thống (giọng CapCut ban đầu, biểu tượng ban đầu) và giọng nhân vật chính (mck). Kể chuyện: route Long = giọng nữ truyền cảm (1.05x), route Quang = giọng đọc bài giảng.
+- Giọng: cả hai route dùng chung Hệ Thống (giọng CapCut ban đầu, biểu tượng ban đầu). Route Long: nhân vật = giọng mck, kể chuyện = giọng nữ truyền cảm (1.05x). Route Quang (toàn bộ giọng ban đầu): nhân vật = CapCut “Thanh Niên Tự Tin”, kể chuyện = giọng đọc bài giảng.
 
 ### Nhân vật Long theo ảnh mẫu
 
