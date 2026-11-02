@@ -37,16 +37,16 @@ export function handleAction(s, action, p = {}) {
     }
     case 'letter-finish':
       if (inView('document') && !active.readOnly && active.document.id === 'restored-letter' && p.id === active.document.id)
-        return s.dialogue('Quang · Sau khi đọc thư', [...LETTER_DOCUMENT.reflection, 'Nhãn lưu trữ ghi A-03. Trên bản đồ treo vách cũng có những ô như vậy.'], 'Nhớ ký hiệu A-03', 'letter-record', {documentId:'restored-letter'});
+        return s.dialogue('Quang · Sau khi đọc thư', LETTER_DOCUMENT.reflection, 'Ghi nhận điều vừa đọc', 'letter-record', {documentId:'restored-letter'});
       return;
     case 'letter-record':
       if (dialogueToken() && active.action === 'letter-record' && s.commit('letter', p)) s.close();
       return;
     case 'map-submit':
       if (!inView('a03')) return;
-      if (!s.commit('map', p)) return s.error('Nhãn lưu trữ ở cuối thư ghi A-03. Hãy đối chiếu hàng và cột.');
+      if (!s.commit('map', p)) return s.error('Hãy đọc nhãn lưu trữ ở cuối thư, rồi đối chiếu chữ ở đầu cột với số ở đầu hàng.');
       s.audio.playCue('success');
-      return s.dialogue('Ngăn lưu trữ A-03', ['Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.', 'Chúng đều được viết trước tháng 5/1953. Mình sẽ đọc theo thứ tự ngày tháng.']);
+      return s.dialogue('Ngăn lưu trữ', ['Mình tìm đúng chồng giấy rồi. Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.', 'Chúng đều được viết trước tháng 5/1953. Mình sẽ đọc theo thứ tự ngày tháng.']);
     case 'document-finish': {
       if (!inView('document') || active.readOnly || active.document.id !== p.id) return;
       if (!s.commit('read', p)) {

@@ -9,7 +9,7 @@ Cập nhật 2026-10-31. Bản chính là campaign năm phòng cùng origin, Jav
 | `src/campaign/state.js`, `store.js` | Envelope campaign, sanitize chuỗi exit, suy ra mảnh/current room/phase, adapter storage và shared settings. |
 | `src/campaign/ui.js`, `archive.js`, `framing.js`, `styles.css` | Header/mục tiêu/kho mảnh, sổ toàn văn xuyên phòng, restart, museum intro/return/acknowledgment. |
 | `room-one.html`, `room-two.html`, `room-three.html`, `room-four.html` | Bốn preview độc lập; không auto-import thành tích vào campaign. |
-| `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/A-03/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
+| `src/room-one/session.js`, `actions.js`, `rules.js`, `save.js` | Chuỗi thư/manh mối nhãn lưu trữ trên lưới/hồ sơ/đối chiếu/điện/rương/cửa; optional parent adapters, giữ standalone key. |
 | `src/room-one/{letter-document,documents,nava-context,content}.js` | Văn xuôi lịch sử 1950–7/1953, N-01 riêng sau identity, nguồn/hư cấu và suy nghĩ Quang. |
 | `src/room-one/{world,art,scene,input}.js` | 2400×1600; scene cấu hình world/art/key/goal, input/focus/physics/animation 260/390 tái dùng. |
 | `src/room-one/{ui,ui-panels,ui-puzzles,ui-map,document-reader}.js` | Shell, native dialog/reader, mini/full map, settings và panel factory cấu hình. |

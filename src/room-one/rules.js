@@ -37,13 +37,13 @@ export function reduce(state, action, payload = {}) {
 }
 export function goalFor(s) {
   const steps = [
-    { title: 'Đọc lá thư và tìm A-03', done: s.envelopeOpened },
+    { title: 'Đọc thư và tìm vị trí hồ sơ trên sơ đồ', done: s.envelopeOpened },
     { title: 'Đọc, suy luận và đối chiếu bốn hồ sơ', done: s.comparisonSolved },
     { title: 'Mở ngăn kéo và giải điện mật', done: s.identitySolved },
     { title: 'Mở rương, nhận mảnh ký ức', done: s.exitReached },
   ];
   let id = 'letter', label = 'Đọc lá thư gửi người nhà', detail = 'Một phong thư nằm trên bàn gần cửa vào.', step = 0;
-  if (s.letterSolved) { id = 'map-a03'; label = 'Tìm ô A-03 trên bản đồ'; detail = 'Bản đồ nằm trên bức tường phía bắc.'; }
+  if (s.letterSolved) { id = 'map-a03'; label = 'Tìm vị trí theo nhãn lưu trữ'; detail = 'Đối chiếu chữ ở đầu cột với số ở đầu hàng trên bản đồ phía bắc.'; }
   if (s.envelopeOpened) {
     step = 1; id = NOTE_IDS.find(note => !s.collectedNoteIds.includes(note)) || 'comparison';
     label = id === 'comparison' ? 'Đối chiếu lực lượng hai phía' : `Đọc hồ sơ ${id[0] === 'v' ? 'V' : 'P'}-0${id[1]}`;

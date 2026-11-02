@@ -45,7 +45,7 @@ Game nạp ảnh cục bộ trước khi tạo nhân vật. Khung atlas160×192 
 
 | Bước | Việc cần làm |
 | --- | --- |
-| 1 | Mở lá thư anh Lâm gửi em Tín, đọc hết rồi cùng Quang nhận ra ký hiệu lưu trữ A-03. Không còn câu đố xếp mảnh thư. |
+| 1 | Đọc lá thư anh Lâm gửi em Tín. Đối chiếu nhãn lưu trữ ở cuối thư với lưới chữ–số trên bản đồ để tự tìm vị trí hồ sơ; Quang chỉ gợi ý cách đọc lưới, không đọc đáp án thành lời. Không còn câu đố xếp mảnh thư. |
 | 2 | Đọc hết V-01, V-02, P-01, P-02; cùng Quang suy luận rồi xác nhận từng hồ sơ. Đối chiếu đủ bốn mặt của tương quan lực lượng. |
 | 3 | Dùng mã từ bàn đối chiếu để mở ngăn kéo; đọc bảng thay số bằng chữ cái và giải tên người trong điện mật. |
 | 4 | Dùng tên theo cách gọi tiếng Việt để mở rương, nhận mảnh tranh đầu tiên rồi đi tới cửa phía bắc để hoàn thành phòng. |

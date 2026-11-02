@@ -37,7 +37,7 @@ export const WORLD = Object.freeze({
   checkpoints: [{id: 'entry', x: 1200, y: 1410}],
   objects: [
     {id: 'letter', label: 'Lá thư gửi người nhà', x: 1200, y: 1250, type: 'letter'},
-    {id: 'map-a03', label: 'Bản đồ A-03', x: 1200, y: 280, type: 'map'},
+    {id: 'map-a03', label: 'Bản đồ lưới lưu trữ', x: 1200, y: 280, type: 'map'},
     {id: 'v1', label: 'V-01 · Kinh nghiệm và thế chủ động', x: 430, y: 650, type: 'document'},
     {id: 'v2', label: 'V-02 · Quân số và tiếp tế', x: 630, y: 980, type: 'document'},
     {id: 'p1', label: 'P-01 · Lực lượng Pháp', x: 1970, y: 650, type: 'document'},

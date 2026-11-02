@@ -17,33 +17,33 @@ export const ENDING = [
 export const REACTIONS = {
   letter: {
     first: ['Lâm gửi Tín. Hai anh em xa nhau từ bao giờ nhỉ?'],
-    repeat: ['Ký hiệu lưu trữ A-03 nằm ngoài lời thư. Mình tìm ô ấy trên bản đồ.'],
+    repeat: ['Cuối thư có một nhãn lưu trữ. Mình sẽ đối chiếu nhãn ấy với sơ đồ trên vách.'],
     locked: ['Mình chưa đọc hết lá thư.'],
   },
   'map-a03': {
-    first: ['Có ô A-03, đúng ký hiệu trên tờ thư.'],
-    repeat: ['Từ ô A-03, mình đã tìm được vị trí bốn hồ sơ.'],
-    locked: ['Mình cần xem ký hiệu lưu trữ trên lá thư trước.'],
+    first: ['Sơ đồ chia theo cột chữ và hàng số. Cuối lá thư có nhãn lưu trữ; mình sẽ dùng hai manh mối ấy để tìm ô cần mở.'],
+    repeat: ['Mình đã tìm được vị trí chồng hồ sơ trên sơ đồ.'],
+    locked: ['Mình cần đọc lá thư để tìm manh mối về vị trí hồ sơ trước.'],
   },
   v1: {
     first: ['Lại một lá thư gửi về nhà. Người lính này viết sau chiến dịch Tây Bắc.'],
     repeat: ['Thành kể với vợ về những điều bộ đội đã học qua chiến đấu.'],
-    locked: ['Mình còn chưa tìm ô A-03 trên bản đồ.'],
+    locked: ['Mình còn chưa tìm vị trí hồ sơ trên bản đồ.'],
   },
   v2: {
     first: ['Một cuốn sổ quân nhu. Người viết lo đến cái ăn và vũ khí của anh em.'],
     repeat: ['Sau bảng tổng hợp còn là chuyện lương ăn và vũ khí cho từng người.'],
-    locked: ['Mình sẽ tìm vị trí hồ sơ từ ô A-03 trước.'],
+    locked: ['Mình sẽ đối chiếu nhãn lưu trữ với sơ đồ trước.'],
   },
   p1: {
     first: ['Một bản báo cáo tham mưu phía Pháp. Mình xem họ đang vướng điều gì.'],
     repeat: ['Quân đông và trang bị tốt, nhưng lại phải chia ra nhiều nơi.'],
-    locked: ['Ô A-03 sẽ chỉ vị trí của bộ hồ sơ này.'],
+    locked: ['Nhãn lưu trữ sẽ chỉ vị trí của bộ hồ sơ này.'],
   },
   p2: {
     first: ['Thư từ Paris. Ở bên ấy cũng có một gia đình đang đợi tin.'],
     repeat: ['Louise chỉ mong em trai trở về, còn cuộc chiến cứ kéo dài và tốn kém.'],
-    locked: ['Mình cần tìm ô A-03 trước khi đọc bộ hồ sơ.'],
+    locked: ['Mình cần tìm vị trí bộ hồ sơ trên sơ đồ trước.'],
   },
   comparison: {
     first: ['Đủ chỗ cho bốn tờ giấy. Mình thử so từng mặt của hai phía.'],
