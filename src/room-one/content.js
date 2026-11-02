@@ -1,5 +1,7 @@
 // Long and these conversations are authored fiction for the learning game.
 // The selected-hero dialogue adapter gives Long "tôi – bạn" and Quang "mình – cậu" throughout the voiced script.
+import { DRAWER_CODE } from './puzzle-answers.js';
+
 export const INTRO = [
   { speaker: 'Hệ Thống', text: 'Phòng 1 — Trước bản kế hoạch. Không gian này tái hiện chặng đường từ bước chuyển năm 1950 đến tình thế năm 1953. Lá thư mở đầu được viết vào đầu năm 1953.' },
   { speaker: 'Long', text: 'Một lá thư gửi người em ở nhà. Hệ Thống, tôi đọc nó trước được chứ?' },
@@ -125,7 +127,7 @@ export const LINES = {
   comparison: [
     'Đối chiếu đúng: quân số 252.000 / 445.000; trang bị hạn chế / hiện đại; thế chủ động / lực lượng phân tán; sức ép tiếp tế / chi phí chiến tranh.',
     'Những con số cho biết quy mô lực lượng; cách bố trí và những khó khăn mới cho thấy tình thế của họ.',
-    'Bốn hàng lần lượt cho tôi các số 2, 4, 1, 3. Mã ngăn kéo là 2413; đây là mật mã trò chơi, không phải niên đại lịch sử.',
+    `Bốn hàng lần lượt cho tôi các số ${DRAWER_CODE.split('').join(', ')}. Mã ngăn kéo là ${DRAWER_CODE}; đây là mật mã trò chơi, không phải niên đại lịch sử.`,
   ],
   identity: [
     'Henri Navarre được cử sang Đông Dương làm Tổng chỉ huy tháng 5/1953. Bản tin tiếp theo sẽ cho biết kế hoạch mới được thông qua ra sao.',

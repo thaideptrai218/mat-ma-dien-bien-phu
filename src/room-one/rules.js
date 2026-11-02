@@ -1,5 +1,6 @@
 import { DOOR_PUZZLES, doorAnswerCorrect, doorAvailable } from './door-puzzles.js';
 import { gateIsOpen, firstAnchorId } from './area-gates.js';
+import { DRAWER_CODE } from './puzzle-answers.js';
 export const NOTE_IDS = Object.freeze(['v1', 'v2', 'p1', 'p2']);
 export function createState() {
   return { version: 1, introSeen: false, letterSolved: false, envelopeOpened: false,
@@ -28,7 +29,7 @@ export function reduce(state, action, payload = {}) {
       ? { ...state, collectedNoteIds: [...state.collectedNoteIds, payload.id] } : state;
     case 'comparison': return NOTE_IDS.every(id => state.collectedNoteIds.includes(id)) && comparisonCorrect(payload)
       ? { ...state, comparisonSolved: true } : state;
-    case 'drawer': return state.comparisonSolved && normalizeAnswer(payload.code) === '2413' ? { ...state, drawerOpened: true } : state;
+    case 'drawer': return state.comparisonSolved && normalizeAnswer(payload.code) === DRAWER_CODE ? { ...state, drawerOpened: true } : state;
     case 'identity': return state.drawerOpened && normalizeAnswer(payload.name) === 'HENRINAVARRE' ? { ...state, identitySolved: true } : state;
     case 'chest': return state.identitySolved && normalizeAnswer(payload.keyword) === 'NAVA' ? { ...state, chestOpened: true } : state;
     case 'door': return doorAvailable(payload.id, state) && !(state.doorsSolved || []).includes(payload.id) && doorAnswerCorrect(payload.id, payload)

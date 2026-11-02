@@ -2,6 +2,7 @@ import { element, button, heading, formField, submitButton } from './ui-elements
 import { DIGITS, LETTERS } from '../ui/tactile/dial-model.js';
 import { DOOR_PUZZLES } from './door-puzzles.js';
 import { comparisonBoard } from './ui-comparison-board.js';
+import { DRAWER_CODE } from './puzzle-answers.js';
 
 function wallMap(emit) {
   const body = element('section');
@@ -24,7 +25,8 @@ function comparison(data, emit) {
   const body = element('section');
   body.append(heading('Hai phía của bàn cờ'), element('p', 'r1-lead', 'Dùng bốn hồ sơ đã ghi trong sổ tay để đối chiếu tình thế hai phía.'));
   if (data.solved) {
-    body.append(element('p', 'r1-success', 'Đã hoàn tất đối chiếu.'), element('p', 'r1-muted', 'Dựa vào thứ tự vừa ghép, hãy ghi lại dãy số mở ngăn kéo.'));
+    body.append(element('p', 'r1-success', 'Đã hoàn tất đối chiếu.'),
+      element('p', 'r1-code-label', 'MÃ MỞ NGĂN KÉO'), element('p', 'r1-revealed-code', DRAWER_CODE));
     return body;
   }
   body.append(comparisonBoard(emit));
