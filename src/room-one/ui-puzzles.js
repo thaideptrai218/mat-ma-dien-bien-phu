@@ -5,7 +5,7 @@ import { comparisonBoard } from './ui-comparison-board.js';
 
 function wallMap(emit) {
   const body = element('section');
-  body.append(heading('Bản đồ trên vách'), element('p', 'r1-lead', 'Tìm ô mang ký hiệu trên nhãn lưu trữ của lá thư.'));
+  body.append(heading('Bản đồ trên vách'), element('p', 'r1-lead', 'Đối chiếu nhãn lưu trữ ở cuối thư với lưới: chữ chỉ cột, số chỉ hàng. Chọn ô tại giao điểm.'));
   const grid = element('div', 'r1-coordinate-grid');
   grid.append(element('span'));
   for (const col of ['A', 'B', 'C', 'D']) grid.append(element('span', 'r1-grid-label', col));

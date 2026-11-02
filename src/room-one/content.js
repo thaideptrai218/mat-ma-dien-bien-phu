@@ -12,7 +12,7 @@ export const INTRO = [
 export const GUIDE = {
   letter: [
     { speaker: 'Hệ Thống', text: 'Trên tường phía bắc có một bản đồ chia ô. Hãy đối chiếu dấu trên lá thư với các ô ấy.' },
-    { speaker: 'Long', text: 'Dấu trên thư trùng với một ô trên bản đồ. Vậy hồ sơ hẳn được xếp ở đó.' },
+    { speaker: 'Long', text: 'Nhãn cuối thư có cả chữ lẫn số. Tôi sẽ đối chiếu chúng với cột và hàng trên bản đồ.' },
   ],
   a03: [
     { speaker: 'Hệ Thống', text: 'Bốn hồ sơ đã lộ vị trí: V-01, V-02 của phía Việt Nam; P-01, P-02 của phía Pháp. Ký Chủ đọc trọn từng tờ rồi ghi dữ kiện vào sổ tay.' },
@@ -59,8 +59,8 @@ export const REACTIONS = {
     locked: ['Mình chưa đọc hết lá thư.'],
   },
   'map-a03': {
-    first: ['Ô này khớp với dấu lưu trữ trên lá thư.'],
-    repeat: ['Từ ô A-03, mình đã tìm được vị trí bốn hồ sơ.'],
+    first: ['Sơ đồ có cột chữ và hàng số. Tôi sẽ tự đối chiếu với nhãn cuối thư.'],
+    repeat: ['Mình đã tìm được vị trí chồng hồ sơ trên sơ đồ.'],
     locked: ['Mình cần xem ký hiệu lưu trữ trên lá thư trước.'],
   },
   v1: {
@@ -123,7 +123,7 @@ export const REACTIONS = {
 // Long's thoughts in step dialogues (plain strings are Long; objects name another speaker).
 export const LINES = {
   letterArchive: [
-    'Nhãn lưu trữ cuối thư ghi A-03. Trên sơ đồ chia ô, tôi sẽ tìm đúng vị trí ấy.',
+    'Nhãn cuối thư có cả chữ lẫn số. Tôi sẽ tự đối chiếu chúng với cột và hàng trên bản đồ.',
   ],
   a03: [
     'Bốn giấy tờ được xếp chung: một lá thư, một trang sổ quân nhu, bản ghi của phía Pháp và thư từ Paris.',

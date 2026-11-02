@@ -7,7 +7,7 @@ Mật mã Điện Biên Phủ là game khám phá/visual novel lịch sử tiế
 | Giai đoạn | Nội dung và điều kiện hoàn tất |
 | --- | --- |
 | Bảo tàng | Long chạm mặt kính trước ảnh tư liệu chiến thắng, vào không gian hư cấu hầm Đờ Cát 7/5/1954; hệ thống giải thích năm phòng/bốn mảnh. |
-| Phòng 1 — Trước bản kế hoạch | Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc, quân đội/hậu phương, tình thế hai phía 1953. Thư→A-03→bốn hồ sơ→đối chiếu→điện danh tính→N-01 tháng 7→rương I→cửa. N-01 không thêm khóa/gating cũ. |
+| Phòng 1 — Trước bản kế hoạch | Biên giới 1950/Trung Du/Hòa Bình/Tây Bắc, quân đội/hậu phương, tình thế hai phía 1953. Thư→người chơi tự đối chiếu nhãn lưu trữ với lưới bản đồ→bốn hồ sơ→đối chiếu→điện danh tính→N-01 tháng 7→rương I→cửa. Lời thoại không đọc tọa độ. N-01 không thêm khóa/gating cũ. |
 | Phòng 2 — Kế hoạch Nava | Giữ bản đồ/bảy manh mối/bốn câu đố/renderers của bản gốc: cân, băng tần, nắm đấm, gấp phong bì. Nếp gấp cuối hợp lệ cấp II, cửa đông sang 3. |
 | Phòng 3 — Hậu phương | Năm giấy/bốn hoạt động xen kẽ: chuẩn bị song song, sáu vai trò vận chuyển, phương châm/lý do,13/15/17 March/ý nghĩa. Đủ cả 4 token→13/03/1954→rương→pickup III→cửa. |
 | Phòng 4 — Những ngày quyết định | Bảy giấy 30/3–7/5 và ý nghĩa 1954; ô chữ→cột→T/L→câu cuối→rương→pickup IV→cửa. Giữ 16.200 tiêu diệt/bắt sống và miền Bắc sau Genève. |

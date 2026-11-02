@@ -47,7 +47,7 @@ export function handleAction(s, action, p = {}) {
       if (!inView('a03')) return;
       if (!s.commit('map', p)) return s.error('Chưa đúng.');
       s.audio.playCue('success');
-      return s.dialogue('Ngăn lưu trữ A-03', [...LINES.a03, ...GUIDE.a03]);
+      return s.dialogue('Ngăn lưu trữ', [...LINES.a03, ...GUIDE.a03]);
     case 'document-finish': {
       if (!inView('document') || active.readOnly || active.document.id !== p.id) return;
       if (!s.commit('read', p)) {

@@ -30,7 +30,7 @@ Sổ phòng/N giữ giấy và token của phòng. **Sổ hành trình** giữ t
 
 ## Bốn thử thách lịch sử
 
-- Phòng 1 giữ thư/A-03/hồ sơ/đối chiếu/điện/rương I, không ghép mảnh thư; N-01 tự chọn không đổi gating/save cũ. Hai bước Nava thuộc Bảo.
+- Phòng 1 giữ thư và manh mối nhãn lưu trữ → lưới → hồ sơ/đối chiếu/điện/rương I; người chơi tự đối chiếu ký tự cột với số hàng, lời thoại không đọc tọa độ. Không ghép mảnh thư; N-01 tự chọn không đổi gating/save cũ. Hai bước Nava thuộc Bảo.
 - Bảo giữ cân lực lượng, băng tần, chuỗi nắm đấm, nếp gấp, mã và lời feedback gốc. Fold hợp lệ cấp II và mở gate; outro có thể đóng sớm, không thêm chest/pickup hoặc điều kiện đọc mới.
 - Phòng 3 phân loại 5 thẻ: decision 6/12, opening 13/3, ba việc chuẩn bị giữa song song. Ghép 6 SVG/hiểu xe thồ và sức dân; sắp hai mật lệnh với thẻ NHANH/CHẮC hoán đổi tương đương, hỏi sure-victory/reality; tin 13/15/17/ngữ nghĩa. Đủ cả 4 token trước 13/03/1954; phương châm giữ riêng, rương→pickup III→cửa.
 - Phòng 4 giữ ô chữ, bảy câu hỏi theo giấy đã đọc và hai bàn mật mã dùng chỉ dẫn từ ô chữ. Ghép hai nửa câu thành khẩu hiệu để mở rương rồi lấy mảnh IV. Tên bàn và gợi ý Hệ Thống không tiết lộ hình cần dò; lời chỉ dẫn trước đó là căn cứ suy luận.
